@@ -1,0 +1,6 @@
+
+ToDo List
+--------------------------------------------------
+
+* Inform scenes directory on command line. Otherwise, default to local
+   'scenes', or fall back to '/usr/share/rtsb/scenes'

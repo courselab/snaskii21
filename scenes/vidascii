@@ -1,0 +1,69 @@
+#!/bin/sh
+#
+# vidascii - convert video to ascii frames
+
+# Usage
+
+USAGE="Usage:   vidascii <video-file>"
+VIDEO_FILE=$1
+
+# Check for required programs:
+# ffmpeg, jpa2, coreutils
+
+FFMPEG=$(which ffmpeg)
+if [ -z "$FFMPEG" ] ; then
+    echo "Program ffmpeg not found in execution path."
+    exit 1
+fi
+
+DIRNAME=$(which dirname)
+if [ -z "$DIRNAME" ] ; then
+    echo "Program dirname (GNU coreutils) not found in execution path."
+    exit 1
+fi
+
+JP2A=$(which jp2a)
+if [ -z "$JP2A" ] ; then
+    echo "Program jp2a not found in execution path."
+    exit 1
+fi
+
+# Check arguments.
+
+if [ -z "$VIDEO_FILE" ]; then
+    echo $USAGE
+    exit 1
+fi
+
+# Generate output within the same directory as the input video.
+
+DEST_PATH=$($DIRNAME $VIDEO_FILE)
+
+# Extracs jpeg frames from the video.
+
+$FFMPEG -i $VIDEO_FILE -r 30 -s vga -f image2 $DEST_PATH/scene-%7d.jpg
+
+# Convert each jpeg image into an ascii file.
+
+rm -f $DEST_PATH/*.txt
+
+for frame in $(ls $DEST_PATH/*.jpg); do
+    $JP2A $frame > ${frame%%.jpg}.txt
+done
+
+# Create scene .am fragment.
+# This file is included my ./Makefile.am
+
+count=$(ls $DEST_PATH/*.txt | wc -l)
+
+include_file=$(basename $DEST_PATH).am
+echo -n "$(basename $DEST_PATH)_scenes=" > $include_file
+for file in $(ls $DEST_PATH/*.txt); do
+    echo -n "$file " >> $include_file
+done
+
+# Get rid of unecessary jpeg files.
+
+rm -f $DEST_PATH/*.jpg
+
+echo "All done in $DEST_PATH (count ascii scenes)." 
