@@ -14,13 +14,13 @@ and AUTHORS, respectively.
 
 ## Obtaining the source and building the software
 
-This project's  source code official repository may be found at 
+This project's source code official repository may be found at 
 
 https://github.com/courselab/ttsnake
 
-If you have obtain the source from the Version Control Repository, you will
+If you have obtained the source from the Version Control Repository, you will
 need GNU Build System (aka Autotools) to build the project, as described
-in file `README`, in the root of the project tree (really, reade-me). 
+in file `README`, in the root of the project tree (really, read-me). 
 
 Briefly, bootstrap the build system with
 
@@ -76,26 +76,26 @@ and in the file `INSTALL`, found in the root of the project tree.
 
 ## General guidelines
 
-This project's development workflow is based 
+This project's development workflow is based on:
 
 * GitFlow branching strategy [1]
 * Semantiv versionng 2.0.0 release naming scheme [2]
 
 Latest stabe release resides in branch `main`, while pre-releases (alpha, 
 beta, release candidates etc.) reside in branch _prerelease_. Late fixes in
-past stabe releases for maintenance, if any, are found in _legacy_ branhces.
+past stabe releases for maintenance, if any, are found in _legacy_ branches.
 
-Contribution admission policy requires developers to proposed modifications
-as feature branches and submitted them as pull requests, which in turn
-need to be approved by other developers before being merged into the propper 
+Contribution admission policy requires developers to propose modifications
+as feature branches and submit them as pull requests, which in turn
+need to be approved by other developers before being merged into the proper 
 branches.
 
 You are strongly encouraged to write your contribution and communicate
 with the developers and contributors community in English, if possible.
 Do not mind at all if your current skills are modest or incipient; no one
-expects otherwise --- your coding skills and willing to help matter more.
-Use a automatic translator if needed. Just don't name variable and 
-functions in a lnauguage other than English.
+expects otherwise --- your coding skills and will to help matter more.
+Use an automatic translator if needed. Just don't name variable and 
+functions in a lanuguage other than English.
 
 If you are a developer and is assinged an issue, and you believe you are not
 able to handle timely, please, try to reasign it to someone else.
