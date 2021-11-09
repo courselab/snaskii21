@@ -11,7 +11,6 @@ m4/lt~obsolete.m4
 m4/ltoptions.m4
 m4/ltsugar.m4
 
-# This file is modified during autogen.sh, not sure if it should be added to .gitignore
 build-aux/ltmain.sh
 
 ## end of autogen.sh
