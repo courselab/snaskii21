@@ -50,6 +50,10 @@ dnl Check for needed libraries
 
 AC_SEARCH_LIBS([clear], [ncurses], [], AC_MSG_ERROR([*** Can't find libncurses5]),[])
 
+dnl Set -ltinfo if the ncurses lib is splitted
+
+AC_SEARCH_LIBS([clear], [tinfo], [LDFLAGS="$LDFLAGS -ltinfo"], [])
+
 dnl Define variables to be used by Automake
 
 AC_SUBST([CPP_FLAGS],"-ansi -D_POSIX_C_SOURCE=200809L -Wall -Wextra") 
