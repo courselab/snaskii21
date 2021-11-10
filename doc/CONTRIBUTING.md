@@ -85,10 +85,26 @@ Latest stabe release resides in branch `main`, while pre-releases (alpha,
 beta, release candidates etc.) reside in branch _prerelease_. Late fixes in
 past stabe releases for maintenance, if any, are found in _legacy_ branches.
 
-Contribution admission policy requires developers to propose modifications
-as feature branches and submit them as pull requests, which in turn
-need to be approved by other developers before being merged into the proper 
-branches.
+It's important that every pull request be linked to an issue. You can pick
+one that already exists or create one and assign yourself to it.
+
+First step to make a contribution is creating a branch. The branch created must
+follow the naming convention bellow, where `<issue-number>` is the number of the
+issue that the pull request will solve (e.g. #42).
+
+```
+Branches names should be one of the four options bellow:
+
+feature/<issue-number>
+hotfix/<issue-number>
+wip/<issue-number>
+coldfix/<issue-number>
+```
+
+After the changes have been made to the branch you created, feel free to open
+a pull request to the proper protected branch (e.g. `develop`). After a set 
+amount of reviewers with write access have accepted the changes, it
+will be merged int the branch.
 
 You are strongly encouraged to write your contribution and communicate
 with the developers and contributors community in English, if possible.
