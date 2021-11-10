@@ -85,7 +85,7 @@ Latest stabe release resides in branch `main`, while pre-releases (alpha,
 beta, release candidates etc.) reside in branch _prerelease_. Late fixes in
 past stabe releases for maintenance, if any, are found in _legacy_ branches.
 
-It's important that every pull request be linked to an issue. You can pick
+It's important that every pull request fixes at least one issue. You can pick
 an issue that already exists or create one yourself. After an issue has been
 selected, assign yourself to it to notify other collaborators that you are
 taking care of it.
