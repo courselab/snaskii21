@@ -33,7 +33,8 @@ It is also required for your system to have support for POSIX threads.
 
 ### Installation
 
-If you have obtained the project source from the __version control repository__, execute the script
+If you have obtained the project source from the __version control repository__,
+execute the script
 
  ```
  $ ./autogen.sh
@@ -106,15 +107,12 @@ this is weird for snakes, but this is a Tron Snake).
 
 The game score is the count of eaten blocks until the game is over.
 
-### Controls:
-
-```
-WASD to control the snake
-+ decreases the game speed
-- increases the game speed
-q quits
-r at anytime to restart the game
-```
+ ### Controls:
+	W, A, S and D to control the snake
+	+ to increase the game speed
+	- to decrease the game speed
+	Q to quit the game
+	R at anytime to restart the game
 
 ## Contribute to this project
 

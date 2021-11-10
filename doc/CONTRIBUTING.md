@@ -85,10 +85,42 @@ Latest stabe release resides in branch `main`, while pre-releases (alpha,
 beta, release candidates etc.) reside in branch _prerelease_. Late fixes in
 past stabe releases for maintenance, if any, are found in _legacy_ branches.
 
-Contribution admission policy requires developers to propose modifications
-as feature branches and submit them as pull requests, which in turn
-need to be approved by other developers before being merged into the proper 
-branches.
+It's important that every pull request fixes at least one issue. You can pick
+an issue that already exists or you can create one yourself, if you can't find one that addresses your problem. After an issue has been
+selected, assign yourself so other collaborators can be aware that you are
+taking care of it.
+
+First step to make a contribution is creating a branch. The branch created must
+follow the naming convention bellow, where `<issue-number>` is the number of the
+issue that the pull request will solve (e.g. #42).
+
+```
+Branches names should be one of the four following options:
+
+feature/<issue-number>
+hotfix/<issue-number>
+wip/<issue-number>      
+coldfix/<issue-number>  
+```
+
+The meaning of each possible branch name is as follows. Choose the name that
+best suits the changes you made.
+
+<ul>
+  <li><code>feature/&lt;issue-number&gt;</code> -> Implementation of a new feature, or update
+  of an existing feature. This also covers updates to documentation.</li>
+  <li><code>hotfix/&lt;issue-number&gt;</code> -> Fixes something that is broken in production. 
+    Often it is a fix to a problem that users are complaining about.</li>
+  <li><code>wip/&lt;issue-number&gt;</code> -> Work in progress, usually tagged with "DO NOT MERGE" 
+    as well. This is for helping with early feedback on some development that will 
+    end up being a large PR.</li>
+  <li><code>coldfix/&lt;issue-number&gt;</code> -> planned fixes, which are announced beforehand.</li>
+</ul>
+
+After the changes have been made to the branch you created, feel free to open
+a pull request to the proper protected branch (e.g. `develop`). After a set 
+amount of reviewers with write access have accepted the changes, it
+will be merged into the branch.
 
 You are strongly encouraged to write your contribution and communicate
 with the developers and contributors community in English, if possible.
