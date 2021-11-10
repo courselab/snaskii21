@@ -99,9 +99,23 @@ Branches names should be one of the four following options:
 
 feature/<issue-number>
 hotfix/<issue-number>
-wip/<issue-number>
-coldfix/<issue-number>
+wip/<issue-number>      
+coldfix/<issue-number>  
 ```
+
+The meaning of each possible branch name is as follows. Choose the name that
+best suits the changes you made.
+
+<ul>
+  <li><code>feature/&lt;issue-number&gt;</code> -> Implementation of a new feature, or update
+  of an existing feature. This also covers updates to documentation.</li>
+  <li><code>hotfix/&lt;issue-number&gt;</code> -> Fixes something that is broken in production. 
+    Often it is a fix to a problem that users are complaining about.</li>
+  <li><code>wip/&lt;issue-number&gt;</code> -> Work in progress, usually tagged with "DO NOT MERGE" 
+    as well. This is for helping with early feedback on some development that will 
+    end up being a large PR.</li>
+  <li><code>coldfix/&lt;issue-number&gt;</code> -> planned fixes, which are announced beforehand.</li>
+</ul>
 
 After the changes have been made to the branch you created, feel free to open
 a pull request to the proper protected branch (e.g. `develop`). After a set 
