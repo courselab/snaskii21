@@ -87,7 +87,7 @@ past stabe releases for maintenance, if any, are found in _legacy_ branches.
 
 It's important that every pull request fixes at least one issue. You can pick
 an issue that already exists or you can create one yourself, if you can't find one that addresses your problem. After an issue has been
-selected, assign yourself to it to notify other collaborators that you are
+selected, assign yourself so other collaborators can be aware that you are
 taking care of it.
 
 First step to make a contribution is creating a branch. The branch created must
