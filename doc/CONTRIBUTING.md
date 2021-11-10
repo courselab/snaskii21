@@ -86,14 +86,16 @@ beta, release candidates etc.) reside in branch _prerelease_. Late fixes in
 past stabe releases for maintenance, if any, are found in _legacy_ branches.
 
 It's important that every pull request be linked to an issue. You can pick
-one that already exists or create one and assign yourself to it.
+an issue that already exists or create one yourself. After an issue has been
+selected, assign yourself to it to notify other collaborators that you are
+taking care of it.
 
 First step to make a contribution is creating a branch. The branch created must
 follow the naming convention bellow, where `<issue-number>` is the number of the
 issue that the pull request will solve (e.g. #42).
 
 ```
-Branches names should be one of the four options bellow:
+Branches names should be one of the four following options:
 
 feature/<issue-number>
 hotfix/<issue-number>
@@ -104,7 +106,7 @@ coldfix/<issue-number>
 After the changes have been made to the branch you created, feel free to open
 a pull request to the proper protected branch (e.g. `develop`). After a set 
 amount of reviewers with write access have accepted the changes, it
-will be merged int the branch.
+will be merged into the branch.
 
 You are strongly encouraged to write your contribution and communicate
 with the developers and contributors community in English, if possible.
