@@ -127,10 +127,10 @@ with the developers and contributors community in English, if possible.
 Do not mind at all if your current skills are modest or incipient; no one
 expects otherwise --- your coding skills and will to help matter more.
 Use an automatic translator if needed. Just don't name variable and 
-functions in a lanuguage other than English.
+functions in a language other than English.
 
-If you are a developer and is assinged an issue, and you believe you are not
-able to handle timely, please, try to reasign it to someone else.
+If you are a developer and an issue that you believe you are not
+able to handle timely is assigned to you, please try to reassign it to someone else.
 
 If you don't have direct write access to the repository, you may still fork the
 project and send pull requests.
