@@ -104,7 +104,7 @@ The password argument is optional. It's required only if your system is unable t
 
          -h, --help      Displays this information message
          -d, --data      Selects a non-default data path
-		 -v, --version   Outputs the program version
+	 -v, --version   Outputs the program version
 ```
 
 ### Playing the game
