@@ -90,6 +90,7 @@ For more detailed instructions, please, refer to the
 
          -h, --help      Displays this information message
          -d, --data      Selects a non-default data path
+		 -v, --version   Outputs the program version
 ```
 
 ### Playing the game
