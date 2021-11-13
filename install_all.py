@@ -22,4 +22,7 @@ def main() -> None:
         subprocess.run(command_to_run, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
 
 if __name__ == "__main__":
-    main()
+    if os.name == "posix":
+        main()
+    else:
+        print(f"Currently, non-POSIX systems are not supported")
