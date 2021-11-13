@@ -81,6 +81,20 @@ and the data files in `/tmp/share`.
 For more detailed instructions, please, refer to the
 [installation guide](./INSTALL).
 
+An alternative option to install the dependencies and the repository is to use the provided automated scripts, such as `install_all.sh` or `install_all.py` scripts. 
+
+For `install_all.sh`, execute the following command on the terminal:
+
+```sudo install_all.sh``` 
+
+For `install_all.py`, it's required to use Python 3.x. The usage is:
+
+```python install_all.py [--password SUDO_PASSWORD]```
+
+The password argument is optional. It's required only if your system is unable to install the packages and the repository without root privileges. In this case, type your password on the terminal as a command-line argument (for example, suposing a password `xyz`):
+
+```python install_all.py --password xyz```
+
 ## USAGE
 
 ```
