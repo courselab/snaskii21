@@ -25,6 +25,12 @@ bool initialize_game(Game* game) {
         SDL_Log("FATAL ERROR: Cannot create renderer.\nError log: %s\n", SDL_GetError());
         return false;
     }
+
+    game->initialized = true;
+    game->running = true;
+    game->paused = false;
+
+    return true;
 }
 
 void free_game(Game* game) {

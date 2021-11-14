@@ -3,7 +3,10 @@
 
 int main() {
     Game game;
-    const bool game_created = initialize_game(&game);
-    //printf("GAME INITIALIZED: %d\n", game.initialized);
+    const bool gameCreated = initialize_game(&game);
+    if (gameCreated) {
+        printf("GAME\n");
+    }
+    
     free_game(&game);
 }
