@@ -100,7 +100,7 @@ the following authors:
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
             <br />
-            <sub><b>brugazoni</b></sub>
+            <sub><b>Brugazoni</b></sub>
         </a>
     </td></tr>
 </table>
