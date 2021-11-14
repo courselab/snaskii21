@@ -25,4 +25,4 @@ jobs:
       - name: Run configure
         run: ./configure
       - name: Build project
-        run: make && make install
+        run: sudo make && sudo make install
