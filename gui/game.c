@@ -49,8 +49,8 @@ void run_game(Game* game) {
 
     while (game->running) {
         receive_user_input(game);
-        /*update_game(game);
-        draw_game(game);*/
+        update_game(game);
+        //draw_game(game);
     }
 }
 
@@ -71,5 +71,15 @@ void receive_user_input(Game* game) {
     else if (keyboardState[SDL_SCANCODE_ESCAPE]) {
         game->running = false;
         game->paused = false;
+    }
+}
+
+void update_game(Game* game) {
+    if (!game->running) {
+        return;
+    }
+
+    if (!game->paused) {
+        printf("RUNNING GAME...\n");
     }
 }
