@@ -95,5 +95,12 @@ the following authors:
             <sub><b>LeoFonsecaP</b></sub>
         </a>
     </td></tr>
+    <td align="center">
+        <a href="https://github.com/LeoFonsecaP">
+            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="Henrique1792"/>
+            <br />
+            <sub><b>Henrique1792</b></sub>
+        </a>
+    </td></tr>
 </table>
 <!-- readme: contributors -end -->
