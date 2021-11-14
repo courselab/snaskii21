@@ -21,14 +21,7 @@ the following authors:
         <a href="https://github.com/math-araujo">
             <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
             <br />
-            <sub><b>math-araujo</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/MuketaUeda">
-            <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
-            <br />
-            <sub><b>MuketaUeda</b></sub>
+            <sub><b>Math-araujo</b></sub>
         </a>
     </td>
     <td align="center">
@@ -36,6 +29,13 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
             <br />
             <sub><b>Daniel Contente Romanzini</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/MuketaUeda">
+            <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
+            <br />
+            <sub><b>MuketaUeda</b></sub>
         </a>
     </td>
     <td align="center">
@@ -64,7 +64,7 @@ the following authors:
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
             <br />
-            <sub><b>ceneme</b></sub>
+            <sub><b>Ceneme</b></sub>
         </a>
     </td>
     <td align="center">
