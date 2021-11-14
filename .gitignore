@@ -36,5 +36,8 @@ src/ttsnake_bin-utils.o
 src/ttsnake.ttsnake_bin
 src/ttsnake.bin
 
+!gui/Makefile
+gui/ttsnake
+
 ## end of make
 
