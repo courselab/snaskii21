@@ -48,9 +48,28 @@ void run_game(Game* game) {
     }
 
     while (game->running) {
-        /*receive_user_input(&game);
-        update_game(&game);
-        draw_game(&game);*/
-        break; // placeholder, remove
+        receive_user_input(game);
+        /*update_game(game);
+        draw_game(game);*/
+    }
+}
+
+void receive_user_input(Game* game) {
+    SDL_Event guiEvent;
+    while (SDL_PollEvent(&guiEvent)) {
+        switch (guiEvent.type) {
+            case SDL_QUIT:
+            game->running = false;
+            break;
+        }
+    }
+
+    const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
+    if (keyboardState[SDL_SCANCODE_P]) {
+        game->paused = !game->paused;
+    }
+    else if (keyboardState[SDL_SCANCODE_ESCAPE]) {
+        game->running = false;
+        game->paused = false;
     }
 }
