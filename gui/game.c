@@ -61,14 +61,15 @@ void receive_user_input(Game* game) {
             case SDL_QUIT:
             game->running = false;
             break;
+            case SDL_KEYDOWN:
+                if (guiEvent.key.keysym.sym == SDLK_p) {
+                    game->paused = !game->paused;
+                }
         }
     }
 
     const Uint8* keyboardState = SDL_GetKeyboardState(NULL);
-    if (keyboardState[SDL_SCANCODE_P]) {
-        game->paused = !game->paused;
-    }
-    else if (keyboardState[SDL_SCANCODE_ESCAPE]) {
+    if (keyboardState[SDL_SCANCODE_ESCAPE]) {
         game->running = false;
         game->paused = false;
     }
@@ -81,5 +82,8 @@ void update_game(Game* game) {
 
     if (!game->paused) {
         printf("RUNNING GAME...\n");
+    }
+    else {
+        printf("GAME PAUSED\n");
     }
 }
