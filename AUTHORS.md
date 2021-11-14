@@ -11,6 +11,13 @@ the following authors:
 <table>
 <tr>
     <td align="center">
+        <a href="https://github.com/di-press">
+            <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
+            <br />
+            <sub><b>Di Press</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Float07">
             <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
             <br />
@@ -44,15 +51,22 @@ the following authors:
             <br />
             <sub><b>Lucas Viana</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
             <br />
             <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
+    <td align="center">
+        <a href="https://github.com/brugazoni">
+            <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
+            <br />
+            <sub><b>Brugazoni</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/monacofj">
             <img src="https://avatars.githubusercontent.com/u/3980792?v=4" width="100;" alt="monacofj"/>
@@ -75,32 +89,18 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/di-press">
-            <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
-            <br />
-            <sub><b>Di Press</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
             <sub><b>Erik Melges</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
             <br />
             <sub><b>LeoFonsecaP</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/brugazoni">
-            <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
-            <br />
-            <sub><b>brugazoni</b></sub>
         </a>
     </td></tr>
 </table>
