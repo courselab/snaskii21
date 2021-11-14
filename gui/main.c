@@ -1,6 +1,9 @@
 #include <stdio.h>
-#include "SDL.h"
+#include "game.h"
 
 int main() {
-    printf("Hello SDL");
+    Game game;
+    const bool game_created = initialize_game(&game);
+    //printf("GAME INITIALIZED: %d\n", game.initialized);
+    free_game(&game);
 }
