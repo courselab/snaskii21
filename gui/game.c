@@ -40,3 +40,17 @@ void free_game(Game* game) {
         SDL_Quit();
     }
 }
+
+void run_game(Game* game) {
+    if (!game->initialized) {
+        printf("FATAL ERROR: Game was not initialized. Please call initialize_game() before running the game.\n");
+        return;
+    }
+
+    while (game->running) {
+        /*receive_user_input(&game);
+        update_game(&game);
+        draw_game(&game);*/
+        break; // placeholder, remove
+    }
+}

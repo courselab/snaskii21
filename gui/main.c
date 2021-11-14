@@ -5,7 +5,7 @@ int main() {
     Game game;
     const bool gameCreated = initialize_game(&game);
     if (gameCreated) {
-        printf("GAME\n");
+        run_game(&game);
     }
     
     free_game(&game);
