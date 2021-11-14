@@ -14,7 +14,9 @@ bool initialize_game(Game* game) {
         return false;
     }
 
-    game->window = SDL_CreateWindow("SDL TronSnake", 80, 80, 1024, 768, 0);
+    game->windowWidth = 1024;
+    game->windowHeight = 768;
+    game->window = SDL_CreateWindow("SDL TronSnake", 60, 60, game->windowWidth, game->windowHeight, 0);
     if (game->window == NULL) {
         SDL_Log("FATAL ERROR: Cannot create window.\nError log: %s\n", SDL_GetError());
         return false;
@@ -29,6 +31,14 @@ bool initialize_game(Game* game) {
     game->initialized = true;
     game->running = true;
     game->paused = false;
+
+    game->blockSize = 15;
+    const int blockSize = game->blockSize;
+    Color wallColor = { .red = 178, .green = 208, .blue = 0, .alpha = 255};
+    initialize_wall(&game->borders[0], &wallColor, 0, game->windowHeight - blockSize, game->windowWidth, blockSize);
+    initialize_wall(&game->borders[1], &wallColor, 0, 0, blockSize, game->windowHeight);
+    initialize_wall(&game->borders[2], &wallColor, 0, 0, game->windowWidth, blockSize);
+    initialize_wall(&game->borders[3], &wallColor, game->windowWidth - blockSize, 0, blockSize, game->windowHeight);
 
     return true;
 }
@@ -93,7 +103,12 @@ void draw_game(Game* game) {
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
     
-    // draw snake and walls and etc here...
-
+    // draw snake and etc here...
+    for (int i = 0; i < 4; ++i) {
+        Color* wallColor = &(game->borders[i].color);
+        SDL_SetRenderDrawColor(game->renderer, wallColor->red, wallColor->green, wallColor->blue, wallColor->alpha);
+        SDL_RenderFillRect(game->renderer, &(game->borders[i].shape));
+    }
+    
     SDL_RenderPresent(game->renderer);
 }
