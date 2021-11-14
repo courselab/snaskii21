@@ -17,9 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install autotools
-        run: apt install automake autoconf
+        run: sudo apt install automake autoconf
       - name: Install ncurses
-        run: apt install libncurses5-dev
+        run: sudo apt install libncurses5-dev
       - name: Run autogen script
         run: ./autogen.sh
       - name: Run configure
