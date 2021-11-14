@@ -15,19 +15,34 @@ administrative privileges (`sudo`).
 
 If you have obtained the project source from the __version control
 repository__, you'll need to have GNU Build System (Autotools) installed.
-In Debian/Ubuntu based platforms, you may install the required software with:
+
+### Debian/Ubuntu based platforms:
 
  ```
- # apt install automake autoconf
+ $ apt install automake autoconf
+ ```
+
+### [Homebrew](https://brew.sh/) (macOS/Linux):
+
+ ```
+ $ brew install autoconf automake
  ```
 
 Other missing dependencies will be indicated by the configuration script ---
 e.g.: if you don't have `libncurses` installed, it'll complain about it and you
-may install it (if in Debian/Ubuntu based system) with:
+may install it.
+
+### Debian/Ubuntu based platforms:
 
 ```
-# apt install libncurses5-dev
+$ apt install libncurses5-dev
 ```
+
+### [Homebrew](https://brew.sh/) (macOS/Linux):
+
+ ```
+ $ brew install ncurses
+ ```
 
 It is also required for your system to have support for POSIX threads.
 
