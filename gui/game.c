@@ -50,7 +50,7 @@ void run_game(Game* game) {
     while (game->running) {
         receive_user_input(game);
         update_game(game);
-        //draw_game(game);
+        draw_game(game);
     }
 }
 
@@ -82,8 +82,18 @@ void update_game(Game* game) {
 
     if (!game->paused) {
         printf("RUNNING GAME...\n");
+        // add game logic here...
     }
     else {
         printf("GAME PAUSED\n");
     }
+}
+
+void draw_game(Game* game) {
+    SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
+    SDL_RenderClear(game->renderer);
+    
+    // draw snake and walls and etc here...
+
+    SDL_RenderPresent(game->renderer);
 }
