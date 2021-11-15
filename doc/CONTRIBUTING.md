@@ -14,27 +14,6 @@ and AUTHORS, respectively.
 
 ## Obtaining the source and building the software
 
-This project's source code official repository may be found at 
-
-https://github.com/courselab/ttsnake
-
-If you have obtained the source from the Version Control Repository, you will
-need GNU Build System (aka Autotools) to build the project, as described
-in file `README`, in the root of the project tree (really, read-me). 
-
-Briefly, bootstrap the build system with
-
-```
-$ ./autogen.sh
-```
-
-to create the build configuration script and then build the software with
-
-```
-$ ./configure 
-$ make
-```
-
 After the software is built, the binary may be found in the subdirectiry `src`.
 
 The file 
