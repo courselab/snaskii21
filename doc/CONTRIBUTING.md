@@ -12,7 +12,7 @@ and AUTHORS, respectively.
 
 
 
-## Obtaining the source and building the software
+## Obtaining the source and building the software - TODO- Put this somewhere else, see issue 50
 
 After the software is built, the binary may be found in the subdirectiry `src`.
 
@@ -29,29 +29,6 @@ src/ttsnake.bin
 ```
 
 with appropirate arguments to read data files from the local subdirectory 'scenes'.
-
-In order to install the software,
-
-```
-$ make install
-```
-This command will copy the file `src/ttsnake.bin` to the system binary path, 
-usually `usr/bin` and invoke a install hook to rename it `ttsnake`. The
-installed binary will read data from the system data path, usually `usr/share`.
-
-To install the software in a different location, use 
-
-```
-$ ./configure --prefix=<some-path>
-$ make
-```
-
-More build and install options may be consulted in
-
-```
-$ ./configure --help
-```
-and in the file `INSTALL`, found in the root of the project tree.
 
 ## General guidelines
 
