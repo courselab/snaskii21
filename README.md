@@ -132,5 +132,5 @@ The game score is the count of eaten blocks until the game is over.
 ## Contribute to this project
 
 If you wish to contribute to the project, please, __do__ read the
-[contribution guide](doc/CONTRIBUTING.md) for important information and
+[contribution guide](docs/CONTRIBUTING.md) for important information and
 guidelines.
