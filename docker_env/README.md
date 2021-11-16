@@ -22,7 +22,7 @@
 			`-v HOST_DIR:CONTAINER_DIR` sets a host directory share point inside the container
 			`-w WORKDIR_NAME` is your initial working directory
 
-3. Improvements
+<!--3. Improvements
 	1. This container gets too big if the environment suffer any modification. Maybe reconsider some steps and
 		keep just execution requirements
 	2. **Advices for compilation**
@@ -30,4 +30,4 @@
 		But compilation steps which doesn't require that much permission as snakett user. Switch it running
 		`su snakett` command - if root is required again, CTRL-D will get you back (or exit command)
 	3. The author isn't familiar with Github actions structure, but I understand that we can create a deploy
-		img from that structure, which I hope we're able to use =) .
+		img from that structure, which I hope we're able to use =) .-->
