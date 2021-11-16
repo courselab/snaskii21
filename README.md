@@ -98,18 +98,7 @@ The password argument is optional. It's required only if your system is unable t
 
 ## Docker environment execution
 
-A docker environment initially created in order to compile and execute snakeskii21 in any system, as follows:
-
-1. Get into `docker_env` directory and build it executing:
-	`docker build -t snake_env .`
-2. After it's build, run container as follows (newbie's gentle execution):
-	`docker run -it --rm -v <snakeskii21_path>:/data -w /data snake_env /bin/bash`
-
-	Rationale:
-		`-it` stands for `iterative` mode (-i keeps STDIN attached and open, while -t allocate a pseudo-tty)
-		`--rm` cleans container up after execution (for small tests this flag is way useful to ignore)
-		`-v HOST_DIR:CONTAINER_DIR` sets a host directory share point inside the container
-		`-w WORKDIR_NAME` is your initial working directory after bring it up
+For instructions on how to compile and execute Snaskii21 using Docker, check the [Docker README](/docker_env/README.md).
 
 
 
