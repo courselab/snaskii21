@@ -14,7 +14,7 @@
 	1. Get into `docker_env` directory and build it executing:
 		`docker build -t snake_env .`
 	2. After it's build, run container as follows (newbie's gentle execution):
-		`docker run -it --rm -v $(pwd):/data -w /data snake_env /bin/bash`
+	`docker run -it --rm -v <snaskii21_path>:/data -w /data snake_env /bin/bash`
 	
 		Rationale:
 			`-it` stands for `iterative` mode (-i keeps STDIN attached and open, while -t allocate a pseudo-tty)
