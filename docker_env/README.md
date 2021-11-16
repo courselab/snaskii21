@@ -6,7 +6,7 @@
 
 1. Rationale
 	After many installation workarounds pointed by colleagues, this suggestion
-	was created in order to easy up everyone on system dependencies.
+	was created in order to ease up everyone on system dependencies.
 	It intends to allow execution without bloating host environment and solve
 	compatibility issues during execution.
 
