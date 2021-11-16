@@ -39,25 +39,25 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/andrecoco">
+            <img src="https://avatars.githubusercontent.com/u/16878985?v=4" width="100;" alt="andrecoco"/>
+            <br />
+            <sub><b>André Viana</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/MuketaUeda">
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/lucasvianav">
             <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
             <br />
             <sub><b>Lucas Viana</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/andrecoco">
-            <img src="https://avatars.githubusercontent.com/u/16878985?v=4" width="100;" alt="andrecoco"/>
-            <br />
-            <sub><b>André Viana</b></sub>
         </a>
     </td>
     <td align="center">
@@ -75,6 +75,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/LeoFonsecaP">
+            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
+            <br />
+            <sub><b>LeoFonsecaP</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/monacofj">
             <img src="https://avatars.githubusercontent.com/u/3980792?v=4" width="100;" alt="monacofj"/>
             <br />
@@ -87,27 +94,20 @@ the following authors:
             <br />
             <sub><b>Ceneme</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/aocard">
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
             <br />
             <sub><b>AOCard</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
             <sub><b>Erik Melges</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/LeoFonsecaP">
-            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
-            <br />
-            <sub><b>LeoFonsecaP</b></sub>
         </a>
     </td></tr>
 </table>
