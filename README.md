@@ -106,12 +106,6 @@ The game score is the count of eaten blocks until the game is over.
 	q quits
 	r at anytime to restart the game
 
-## Contribute to this project
+## Contributing
 
-If you wish to contribute to the project, please, __do__ read the file
-
-```
-doc/CONTRIBUTING.md
-```
-
-which contains important information.
+If you wish to contribute to this project, read through our [contributing guidelines](https://github.com/courselab/snaskii21/blob/develop/docs/CONTRIBUTING.md) to learn about the workflow, pull requests, coding rules and more.
