@@ -25,17 +25,17 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/math-araujo">
-            <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
-            <br />
-            <sub><b>Math-araujo</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Dauboau">
             <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
             <br />
             <sub><b>Daniel Contente Romanzini</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/math-araujo">
+            <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
+            <br />
+            <sub><b>Math-araujo</b></sub>
         </a>
     </td>
     <td align="center">
