@@ -1,7 +1,45 @@
 # Contributing to this project
 
-This document needs to be properly edited.
-Meanwhile, there follow some essencial notes.
+##### Step 1 - Cloning the project
+To contribute to this project, first you should clone the repository
+
+```
+git clone https://github.com/courselab/snaskii21
+```
+
+##### Step 2 - Pulling any updates in the repository
+Before you make your contribution, always make sure your repository is up-to-date with the project, by typing
+
+```
+git pull
+```
+
+##### Step 3 - Creating your own branch
+Before pushing your contribuition to the project, create your own branch
+
+```
+git checkout -b <YOUR_BRANCH_NAME>
+```
+
+##### Step 4 - Pushing your changes
+After this is done, you're set to contribute with our project. Be aware that, if you're not an author, your contribution will be under a period of analysis by the authors and can or cannot be merged. To push your work,
+
+```
+git add .
+git commit -m <SOME_USEFUL_MESSAGE>
+git push <YOUR_BRANCH_NAME>
+```
+
+or
+
+```
+git add <FILES_TO_BE_PUSHED>
+git commit -m <SOME_USEFUL_MESSAGE>
+git push <YOUR_BRANCH_NAME>
+```
+
+This document is going under properly edition.
+There follow some essencial notes.
 
 ## General information
 
