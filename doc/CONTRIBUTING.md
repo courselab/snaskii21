@@ -5,7 +5,7 @@ There are always positive contributions to be done in this project. If you wish 
 - [Got any questions?](#questions)
 - [Found a bug?](#found-bugs)
 - [Missing a Feature?](#missing-features)
-- [Branch name convention](#branch-name)
+- [Branch name](#branch-name)
 - [Submission Guidelines](#submission-guidelines)
 - [Commit messages](#commit-messages)
 - [Building the source code](#building)
@@ -38,22 +38,50 @@ You can request a new feature by [submitting an issue](#submission-guidelines) t
 
 ## <a name="branch-name"></a> Branch name convention
 
-As a convention inside the repository, we use the following as the way to name git branches:
+First step to make a contribution is creating a branch. The branch created must
+follow the naming convention bellow, where `<issue-number>` is the number of the
+issue that the pull request will solve (e.g. #42).
+
+Branches names should be one of the four following options:
+
 ```
-feature/#issue-number
+feature/<issue-number>
+
+hotfix/<issue-number>
+
+wip/<issue-number>
+
+coldfix/<issue-number>
 ```
-It make it easier to know the issue number associated with the pull request.
+
+The meaning of each possible branch name is as follows. Choose the name that
+best suits the changes you made.
+
+- `feature/<issue-number>` : Implementation of a new feature, or update
+of an existing feature. This also covers updates to documentation.
+- `hotfix/<issue-number>` : Fixes something that is broken in production. 
+Often it is a fix to a problem that users are complaining about.
+- `wip/<issue-number>` : Work in progress, usually tagged with "DO NOT MERGE" 
+as well. This is for helping with early feedback on some development that will 
+end up being a large PR.
+- `coldfix/<issue-number>` : Planned fixes, which are announced beforehand.
 
 Also, this project's development workflow is based on the [GitFlow branching strategy](https://nvie.com/posts/a-successful-git-branching-model/) that is very well encouraged by the community.
 
 ## <a name="submission-guidelines"></a>Submission Guidelines
 
 ### Submitting an Issue
+
 Before you submit an issue, please search the issue tracker. An issue for your problem might already exist and the discussion might inform you of workarounds readily available.
 
 You can file new issues directly on the [Github repository issues page](https://github.com/courselab/snaskii21/issues/new).
 
 ### Submitting a Pull Request (PR)
+
+It's important that every pull request fixes at least one issue. You can pick
+an issue that already exists or you can create one yourself, if you can't find one that addresses your problem. After an issue has been
+selected, assign yourself so other collaborators can be aware that you are
+taking care of it.
 
 Before submitting your Pull Request, consider the following steps:
 
@@ -62,45 +90,71 @@ Before submitting your Pull Request, consider the following steps:
 3. Fork the [courselab/snaskii21](https://github.com/courselab/snaskii21) repository.
 4. Inside your forked repository, [create a new git branch](branch-name) to start working on your changes:
     ```
-    git checkout -b feature/#<issue-number> develop
+    $ git checkout -b <new-branch-name> develop
     ```
 5. Create your patch.
 6. Commit your changes using a descriptive commit message that should follow our [commit message stardard](#commit-messages):
     ```
-    git commit -am "<your-commit-message>"
+    $ git add
+    $ git commit -am "<your-commit-message>"
     ```
 7. Push your changes to the remote Github repository:
     ```
-    git push origin <new-branch-name>
+    $  git push origin <new-branch-name>
     ```
-8. Inside the Github page, visit the [pull requests page](https://github.com/courselab/snaskii21/pulls) and select `develop` as destination branch.
+
+8. Inside the Github page, visit the [pull requests page](https://github.com/courselab/snaskii21/pulls) and select the proper protected branch (e.g. `develop`) as destination branch. 
+After a set amount of reviewers with write access have accepted the changes, it will be merged into the respective branch.
+
+9. Always keep your branch up to date with the destination branch, so that you do not run into code conflicts.
+
+    If you have forked the repository, you should read the github docs page on [Configuring a remote for a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork). That is a way to configure a remote that points to the upstream repository in Git and always be aware of the changes inside courselab.
+
+    In summary, you must specify a new remote *upstream* repository to be synced with the fork:
+
+    ```
+    $ git remote add upstream https://github.com/courselab/snaskii21
+    ```
+
+    And then you can use the `git pull` command to update your fork with the changes from the upstream repository:
+
+    ```
+    $ git pull upstream develop
+    ```
 
 ## <a name="commit-messages"></a> Commit messages
+
 We have simple rule over how our Git commit messages must be formatted. This format leads to easier to read commit history later on.
 
 Each commit message should be written in the following format:
 
 ```
 <tag>: <short-summary>
-  │       │
-  │       └─> Summary in present tense. Not capitalized. No period at the end.
+  │          │
+  │          └─> Summary in present tense. Not capitalized. No period at the end.
   │
   └─> Commit tag: bug|critical|doc|dup|easy|feature|help|invalid|other|src|wontfix
 ```
 
-The tag is are the same options used as labels on issues. It makes it intuitive to construct the commit message and descriptive for the ones that are reviewing the pull request later.
+The tag is the same option used as labels on issues. It makes it intuitive to construct the commit message and descriptive for anyone that is reviewing your pull request later.
 
 ## <a name="building"></a>Building the source code
 
-In order to build and run the repository, give a look to the [README.md file](https://github.com/courselab/snaskii21/blob/develop/README.md), that covers all the dependencies and build procedures required.
+This project's source code official repository may be found at 
+
+https://github.com/courselab/ttsnake
+
+If you have obtained the source from the Version Control Repository, you will
+need GNU Build System (aka Autotools) to build the project, as described
+in [file README](https://github.com/courselab/snaskii21/blob/develop/README.md), in the root of the project tree (really, read-me). 
 
 ## <a name="language"></a> Communication Language
 
 You are strongly encouraged to write your contribution and communicate
 with the developers and contributors community in English, if possible.
 Do not mind at all if your current skills are modest or incipient; no one
-expects otherwise --- your coding skills and willing to help matter more.
-Use a automatic translator if needed. Just don't name variable and 
+expects otherwise --- your coding skills and will to help matter more.
+Use an automatic translator if needed. Just don't name variable and 
 functions in a language other than English.
 
 ## <a name="versions"></a> Versions
