@@ -1,118 +1,115 @@
 # Contributing to this project
 
-This document needs to be properly edited.
-Meanwhile, there follow some essencial notes.
+There are always positive contributions to be done in this project. If you wish to contribute, we as a team would appreciate it. Here are the guidelines we would like you to follow:
+- [General information](#general-information)
+- [Got any questions?](#questions)
+- [Found a bug?](#found-bugs)
+- [Missing a Feature?](#missing-features)
+- [Branch name convention](#branch-name)
+- [Submission Guidelines](#submission-guidelines)
+- [Commit messages](#commit-messages)
+- [Building the source code](#building)
+- [Communication Language](#language)
+- [Versions](#versions)
 
-## General information
+## <a name="general-information"></a> General information
 
-TextTron Snake is free software distributed under GNU GPL vr.3. 
-For licensing and author information, please refer to files COPYING 
-and AUTHORS, respectively.
-
-
+TextTron Snake is free software distributed under GNU GPL vr.3.
+In order to check the license specification give a look to the [license file](https://github.com/courselab/snaskii21/blob/develop/COPYING).
+Moreover, for checking the authors of the project, you can visit the [authors file](https://github.com/courselab/snaskii21/blob/develop/AUTHORS.md).
 
 
-## Obtaining the source and building the software
+## <a name="questions"></a> Got any questions?
 
-This project's  source code official repository may be found at 
+Please do not open new issues on the GitHub repository in order to make questions about the project.
+Instead, please feel free to send messages directly to the contributors of the project.
 
-https://github.com/courselab/ttsnake
+How should you make questions? Be direct and clear. Every body has limited time, making questions that goes straight makes it easier to answer.
 
-If you have obtain the source from the Version Control Repository, you will
-need GNU Build System (aka Autotools) to build the project, as described
-in file `README`, in the root of the project tree (really, reade-me). 
+## <a name="found-bug"></a> Found a bug?
+If you find a bug in the source code, you can help us by [submitting an issue](#submission-guidelines) to our [Github Repository](https://github.com/courselab/snaskii21). Even better, you can submit a Pull Request with a fix.
 
-Briefly, bootstrap the build system with
+As a team, we work to fix all the issues as soon as possible, but before we do that, we need to be able to reproduce and confirm it. In order to reproduce bugs, we require that you provide a minimal reproduction. Having that enables us to go straight to the right problem, and do not require a lot of chatting to understand where the bug is.
+
+## <a name="mising-features"></a> Missing a Feature?
+You can request a new feature by [submitting an issue](#submission-guidelines) to our GitHub repository. If you would like to implmement a new feature, please consider the size of the change in order to determine the right steps to proceed:
+- For a **Major Feature**, first open an issue and outline your proposal sothat it can be discussed. This process allowss us to better coordinate our efforts, prevent duplication of work, ad help you to craft so that it is successflly accepted into the project.
+- **Small Features** can be crafter and directly [submitted as Pull Request](#submission-guidelines).
+
+## <a name="branch-name"></a> Branch name convention
+
+As a convention inside the repository, we use the following as the way to name git branches:
+```
+feature/#issue-number
+```
+It make it easier to know the issue number associated with the pull request.
+
+Also, this project's development workflow is based on the [GitFlow branching strategy](https://nvie.com/posts/a-successful-git-branching-model/) that is very well encouraged by the community.
+
+## <a name="submission-guidelines"></a>Submission Guidelines
+
+### Submitting an Issue
+Before you submit an issue, please search the issue tracker. An issue for your problem might already exist and the discussion might inform you of workarounds readily available.
+
+You can file new issues directly on the [Github repository issues page](https://github.com/courselab/snaskii21/issues/new).
+
+### Submitting a Pull Request (PR)
+
+Before submitting your Pull Request, consider the following steps:
+
+1. Search on the [pull request tracker](https://github.com/courselab/snaskii21/pulls) for open or closes pull requests related to the same issue.
+2. Be sure that an issue describes the problem you are solving. Discussing ideas or implementations inside the issue page might help to ensure that the implementations has fewer flaws.
+3. Fork the [courselab/snaskii21](https://github.com/courselab/snaskii21) repository.
+4. Inside your forked repository, [create a new git branch](branch-name) to start working on your changes:
+    ```
+    git checkout -b feature/#<issue-number> develop
+    ```
+5. Create your patch.
+6. Commit your changes using a descriptive commit message that should follow our [commit message stardard](#commit-messages):
+    ```
+    git commit -am "<your-commit-message>"
+    ```
+7. Push your changes to the remote Github repository:
+    ```
+    git push origin <new-branch-name>
+    ```
+8. Inside the Github page, visit the [pull requests page](https://github.com/courselab/snaskii21/pulls) and select `develop` as destination branch.
+
+## <a name="commit-messages"></a> Commit messages
+We have simple rule over how our Git commit messages must be formatted. This format leads to easier to read commit history later on.
+
+Each commit message should be written in the following format:
 
 ```
-$ ./autogen.sh
+<tag>: <short-summary>
+  │       │
+  │       └─> Summary in present tense. Not capitalized. No period at the end.
+  │
+  └─> Commit tag: bug|critical|doc|dup|easy|feature|help|invalid|other|src|wontfix
 ```
 
-to create the build configuration script and then build the software with
+The tag is are the same options used as labels on issues. It makes it intuitive to construct the commit message and descriptive for the ones that are reviewing the pull request later.
 
-```
-$ ./configure 
-$ make
-```
+## <a name="building"></a>Building the source code
 
-After the software is built, the binary may be found in the subdirectiry `src`.
+In order to build and run the repository, give a look to the [README.md file](https://github.com/courselab/snaskii21/blob/develop/README.md), that covers all the dependencies and build procedures required.
 
-The file 
-
-```
-src/ttsnake
-```
-
-is actually a wrapper script wich invokes the real binary 
-
-```
-src/ttsnake.bin
-```
-
-with appropirate arguments to read data files from the local subdirectory 'scenes'.
-
-In order to install the software,
-
-```
-$ make install
-```
-This command will copy the file `src/ttsnake.bin` to the system binary path, 
-usually `usr/bin` and invoke a install hook to rename it `ttsnake`. The
-installed binary will read data from the system data path, usually `usr/share`.
-
-To install the software in a different location, use 
-
-```
-$ ./configure --prefix=<some-path>
-$ make
-```
-
-More build and install options may be consulted in
-
-```
-$ ./configure --help
-```
-and in the file `INSTALL`, found in the root of the project tree.
-
-## General guidelines
-
-This project's development workflow is based 
-
-* GitFlow branching strategy [1]
-* Semantiv versionng 2.0.0 release naming scheme [2]
-
-Latest stabe release resides in branch `main`, while pre-releases (alpha, 
-beta, release candidates etc.) reside in branch _prerelease_. Late fixes in
-past stabe releases for maintenance, if any, are found in _legacy_ branhces.
-
-Contribution admission policy requires developers to proposed modifications
-as feature branches and submitted them as pull requests, which in turn
-need to be approved by other developers before being merged into the propper 
-branches.
+## <a name="language"></a> Communication Language
 
 You are strongly encouraged to write your contribution and communicate
 with the developers and contributors community in English, if possible.
 Do not mind at all if your current skills are modest or incipient; no one
 expects otherwise --- your coding skills and willing to help matter more.
 Use a automatic translator if needed. Just don't name variable and 
-functions in a lnauguage other than English.
+functions in a language other than English.
 
-If you are a developer and is assinged an issue, and you believe you are not
-able to handle timely, please, try to reasign it to someone else.
+## <a name="versions"></a> Versions
 
-If you don't have direct write access to the repository, you may still fork the
-project and send pull requests.
+Our versioning naming scheme is based on [Semantic Versioning](http://semver.org/).
+
 
 _Code wisdom for this project_
 
 - Branch always (create a new feature branch for each modification)
 - Commit small (add & commit single changes for better traceability)
 - Merge safe (test, discuss and approve merges to permanent branches)
-
-
-[1] https://nvie.com/posts/a-successful-git-branching-model/
-
-[2] https://semver.org/
-
-
-
