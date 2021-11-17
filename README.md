@@ -98,7 +98,7 @@ The password argument is optional. It's required only if your system is unable t
 
 ## Docker environment execution
 
-For instructions on how to compile and execute Snaskii21 using Docker, check the [Docker README](/docker_env/README.md).
+For instructions on how to compile and execute using Docker, checkout the [dedicated document](/docker_env/README.md).
 
 
 
