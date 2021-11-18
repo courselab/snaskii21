@@ -1,0 +1,28 @@
+name: build
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install autotools
+        run: sudo apt install automake autoconf
+      - name: Install ncurses
+        run: sudo apt install libncurses5-dev
+      - name: Run autogen script
+        run: ./autogen.sh
+      - name: Run configure
+        run: ./configure
+      - name: Build project
+        run: sudo make && sudo make install
