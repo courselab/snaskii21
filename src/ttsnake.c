@@ -281,6 +281,36 @@ void init_game (){
 }
 
 
+/* This function moves the snake */
+
+void move_snake(){
+	int i;
+	for(i = snake.length - 1; i >= 0; i--){
+		if(i){
+			snake.positions[i].x = snake.positions[i - 1].x;
+			snake.positions[i].y = snake.positions[i - 1].y;
+		}else{
+			snake.positions[i].x = snake.head.x;
+			snake.positions[i].y = snake.head.y;
+		}
+	}
+
+	switch(snake.direction){
+		case up:
+			snake.head.y -= 1;
+			break;
+		case left:
+			snake.head.x -= 1;
+			break;
+		case down:
+			snake.head.y += 1;
+			break;
+		case right:
+			snake.head.x += 1;
+			break;
+	}
+}
+
 
 /* This function plays the game introduction animation. */
 
@@ -344,27 +374,32 @@ void playgame (scene_t* scene)
 /* Process user input.
    This function runs in a separate thread. */
 
-void * userinput()
-{
-  int c;
-  while (1)
-    {
-      c = getchar();
-      
-      switch(c)
-	{
-	case 'q':
-	  kill (0, SIGINT);
-	  break;
-	default:
-	  break;
+void * userinput(){
+	int c;
+	while (1){
+		c = getchar();
+		switch(c){
+			case 'w':
+				snake.direction = up;
+				break;
+			case 'a':
+				snake.direction = left;
+				break;
+			case 's':
+				snake.direction = down;
+				break;
+			case 'd':
+				snake.direction = right;
+				break;
+			case 'q':
+			kill (0, SIGINT);
+			break;
+		default:
+			break;
+		}
 	}
-      
-    }
-  return NULL;
-
+	return NULL;
 }
-
 
 /* The main function. */
 
