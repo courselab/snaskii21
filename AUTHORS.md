@@ -18,17 +18,17 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Float07">
-            <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
-            <br />
-            <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Dauboau">
             <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
             <br />
             <sub><b>Daniel Contente Romanzini</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Float07">
+            <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
+            <br />
+            <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
         </a>
     </td>
     <td align="center">
