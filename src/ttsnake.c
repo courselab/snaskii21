@@ -264,9 +264,20 @@ void showscene (scene_t* scene, int number, int menu)
 
 /* Initialize resources and counters. */
 
-void init_game ()
-{
-  
+void init_game (){
+	int i;
+	block_count = 0;
+	snake.energy = 50;
+	snake.direction = right;
+	snake.length = 4;
+	snake.head.x = 5;
+	snake.head.y = 5;
+
+	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
+	for(i = 0; i < snake.length; i++){
+		snake.positions[i].x = snake.head.x - i - 1;
+		snake.positions[i].y = snake.head.y - i - 1;
+	}
 }
 
 
