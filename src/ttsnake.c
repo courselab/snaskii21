@@ -73,6 +73,8 @@ int max_energy_blocks;          /* Max number of energy blocks to display at onc
 
 int block_count; 		/*Number of energy blocks collected */
 
+int paused = 1; 		/* Play/Pause indicator */
+
 WINDOW *main_window;
 
 /* SIGINT handler. The variable go_on controls the main loop. */
@@ -343,6 +345,19 @@ void draw_settings(scene_t *scene){
   memcpy(&scene[2][22][12], buffer, strlen(buffer));
 }
 
+/* This function implements the gameplay */
+
+void run(scene_t* scene){
+	int i; 
+	int tail = snake.length - 1;
+	scene[0][snake.positions[tail].y][snake.positions[tail].x] = ' ';
+	move_snake();
+	scene[0][snake.head.y][snake.head.x] = SNAKE_HEAD;
+	for(i = 0; i < tail; i++){
+		scene[0][snake.positions[i].y][snake.positions[i].x] = SNAKE_BODY;
+	}
+	scene[0][snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
+}
 
 /* This function implements the gameplay loop. */
 
@@ -359,8 +374,13 @@ void playgame (scene_t* scene)
       clear ();                               /* Clear screen. */
       refresh ();			      /* Refresh screen. */
       
-      draw_settings(scene);
-      showscene (scene, 2, 1);
+      if (paused){
+      	draw_settings(scene);
+      	showscene (scene, 2, 1);
+      } else{
+	run(scene);
+	showscene(scene, 0, 1);
+      }
       how_long.tv_nsec = (game_delay) * 1e3;  /* Compute delay. */
       nanosleep (&how_long, NULL);
 
@@ -379,6 +399,9 @@ void * userinput(){
 	while (1){
 		c = getchar();
 		switch(c){
+			case 'p':
+				paused = paused ^ 1;
+				break;
 			case 'w':
 				snake.direction = up;
 				break;
