@@ -289,7 +289,7 @@ void move_snake(){
 		if(i){
 			snake.positions[i].x = snake.positions[i - 1].x;
 			snake.positions[i].y = snake.positions[i - 1].y;
-		}else{
+		} else{
 			snake.positions[i].x = snake.head.x;
 			snake.positions[i].y = snake.head.y;
 		}
