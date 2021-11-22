@@ -392,10 +392,8 @@ void * userinput(){
 				snake.direction = right;
 				break;
 			case 'q':
-			kill (0, SIGINT);
-			break;
-		default:
-			break;
+				kill (0, SIGINT);
+				break;
 		}
 	}
 	return NULL;
