@@ -264,11 +264,52 @@ void showscene (scene_t* scene, int number, int menu)
 
 /* Initialize resources and counters. */
 
-void init_game ()
-{
-  
+void init_game (){
+	int i;
+	block_count = 0;
+	snake.energy = 50;
+	snake.direction = right;
+	snake.length = 4;
+	snake.head.x = 5;
+	snake.head.y = 5;
+
+	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
+	for(i = 0; i < snake.length; i++){
+		snake.positions[i].x = snake.head.x - i - 1;
+		snake.positions[i].y = snake.head.y - i - 1;
+	}
 }
 
+
+/* This function moves the snake */
+
+void move_snake(){
+	int i;
+	for(i = snake.length - 1; i >= 0; i--){
+		if(i){
+			snake.positions[i].x = snake.positions[i - 1].x;
+			snake.positions[i].y = snake.positions[i - 1].y;
+		} else{
+			snake.positions[i].x = snake.head.x;
+			snake.positions[i].y = snake.head.y;
+		}
+	}
+
+	switch(snake.direction){
+		case up:
+			snake.head.y -= 1;
+			break;
+		case left:
+			snake.head.x -= 1;
+			break;
+		case down:
+			snake.head.y += 1;
+			break;
+		case right:
+			snake.head.x += 1;
+			break;
+	}
+}
 
 
 /* This function plays the game introduction animation. */
@@ -333,27 +374,31 @@ void playgame (scene_t* scene)
 /* Process user input.
    This function runs in a separate thread. */
 
-void * userinput()
-{
-  int c;
-  while (1)
-    {
-      c = getchar();
-      
-      switch(c)
-	{
-	case 'q':
-	  kill (0, SIGINT);
-	  break;
-	default:
-	  break;
+void * userinput(){
+	int c;
+	while (1){
+		c = getchar();
+		switch(c){
+			case 'w':
+				snake.direction = up;
+				break;
+			case 'a':
+				snake.direction = left;
+				break;
+			case 's':
+				snake.direction = down;
+				break;
+			case 'd':
+				snake.direction = right;
+				break;
+			case 'q':
+				kill (0, SIGINT);
+				break;
+		}
 	}
-      
-    }
-  return NULL;
-
+	
+	return NULL;
 }
-
 
 /* The main function. */
 

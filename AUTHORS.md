@@ -18,17 +18,17 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Float07">
-            <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
-            <br />
-            <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Dauboau">
             <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
             <br />
             <sub><b>Daniel Contente Romanzini</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Float07">
+            <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
+            <br />
+            <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
         </a>
     </td>
     <td align="center">
@@ -68,6 +68,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/artP2">
+            <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
+            <br />
+            <sub><b>ArtP2</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
             <br />
@@ -87,15 +94,15 @@ the following authors:
             <br />
             <sub><b>LeoFonsecaP</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/monacofj">
             <img src="https://avatars.githubusercontent.com/u/3980792?v=4" width="100;" alt="monacofj"/>
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
