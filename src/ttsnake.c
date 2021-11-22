@@ -396,6 +396,7 @@ void * userinput(){
 				break;
 		}
 	}
+	
 	return NULL;
 }
 
