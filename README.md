@@ -124,16 +124,6 @@ The password argument is optional. It's required only if your system is unable t
 
 ## USAGE
 
-```
- Usage:  ttsnake [options]
-
-         Options
-
-         -h, --help      Displays this information message
-         -d, --data      Selects a non-default data path
-	 -v, --version   Outputs the program version
-```
-
 ### Opening the game
 
 After following the installation process, execute the following command to open the game:
@@ -143,6 +133,18 @@ After following the installation process, execute the following command to open 
 ```
 
 If, for some reason, the command returns a message asking for a minimum terminal size to play the game, try running the command with the terminal in fullscreen mode.
+
+### Extra options 
+
+```
+ Usage:  ttsnake [options]
+
+         Options
+
+         -h, --help      Displays this information message
+         -d, --data      Selects a non-default data path
+	 -v, --version   Outputs the program version
+```
 
 ### Playing the game
 
