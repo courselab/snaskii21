@@ -425,6 +425,10 @@ void * userinput(){
 			case 'q':
 				kill (0, SIGINT);
 				break;
+			case 'r':
+				init_game();
+				break;
+
 		}
 	}
 	
