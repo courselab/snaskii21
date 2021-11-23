@@ -54,6 +54,13 @@ the following authors:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/CarlosCraveiro">
+            <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
+            <br />
+            <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
@@ -79,13 +86,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
             <br />
             <sub><b>Lucas Viana</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/CarlosCraveiro">
-            <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
-            <br />
-            <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
         </a>
     </td>
     <td align="center">
