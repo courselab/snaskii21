@@ -273,7 +273,7 @@ void init_game (){
 	block_count = 0;
 	snake.energy = 50;
 	snake.direction = right;
-	snake.length = 12;
+	snake.length = 5;
 	snake.head.x = 5;
 	snake.head.y = 5;
 
@@ -329,6 +329,16 @@ void spawn_energy_block()
     }
 }
 
+/* Grows the snake - increases the snake length by one */
+
+void grown_snake()
+{
+    snake.length++;
+    snake.positions = (pair_t *) realloc(snake.positions, sizeof(pair_t) * snake.length);
+    snake.positions[snake.length - 1].x = snake.positions[snake.length - 2].x;
+    snake.positions[snake.length - 1].y = snake.positions[snake.length - 2].y;
+}
+
 /* Checks if the snake has hit itself, a wall or a energy block */
 
 void check_colision(){
@@ -341,6 +351,7 @@ void check_colision(){
 		paused = 1;
 	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
 		block_count++;
+        grown_snake();
 		spawn_energy_block();
 	}
 	for(i = 0; i < snake.length - 1; i++){
