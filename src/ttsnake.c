@@ -288,12 +288,19 @@ void init_game (){
 /* Checks if the snake has hit itself, a wall or a energy block */
 
 void check_colision(){
+	int i;
 	if(snake.head.x == 0 || snake.head.x == NCOLS - 1){
 		game_end = 1;	
 	} else if(snake.head.y == 0 || snake.head.y == NROWS - 1){
 		game_end = 1;
 	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
 		block_count++;
+	}
+	for(i = 0; i < snake.length - 1; i++){
+		if(snake.head.x == snake.positions[0].x && snake.head.y == snake.positions[0].y){
+			game_end = 1;
+			break;
+		}
 	}
 }
 
