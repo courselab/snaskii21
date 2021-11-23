@@ -28,6 +28,12 @@ repository__, you'll need to have GNU Build System (Autotools) installed.
 $ brew install autoconf automake
 ```
 
+### Arch Linux/Manjaro based platforms:
+
+```
+# pacman -S automake autoconf
+```
+
 Other missing dependencies will be indicated by the configuration script ---
 e.g.: if you don't have `libncurses` installed, it'll complain about it and you
 may install it.
@@ -42,6 +48,12 @@ may install it.
 
 ```
 $ brew install ncurses
+```
+
+### Arch Linux/Manjaro based platforms:
+
+```
+# pacman -S ncurses
 ```
 
 It is also required for your system to have support for POSIX threads.
@@ -96,11 +108,11 @@ and the data files in `/tmp/share`.
 For more detailed instructions, please, refer to the
 [installation guide](./INSTALL).
 
-An alternative option to install the dependencies and the repository is to use the provided automated scripts, such as `install_all.sh` or `install_all.py` scripts. 
+An alternative option to install the dependencies and the repository is to use the provided automated scripts, such as `install_all.sh` or `install_all.py` scripts.
 
 For `install_all.sh`, execute the following command on the terminal:
 
-```sudo install_all.sh``` 
+```sudo install_all.sh```
 
 For `install_all.py`, it's required to use Python 3.x. The usage is:
 
