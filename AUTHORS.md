@@ -18,17 +18,17 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Float07">
-            <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
-            <br />
-            <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Dauboau">
             <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
             <br />
             <sub><b>Daniel Contente Romanzini</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Float07">
+            <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
+            <br />
+            <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
         </a>
     </td>
     <td align="center">
@@ -61,13 +61,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/lucasvianav">
-            <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
-            <br />
-            <sub><b>Lucas Viana</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/artP2">
             <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
             <br />
@@ -75,10 +68,10 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/marcuscastelo">
-            <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
+        <a href="https://github.com/lucasvianav">
+            <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
             <br />
-            <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
+            <sub><b>Lucas Viana</b></sub>
         </a>
     </td>
     <td align="center">
@@ -86,6 +79,13 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
             <sub><b>Erik Melges</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/marcuscastelo">
+            <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
+            <br />
+            <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
         </a>
     </td>
     <td align="center">
