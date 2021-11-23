@@ -11,13 +11,6 @@ the following authors:
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/di-press">
-            <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
-            <br />
-            <sub><b>Di Press</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Dauboau">
             <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
             <br />
@@ -25,10 +18,24 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/di-press">
+            <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
+            <br />
+            <sub><b>Di Press</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Float07">
             <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
             <br />
             <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/artP2">
+            <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
+            <br />
+            <sub><b>ArtP2</b></sub>
         </a>
     </td>
     <td align="center">
@@ -44,6 +51,14 @@ the following authors:
             <br />
             <sub><b>Gabriel Souza</b></sub>
         </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/ms-erik">
+            <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
+            <br />
+            <sub><b>Erik Melges</b></sub>
+        </a>
     </td>
     <td align="center">
         <a href="https://github.com/andrecoco">
@@ -51,20 +66,12 @@ the following authors:
             <br />
             <sub><b>André Viana</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/MuketaUeda">
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/artP2">
-            <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
-            <br />
-            <sub><b>ArtP2</b></sub>
         </a>
     </td>
     <td align="center">
@@ -75,10 +82,10 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/ms-erik">
-            <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
+        <a href="https://github.com/CarlosCraveiro">
+            <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
             <br />
-            <sub><b>Erik Melges</b></sub>
+            <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
         </a>
     </td>
     <td align="center">
@@ -87,15 +94,15 @@ the following authors:
             <br />
             <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
             <br />
             <sub><b>Brugazoni</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/FelipeMoleiro">
             <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
