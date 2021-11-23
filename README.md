@@ -134,6 +134,16 @@ The password argument is optional. It's required only if your system is unable t
 	 -v, --version   Outputs the program version
 ```
 
+### Opening the game
+
+After following the installation process, execute the following command to open the game:
+
+```
+ $ ttsnake
+```
+
+If, for some reason, the command returns a message asking for a minimum terminal size to play the game, try running the command with the terminal in fullscreen mode.
+
 ### Playing the game
 
 The game takes place on a rectangular areana where a snake continuously
