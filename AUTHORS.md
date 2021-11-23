@@ -18,17 +18,17 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Dauboau">
-            <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
-            <br />
-            <sub><b>Daniel Contente Romanzini</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Float07">
             <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
             <br />
             <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Dauboau">
+            <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
+            <br />
+            <sub><b>Daniel Contente Romanzini</b></sub>
         </a>
     </td>
     <td align="center">
@@ -68,6 +68,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/artP2">
+            <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
+            <br />
+            <sub><b>ArtP2</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
             <br />
@@ -75,10 +82,10 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/artP2">
-            <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
+        <a href="https://github.com/ms-erik">
+            <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
-            <sub><b>ArtP2</b></sub>
+            <sub><b>Erik Melges</b></sub>
         </a>
     </td>
     <td align="center">
@@ -87,15 +94,15 @@ the following authors:
             <br />
             <sub><b>Brugazoni</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/FelipeMoleiro">
             <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
             <br />
             <sub><b>FelipeMoleiro</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
@@ -122,13 +129,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
             <br />
             <sub><b>AOCard</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/ms-erik">
-            <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
-            <br />
-            <sub><b>Erik Melges</b></sub>
         </a>
     </td></tr>
 </table>
