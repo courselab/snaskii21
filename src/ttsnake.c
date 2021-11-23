@@ -74,7 +74,7 @@ int max_energy_blocks;          /* Max number of energy blocks to display at onc
 int block_count; 		/*Number of energy blocks collected */
 
 int paused = 1; 		/* Play/Pause indicator */
-int game_end = 0;		/* End of the game indicator  */
+int game_end = 1;		/* End of the game indicator  */
 
 WINDOW *main_window;
 
@@ -293,7 +293,7 @@ void check_colision(){
 	} else if(snake.head.y == 0 || snake.head.y == NROWS - 1){
 		game_end = 1;
 	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
-		block_count = 0;
+		block_count++;
 	}
 }
 
@@ -363,9 +363,11 @@ void draw_settings(scene_t *scene){
 
 void run(scene_t* scene){
 	int i; 
+	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 	int tail = snake.length - 1;
 	scene[0][snake.positions[tail].y][snake.positions[tail].x] = ' ';
 	move_snake();
+	check_colision();
 	scene[0][snake.head.y][snake.head.x] = SNAKE_HEAD;
 	for(i = 0; i < tail; i++){
 		scene[0][snake.positions[i].y][snake.positions[i].x] = SNAKE_BODY;
@@ -388,9 +390,11 @@ void playgame (scene_t* scene)
       clear ();                               /* Clear screen. */
       refresh ();			      /* Refresh screen. */
       
-      if (paused){
+      if (paused && game_end){
    	draw_settings(scene);
-      	showscene (scene, 2, 1);
+      	showscene(scene, 2, 1);
+      } else if (paused){
+        showscene(scene, 3, 1);
       } else if(game_end){
       	showscene(scene, 1, 1);
       } else{
@@ -417,6 +421,7 @@ void * userinput(){
 		switch(c){
 			case 'p':
 				paused = paused ^ 1;
+				game_end = 0;
 				break;
 			case 'w':
 				if(snake.direction != down){
