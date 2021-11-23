@@ -163,7 +163,7 @@ The game score is the count of eaten blocks until the game is over.
 	W, A, S and D to control the snake
 	+ to increase the game speed
 	- to decrease the game speed
-	Q to quit the game
+	Q to quit the game/skip the loading animation
 	R at anytime to restart the game
 
 ## Contribute to this project
