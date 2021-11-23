@@ -272,7 +272,7 @@ void init_game (){
 	block_count = 0;
 	snake.energy = 50;
 	snake.direction = right;
-	snake.length = 4;
+	snake.length = 12;
 	snake.head.x = 5;
 	snake.head.y = 5;
 
@@ -297,7 +297,7 @@ void check_colision(){
 		block_count++;
 	}
 	for(i = 0; i < snake.length - 1; i++){
-		if(snake.head.x == snake.positions[0].x && snake.head.y == snake.positions[0].y){
+		if(snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y){
 			game_end = 1;
 			break;
 		}
