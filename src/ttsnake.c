@@ -285,25 +285,6 @@ void init_game (){
 	energy_block[0].y = 27;
 }
 
-/* Checks if the snake has hit itself, a wall or a energy block */
-
-void check_colision(){
-	int i;
-	if(snake.head.x == 0 || snake.head.x == NCOLS - 1){
-		game_end = 1;	
-	} else if(snake.head.y == 0 || snake.head.y == NROWS - 1){
-		game_end = 1;
-	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
-		block_count++;
-	}
-	for(i = 0; i < snake.length - 1; i++){
-		if(snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y){
-			game_end = 1;
-			break;
-		}
-	}
-}
-
 /* Generates energy_block[0] coordinates randomly */
 
 void generate_energy_block()
@@ -311,7 +292,6 @@ void generate_energy_block()
     energy_block[0].x = (rand() % (NCOLS - 2)) + 1;
     energy_block[0].y = (rand() % (NROWS - 2)) + 1;
 }
-
 
 /* Verifies if the block positions conflicts with the snake coordinates */
 
@@ -338,7 +318,7 @@ int energy_block_conflict()
 
 /* Spawns an energy_block on the map*/
 
-void spawn_energy_block(scene_t* scene)
+void spawn_energy_block()
 {
     generate_energy_block();
     
@@ -346,9 +326,29 @@ void spawn_energy_block(scene_t* scene)
     {
        generate_energy_block(); 
     }
-
-    scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 }
+
+/* Checks if the snake has hit itself, a wall or a energy block */
+
+void check_colision(){
+	int i;
+	if(snake.head.x == 0 || snake.head.x == NCOLS - 1){
+		game_end = 1;	
+	} else if(snake.head.y == 0 || snake.head.y == NROWS - 1){
+		game_end = 1;
+	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
+		block_count++;
+		spawn_energy_block();
+	}
+	for(i = 0; i < snake.length - 1; i++){
+		if(snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y){
+			game_end = 1;
+			break;
+		}
+	}
+}
+
+
 
 /* This function moves the snake */
 
