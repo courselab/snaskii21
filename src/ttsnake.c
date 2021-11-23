@@ -74,6 +74,7 @@ int max_energy_blocks;          /* Max number of energy blocks to display at onc
 int block_count; 		/*Number of energy blocks collected */
 
 int paused = 1; 		/* Play/Pause indicator */
+int game_end = 0;		/* End of the game indicator  */
 
 WINDOW *main_window;
 
@@ -375,11 +376,17 @@ void playgame (scene_t* scene)
       refresh ();			      /* Refresh screen. */
       
       if (paused){
-      	draw_settings(scene);
+   	draw_settings(scene);
       	showscene (scene, 2, 1);
       } else{
 	run(scene);
 	showscene(scene, 0, 1);
+      }
+      if(game_end){      	
+	showscene(scene, 1, 1);
+      } else{
+	run(scene);
+  	showscene(scene, 0, 1);
       }
       how_long.tv_nsec = (game_delay) * 1e3;  /* Compute delay. */
       nanosleep (&how_long, NULL);
