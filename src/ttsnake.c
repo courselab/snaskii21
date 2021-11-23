@@ -348,8 +348,6 @@ void check_colision(){
 	}
 }
 
-
-
 /* This function moves the snake */
 
 void move_snake(){
