@@ -74,7 +74,8 @@ int max_energy_blocks;          /* Max number of energy blocks to display at onc
 int block_count; 		/*Number of energy blocks collected */
 
 int paused = 1; 		/* Play/Pause indicator */
-int game_end = 1;		/* End of the game indicator  */
+int game_end = 0;		/* End of the game indicator  */
+int restarted = 1; 		/* Restart indicator */
 
 WINDOW *main_window;
 
@@ -333,9 +334,11 @@ void spawn_energy_block()
 void check_colision(){
 	int i;
 	if(snake.head.x == 0 || snake.head.x == NCOLS - 1){
-		game_end = 1;	
+		game_end = 1;
+		paused = 1;
 	} else if(snake.head.y == 0 || snake.head.y == NROWS - 1){
 		game_end = 1;
+		paused = 1;
 	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
 		block_count++;
 		spawn_energy_block();
@@ -343,6 +346,7 @@ void check_colision(){
 	for(i = 0; i < snake.length - 1; i++){
 		if(snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y){
 			game_end = 1;
+			paused = 1;
 			break;
 		}
 	}
@@ -428,7 +432,7 @@ void run(scene_t* scene){
 
 /* This function implements the gameplay loop. */
 
-void playgame (scene_t* scene)
+void playgame (scene_t* scene, char* curr_data_dir)
 {
 
   struct timespec how_long;
@@ -441,20 +445,21 @@ void playgame (scene_t* scene)
       clear ();                               /* Clear screen. */
       refresh ();			      /* Refresh screen. */
       
-      if (paused && game_end){
+      if (restarted){
    	draw_settings(scene);
       	showscene(scene, 2, 1);
-      } else if (paused){
-        showscene(scene, 3, 1);
       } else if(game_end){
       	showscene(scene, 1, 1);
-      } else{
+	readscenes (SCENE_DIR_GAME, curr_data_dir, &scene, N_GAME_SCENES);
+      } else if (paused){
+        showscene(scene, 3, 1);
+      }
+      if (!restarted && !paused && !game_end){
 	run(scene);
 	showscene(scene, 0, 1);
       }
       how_long.tv_nsec = (game_delay) * 1e3;  /* Compute delay. */
       nanosleep (&how_long, NULL);
-
 
 
     }
@@ -471,8 +476,10 @@ void * userinput(){
 		c = getchar();
 		switch(c){
 			case 'p':
-				paused = paused ^ 1;
-				game_end = 0;
+				if (!game_end){
+					paused = paused ^ 1;
+					restarted = 0;
+				}
 				break;
 			case 'w':
 				if(snake.direction != down){
@@ -495,10 +502,16 @@ void * userinput(){
 				}
 				break;
 			case 'q':
-				kill (0, SIGINT);
+				if (game_end || restarted ){
+					kill (0, SIGINT);
+				}
 				break;
 			case 'r':
-				init_game();
+				if(game_end){
+					init_game();
+					restarted = 1;
+					game_end = 0;
+				}
 				break;
 
 		}
@@ -628,7 +641,7 @@ int main(int argc, char **argv)
     gettimeofday (&beginning, NULL);
 
     init_game ();
-    playgame (game_scene);
+    playgame (game_scene, curr_data_dir);
     
     endwin();
     free(intro_scene);
