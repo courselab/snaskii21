@@ -74,6 +74,7 @@ int max_energy_blocks;          /* Max number of energy blocks to display at onc
 int block_count; 		/*Number of energy blocks collected */
 
 int paused = 1; 		/* Play/Pause indicator */
+int game_end = 1;		/* End of the game indicator  */
 
 WINDOW *main_window;
 
@@ -271,7 +272,7 @@ void init_game (){
 	block_count = 0;
 	snake.energy = 50;
 	snake.direction = right;
-	snake.length = 4;
+	snake.length = 12;
 	snake.head.x = 5;
 	snake.head.y = 5;
 
@@ -280,8 +281,28 @@ void init_game (){
 		snake.positions[i].x = snake.head.x - i - 1;
 		snake.positions[i].y = snake.head.y - i - 1;
 	}
+	energy_block[0].x = 27;
+	energy_block[0].y = 27;
 }
 
+/* Checks if the snake has hit itself, a wall or a energy block */
+
+void check_colision(){
+	int i;
+	if(snake.head.x == 0 || snake.head.x == NCOLS - 1){
+		game_end = 1;	
+	} else if(snake.head.y == 0 || snake.head.y == NROWS - 1){
+		game_end = 1;
+	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
+		block_count++;
+	}
+	for(i = 0; i < snake.length - 1; i++){
+		if(snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y){
+			game_end = 1;
+			break;
+		}
+	}
+}
 
 /* Generates energy_block[0] coordinates randomly */
 
@@ -394,10 +415,12 @@ void draw_settings(scene_t *scene){
 /* This function implements the gameplay */
 
 void run(scene_t* scene){
-	int i;
+	int i; 
+	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 	int tail = snake.length - 1;
 	scene[0][snake.positions[tail].y][snake.positions[tail].x] = ' ';
 	move_snake();
+	check_colision();
 	scene[0][snake.head.y][snake.head.x] = SNAKE_HEAD;
 	for(i = 0; i < tail; i++){
 		scene[0][snake.positions[i].y][snake.positions[i].x] = SNAKE_BODY;
@@ -420,9 +443,13 @@ void playgame (scene_t* scene)
       clear ();                               /* Clear screen. */
       refresh ();			      /* Refresh screen. */
       
-      if (paused){
-      	draw_settings(scene);
-      	showscene (scene, 2, 1);
+      if (paused && game_end){
+   	draw_settings(scene);
+      	showscene(scene, 2, 1);
+      } else if (paused){
+        showscene(scene, 3, 1);
+      } else if(game_end){
+      	showscene(scene, 1, 1);
       } else{
 	run(scene);
 	showscene(scene, 0, 1);
@@ -447,6 +474,7 @@ void * userinput(){
 		switch(c){
 			case 'p':
 				paused = paused ^ 1;
+				game_end = 0;
 				break;
 			case 'w':
 				if(snake.direction != down){
