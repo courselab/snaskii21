@@ -281,8 +281,21 @@ void init_game (){
 		snake.positions[i].x = snake.head.x - i - 1;
 		snake.positions[i].y = snake.head.y - i - 1;
 	}
+	energy_block[0].x = 27;
+	energy_block[0].y = 27;
 }
 
+/* Checks if the snake has hit itself, a wall or a energy block */
+
+void check_colision(){
+	if(snake.head.x == 0 || snake.head.x == NCOLS - 1){
+		game_end = 1;	
+	} else if(snake.head.y == 0 || snake.head.y == NROWS - 1){
+		game_end = 1;
+	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
+		block_count = 0;
+	}
+}
 
 /* This function moves the snake */
 
