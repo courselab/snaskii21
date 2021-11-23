@@ -403,16 +403,24 @@ void * userinput(){
 				paused = paused ^ 1;
 				break;
 			case 'w':
-				snake.direction = up;
+				if(snake.direction != down){
+					snake.direction = up;
+				}
 				break;
 			case 'a':
-				snake.direction = left;
+				if(snake.direction != right){
+					snake.direction = left;
+				}
 				break;
 			case 's':
-				snake.direction = down;
+				if(snake.direction != up){
+					snake.direction = down;
+				}
 				break;
 			case 'd':
-				snake.direction = right;
+				if(snake.direction != left){
+					snake.direction = right;
+				}
 				break;
 			case 'q':
 				kill (0, SIGINT);
