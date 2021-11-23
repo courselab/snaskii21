@@ -46,25 +46,25 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/artP2">
+            <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
+            <br />
+            <sub><b>ArtP2</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/andrecoco">
             <img src="https://avatars.githubusercontent.com/u/16878985?v=4" width="100;" alt="andrecoco"/>
             <br />
             <sub><b>André Viana</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/MuketaUeda">
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/artP2">
-            <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
-            <br />
-            <sub><b>ArtP2</b></sub>
         </a>
     </td>
     <td align="center">
