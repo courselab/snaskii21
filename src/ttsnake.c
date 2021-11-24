@@ -496,29 +496,29 @@ void * userinput(){
 					restarted = 0;
 				}
 				break;
-      case KEY_UP:
-      case 'w':
+      			case KEY_UP:
+      			case 'w':
 			case 'e':
 				if(snake.direction != down){
 					snake.direction = up;
 				}
 				break;
-      case KEY_LEFT:
-      case 'h':
-      case 'a':
+      			case KEY_LEFT:
+      			case 'h':
+      			case 'a':
 				if(snake.direction != right){
 					snake.direction = left;
 				}
 				break;
-      case KEY_DOWN:
-      case 'j':
+      			case KEY_DOWN:
+      			case 'j':
 			case 's':
 				if(snake.direction != up){
 					snake.direction = down;
 				}
 				break;
-      case KEY_RIGHT:
-      case 'l':
+      			case KEY_RIGHT:
+      			case 'l':
 			case 'd':
 				if(snake.direction != left){
 					snake.direction = right;
