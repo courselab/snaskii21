@@ -259,7 +259,7 @@ void showscene (scene_t* scene, int number, int menu)
 	  }	 
 	}
       wprintw(main_window, "\n");
-      wprintw (main_window, "Controls: q: quit | r: restart | WASD or HJKL: move the snake | +/-: change game speed\n");
+      wprintw (main_window, "Controls: q: quit | r: restart | WASD/HJKL/ARROWS: move the snake | +/-: change game speed\n");
       wprintw (main_window, "          h: help & settings | p: pause game\n");
     }
 }
@@ -482,9 +482,13 @@ void playgame (scene_t* scene, char* curr_data_dir)
    This function runs in a separate thread. */
 
 void * userinput(){
+  initscr();
+  raw();
+  keypad(stdscr, TRUE);
+  noecho();
 	int c;
 	while (1){
-		c = getchar();
+		c = getch();
 		switch(c){
 			case 'p':
 				if (!game_end){
@@ -492,25 +496,29 @@ void * userinput(){
 					restarted = 0;
 				}
 				break;
-            case 'k':
-			case 'w':
+      case KEY_UP:
+      case 'w':
+			case 'e':
 				if(snake.direction != down){
 					snake.direction = up;
 				}
 				break;
-            case 'h':
-            case 'a':
+      case KEY_LEFT:
+      case 'h':
+      case 'a':
 				if(snake.direction != right){
 					snake.direction = left;
 				}
 				break;
-            case 'j':
+      case KEY_DOWN:
+      case 'j':
 			case 's':
 				if(snake.direction != up){
 					snake.direction = down;
 				}
 				break;
-            case 'l':
+      case KEY_RIGHT:
+      case 'l':
 			case 'd':
 				if(snake.direction != left){
 					snake.direction = right;
