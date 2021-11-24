@@ -259,7 +259,7 @@ void showscene (scene_t* scene, int number, int menu)
 	  }	 
 	}
       wprintw(main_window, "\n");
-      wprintw (main_window, "Controls: q: quit | r: restart | WASD: move the snake | +/-: change game speed\n");
+      wprintw (main_window, "Controls: q: quit | r: restart | WASD or HJKL: move the snake | +/-: change game speed\n");
       wprintw (main_window, "          h: help & settings | p: pause game\n");
     }
 }
@@ -492,21 +492,25 @@ void * userinput(){
 					restarted = 0;
 				}
 				break;
+            case 'k':
 			case 'w':
 				if(snake.direction != down){
 					snake.direction = up;
 				}
 				break;
-			case 'a':
+            case 'h':
+            case 'a':
 				if(snake.direction != right){
 					snake.direction = left;
 				}
 				break;
+            case 'j':
 			case 's':
 				if(snake.direction != up){
 					snake.direction = down;
 				}
 				break;
+            case 'l':
 			case 'd':
 				if(snake.direction != left){
 					snake.direction = right;
