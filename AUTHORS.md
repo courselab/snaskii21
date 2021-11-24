@@ -143,7 +143,7 @@ the following authors:
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
             <br />
-            <sub><b>guynamedped</b></sub>
+            <sub><b>Guynamedped</b></sub>
         </a>
     </td></tr>
 </table>
