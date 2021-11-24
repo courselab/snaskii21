@@ -124,6 +124,18 @@ The password argument is optional. It's required only if your system is unable t
 
 ## USAGE
 
+### Opening the game
+
+After following the installation process, execute the following command to open the game:
+
+```
+ $ ttsnake
+```
+
+If, for some reason, the command returns a message asking for a minimum terminal size to play the game, try running the command with the terminal in fullscreen mode.
+
+### Extra options 
+
 ```
  Usage:  ttsnake [options]
 
@@ -153,8 +165,8 @@ The game score is the count of eaten blocks until the game is over.
 	W, A, S and D to control the snake
 	+ to increase the game speed
 	- to decrease the game speed
-	Q to quit the game
-	R at anytime to restart the game
+	Q to quit the game/skip the loading animation
+	R at game over screen to restart the game
 
 ## Contribute to this project
 
