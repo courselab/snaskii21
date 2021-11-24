@@ -39,25 +39,25 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/CarlosCraveiro">
+            <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
+            <br />
+            <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/math-araujo">
             <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
             <br />
             <sub><b>Math-araujo</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/gsasouza">
             <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
             <br />
             <sub><b>Gabriel Souza</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/CarlosCraveiro">
-            <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
-            <br />
-            <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
         </a>
     </td>
     <td align="center">
@@ -136,6 +136,14 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
             <br />
             <sub><b>AOCard</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/guynamedped">
+            <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
+            <br />
+            <sub><b>guynamedped</b></sub>
         </a>
     </td></tr>
 </table>
