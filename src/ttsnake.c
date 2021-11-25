@@ -47,7 +47,7 @@
 #define SNAKE_TAIL	 '.'	 /* Character to draw the snake tail. */
 #define SNAKE_BODY       'x'     /* Character to draw the snake body. */
 #define SNAKE_HEAD	 '0'	 /* Character to draw the snake head. */
-#define ENERGY_BLOCK     '+'	 /* Character to draw the energy block. */
+#define ENERGY_BLOCK '+'	 /* Character to draw the energy block. */
 
 #define MAX_ENERGY_BLOCKS_LIMIT 50	/* How many energy blocks we can have.*/
 #define MAX_SNAKE_ENERGY (NCOLS+NROWS)  /* How much energy the snake can hold.*/
@@ -487,6 +487,10 @@ void * userinput(){
   keypad(stdscr, TRUE);
   noecho();
 	int c;
+  struct timespec how_long;
+  how_long.tv_sec = 0;
+  how_long.tv_nsec = (game_delay) * 1e3;  /*Delay to stop fast inputs bug*/  
+  
 	while (1){
 		c = getch();
 		switch(c){
@@ -538,6 +542,7 @@ void * userinput(){
 				break;
 
 		}
+    nanosleep (&how_long, NULL);    
 	}
 	
 	return NULL;
