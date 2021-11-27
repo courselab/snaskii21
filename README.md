@@ -15,18 +15,45 @@ administrative privileges (`sudo`).
 
 If you have obtained the project source from the __version control
 repository__, you'll need to have GNU Build System (Autotools) installed.
-In Debian/Ubuntu based platforms, you may install the required software with:
 
- ```
- # apt install automake autoconf
- ```
+### Debian/Ubuntu based platforms:
+
+```
+# apt install automake autoconf
+```
+
+### [Homebrew](https://brew.sh/) (macOS/Linux):
+
+```
+$ brew install autoconf automake
+```
+
+### Arch Linux/Manjaro based platforms:
+
+```
+# pacman -S automake autoconf
+```
 
 Other missing dependencies will be indicated by the configuration script ---
 e.g.: if you don't have `libncurses` installed, it'll complain about it and you
-may install it (if in Debian/Ubuntu based system) with:
+may install it.
+
+### Debian/Ubuntu based platforms:
 
 ```
 # apt install libncurses5-dev
+```
+
+### [Homebrew](https://brew.sh/) (macOS/Linux):
+
+```
+$ brew install ncurses
+```
+
+### Arch Linux/Manjaro based platforms:
+
+```
+# pacman -S ncurses
 ```
 
 It is also required for your system to have support for POSIX threads.
@@ -81,11 +108,11 @@ and the data files in `/tmp/share`.
 For more detailed instructions, please, refer to the
 [installation guide](./INSTALL).
 
-An alternative option to install the dependencies and the repository is to use the provided automated scripts, such as `install_all.sh` or `install_all.py` scripts. 
+An alternative option to install the dependencies and the repository is to use the provided automated scripts, such as `install_all.sh` or `install_all.py` scripts.
 
 For `install_all.sh`, execute the following command on the terminal:
 
-```sudo install_all.sh``` 
+```sudo install_all.sh```
 
 For `install_all.py`, it's required to use Python 3.x. The usage is:
 
@@ -96,6 +123,18 @@ The password argument is optional. It's required only if your system is unable t
 ```python install_all.py --password xyz```
 
 ## USAGE
+
+### Opening the game
+
+After following the installation process, execute the following command to open the game:
+
+```
+ $ ttsnake
+```
+
+If, for some reason, the command returns a message asking for a minimum terminal size to play the game, try running the command with the terminal in fullscreen mode.
+
+### Extra options 
 
 ```
  Usage:  ttsnake [options]
@@ -123,11 +162,11 @@ this is weird for snakes, but this is a Tron Snake).
 The game score is the count of eaten blocks until the game is over.
 
  ### Controls:
-	W, A, S and D to control the snake
+	WASD/HJKL/ARROWS to control the snake
 	+ to increase the game speed
 	- to decrease the game speed
-	Q to quit the game
-	R at anytime to restart the game
+	Q to quit the game/skip the loading animation
+	R at game over screen to restart the game
 
 ## Contributing
 

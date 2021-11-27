@@ -11,17 +11,17 @@ the following authors:
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/di-press">
-            <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
-            <br />
-            <sub><b>Di Press</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Dauboau">
             <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
             <br />
             <sub><b>Daniel Contente Romanzini</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/di-press">
+            <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
+            <br />
+            <sub><b>Di Press</b></sub>
         </a>
     </td>
     <td align="center">
@@ -32,10 +32,39 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/artP2">
+            <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
+            <br />
+            <sub><b>ArtP2</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/CarlosCraveiro">
+            <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
+            <br />
+            <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/math-araujo">
             <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
             <br />
             <sub><b>Math-araujo</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/gsasouza">
+            <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
+            <br />
+            <sub><b>Gabriel Souza</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ms-erik">
+            <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
+            <br />
+            <sub><b>Erik Melges</b></sub>
         </a>
     </td>
     <td align="center">
@@ -51,8 +80,7 @@ the following authors:
             <br />
             <sub><b>MuketaUeda</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/lucasvianav">
             <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
@@ -66,12 +94,20 @@ the following authors:
             <br />
             <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
             <br />
             <sub><b>Brugazoni</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/FelipeMoleiro">
+            <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
+            <br />
+            <sub><b>FelipeMoleiro</b></sub>
         </a>
     </td>
     <td align="center">
@@ -94,20 +130,20 @@ the following authors:
             <br />
             <sub><b>Ceneme</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/aocard">
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
             <br />
             <sub><b>AOCard</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
-        <a href="https://github.com/ms-erik">
-            <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
+        <a href="https://github.com/guynamedped">
+            <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
             <br />
-            <sub><b>Erik Melges</b></sub>
+            <sub><b>Guynamedped</b></sub>
         </a>
     </td></tr>
 </table>

@@ -73,6 +73,10 @@ int max_energy_blocks;          /* Max number of energy blocks to display at onc
 
 int block_count; 		/*Number of energy blocks collected */
 
+int paused = 1; 		/* Play/Pause indicator */
+int game_end = 0;		/* End of the game indicator  */
+int restarted = 1; 		/* Restart indicator */
+
 WINDOW *main_window;
 
 /* SIGINT handler. The variable go_on controls the main loop. */
@@ -255,7 +259,7 @@ void showscene (scene_t* scene, int number, int menu)
 	  }	 
 	}
       wprintw(main_window, "\n");
-      wprintw (main_window, "Controls: q: quit | r: restart | WASD: move the snake | +/-: change game speed\n");
+      wprintw (main_window, "Controls: q: quit | r: restart | WASD/HJKL/ARROWS: move the snake | +/-: change game speed\n");
       wprintw (main_window, "          h: help & settings | p: pause game\n");
     }
 }
@@ -264,11 +268,130 @@ void showscene (scene_t* scene, int number, int menu)
 
 /* Initialize resources and counters. */
 
-void init_game ()
-{
-  
+void init_game (){
+	int i;
+	block_count = 0;
+	snake.energy = 50;
+	snake.direction = right;
+	snake.length = 5;
+	snake.head.x = 5;
+	snake.head.y = 5;
+
+	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
+	for(i = 0; i < snake.length; i++){
+		snake.positions[i].x = snake.head.x - i - 1;
+		snake.positions[i].y = snake.head.y - i - 1;
+	}
+	energy_block[0].x = 27;
+	energy_block[0].y = 27;
 }
 
+/* Generates energy_block[0] coordinates randomly */
+
+void generate_energy_block()
+{
+    energy_block[0].x = (rand() % (NCOLS - 2)) + 1;
+    energy_block[0].y = (rand() % (NROWS - 2)) + 1;
+}
+
+/* Verifies if the block positions conflicts with the snake coordinates */
+
+int energy_block_conflict()
+{
+    int i;
+
+    if(energy_block[0].x == snake.head.x && energy_block[0].y == snake.head.y)
+    {
+        return 1;
+    }
+
+    for(i = 0; i < snake.length - 1; i++)
+    {
+        if(energy_block[0].x == snake.positions[i].x && energy_block[0].y == snake.positions[i].y)
+        {
+           return 1; 
+        }
+    }
+
+    return 0;
+}
+
+
+/* Spawns an energy_block on the map*/
+
+void spawn_energy_block()
+{
+    generate_energy_block();
+    
+    while(energy_block_conflict())
+    {
+       generate_energy_block(); 
+    }
+}
+
+/* Grows the snake - increases the snake length by one */
+
+void grown_snake()
+{
+    snake.length++;
+    snake.positions = (pair_t *) realloc(snake.positions, sizeof(pair_t) * snake.length);
+    snake.positions[snake.length - 1].x = snake.positions[snake.length - 2].x;
+    snake.positions[snake.length - 1].y = snake.positions[snake.length - 2].y;
+}
+
+/* Checks if the snake has hit itself, a wall or a energy block */
+
+void check_colision(){
+	int i;
+	if(snake.head.x == 0 || snake.head.x == NCOLS - 1){
+		game_end = 1;
+		paused = 1;
+	} else if(snake.head.y == 0 || snake.head.y == NROWS - 1){
+		game_end = 1;
+		paused = 1;
+	} else if(snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y){
+		block_count++;
+        grown_snake();
+		spawn_energy_block();
+	}
+	for(i = 0; i < snake.length - 1; i++){
+		if(snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y){
+			game_end = 1;
+			paused = 1;
+			break;
+		}
+	}
+}
+
+/* This function moves the snake */
+
+void move_snake(){
+	int i;
+	for(i = snake.length - 1; i >= 0; i--){
+		if(i){
+			snake.positions[i].x = snake.positions[i - 1].x;
+			snake.positions[i].y = snake.positions[i - 1].y;
+		} else{
+			snake.positions[i].x = snake.head.x;
+			snake.positions[i].y = snake.head.y;
+		}
+	}
+
+	switch(snake.direction){
+		case up:
+			snake.head.y -= 1;
+			break;
+		case left:
+			snake.head.x -= 1;
+			break;
+		case down:
+			snake.head.y += 1;
+			break;
+		case right:
+			snake.head.x += 1;
+			break;
+	}
+}
 
 
 /* This function plays the game introduction animation. */
@@ -302,10 +425,25 @@ void draw_settings(scene_t *scene){
   memcpy(&scene[2][22][12], buffer, strlen(buffer));
 }
 
+/* This function implements the gameplay */
+
+void run(scene_t* scene){
+	int i; 
+	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
+	int tail = snake.length - 1;
+	scene[0][snake.positions[tail].y][snake.positions[tail].x] = ' ';
+	move_snake();
+	check_colision();
+	scene[0][snake.head.y][snake.head.x] = SNAKE_HEAD;
+	for(i = 0; i < tail; i++){
+		scene[0][snake.positions[i].y][snake.positions[i].x] = SNAKE_BODY;
+	}
+	scene[0][snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
+}
 
 /* This function implements the gameplay loop. */
 
-void playgame (scene_t* scene)
+void playgame (scene_t* scene, char* curr_data_dir)
 {
 
   struct timespec how_long;
@@ -318,11 +456,21 @@ void playgame (scene_t* scene)
       clear ();                               /* Clear screen. */
       refresh ();			      /* Refresh screen. */
       
-      draw_settings(scene);
-      showscene (scene, 2, 1);
+      if (restarted){
+   	draw_settings(scene);
+      	showscene(scene, 2, 1);
+      } else if(game_end){
+      	showscene(scene, 1, 1);
+	readscenes (SCENE_DIR_GAME, curr_data_dir, &scene, N_GAME_SCENES);
+      } else if (paused){
+        showscene(scene, 3, 1);
+      }
+      if (!restarted && !paused && !game_end){
+	run(scene);
+	showscene(scene, 0, 1);
+      }
       how_long.tv_nsec = (game_delay) * 1e3;  /* Compute delay. */
       nanosleep (&how_long, NULL);
-
 
 
     }
@@ -333,27 +481,67 @@ void playgame (scene_t* scene)
 /* Process user input.
    This function runs in a separate thread. */
 
-void * userinput()
-{
-  int c;
-  while (1)
-    {
-      c = getchar();
-      
-      switch(c)
-	{
-	case 'q':
-	  kill (0, SIGINT);
-	  break;
-	default:
-	  break;
+void * userinput(){
+  initscr();
+  raw();
+  keypad(stdscr, TRUE);
+  noecho();
+	int c;
+	while (1){
+		c = getch();
+		switch(c){
+			case 'p':
+				if (!game_end){
+					paused = paused ^ 1;
+					restarted = 0;
+				}
+				break;
+      			case KEY_UP:
+      			case 'w':
+			case 'e':
+				if(snake.direction != down){
+					snake.direction = up;
+				}
+				break;
+      			case KEY_LEFT:
+      			case 'h':
+      			case 'a':
+				if(snake.direction != right){
+					snake.direction = left;
+				}
+				break;
+      			case KEY_DOWN:
+      			case 'j':
+			case 's':
+				if(snake.direction != up){
+					snake.direction = down;
+				}
+				break;
+      			case KEY_RIGHT:
+      			case 'l':
+			case 'd':
+				if(snake.direction != left){
+					snake.direction = right;
+				}
+				break;
+			case 'q':
+				if (game_end || restarted ){
+					kill (0, SIGINT);
+				}
+				break;
+			case 'r':
+				if(game_end){
+					init_game();
+					restarted = 1;
+					game_end = 0;
+				}
+				break;
+
+		}
 	}
-      
-    }
-  return NULL;
-
+	
+	return NULL;
 }
-
 
 /* The main function. */
 
@@ -476,7 +664,7 @@ int main(int argc, char **argv)
     gettimeofday (&beginning, NULL);
 
     init_game ();
-    playgame (game_scene);
+    playgame (game_scene, curr_data_dir);
     
     endwin();
     free(intro_scene);
