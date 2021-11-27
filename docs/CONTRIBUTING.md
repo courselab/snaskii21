@@ -133,7 +133,7 @@ Each commit message should be written in the following format:
   │          │
   │          └─> Summary in present tense. Not capitalized. No period at the end.
   │
-  └─> Commit tag: bug|critical|doc|dup|easy|feature|help|invalid|other|src|wontfix
+  └─> Commit tag: bug|hotfix|doc|dup|easy|feature|help|invalid|other|src|wontfix
 ```
 
 The tag is the same option used as labels on issues. It makes it intuitive to construct the commit message and descriptive for anyone that is reviewing your pull request later.
