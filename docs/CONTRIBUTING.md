@@ -29,7 +29,7 @@ How should you make questions? Be direct and clear. Every body has limited time,
 ## <a name="found-bug"></a> Found a bug?
 If you find a bug in the source code, you can help us by [submitting an issue](#submission-guidelines) to our [Github Repository](https://github.com/courselab/snaskii21). Even better, you can submit a Pull Request with a fix.
 
-As a team, we work to fix all the issues as soon as possible, but before we do that, we need to be able to reproduce and confirm it. In order to reproduce bugs, we require that you provide a minimal reproduction. Having that enables us to go straight to the right problem, and do not require a lot of chatting to understand where the bug is.
+As a team, we work to fix all the issues as soon as possible, but before we do that, we need to be able to reproduce and confirm it. In order to reproduce bugs, we require that you provide a description on how to reproduce it. That enables us to go straight to the problem, and does not require wasting time exchanging information.
 
 ## <a name="mising-features"></a> Missing a Feature?
 You can request a new feature by [submitting an issue](#submission-guidelines) to our GitHub repository. If you would like to implmement a new feature, please consider the size of the change in order to determine the right steps to proceed:
