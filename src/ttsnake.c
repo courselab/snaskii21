@@ -511,6 +511,7 @@ void * userinput(){
 				break;
       			case KEY_UP:
       			case 'w':
+			case 'k':
 			case 'e':
 				if(snake.direction != down){
 					snake.direction = up;
