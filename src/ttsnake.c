@@ -87,6 +87,9 @@ void quit ()
   go_on=0;
 }
 
+/* Scene types enumerated from 0 to 3 */
+enum scene_type {RUNNING = 0, GAME_OVER, RESTARTED, PAUSED};
+
 /* The snake data structrue. */
 
 typedef enum {up, right, left, down} direction_t;
@@ -215,13 +218,17 @@ void draw (scene_t* scene, int number)
   int i, j;
 
   wmove(main_window, 0, 0);
-  for (i=0; i<NROWS; i++)
-    {
-      for (j=0; j<NCOLS; j++)
-	{
-	  waddch(main_window, scene[number][i][j]);
-	}
+  for (i=0; i<NROWS; i++) {
+    for (j=0; j<NCOLS; j++) {
+      waddch(main_window, scene[number][i][j]);
     }
+  }
+
+  if (number == GAME_OVER) { /* if displayed scene is the game over scene */
+    /* we must show the final score */
+    mvwprintw(main_window, NROWS*3/4, NCOLS/2-7, "Score: %d", block_count);
+  } 
+
   wrefresh(main_window);
 }
 
@@ -251,7 +258,7 @@ void showscene (scene_t* scene, int number, int menu)
       wprintw (main_window, "Elapsed: %5ds, fps=%5.2f\n", /* CR-LF because of ncurses. */
 	       (int) elapsed_total.tv_sec, fps);
       /*Add to the menu score and blocks collected */	  
-      wprintw (main_window, "Score: %.d\n", block_count);
+      wprintw (main_window, "Score: %d\n", block_count);
       wprintw (main_window, "Energy: %d\n", snake.energy); 
       for(i = 0; i < snake.energy; i++)
 	{
@@ -461,29 +468,29 @@ void playgame (scene_t* scene, char* curr_data_dir)
 
   /* User may change delay (game speedy) asynchronously. */
 
-  while (go_on)
-    {
-      clear ();                               /* Clear screen. */
-      refresh ();			      /* Refresh screen. */
-      
-      if (restarted){
-   	draw_settings(scene);
-      	showscene(scene, 2, 1);
-      } else if(game_end){
-      	showscene(scene, 1, 1);
-	readscenes (SCENE_DIR_GAME, curr_data_dir, &scene, N_GAME_SCENES);
-      } else if (paused){
-        showscene(scene, 3, 1);
-      }
-      if (!restarted && !paused && !game_end){
-	run(scene);
-	showscene(scene, 0, 1);
-      }
-      how_long.tv_nsec = (game_delay) * 1e3;  /* Compute delay. */
-      nanosleep (&how_long, NULL);
-
+  while (go_on) {
+    clear ();                               /* Clear screen. */
+    refresh ();			      /* Refresh screen. */
+    
+    if (restarted) {
+      draw_settings(scene);
+      showscene(scene, RESTARTED, 1);
+    } 
+    else if(game_end) {
+      showscene(scene, GAME_OVER, 1);
+      readscenes (SCENE_DIR_GAME, curr_data_dir, &scene, N_GAME_SCENES);
+    } 
+    else if (paused){
+      showscene(scene, PAUSED, 1);
+    }
+    else { /*!restarted && !paused && !game_end */
+      run(scene);
+      showscene(scene, RUNNING, 1);
     }
 
+    how_long.tv_nsec = (game_delay) * 1e3;  /* Compute delay. */
+    nanosleep (&how_long, NULL);
+  }
 }
 
 
