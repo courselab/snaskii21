@@ -1,0 +1,8 @@
+blank_issues_enable: true
+contact_links:
+  - Name: 📖 Guidelines to create an issue
+    url: https://github.com/courselab/snaskii21/blob/develop/docs/CONTRIBUTING.md#general-guidelines
+    about: View the general guidelines on how to create an issue.
+  - Name: 📚 List of existing issues
+    url: https://github.com/courselab/snaskii21/issues?q=is%3Aopen
+    about: View here the list of the existing issues, to avoid addressing topics already reported.
