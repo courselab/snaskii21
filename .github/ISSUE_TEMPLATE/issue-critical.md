@@ -11,8 +11,8 @@ assignees: ''
 ## Describe the critical issue
 A clear and concise description of why the issue should be in high priority
 
-## How do you believe the issue can be solved
-Explain a clear and concise description of a solution.
+## How do you believe the issue could be solved
+Add a solution, if you have one.
 
 
 ## Relevant screenshots

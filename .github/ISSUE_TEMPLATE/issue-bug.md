@@ -18,8 +18,8 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
-## What do you believe the expected behavior is
-A clear and concise description of what you expected to happen.
+## What the expected behavior should've been
+A clear and concise description of what was expected to happen.
 
 ## Relevant screenshots
 If applicable, add screenshots to help explain your problem.

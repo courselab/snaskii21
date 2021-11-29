@@ -9,7 +9,7 @@ assignees: ''
 ---
 
 ## Describe the doc you think should be added or changed
-Describe in a clear and concise way.
+Add here a sugestion for a documentation.
 
 ## Relevant screenshots
 If applicable, add screenshots to help explain the issue.
