@@ -161,6 +161,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/MauricioGGCatellan">
+            <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
+            <br />
+            <sub><b>MauricioGGCatellan</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
             <br />
