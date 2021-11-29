@@ -97,6 +97,13 @@ the following authors:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/Henrique1792">
+            <img src="https://avatars.githubusercontent.com/u/7610888?v=4" width="100;" alt="Henrique1792"/>
+            <br />
+            <sub><b>Henrique Freitas</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/joaofavoretti">
             <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
             <br />
@@ -130,27 +137,20 @@ the following authors:
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
             <br />
             <sub><b>Ceneme</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/aocard">
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
             <br />
             <sub><b>AOCard</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Henrique1792">
-            <img src="https://avatars.githubusercontent.com/u/7610888?v=4" width="100;" alt="Henrique1792"/>
-            <br />
-            <sub><b>Henrique Freitas</b></sub>
         </a>
     </td>
     <td align="center">
