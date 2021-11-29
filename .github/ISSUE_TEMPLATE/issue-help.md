@@ -8,4 +8,13 @@ assignees: ''
 
 ---
 
-Sinalize here extra attention on a repository task.
+## Describe the help you need
+Describe in a clear and concise way.
+
+## Relevant screenshots
+If applicable, add screenshots to help explain the issue.
+
+## Additional context
+Add any other context about the requested help here.
+
+#
