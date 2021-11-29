@@ -161,13 +161,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Haltz01">
-            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
-            <br />
-            <sub><b>Pedro Guerra</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/JulioEO">
             <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
             <br />
@@ -180,8 +173,7 @@ the following authors:
             <br />
             <sub><b>MauricioGGCatellan</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
