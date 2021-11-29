@@ -54,6 +54,7 @@
 
 #define MIN_GAME_DELAY 10200	/* Empirically set. */
 #define MAX_GAME_DELAY 2.5E5	/* Empirically set. */
+#define ENERGY_MINIMAL 100
 
 /* Global variables.*/
 
@@ -271,7 +272,7 @@ void showscene (scene_t* scene, int number, int menu)
 void init_game (){
 	int i;
 	block_count = 0;
-	snake.energy = 50;
+	snake.energy = ENERGY_MINIMAL;
 	snake.direction = right;
 	snake.length = 5;
 	snake.head.x = 5;
@@ -353,6 +354,7 @@ void check_colision(){
 		block_count++;
         grown_snake();
 		spawn_energy_block();
+		snake.energy = ENERGY_MINIMAL;
 	}
 	for(i = 0; i < snake.length - 1; i++){
 		if(snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y){
@@ -361,6 +363,14 @@ void check_colision(){
 			break;
 		}
 	}
+	if (snake.energy > 0) 
+	{
+		snake.energy -= 1;
+	} else 
+		{
+			game_end = 1;
+			paused = 1;
+		}
 }
 
 /* This function moves the snake */
@@ -471,7 +481,6 @@ void playgame (scene_t* scene, char* curr_data_dir)
       }
       how_long.tv_nsec = (game_delay) * 1e3;  /* Compute delay. */
       nanosleep (&how_long, NULL);
-
 
     }
 
