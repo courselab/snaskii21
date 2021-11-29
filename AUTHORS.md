@@ -140,6 +140,20 @@ the following authors:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/Henrique1792">
+            <img src="https://avatars.githubusercontent.com/u/7610888?v=4" width="100;" alt="Henrique1792"/>
+            <br />
+            <sub><b>Henrique Freitas</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/JulioEO">
+            <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
+            <br />
+            <sub><b>JulioEO</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
             <br />
