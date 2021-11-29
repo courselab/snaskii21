@@ -168,7 +168,7 @@ The game score is the count of eaten blocks until the game is over.
 	Q to quit the game/skip the loading animation
 	R at game over screen to restart the game
 
-## Contribute to this project
+## Contributing
 
 If you wish to contribute to the project, please, __do__ read the
 [contribution guide](docs/CONTRIBUTING.md) for important information and
