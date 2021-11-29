@@ -496,6 +496,10 @@ void * userinput(){
   keypad(stdscr, TRUE);
   noecho();
 	int c;
+  struct timespec how_long;
+  how_long.tv_sec = 0;
+  how_long.tv_nsec = (game_delay) * 1e3;  /*Delay to stop fast inputs bug*/  
+  
 	while (1){
 		c = getch();
 		switch(c){
@@ -547,6 +551,7 @@ void * userinput(){
 				break;
 
 		}
+    nanosleep (&how_long, NULL);    
 	}
 	
 	return NULL;
