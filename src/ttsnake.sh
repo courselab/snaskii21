@@ -1,13 +1,12 @@
 #!/bin/sh
 
-ARG="$0"
-PROGRAM="$(dirname $ARG)/ttsnake.bin"
+PROGRAM="./ttsnake.bin"
 
-
+cd $(dirname $0)
 
 if [ -f "$PROGRAM" ]; then
     if [ -z "$1" ] ; then
-	./$PROGRAM -d scenes
+	./$PROGRAM -d ../scenes
     else
 	./$PROGRAM "$1"
     fi
