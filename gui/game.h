@@ -2,18 +2,26 @@
 
 #include <stdbool.h>
 #include "SDL.h"
+#include "SDL2/SDL_ttf.h"
 #include "wall.h"
 
 typedef struct {
     int windowWidth;
     int windowHeight;
     int blockSize;
+    
     SDL_Window* window;
     SDL_Renderer* renderer;
+    SDL_Texture* texture;
+	SDL_Surface* textSurface;
+	SDL_Texture* textTexture;
+	TTF_Font* font;
+
     bool initialized;
     bool running;
     bool paused;
     Wall borders[4];
+    int score;
 } Game;
 
 // Function to create and initialize Game instance; must be called before starting the game

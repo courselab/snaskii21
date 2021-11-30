@@ -1,5 +1,6 @@
 #include "game.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 bool initialize_game(Game* game) {
     game->window = NULL;
@@ -7,10 +8,19 @@ bool initialize_game(Game* game) {
     game->initialized = false;
     game->running = false;
     game->paused = false;
+    game->score = 0;
 
     const int sdlInitialization = SDL_Init(SDL_INIT_VIDEO);
     if (sdlInitialization != 0) {
         SDL_Log("FATAL ERROR: Cannot initialize SDL.\nError log: %s\n", SDL_GetError());
+        return false;
+    }
+
+    TTF_Init();
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+    game->font = TTF_OpenFont("Road_Rage/RoadRage-Regular.ttf", 20);
+    if (game->font == NULL) {
+        SDL_Log("FATAL ERROR: Cannot load font.\n");
         return false;
     }
 
@@ -47,6 +57,7 @@ void free_game(Game* game) {
     if (game != NULL) {
         SDL_DestroyRenderer(game->renderer);
         SDL_DestroyWindow(game->window);
+        TTF_Quit();
         SDL_Quit();
     }
 }
@@ -94,9 +105,6 @@ void update_game(Game* game) {
         printf("RUNNING GAME...\n");
         // add game logic here...
     }
-    else {
-        printf("GAME PAUSED\n");
-    }
 }
 
 void draw_game(Game* game) {
@@ -110,5 +118,25 @@ void draw_game(Game* game) {
         SDL_RenderFillRect(game->renderer, &(game->borders[i].shape));
     }
     
+    // Draw score
+    SDL_Color white = {255, 255, 255};
+    char scoreMessage[64];
+    snprintf(scoreMessage, 12, "Score: %d", game->score);
+    game->textSurface = TTF_RenderText_Solid(game->font, scoreMessage, white);
+    game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
+    SDL_Rect textPosition = {2*game->blockSize, 2*game->blockSize, 6*game->blockSize, 4*game->blockSize};
+    SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
+    SDL_DestroyTexture(game->textTexture);
+    SDL_FreeSurface(game->textSurface);
+    
+    if (game->paused) {
+        game->textSurface = TTF_RenderText_Solid(game->font, "PAUSED", white);
+        game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
+        SDL_Rect textPosition = {game->windowWidth / 3, game->windowHeight / 3, 20*game->blockSize, 12*game->blockSize};
+        SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
+        SDL_DestroyTexture(game->textTexture);
+        SDL_FreeSurface(game->textSurface);
+    }
+
     SDL_RenderPresent(game->renderer);
 }
