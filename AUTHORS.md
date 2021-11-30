@@ -193,7 +193,7 @@ the following authors:
         <a href="https://github.com/sleifnir">
             <img src="https://avatars.githubusercontent.com/u/50050993?v=4" width="100;" alt="sleifnir"/>
             <br />
-            <sub><b>sleifnir</b></sub>
+            <sub><b>Sleifnir</b></sub>
         </a>
     </td></tr>
 </table>
