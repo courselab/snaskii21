@@ -104,6 +104,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Haltz01">
+            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
+            <br />
+            <sub><b>Pedro Guerra</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Henrique1792">
             <img src="https://avatars.githubusercontent.com/u/7610888?v=4" width="100;" alt="Henrique1792"/>
             <br />
@@ -130,15 +137,22 @@ the following authors:
             <br />
             <sub><b>FelipeMoleiro</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
             <br />
             <sub><b>LeoFonsecaP</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
+    <td align="center">
+        <a href="https://github.com/MauricioGGCatellan">
+            <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
+            <br />
+            <sub><b>MauricioGGCatellan</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/monacofj">
             <img src="https://avatars.githubusercontent.com/u/3980792?v=4" width="100;" alt="monacofj"/>
@@ -161,24 +175,10 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Haltz01">
-            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
-            <br />
-            <sub><b>Pedro Guerra</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/JulioEO">
             <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
             <br />
             <sub><b>JulioEO</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/MauricioGGCatellan">
-            <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
-            <br />
-            <sub><b>MauricioGGCatellan</b></sub>
         </a>
     </td></tr>
 <tr>
