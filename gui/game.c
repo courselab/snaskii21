@@ -121,7 +121,7 @@ void draw_game(Game* game) {
     // Draw score
     SDL_Color white = {255, 255, 255};
     char scoreMessage[64];
-    snprintf(scoreMessage, 12, "Score: %d", game->score);
+    snprintf(scoreMessage, 12, "Score : %d", game->score);
     game->textSurface = TTF_RenderText_Solid(game->font, scoreMessage, white);
     game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
     SDL_Rect textPosition = {2*game->blockSize, 2*game->blockSize, 6*game->blockSize, 4*game->blockSize};
@@ -130,13 +130,18 @@ void draw_game(Game* game) {
     SDL_FreeSurface(game->textSurface);
     
     if (game->paused) {
-        game->textSurface = TTF_RenderText_Solid(game->font, "PAUSED", white);
-        game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
-        SDL_Rect textPosition = {game->windowWidth / 3, game->windowHeight / 3, 20*game->blockSize, 12*game->blockSize};
-        SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
-        SDL_DestroyTexture(game->textTexture);
-        SDL_FreeSurface(game->textSurface);
+        draw_paused(game);
     }
 
     SDL_RenderPresent(game->renderer);
+}
+
+void draw_paused(Game* game) {
+    SDL_Color white = {255, 255, 255};
+    game->textSurface = TTF_RenderText_Solid(game->font, "PAUSED", white);
+    game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
+    SDL_Rect textPosition = {game->windowWidth / 3, game->windowHeight / 3, 20*game->blockSize, 12*game->blockSize};
+    SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
+    SDL_DestroyTexture(game->textTexture);
+    SDL_FreeSurface(game->textSurface);
 }

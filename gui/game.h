@@ -31,3 +31,4 @@ void run_game(Game* game);
 void receive_user_input(Game* game);
 void update_game(Game* game);
 void draw_game(Game* game);
+void draw_paused(Game* game);
