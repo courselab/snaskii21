@@ -42,7 +42,7 @@ bool initialize_game(Game* game) {
     game->running = true;
     game->paused = false;
 
-    game->blockSize = 15;
+    game->blockSize = 16;
     const int blockSize = game->blockSize;
     Color wallColor = { .red = 178, .green = 208, .blue = 0, .alpha = 255};
     initialize_wall(&game->borders[0], &wallColor, 0, game->windowHeight - blockSize, game->windowWidth, blockSize);
