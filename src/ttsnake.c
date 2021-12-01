@@ -88,7 +88,7 @@ void quit ()
 }
 
 /* Scene types enumerated from 0 to 3 */
-enum scene_type {RUNNING = 0, GAME_OVER, RESTARTED, PAUSED};
+enum SCENE_TYPE {RUNNING = 0, GAME_OVER, RESTARTED, PAUSED};
 
 /* The snake data structrue. */
 
@@ -237,22 +237,45 @@ void draw (scene_t* scene, int number)
 /* Draw scene indexed by number, get some statics and repeat.
    If menu is true, draw the game controls.*/
 
-void showscene (scene_t* scene, int number, int menu)
-{
+void showscene (scene_t* scene, int scene_type, int menu) {
   double fps;
   int i;
 
   /* Draw the scene. */
 
-  draw (scene, number);
+  draw (scene, scene_type);
 
+  /* Updating current time and passing the last time (from last frame) to the 'before' variable */
   memcpy (&before, &now, sizeof (struct timeval));
   gettimeofday (&now, NULL);
 
+  /* Calculate the FPS */
+  long int t = (elapsed_total.tv_sec*1e6 + elapsed_total.tv_usec) - (elapsed_last.tv_sec*1e6 + elapsed_last.tv_usec);
+  fps = 1e6 / t;
 
-  fps = 1 / (elapsed_last.tv_sec + (elapsed_last.tv_usec * 1E-6));
+  switch (scene_type) {
+    case RUNNING:
+    case PAUSED:
+      /* Calculating elapsed time to display while the game is running */
+      timeval_subtract(&elapsed_last, &before, &beginning);
+      timeval_subtract(&elapsed_total, &now, &beginning);
+      break;
+
+    case RESTARTED:
+      gettimeofday (&beginning, NULL);
+      elapsed_last = (struct timeval){(__time_t) 0, (__suseconds_t) 0};
+      elapsed_total = (struct timeval){(__time_t) 0, (__suseconds_t) 0};
+      break;
+      
+    case GAME_OVER:
+      elapsed_last = (struct timeval){(__time_t) 0, (__suseconds_t) 0};
+      elapsed_total = (struct timeval){(__time_t) 0, (__suseconds_t) 0};
+      break;
+
+    default:
+      break;
+  }
   
-
   if (menu)
     {
       wprintw (main_window, "Elapsed: %5ds, fps=%5.2f\n", /* CR-LF because of ncurses. */
