@@ -111,14 +111,21 @@ void draw_game(Game* game) {
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
     
-    // draw snake and etc here...
+    draw_walls(game);
+    draw_text(game);
+
+    SDL_RenderPresent(game->renderer);
+}
+
+void draw_walls(Game* game) {
     for (int i = 0; i < 4; ++i) {
         Color* wallColor = &(game->borders[i].color);
         SDL_SetRenderDrawColor(game->renderer, wallColor->red, wallColor->green, wallColor->blue, wallColor->alpha);
         SDL_RenderFillRect(game->renderer, &(game->borders[i].shape));
     }
-    
-    // Draw score
+}
+
+void draw_text(Game* game) {
     SDL_Color white = {255, 255, 255};
     char scoreMessage[64];
     snprintf(scoreMessage, 12, "Score : %d", game->score);
@@ -126,22 +133,14 @@ void draw_game(Game* game) {
     game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
     SDL_Rect textPosition = {2*game->blockSize, 2*game->blockSize, 6*game->blockSize, 4*game->blockSize};
     SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
-    SDL_DestroyTexture(game->textTexture);
-    SDL_FreeSurface(game->textSurface);
     
     if (game->paused) {
-        draw_paused(game);
+        game->textSurface = TTF_RenderText_Solid(game->font, "PAUSED", white);
+        game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
+        textPosition = (SDL_Rect) {game->windowWidth / 3, game->windowHeight / 3, 20*game->blockSize, 12*game->blockSize};
+        SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
     }
-
-    SDL_RenderPresent(game->renderer);
-}
-
-void draw_paused(Game* game) {
-    SDL_Color white = {255, 255, 255};
-    game->textSurface = TTF_RenderText_Solid(game->font, "PAUSED", white);
-    game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
-    SDL_Rect textPosition = {game->windowWidth / 3, game->windowHeight / 3, 20*game->blockSize, 12*game->blockSize};
-    SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
+    
     SDL_DestroyTexture(game->textTexture);
     SDL_FreeSurface(game->textSurface);
 }
