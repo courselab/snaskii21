@@ -99,6 +99,8 @@ void receive_user_input(Game* game) {
         game->running = false;
         game->paused = false;
     }
+
+    receive_snake_input(&(game->snake), keyboardState);
 }
 
 void update_game(Game* game) {

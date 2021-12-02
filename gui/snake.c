@@ -112,7 +112,18 @@ void free_snake(Snake* snake) {
 }
 
 void receive_snake_input(Snake* snake, const Uint8* keyboardState) {
-
+    if (keyboardState[SDL_SCANCODE_UP] || keyboardState[SDL_SCANCODE_W]) {
+        snake->incomingDirection = UP;
+    }
+    else if (keyboardState[SDL_SCANCODE_DOWN] || keyboardState[SDL_SCANCODE_S]) {
+        snake->incomingDirection = DOWN;
+    }
+    else if (keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_A]) {
+        snake->incomingDirection = LEFT;
+    }
+    else if (keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_D]) {
+        snake->incomingDirection = RIGHT;
+    }
 }
 
 void draw_snake(Snake* snake, SDL_Renderer* renderer) {
