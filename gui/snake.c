@@ -66,10 +66,10 @@ void deque_push_front(Deque* deque, int positionX, int positionY) {
     }
     else {
         deque->head->previous = node;
-        node->previous = deque->head;
+        node->next = deque->head;
         deque->head = node;
     }
-
+    
     ++deque->size;
 }
 
@@ -95,10 +95,13 @@ PositionNode* deque_pop_back(Deque* deque) {
 void initialize_snake(Snake* snake, int headX, int headY, int blockSize) {
     snake->headColor = (SDL_Color) {51, 0, 51, 0};
     snake->bodyColor = (SDL_Color) {0, 102, 0, 0};
-    snake->headPosition = (SDL_Point) {headX, headY};
     snake->drawShape = (SDL_Rect) {headX, headY, blockSize, blockSize};
     snake->blockSize = blockSize;
     snake->bodyParts = initialize_deque();
+    for (int i = 3; i >= 0; --i) {
+        const int offset = i * blockSize;
+        deque_push_front(snake->bodyParts, headX - offset, headY);
+    }
 }
 
 void free_snake(Snake* snake) {
@@ -108,6 +111,14 @@ void free_snake(Snake* snake) {
 void draw_snake(Snake* snake, SDL_Renderer* renderer) {
     // Draw head
     SDL_SetRenderDrawColor(renderer, snake->headColor.r, snake->headColor.g, snake->headColor.b, snake->headColor.a); 
-    snake->drawShape = (SDL_Rect) {snake->headPosition.x, snake->headPosition.y, snake->blockSize, snake->blockSize};
-    SDL_RenderFillRect(renderer, &(snake->drawShape));    
+    PositionNode* snakeHead = snake->bodyParts->head;
+    snake->drawShape = (SDL_Rect) {snakeHead->position.x, snakeHead->position.y, snake->blockSize, snake->blockSize};
+    SDL_RenderFillRect(renderer, &(snake->drawShape));
+
+    // Draw body
+    SDL_SetRenderDrawColor(renderer, snake->bodyColor.r, snake->bodyColor.g, snake->bodyColor.b, snake->bodyColor.a);
+    for (PositionNode* iterator = snakeHead->next; iterator != NULL; iterator = iterator->next) {
+        snake->drawShape = (SDL_Rect) {iterator->position.x, iterator->position.y, snake->blockSize, snake->blockSize};
+        SDL_RenderFillRect(renderer, &(snake->drawShape));
+    }
 }
