@@ -140,6 +140,13 @@ the following authors:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/gabriel-vr">
+            <img src="https://avatars.githubusercontent.com/u/66570705?v=4" width="100;" alt="gabriel-vr"/>
+            <br />
+            <sub><b>Gabriel Vicente Rodrigues</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
             <br />
@@ -173,15 +180,15 @@ the following authors:
             <br />
             <sub><b>AOCard</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/JulioEO">
             <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
             <br />
             <sub><b>JulioEO</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
