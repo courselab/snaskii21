@@ -7,3 +7,8 @@ void initialize_snake(Snake* snake, int headX, int headY, int blockSize) {
     snake->drawShape = (SDL_Rect) {headX, headY, blockSize, blockSize};
     snake->size = blockSize;
 }
+
+void draw_snake(Snake* snake, SDL_Renderer* renderer) {
+    SDL_SetRenderDrawColor(renderer, snake->headColor.r, snake->headColor.g, snake->headColor.b, snake->headColor.a); 
+    SDL_RenderFillRect(renderer, &(snake->drawShape));
+}

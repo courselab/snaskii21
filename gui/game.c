@@ -113,7 +113,7 @@ void draw_game(Game* game) {
     SDL_RenderClear(game->renderer);
     
     draw_walls(game);
-    draw_snake(game);
+    draw_snake(&(game->snake), game->renderer);
     draw_text(game);
 
     SDL_RenderPresent(game->renderer);
@@ -125,11 +125,6 @@ void draw_walls(Game* game) {
         SDL_SetRenderDrawColor(game->renderer, wallColor->red, wallColor->green, wallColor->blue, wallColor->alpha);
         SDL_RenderFillRect(game->renderer, &(game->borders[i].shape));
     }
-}
-
-void draw_snake(Game* game) {
-    SDL_SetRenderDrawColor(game->renderer, game->snake.headColor.r, game->snake.headColor.g, game->snake.headColor.b, game->snake.headColor.a); 
-    SDL_RenderFillRect(game->renderer, &(game->snake.drawShape));
 }
 
 void draw_text(Game* game) {

@@ -34,5 +34,4 @@ void receive_user_input(Game* game);
 void update_game(Game* game);
 void draw_game(Game* game);
 void draw_walls(Game* game);
-void draw_snake(Game* game);
 void draw_text(Game* game);

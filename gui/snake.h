@@ -13,5 +13,6 @@ typedef struct {
 } Snake;
 
 void initialize_snake(Snake* snake, int headX, int headY, int blockSize);
+void draw_snake(Snake* snake, SDL_Renderer* renderer);
 
 #endif // SNAKE_H
