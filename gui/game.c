@@ -9,7 +9,7 @@ bool initialize_game(Game* game) {
     game->running = false;
     game->paused = false;
     game->score = 0;
-    game->frameTargetTime = 16;
+    game->frameTargetTime = 100;
     
     const int sdlInitialization = SDL_Init(SDL_INIT_VIDEO);
     if (sdlInitialization != 0) {
