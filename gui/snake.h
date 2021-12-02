@@ -41,6 +41,7 @@ typedef struct {
 
 void initialize_snake(Snake* snake, int headX, int headY, int blockSize);
 void receive_snake_input(Snake* snake, const Uint8* keyboardState);
+void update_snake(Snake* snake);
 void draw_snake(Snake* snake, SDL_Renderer* renderer);
 void free_snake(Snake* snake);
 
