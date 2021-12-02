@@ -103,10 +103,16 @@ void initialize_snake(Snake* snake, int headX, int headY, int blockSize) {
         const int offset = i * blockSize;
         deque_push_front(snake->bodyParts, headX - offset, headY);
     }
+    snake->currentDirection = RIGHT;
+    snake->incomingDirection = RIGHT;
 }
 
 void free_snake(Snake* snake) {
     free_deque(&(snake->bodyParts));
+}
+
+void receive_snake_input(Snake* snake, const Uint8* keyboardState) {
+
 }
 
 void draw_snake(Snake* snake, SDL_Renderer* renderer) {
