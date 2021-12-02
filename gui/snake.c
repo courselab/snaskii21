@@ -93,7 +93,7 @@ void deque_pop_back(Deque* deque) {
 
 // Snake functions
 void initialize_snake(Snake* snake, int headX, int headY, int blockSize) {
-    snake->headColor = (SDL_Color) {51, 0, 51, 0}; // Purple
+    snake->headColor = (SDL_Color) {255, 255, 0, 0}; // Yellow
     snake->bodyColor = (SDL_Color) {0, 102, 0, 0}; // Green
     snake->drawShape = (SDL_Rect) {headX, headY, blockSize, blockSize};
     snake->blockSize = blockSize;
