@@ -120,8 +120,7 @@ void update_game(Game* game) {
     }
 
     if (!game->paused) {
-        printf("RUNNING GAME...\n");
-        // add game logic here...
+        update_snake(&(game->snake));
     }
 }
 

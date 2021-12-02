@@ -157,6 +157,9 @@ void update_snake(Snake* snake) {
             newHead.y += (snake->currentDirection == UP) ? -1 * snake->blockSize : snake->blockSize;
         }
     }
+
+    deque_pop_back(snake->bodyParts);
+    deque_push_front(snake->bodyParts, newHead.x, newHead.y);
 }
 
 void draw_snake(Snake* snake, SDL_Renderer* renderer) {
