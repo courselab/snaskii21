@@ -50,7 +50,7 @@ bool initialize_game(Game* game) {
     initialize_wall(&game->borders[2], &wallColor, 0, 0, game->windowWidth, blockSize);
     initialize_wall(&game->borders[3], &wallColor, game->windowWidth - blockSize, 0, blockSize, game->windowHeight);
     initialize_snake(&(game->snake), game->windowWidth / 2, game->windowHeight / 2, game->blockSize);
-    
+
     return true;
 }
 
@@ -113,6 +113,7 @@ void draw_game(Game* game) {
     SDL_RenderClear(game->renderer);
     
     draw_walls(game);
+    draw_snake(game);
     draw_text(game);
 
     SDL_RenderPresent(game->renderer);
@@ -124,6 +125,11 @@ void draw_walls(Game* game) {
         SDL_SetRenderDrawColor(game->renderer, wallColor->red, wallColor->green, wallColor->blue, wallColor->alpha);
         SDL_RenderFillRect(game->renderer, &(game->borders[i].shape));
     }
+}
+
+void draw_snake(Game* game) {
+    SDL_SetRenderDrawColor(game->renderer, game->snake.headColor.r, game->snake.headColor.g, game->snake.headColor.b, game->snake.headColor.a); 
+    SDL_RenderFillRect(game->renderer, &(game->snake.drawShape));
 }
 
 void draw_text(Game* game) {

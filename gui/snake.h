@@ -7,6 +7,7 @@ typedef struct {
     SDL_Color headColor;
     SDL_Color bodyColor;
     SDL_Point headPosition;
+    SDL_Rect drawShape;
     int size;
     // SDL_Point bodyParts[1000]?
 } Snake;
