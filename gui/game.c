@@ -37,10 +37,6 @@ bool initialize_game(Game* game) {
         SDL_Log("FATAL ERROR: Cannot create renderer.\nError log: %s\n", SDL_GetError());
         return false;
     }
-    
-    game->initialized = true;
-    game->running = true;
-    game->paused = false;
 
     game->blockSize = 16;
     const int blockSize = game->blockSize;
@@ -50,12 +46,20 @@ bool initialize_game(Game* game) {
     initialize_wall(&game->borders[2], &wallColor, 0, 0, game->windowWidth, blockSize);
     initialize_wall(&game->borders[3], &wallColor, game->windowWidth - blockSize, 0, blockSize, game->windowHeight);
     initialize_snake(&(game->snake), game->windowWidth / 2, game->windowHeight / 2, game->blockSize);
+        
+    game->initialized = true;
+    game->running = true;
+    game->paused = false;
 
     return true;
 }
 
 void free_game(Game* game) {
     if (game != NULL) {
+        if (game->initialized) {
+            free_snake(&(game->snake));
+        }
+
         SDL_DestroyRenderer(game->renderer);
         SDL_DestroyWindow(game->window);
         TTF_Quit();
