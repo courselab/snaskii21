@@ -9,7 +9,8 @@ bool initialize_game(Game* game) {
     game->running = false;
     game->paused = false;
     game->score = 0;
-
+    game->frameTargetTime = 16;
+    
     const int sdlInitialization = SDL_Init(SDL_INIT_VIDEO);
     if (sdlInitialization != 0) {
         SDL_Log("FATAL ERROR: Cannot initialize SDL.\nError log: %s\n", SDL_GetError());
@@ -73,10 +74,20 @@ void run_game(Game* game) {
         return;
     }
 
+    int frameTimeStart = 0;
+    int frameTimeEnd = 0;
+    int frameDurationTime = 0;
     while (game->running) {
+        frameTimeStart = SDL_GetTicks();
         receive_user_input(game);
         update_game(game);
         draw_game(game);
+        frameTimeEnd = SDL_GetTicks();
+        frameDurationTime = frameTimeEnd - frameTimeStart;
+
+        if (game->frameTargetTime > frameDurationTime) {
+            SDL_Delay(game->frameTargetTime - frameDurationTime);
+        }
     }
 }
 

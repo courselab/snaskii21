@@ -10,7 +10,8 @@ typedef struct {
     int windowWidth;
     int windowHeight;
     int blockSize;
-    
+    int frameTargetTime;
+
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Texture* texture;
