@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "SDL.h"
 #include "SDL2/SDL_ttf.h"
+#include "snake.h"
 #include "wall.h"
 
 typedef struct {
@@ -22,6 +23,7 @@ typedef struct {
     bool paused;
     Wall borders[4];
     int score;
+    Snake snake;
 } Game;
 
 // Function to create and initialize Game instance; must be called before starting the game
@@ -32,4 +34,5 @@ void receive_user_input(Game* game);
 void update_game(Game* game);
 void draw_game(Game* game);
 void draw_walls(Game* game);
+void draw_snake(Game* game);
 void draw_text(Game* game);

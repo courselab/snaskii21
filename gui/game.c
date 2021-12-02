@@ -49,7 +49,8 @@ bool initialize_game(Game* game) {
     initialize_wall(&game->borders[1], &wallColor, 0, 0, blockSize, game->windowHeight);
     initialize_wall(&game->borders[2], &wallColor, 0, 0, game->windowWidth, blockSize);
     initialize_wall(&game->borders[3], &wallColor, game->windowWidth - blockSize, 0, blockSize, game->windowHeight);
-
+    initialize_snake(&(game->snake), game->windowWidth / 2, game->windowHeight / 2, game->blockSize);
+    
     return true;
 }
 
