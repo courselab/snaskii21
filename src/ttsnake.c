@@ -588,16 +588,20 @@ void * userinput(){
 				}
 				break;
       case '+':
-        if(!game_end && !restarted){
-          if(game_delay > MIN_GAME_DELAY){
-            game_delay-=DELTA_DELAY;
+        if (!game_end && !restarted) {
+          if(game_delay - DELTA_DELAY >= MIN_GAME_DELAY){
+            game_delay -= DELTA_DELAY;
+          } else {
+            game_delay = MIN_GAME_DELAY;
           }
         }
         break;
       case '-':
         if(!game_end && !restarted){
-          if(game_delay < MAX_GAME_DELAY){
-            game_delay+=DELTA_DELAY;
+          if (game_delay + DELTA_DELAY <= MAX_GAME_DELAY) {
+            game_delay += DELTA_DELAY;
+          } else {
+            game_delay = MAX_GAME_DELAY;
           }
         }
         break;
