@@ -73,9 +73,9 @@ void deque_push_front(Deque* deque, int positionX, int positionY) {
     ++deque->size;
 }
 
-PositionNode* deque_pop_back(Deque* deque) {
+void deque_pop_back(Deque* deque) {
     if (deque == NULL) {
-        return NULL;
+        return;
     }
 
     PositionNode* node = deque->tail;
@@ -88,7 +88,7 @@ PositionNode* deque_pop_back(Deque* deque) {
     }
 
     --deque->size;
-    return node;
+    free_node(&node);
 }
 
 // Snake functions
@@ -127,34 +127,34 @@ void receive_snake_input(Snake* snake, const Uint8* keyboardState) {
 }
 
 void update_snake(Snake* snake) {
-    PositionNode* newHead = deque_pop_back(snake->bodyParts);
+    SDL_Point newHead = {snake->bodyParts->head->position.x, snake->bodyParts->head->position.y};
 
     // If the snake already is moving in the horizontal direction, it's direction can only change to the vertical direction
     if (snake->currentDirection == LEFT || snake->currentDirection == RIGHT) {
         if (snake->incomingDirection == UP) {
-            newHead->position.y -= snake->blockSize;
+            newHead.y -= snake->blockSize;
             snake->currentDirection = snake->incomingDirection;
         }
         else if (snake->incomingDirection == DOWN) {
-            newHead->position.y += snake->blockSize;
+            newHead.y += snake->blockSize;
             snake->currentDirection = snake->incomingDirection;
         }
         else {
-            newHead->position.x += (snake->currentDirection == LEFT) ? -1 * snake->blockSize : snake->blockSize;
+            newHead.x += (snake->currentDirection == LEFT) ? -1 * snake->blockSize : snake->blockSize;
         }
     }
     // If the snake is moving in the vertical direction, it's direction can only change to the horizontal direction
     else if (snake->currentDirection == UP || snake->currentDirection == DOWN) {
         if (snake->incomingDirection == LEFT) {
-            newHead->position.x -= snake->blockSize;
+            newHead.x -= snake->blockSize;
             snake->currentDirection = snake->incomingDirection;
         }
         else if (snake->incomingDirection == RIGHT) {
-            newHead->position.x += snake->blockSize;
+            newHead.x += snake->blockSize;
             snake->currentDirection = snake->incomingDirection;
         }
         else {
-            newHead->position.y += (snake->currentDirection == UP) ? -1 * snake->blockSize : snake->blockSize;
+            newHead.y += (snake->currentDirection == UP) ? -1 * snake->blockSize : snake->blockSize;
         }
     }
 }
