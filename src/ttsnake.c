@@ -54,6 +54,8 @@
 
 #define MIN_GAME_DELAY 10200	/* Empirically set. */
 #define MAX_GAME_DELAY 2.5E5	/* Empirically set. */
+#define DEFAULT_GAME_DELAY 9E4
+#define DELTA_DELAY 5000
 #define ENERGY_MINIMAL 100
 
 /* Global variables.*/
@@ -401,6 +403,11 @@ void check_colision(){
 			game_end = 1;
 			paused = 1;
 		}
+  
+  /*if the game is over, set delay to default*/
+  if(game_end){
+    game_delay = DEFAULT_GAME_DELAY;
+  }
 }
 
 /* This function moves the snake */
@@ -580,6 +587,24 @@ void * userinput(){
 					game_end = 0;
 				}
 				break;
+      case '+':
+        if (!game_end && !restarted) {
+          if(game_delay - DELTA_DELAY >= MIN_GAME_DELAY){
+            game_delay -= DELTA_DELAY;
+          } else {
+            game_delay = MIN_GAME_DELAY;
+          }
+        }
+        break;
+      case '-':
+        if(!game_end && !restarted){
+          if (game_delay + DELTA_DELAY <= MAX_GAME_DELAY) {
+            game_delay += DELTA_DELAY;
+          } else {
+            game_delay = MAX_GAME_DELAY;
+          }
+        }
+        break;
 
 		}
     nanosleep (&how_long, NULL);    
@@ -683,7 +708,7 @@ int main(int argc, char **argv)
     /* Default values. */
 
     movie_delay = 2.5E4;	  /* Movie frame duration in usec (40usec) */
-    game_delay  = 9E4;	          /* Game frame duration in usec (4usec) */
+    game_delay  = DEFAULT_GAME_DELAY;	          /* Game frame duration in usec (4usec) */
     max_energy_blocks = 3;
 
 
