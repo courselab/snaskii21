@@ -9,7 +9,8 @@ bool initialize_game(Game* game) {
     game->running = false;
     game->paused = false;
     game->score = 0;
-
+    game->frameTargetTime = 100;
+    
     const int sdlInitialization = SDL_Init(SDL_INIT_VIDEO);
     if (sdlInitialization != 0) {
         SDL_Log("FATAL ERROR: Cannot initialize SDL.\nError log: %s\n", SDL_GetError());
@@ -37,24 +38,29 @@ bool initialize_game(Game* game) {
         SDL_Log("FATAL ERROR: Cannot create renderer.\nError log: %s\n", SDL_GetError());
         return false;
     }
-    
-    game->initialized = true;
-    game->running = true;
-    game->paused = false;
 
-    game->blockSize = 15;
+    game->blockSize = 16;
     const int blockSize = game->blockSize;
     Color wallColor = { .red = 178, .green = 208, .blue = 0, .alpha = 255};
     initialize_wall(&game->borders[0], &wallColor, 0, game->windowHeight - blockSize, game->windowWidth, blockSize);
     initialize_wall(&game->borders[1], &wallColor, 0, 0, blockSize, game->windowHeight);
     initialize_wall(&game->borders[2], &wallColor, 0, 0, game->windowWidth, blockSize);
     initialize_wall(&game->borders[3], &wallColor, game->windowWidth - blockSize, 0, blockSize, game->windowHeight);
+    initialize_snake(&(game->snake), game->windowWidth / 2, game->windowHeight / 2, game->blockSize);
+        
+    game->initialized = true;
+    game->running = true;
+    game->paused = false;
 
     return true;
 }
 
 void free_game(Game* game) {
     if (game != NULL) {
+        if (game->initialized) {
+            free_snake(&(game->snake));
+        }
+
         SDL_DestroyRenderer(game->renderer);
         SDL_DestroyWindow(game->window);
         TTF_Quit();
@@ -68,10 +74,20 @@ void run_game(Game* game) {
         return;
     }
 
+    int frameTimeStart = 0;
+    int frameTimeEnd = 0;
+    int frameDurationTime = 0;
     while (game->running) {
+        frameTimeStart = SDL_GetTicks();
         receive_user_input(game);
         update_game(game);
         draw_game(game);
+        frameTimeEnd = SDL_GetTicks();
+        frameDurationTime = frameTimeEnd - frameTimeStart;
+
+        if (game->frameTargetTime > frameDurationTime) {
+            SDL_Delay(game->frameTargetTime - frameDurationTime);
+        }
     }
 }
 
@@ -94,6 +110,8 @@ void receive_user_input(Game* game) {
         game->running = false;
         game->paused = false;
     }
+
+    receive_snake_input(&(game->snake), keyboardState);
 }
 
 void update_game(Game* game) {
@@ -102,8 +120,7 @@ void update_game(Game* game) {
     }
 
     if (!game->paused) {
-        printf("RUNNING GAME...\n");
-        // add game logic here...
+        update_snake(&(game->snake));
     }
 }
 
@@ -111,32 +128,37 @@ void draw_game(Game* game) {
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
     
-    // draw snake and etc here...
+    draw_walls(game);
+    draw_snake(&(game->snake), game->renderer);
+    draw_text(game);
+
+    SDL_RenderPresent(game->renderer);
+}
+
+void draw_walls(Game* game) {
     for (int i = 0; i < 4; ++i) {
         Color* wallColor = &(game->borders[i].color);
         SDL_SetRenderDrawColor(game->renderer, wallColor->red, wallColor->green, wallColor->blue, wallColor->alpha);
         SDL_RenderFillRect(game->renderer, &(game->borders[i].shape));
     }
-    
-    // Draw score
+}
+
+void draw_text(Game* game) {
     SDL_Color white = {255, 255, 255};
     char scoreMessage[64];
-    snprintf(scoreMessage, 12, "Score: %d", game->score);
+    snprintf(scoreMessage, 12, "Score : %d", game->score);
     game->textSurface = TTF_RenderText_Solid(game->font, scoreMessage, white);
     game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
     SDL_Rect textPosition = {2*game->blockSize, 2*game->blockSize, 6*game->blockSize, 4*game->blockSize};
     SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
-    SDL_DestroyTexture(game->textTexture);
-    SDL_FreeSurface(game->textSurface);
     
     if (game->paused) {
         game->textSurface = TTF_RenderText_Solid(game->font, "PAUSED", white);
         game->textTexture = SDL_CreateTextureFromSurface(game->renderer, game->textSurface);
-        SDL_Rect textPosition = {game->windowWidth / 3, game->windowHeight / 3, 20*game->blockSize, 12*game->blockSize};
+        textPosition = (SDL_Rect) {game->windowWidth / 3, game->windowHeight / 3, 20*game->blockSize, 12*game->blockSize};
         SDL_RenderCopy(game->renderer, game->textTexture, NULL, &textPosition);
-        SDL_DestroyTexture(game->textTexture);
-        SDL_FreeSurface(game->textSurface);
     }
-
-    SDL_RenderPresent(game->renderer);
+    
+    SDL_DestroyTexture(game->textTexture);
+    SDL_FreeSurface(game->textSurface);
 }
