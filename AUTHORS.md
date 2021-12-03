@@ -18,6 +18,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/math-araujo">
+            <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
+            <br />
+            <sub><b>Math-araujo</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/di-press">
             <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
             <br />
@@ -43,13 +50,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
             <br />
             <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/math-araujo">
-            <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
-            <br />
-            <sub><b>Math-araujo</b></sub>
         </a>
     </td></tr>
 <tr>
@@ -187,6 +187,13 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
             <br />
             <sub><b>JulioEO</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Beadurof">
+            <img src="https://avatars.githubusercontent.com/u/8800471?v=4" width="100;" alt="Beadurof"/>
+            <br />
+            <sub><b>Marcelo Temoteo</b></sub>
         </a>
     </td>
     <td align="center">
