@@ -190,6 +190,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/karolinyoliveira">
+            <img src="https://avatars.githubusercontent.com/u/45614118?v=4" width="100;" alt="karolinyoliveira"/>
+            <br />
+            <sub><b>Karoliny Oliveira</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Beadurof">
             <img src="https://avatars.githubusercontent.com/u/8800471?v=4" width="100;" alt="Beadurof"/>
             <br />
@@ -201,6 +208,13 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
             <br />
             <sub><b>Guynamedped</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/karolinysilva">
+            <img src="https://avatars.githubusercontent.com/u/78601574?v=4" width="100;" alt="karolinysilva"/>
+            <br />
+            <sub><b>Karoliny Silva</b></sub>
         </a>
     </td>
     <td align="center">
