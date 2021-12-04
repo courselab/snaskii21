@@ -5,6 +5,8 @@ Tron arcade. It was meant to be developed as a collaborative programming
 exercise in a course on Open Source Systems taught to undergraduate CS
 students.
 
+![TexTron Opening](./scenes/opening.gif)
+
 ## SETUP
 
 In the following section, the leading `#` in commands indicates that it requires
