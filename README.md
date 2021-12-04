@@ -5,7 +5,9 @@ Tron arcade. It was meant to be developed as a collaborative programming
 exercise in a course on Open Source Systems taught to undergraduate CS
 students.
 
-![TexTron Opening](./scenes/opening.gif)
+<p align="center">
+    <img src="./scenes/opening.gif" width=50% height=50%>
+</p>
 
 ## SETUP
 
