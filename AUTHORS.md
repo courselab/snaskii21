@@ -32,6 +32,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Henrique1792">
+            <img src="https://avatars.githubusercontent.com/u/7610888?v=4" width="100;" alt="Henrique1792"/>
+            <br />
+            <sub><b>Henrique Freitas</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Float07">
             <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
             <br />
@@ -44,15 +51,15 @@ the following authors:
             <br />
             <sub><b>ArtP2</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/CarlosCraveiro">
             <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
             <br />
             <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/gsasouza">
             <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
@@ -87,15 +94,15 @@ the following authors:
             <br />
             <sub><b>Lucas Viana</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Yudiaramos">
             <img src="https://avatars.githubusercontent.com/u/71808184?v=4" width="100;" alt="Yudiaramos"/>
             <br />
             <sub><b>Yudi Asano Ramos</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
@@ -108,13 +115,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
             <br />
             <sub><b>Pedro Guerra</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Henrique1792">
-            <img src="https://avatars.githubusercontent.com/u/7610888?v=4" width="100;" alt="Henrique1792"/>
-            <br />
-            <sub><b>Henrique Freitas</b></sub>
         </a>
     </td>
     <td align="center">
