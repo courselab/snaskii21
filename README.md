@@ -126,6 +126,13 @@ The password argument is optional. It's required only if your system is unable t
 
 ```python install_all.py --password xyz```
 
+
+## Docker environment execution
+
+For instructions on how to compile and execute using Docker, checkout the [dedicated document](/docker_env/README.md).
+
+
+
 ## USAGE
 
 ### Opening the game
