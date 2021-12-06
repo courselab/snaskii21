@@ -31,6 +31,7 @@
 #include <math.h>
 
 #include "utils.h"
+#include "score.h"
 
 /* Game defaults */
 
@@ -79,6 +80,10 @@ int block_count; 		/*Number of energy blocks collected */
 int paused = 1; 		/* Play/Pause indicator */
 int game_end = 0;		/* End of the game indicator  */
 int restarted = 1; 		/* Restart indicator */
+int entered_score = 0; /*Indicates if user registered his score */
+
+char nickname[MAX_NICKNAME + 1]; /*Nickname used in the score system*/
+int actual_pos_nickname = 0;
 
 WINDOW *main_window;
 
@@ -229,6 +234,14 @@ void draw (scene_t* scene, int number)
   if (number == GAME_OVER) { /* if displayed scene is the game over scene */
     /* we must show the final score */
     mvwprintw(main_window, NROWS*3/4, NCOLS/2-7, "Score: %d", block_count);
+    
+    /*Instructions to enter nickname*/
+    if(!entered_score) {
+      mvwprintw(main_window, NROWS*3/4 + 2, NCOLS/5-7, "Digite um nick de até 4 letras para salvar sua pontuacao.");
+      mvwprintw(main_window, NROWS*3/4 + 3, NCOLS/5-7, "Caso não deseje salvar, aperte '#'.");
+      mvwprintw(main_window, NROWS*3/4 + 4, NCOLS/5-7, "Caso deseje deletar um caractere, digite '&'.");
+      mvwprintw(main_window, NROWS*3/4 + 6, NCOLS/2-7, "%s", nickname);
+    }
   } 
 
   wrefresh(main_window);
@@ -295,6 +308,10 @@ void showscene (scene_t* scene, int scene_type, int menu) {
       wprintw (main_window, "Controls: q: quit | r: restart | WASD/HJKL/ARROWS: move the snake | +/-: change game speed\n");
       wprintw (main_window, "          h: help & settings | p: pause game\n");
     }
+  
+  else if(game_end) {
+    print_scores(main_window, NROWS, NCOLS);
+  }
 }
 
 
@@ -507,7 +524,7 @@ void playgame (scene_t* scene, char* curr_data_dir)
       showscene(scene, RESTARTED, 1);
     } 
     else if(game_end) {
-      showscene(scene, GAME_OVER, 1);
+      showscene(scene, GAME_OVER, 0);
       readscenes (SCENE_DIR_GAME, curr_data_dir, &scene, N_GAME_SCENES);
     } 
     else if (paused){
@@ -539,74 +556,116 @@ void * userinput(){
   
 	while (1){
 		c = getch();
-		switch(c){
-			case 'p':
-				if (!game_end){
-					paused = paused ^ 1;
-					restarted = 0;
-				}
-				break;
-      			case KEY_UP:
-      			case 'w':
-			case 'k':
-			case 'e':
-				if(snake.direction != down){
-					snake.direction = up;
-				}
-				break;
-      			case KEY_LEFT:
-      			case 'h':
-      			case 'a':
-				if(snake.direction != right){
-					snake.direction = left;
-				}
-				break;
-      			case KEY_DOWN:
-      			case 'j':
-			case 's':
-				if(snake.direction != up){
-					snake.direction = down;
-				}
-				break;
-      			case KEY_RIGHT:
-      			case 'l':
-			case 'd':
-				if(snake.direction != left){
-					snake.direction = right;
-				}
-				break;
-			case 'q':
-				if (game_end || restarted ){
-					kill (0, SIGINT);
-				}
-				break;
-			case 'r':
-				if(game_end){
-					init_game();
-					restarted = 1;
-					game_end = 0;
-				}
-				break;
-      case '+':
-        if (!game_end && !restarted) {
-          if(game_delay - DELTA_DELAY >= MIN_GAME_DELAY){
-            game_delay -= DELTA_DELAY;
-          } else {
-            game_delay = MIN_GAME_DELAY;
-          }
+    
+    /*
+      If the game is over and you havent entered your nickname, the key is used here
+    */
+    if(game_end && !entered_score) {
+      /*Dont insert score*/
+      if(c == '#'){
+        entered_score = 1;
+        actual_pos_nickname = 0;
+      }
+      
+      /*Insert char to nickname*/
+      else if(c != '\n' && c!= '\t' && c!=' ' && c!= '\r'){
+        
+        /*Delete last char*/
+        if(c == '&' && actual_pos_nickname>0){
+          actual_pos_nickname--;
+          nickname[actual_pos_nickname] = '\0';
         }
-        break;
-      case '-':
-        if(!game_end && !restarted){
-          if (game_delay + DELTA_DELAY <= MAX_GAME_DELAY) {
-            game_delay += DELTA_DELAY;
-          } else {
-            game_delay = MAX_GAME_DELAY;
-          }
-        }
-        break;
 
-		}
+        /*Insert char*/
+        else if(actual_pos_nickname < MAX_NICKNAME){
+            nickname[actual_pos_nickname] = c;
+            actual_pos_nickname++;
+            nickname[actual_pos_nickname] = '\0';
+          }
+      }
+
+      /*Enter score to score system*/
+      else {
+        if(actual_pos_nickname > 0){
+          add_score(nickname, block_count);
+        }
+        actual_pos_nickname = 0;
+        entered_score = 1;
+      }
+    }
+    else{
+
+      switch(c){
+        case 'p':
+          if (!game_end){
+            paused = paused ^ 1;
+            restarted = 0;
+          }
+          break;
+              case KEY_UP:
+              case 'w':
+        case 'k':
+        case 'e':
+          if(snake.direction != down){
+            snake.direction = up;
+          }
+          break;
+              case KEY_LEFT:
+              case 'h':
+              case 'a':
+          if(snake.direction != right){
+            snake.direction = left;
+          }
+          break;
+              case KEY_DOWN:
+              case 'j':
+        case 's':
+          if(snake.direction != up){
+            snake.direction = down;
+          }
+          break;
+              case KEY_RIGHT:
+              case 'l':
+        case 'd':
+          if(snake.direction != left){
+            snake.direction = right;
+          }
+          break;
+        case 'q':
+          if (game_end || restarted ){
+            kill (0, SIGINT);
+          }
+          break;
+        case 'r':
+          if(game_end){
+            init_game();
+            restarted = 1;
+            game_end = 0;
+            entered_score = 0;
+            nickname[actual_pos_nickname] = '\0';
+          }
+          break;
+        case '+':
+          if (!game_end && !restarted) {
+            if(game_delay - DELTA_DELAY >= MIN_GAME_DELAY){
+              game_delay -= DELTA_DELAY;
+            } else {
+              game_delay = MIN_GAME_DELAY;
+            }
+          }
+          break;
+        case '-':
+          if(!game_end && !restarted){
+            if (game_delay + DELTA_DELAY <= MAX_GAME_DELAY) {
+              game_delay += DELTA_DELAY;
+            } else {
+              game_delay = MAX_GAME_DELAY;
+            }
+          }
+          break;
+
+      }
+    }
     nanosleep (&how_long, NULL);    
 	}
 	
