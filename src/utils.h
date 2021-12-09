@@ -49,6 +49,6 @@ timeval_add (struct timeval *result, struct timeval *x, struct timeval *y);
 
 /* Shows help screen. Exit code is -1 if isError is set to true */
 
-void show_help(char isError);
+void show_help(char isError, char * curr_data_dir);
 
 #endif /* UTILS_H */

@@ -153,8 +153,8 @@ If, for some reason, the command returns a message asking for a minimum terminal
          Options
 
          -h, --help      Displays this information message
-         -d, --data      Selects a non-default data path
-	 -v, --version   Outputs the program version
+         -d, --data      Selects a non-default data path to game's assets and "share" folder
+	 	 -v, --version   Outputs the program version
 ```
 
 ### Playing the game

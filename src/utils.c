@@ -72,13 +72,14 @@ timeval_add (struct timeval *result, struct timeval *x, struct timeval *y)
 
 /* Shows help screen. Exit code is -1 if isError is set to true */
 
-void show_help(char isError) {
+void show_help(char isError, char * curr_data_dir) {
 
-    fprintf(isError? stderr : stdout, "\
+    fprintf(isError ? stderr : stdout, "\
 Usage: " BIN_NAME " [options]\n\n\
   Options\n\n\
+  -d, --data       Selects a non-default data path to game's assets and \"share\" folder\n\
+                   (default: %s).\n\
   -h, --help       Display this information message.\n\
-  -d, --data       Selects a non-default data path\n\
-  -v, --version    Outputs the program version\n") ;
+  -v, --version    Outputs the program version.\n", curr_data_dir);
     exit(isError?-1:0) ;
 } 
