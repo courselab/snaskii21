@@ -640,29 +640,28 @@ int main(int argc, char **argv)
 
   /* Handles options passed as arguments */
   
-  while ((currOpt = (getopt_long(argc, argv, "d:h:v", stoptions, NULL))) != -1)
-    {
-      switch (currOpt)
-	{
-	case 'd':
-	  /* Changes data_dir to one passed via argument */	  
-	  curr_data_dir = (char *)realloc(curr_data_dir, (strlen(optarg) + 1) * sizeof(char));
-	  strcpy(curr_data_dir, optarg);
-	  break;
-	case 'h':
-	  free(curr_data_dir);
-	  show_help(false);
-	  break;
+  while ((currOpt = (getopt_long(argc, argv, "d:h:v", stoptions, NULL))) != -1) {
+    switch (currOpt) {
+      case 'd':
+        /* Changes data_dir to one passed via argument */	  
+        curr_data_dir = (char *)realloc(curr_data_dir, (strlen(optarg) + 1) * sizeof(char));
+        strcpy(curr_data_dir, optarg);
+        break;
+      
+      case 'h':
+        show_help(false, curr_data_dir);
+        free(curr_data_dir);
+        break;
+        
+      case 'v':
+        free(curr_data_dir);
+        printf (PACKAGE_STRING "\n");
+        exit (EXIT_SUCCESS);
+        break;
 	  
-	case 'v':
-	  free(curr_data_dir);
-	  printf (PACKAGE_STRING "\n");
-	  exit (EXIT_SUCCESS);
-	  break;
-	  
-	default:
-	  free(curr_data_dir);
-	  show_help(true);
+      default:
+        show_help(true, curr_data_dir);
+        free(curr_data_dir);
 	}
       }
   
