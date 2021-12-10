@@ -151,10 +151,10 @@ If, for some reason, the command returns a message asking for a minimum terminal
  Usage:  ttsnake [options]
 
          Options
-
-         -h, --help      Displays this information message
+		
          -d, --data      Selects a non-default data path to game's assets and "share" folder
-	 	 -v, --version   Outputs the program version
+         -h, --help      Displays this information message
+         -v, --version   Outputs the program version
 ```
 
 ### Playing the game
