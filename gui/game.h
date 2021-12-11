@@ -12,12 +12,12 @@ typedef struct {
     int blockSize;
     int frameTargetTime;
 
-    SDL_Window* window;
-    SDL_Renderer* renderer;
-    SDL_Texture* texture;
-	SDL_Surface* textSurface;
-	SDL_Texture* textTexture;
-	TTF_Font* font;
+    SDL_Window *window;
+    SDL_Renderer *renderer;
+    SDL_Texture *texture;
+	SDL_Surface *textSurface;
+	SDL_Texture *textTexture;
+	TTF_Font *font;
 
     bool initialized;
     bool running;
@@ -27,12 +27,14 @@ typedef struct {
     Snake snake;
 } Game;
 
-// Function to create and initialize Game instance; must be called before starting the game
-bool initialize_game(Game* game);
-void free_game(Game* game);
-void run_game(Game* game);
-void receive_user_input(Game* game);
-void update_game(Game* game);
-void draw_game(Game* game);
-void draw_walls(Game* game);
-void draw_text(Game* game);
+/* Function to create and initialize Game instance; 
+   must be called before starting the game. */
+
+bool initialize_game (Game *game);
+void free_game (Game *game);
+void run_game (Game *game);
+void receive_user_input (Game *game);
+void update_game (Game *game);
+void draw_game (Game *game);
+void draw_walls (Game *game);
+void draw_text (Game *game);

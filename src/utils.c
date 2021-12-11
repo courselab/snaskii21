@@ -23,6 +23,7 @@
 #include <sys/time.h>
 #include "../config.h"
 
+
 /* Subtract the ‘struct timeval’ values X and Y, storing the result in RESULT.
    Return 1 if the difference is negative, otherwise 0. 
 
@@ -30,15 +31,15 @@
    https://www.gnu.org/software/libc/manual/html_node/Calculating-Elapsed-Time.html
 */
 
-int
-timeval_subtract (struct timeval *result, struct timeval *x, struct timeval *y)
-{
+int timeval_subtract (struct timeval *result, struct timeval *x, 
+                      struct timeval *y) {
   /* Perform the carry for the later subtraction by updating y. */
   if (x->tv_usec < y->tv_usec) {
     int nsec = (y->tv_usec - x->tv_usec) / 1000000 + 1;
     y->tv_usec -= 1000000 * nsec;
     y->tv_sec += nsec;
   }
+
   if (x->tv_usec - y->tv_usec > 1000000) {
     int nsec = (x->tv_usec - y->tv_usec) / 1000000;
     y->tv_usec += 1000000 * nsec;
@@ -54,11 +55,10 @@ timeval_subtract (struct timeval *result, struct timeval *x, struct timeval *y)
   return x->tv_sec < y->tv_sec;
 }
 
+
 /* Add the ‘struct timeval’ values X and Y, storing the result in RESULT. */
 
-void
-timeval_add (struct timeval *result, struct timeval *x, struct timeval *y)
-{
+void timeval_add (struct timeval *result, struct timeval *x, struct timeval *y) {
   /* Add the seconds and microseconds. */
   result->tv_sec = x->tv_sec + y->tv_sec;
   result->tv_usec = x->tv_usec + y->tv_usec;
@@ -70,16 +70,17 @@ timeval_add (struct timeval *result, struct timeval *x, struct timeval *y)
   }
 }
 
+
 /* Shows help screen. Exit code is -1 if isError is set to true */
 
-void show_help(char isError, char * curr_data_dir) {
+void show_help (char isError, char * curr_data_dir) {
 
-    fprintf(isError ? stderr : stdout, "\
+  fprintf(isError ? stderr : stdout, "\
 Usage: " BIN_NAME " [options]\n\n\
   Options\n\n\
   -d, --data       Selects a non-default data path to game's assets and \"share\" folder\n\
                    (default: %s).\n\
   -h, --help       Display this information message.\n\
   -v, --version    Outputs the program version.\n", curr_data_dir);
-    exit(isError?-1:0) ;
+  exit(isError ? -1 : 0);
 } 

@@ -29,7 +29,6 @@
 #include <sys/time.h>
 
 /* Report a system error and exit. */
-
 #define sysfatal(expression) \
   do { if ((expression)) {fprintf (stderr, "%s: %d: %s: %s\n",\
     __FILE__, __LINE__, __func__, strerror (errno)); \
@@ -38,17 +37,13 @@
 
 /* Subtract the ‘struct timeval’ values X and Y, storing the result in RESULT.
    Return 1 if the difference is negative, otherwise 0. */
-
-int
-timeval_subtract (struct timeval *result, struct timeval *x, struct timeval *y);
+int timeval_subtract (struct timeval *result, struct timeval *x, 
+                      struct timeval *y);
 
 /* Add the ‘struct timeval’ values X and Y, storing the result in RESULT. */
-
-void
-timeval_add (struct timeval *result, struct timeval *x, struct timeval *y);
+void timeval_add (struct timeval *result, struct timeval *x, struct timeval *y);
 
 /* Shows help screen. Exit code is -1 if isError is set to true */
-
-void show_help(char isError, char * curr_data_dir);
+void show_help (char isError, char * curr_data_dir);
 
 #endif /* UTILS_H */

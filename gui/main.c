@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "game.h"
 
-int main() {
+int main () {
     Game game;
     const bool gameCreated = initialize_game(&game);
     if (gameCreated) {

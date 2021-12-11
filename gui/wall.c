@@ -1,6 +1,8 @@
 #include "wall.h"
 
-void initialize_wall(Wall* wall, Color* color, float topLeftX, float topLeftY, float width, float height) {
+
+void initialize_wall (Wall *wall, Color *color, float topLeftX, float topLeftY, 
+                      float width, float height) {
     wall->color.red = color->red;
     wall->color.green = color->green;
     wall->color.blue = color->blue;
