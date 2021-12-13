@@ -156,7 +156,8 @@ void print_scores(WINDOW* mainWindow, int NROWS, int NCOLS) {
     int actualY = NROWS*3/4+10;
     int actualX = 0;
     for(i = 0; i < topScores->nTopScores; i++) {
-        mvwprintw(mainWindow,actualY,actualX,"%d: Nickname: %s; Score: %d\t", i+1, topScores->scores[i].nickname,  topScores->scores[i].points);
+        mvwprintw(mainWindow,actualY,actualX,"%d: Nickname: %4s; Score: %d\t", i+1, topScores->scores[i].nickname,  topScores->scores[i].points);
+
         actualX+=NCOLS/3;
         if(actualX >= NCOLS){
             actualX = 0;
