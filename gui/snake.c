@@ -5,7 +5,6 @@
 /* Deque functions. Only functions relevant to the 
    game functionality and needs were implemented.
    Deque has it's head at left end and it's tail at right end. */
-
 PositionNode* initialize_node (int positionX, int positionY) {
     PositionNode* node = (PositionNode*) malloc(sizeof(PositionNode));
     if (node == NULL) {
