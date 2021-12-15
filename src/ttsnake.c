@@ -31,6 +31,7 @@
 #include <math.h>
 
 #include "utils.h"
+#include "score.h"
 
 /* Game defaults. */
 
@@ -79,12 +80,15 @@ int block_count; 		      /* Number of energy blocks collected. */
 int paused = 1; 		      /* Play/Pause indicator. */
 int game_end = 0;		      /* End of the game indicator.  */
 int restarted = 1; 		    /* Restart indicator. */
+int entered_score = 0;    /* Indicates if user registered his score. */
+
+char nickname[MAX_NICKNAME + 1]; /*Nickname used in the score system*/
+int actual_pos_nickname = 0;
 
 WINDOW *main_window;
 
 
 /* SIGINT handler. The variable go_on controls the main loop. */
-
 void quit () {
   go_on = 0;
 }
@@ -206,6 +210,17 @@ void draw (scene_t* scene, int number) {
     /* If displayed scene is the game over scene. 
        We must show the final score. */
     mvwprintw(main_window, NROWS*3/4, NCOLS/2-7, "Score: %d", block_count);
+    
+    /*Instructions to enter nickname*/
+    if(!entered_score) {
+      mvwprintw(main_window, NROWS*3/4 + 1,NCOLS/5 - 2, "                                             ");
+      mvwprintw(main_window, NROWS*3/4 + 3, NCOLS/5 - 2, "Type a nick of at most 4 letters to save your score.");
+
+      mvwprintw(main_window, NROWS*3/4  +  4, NCOLS/5 + 2, "In case you do not want to save it, type '#'.");
+
+      mvwprintw(main_window, NROWS*3/4 + 5, NCOLS/5 + 3, "If you want to erase a character, type '&'.");
+      mvwprintw(main_window, NROWS*3/4 + 7, NCOLS/2 - 7, "%s", nickname);
+    }
   } 
 
   wrefresh(main_window);
@@ -256,13 +271,13 @@ void showscene (scene_t* scene, int scene_type, int menu) {
   }
   
   if (menu) {
-    wprintw (main_window, "Elapsed: %5ds, fps=%5.2f\n", 
-            /* CR-LF because of ncurses. */
-	          (int) elapsed_total.tv_sec, fps);
+    wprintw(main_window, "Elapsed: %5ds, fps=%5.2f\n", 
+           /* CR-LF because of ncurses. */
+	         (int) elapsed_total.tv_sec, fps);
 
     /* Add to the menu score and blocks collected. */	  
-    wprintw (main_window, "Score: %d\n", block_count);
-    wprintw (main_window, "Energy: %d\n", snake.energy);
+    wprintw(main_window, "Score: %d\n", block_count);
+    wprintw(main_window, "Energy: %d\n", snake.energy);
 
     for (i = 0; i < snake.energy; i++) {
 	    if (i%((MAX_SNAKE_ENERGY/100)*5) == 0) { 
@@ -272,11 +287,14 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 	  }
 
     wprintw(main_window, "\n");
-    wprintw (main_window, "\
+    wprintw(main_window, "\
 Controls: q: quit | r: restart | WASD/HJKL/ARROWS: move the snake\
  | +/-: change game speed\n");
-    wprintw (main_window, "          h: help & settings | p: pause game\n");
-  }
+    wprintw(main_window, "          h: help & settings | p: pause game\n");
+    
+    } else if (game_end) {
+      print_scores(main_window, NROWS, NCOLS);
+  	}
 }
 
 
@@ -501,7 +519,7 @@ void playgame (scene_t* scene, char* curr_data_dir) {
       showscene(scene, RESTARTED, 1);
 
     } else if (game_end) {
-      showscene(scene, GAME_OVER, 1);
+      showscene(scene, GAME_OVER, 0);
       read_scenes(SCENE_DIR_GAME, curr_data_dir, &scene, N_GAME_SCENES);
 
     } else if (paused) {
@@ -530,13 +548,48 @@ void *userinput () {
 
 	int c;
   struct timespec how_long;
+
   how_long.tv_sec = 0;
-  how_long.tv_nsec = (game_delay) * 1e3;  /* Delay to stop fast inputs bug. */  
+  how_long.tv_nsec = (game_delay) * 1e3;  /*Delay to stop fast inputs bug*/  
   
 	while (1) {
 		c = getch();
+    
+    /* If the game is over and you havent entered 
+       your nickname, the key is used here. */
+    if(game_end && !entered_score) {
+      /* Dont insert score. */
+      if (c == '#') {
+        entered_score = 1;
+        actual_pos_nickname = 0;
+      
+      /* Insert char to nickname. */
+      } else if (c != '\n' && c!= '\t' && c!=' ' && c!= '\r') {
+        
+        /*Delete last char*/
+        if (c == '&' && actual_pos_nickname>0) {
+          actual_pos_nickname--;
+          nickname[actual_pos_nickname] = '\0';
+        
+        /* Insert char. */
+        } else if (actual_pos_nickname < MAX_NICKNAME) {
+            nickname[actual_pos_nickname] = c;
+            actual_pos_nickname++;
+            nickname[actual_pos_nickname] = '\0';
+          }
 
-		switch (c) {
+      /* Enter score to score system. */
+      } else {
+        if (actual_pos_nickname > 0) {
+          add_score(nickname, block_count);
+        }
+
+        actual_pos_nickname = 0;
+        entered_score = 1;
+      }
+
+    } else {
+      switch (c) {
 			case 'p':
 				if (!game_end) {
 					paused = paused ^ 1;
@@ -604,12 +657,13 @@ void *userinput () {
           }
         }
         break;
-		}
+      }
+    }
 
-    nanosleep(&how_long, NULL);    
-	}
-	
-	return NULL;
+    nanosleep (&how_long, NULL);
+  }
+
+  return NULL;
 }
 
 

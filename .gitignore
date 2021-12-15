@@ -35,6 +35,7 @@ src/ttsnake_bin-ttsnake.o
 src/ttsnake_bin-utils.o
 src/ttsnake.ttsnake_bin
 src/ttsnake.bin
+src/scores.bin
 
 !gui/Makefile
 gui/ttsnake

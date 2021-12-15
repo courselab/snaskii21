@@ -23,7 +23,7 @@ AM_LDFLAGS =  @LD_FLAGS@
 
 bin_PROGRAMS = ttsnake.bin 
 
-ttsnake_bin_SOURCES = ttsnake.c utils.c  utils.h 
+ttsnake_bin_SOURCES = ttsnake.c utils.c score.c utils.h utils.h 
 
 ttsnake_bin_CC = @PTHREAD_CC@
 ttsnake_bin_CFLAGS = @PTHREAD_CFLAGS@ 
