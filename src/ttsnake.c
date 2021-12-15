@@ -237,7 +237,7 @@ void draw (scene_t* scene, int number)
     
     /*Instructions to enter nickname*/
     if(!entered_score) {
-          mvwprintw(main_window, NROWS*3/4 + 1,NCOLS/5 - 2, "                                             ");
+      mvwprintw(main_window, NROWS*3/4 + 1,NCOLS/5 - 2, "                                             ");
       mvwprintw(main_window, NROWS*3/4 + 3, NCOLS/5 - 2, "Type a nick of at most 4 letters to save your score.");
 
       mvwprintw(main_window, NROWS*3/4  +  4, NCOLS/5 + 2, "In case you do not want to save it, type '#'.");
