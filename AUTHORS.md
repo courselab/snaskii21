@@ -68,13 +68,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/gabriel-libardi">
-            <img src="https://avatars.githubusercontent.com/u/93263761?v=4" width="100;" alt="gabriel-libardi"/>
-            <br />
-            <sub><b>Gabriel Franceschi Libardi</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/gsasouza">
             <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
             <br />
@@ -94,13 +87,20 @@ the following authors:
             <br />
             <sub><b>André Viana</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/MuketaUeda">
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/gabriel-libardi">
+            <img src="https://avatars.githubusercontent.com/u/93263761?v=4" width="100;" alt="gabriel-libardi"/>
+            <br />
+            <sub><b>Gabriel Franceschi Libardi</b></sub>
         </a>
     </td>
     <td align="center">
