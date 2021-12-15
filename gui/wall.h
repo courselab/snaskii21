@@ -8,4 +8,5 @@ typedef struct {
     SDL_Rect shape;
 } Wall;
 
-void initialize_wall(Wall* wall, Color* color, float topLeftX, float topLeftY, float width, float height);
+void initialize_wall (Wall *wall, Color *color, float topLeftX, float topLeftY, 
+                      float width, float height);

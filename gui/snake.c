@@ -1,9 +1,11 @@
 #include "snake.h"
 #include <stdlib.h>
 
-// Deque functions. Only functions relevant to the game functionality and needs were implemented.
-// Deque has it's head at left end and it's tail at right end. 
-PositionNode* initialize_node(int positionX, int positionY) {
+
+/* Deque functions. Only functions relevant to the 
+   game functionality and needs were implemented.
+   Deque has it's head at left end and it's tail at right end. */
+PositionNode* initialize_node (int positionX, int positionY) {
     PositionNode* node = (PositionNode*) malloc(sizeof(PositionNode));
     if (node == NULL) {
         printf("Error - Unable to allocate memory\n");
@@ -17,7 +19,8 @@ PositionNode* initialize_node(int positionX, int positionY) {
     return node;
 }
 
-void free_node(PositionNode** node) {
+
+void free_node(PositionNode **node) {
     if (node == NULL || *node == NULL) {
         return;
     }
@@ -26,7 +29,8 @@ void free_node(PositionNode** node) {
     *node = NULL;
 }
 
-Deque* initialize_deque() {
+
+Deque *initialize_deque() {
     Deque* deque = (Deque*) malloc(sizeof(Deque));
     if (deque == NULL) {
         printf("Error - Unable to allocate memory\n");
@@ -39,7 +43,8 @@ Deque* initialize_deque() {
     return deque;
 }
 
-void free_deque(Deque** deque) {
+
+void free_deque (Deque **deque) {
     if (deque == NULL || *deque == NULL) {
         return;
     }
@@ -54,7 +59,8 @@ void free_deque(Deque** deque) {
     *deque = NULL;
 }
 
-void deque_push_front(Deque* deque, int positionX, int positionY) {
+
+void deque_push_front(Deque *deque, int positionX, int positionY) {
     if (deque == NULL) {
         return;
     }
@@ -63,8 +69,8 @@ void deque_push_front(Deque* deque, int positionX, int positionY) {
     if (deque->head == NULL) {
         deque->head = node;
         deque->tail = node;
-    }
-    else {
+
+    } else {
         deque->head->previous = node;
         node->next = deque->head;
         deque->head = node;
@@ -73,7 +79,8 @@ void deque_push_front(Deque* deque, int positionX, int positionY) {
     ++deque->size;
 }
 
-void deque_pop_back(Deque* deque) {
+
+void deque_pop_back (Deque *deque) {
     if (deque == NULL) {
         return;
     }
@@ -82,8 +89,8 @@ void deque_pop_back(Deque* deque) {
     deque->tail = deque->tail->previous;
     if (deque->tail == NULL) { // If it's the end of the list, then head = tail = NULL
         deque->head = NULL;
-    }
-    else {
+
+    } else {
         deque->tail->next = NULL;
     }
 
@@ -91,70 +98,85 @@ void deque_pop_back(Deque* deque) {
     free_node(&node);
 }
 
-// Snake functions
-void initialize_snake(Snake* snake, int headX, int headY, int blockSize) {
+
+/* Snake functions. */
+void initialize_snake (Snake *snake, int headX, int headY, int blockSize) {
     snake->headColor = (SDL_Color) {255, 255, 0, 0}; // Yellow
     snake->bodyColor = (SDL_Color) {0, 102, 0, 0}; // Green
     snake->drawShape = (SDL_Rect) {headX, headY, blockSize, blockSize};
     snake->blockSize = blockSize;
     snake->bodyParts = initialize_deque();
+
     const int initialBodyPartsSize = 4;
     for (int i = initialBodyPartsSize - 1; i >= 0; --i) {
         const int offset = i * blockSize;
         deque_push_front(snake->bodyParts, headX - offset, headY);
     }
+
     snake->currentDirection = RIGHT;
     snake->incomingDirection = RIGHT;
 }
 
-void free_snake(Snake* snake) {
+
+void free_snake (Snake *snake) {
     free_deque(&(snake->bodyParts));
 }
 
-void receive_snake_input(Snake* snake, const Uint8* keyboardState) {
+
+void receive_snake_input (Snake *snake, const Uint8 *keyboardState) {
     if (keyboardState[SDL_SCANCODE_UP] || keyboardState[SDL_SCANCODE_W]) {
         snake->incomingDirection = UP;
-    }
-    else if (keyboardState[SDL_SCANCODE_DOWN] || keyboardState[SDL_SCANCODE_S]) {
+
+    } else if (keyboardState[SDL_SCANCODE_DOWN] || 
+               keyboardState[SDL_SCANCODE_S]) {
         snake->incomingDirection = DOWN;
-    }
-    else if (keyboardState[SDL_SCANCODE_LEFT] || keyboardState[SDL_SCANCODE_A]) {
+
+    } else if (keyboardState[SDL_SCANCODE_LEFT] || 
+               keyboardState[SDL_SCANCODE_A]) {
         snake->incomingDirection = LEFT;
-    }
-    else if (keyboardState[SDL_SCANCODE_RIGHT] || keyboardState[SDL_SCANCODE_D]) {
+
+    } else if (keyboardState[SDL_SCANCODE_RIGHT] || 
+               keyboardState[SDL_SCANCODE_D]) {
         snake->incomingDirection = RIGHT;
     }
 }
 
-void update_snake(Snake* snake) {
-    SDL_Point newHead = {snake->bodyParts->head->position.x, snake->bodyParts->head->position.y};
 
-    // If the snake already is moving in the horizontal direction, it's direction can only change to the vertical direction
+void update_snake (Snake *snake) {
+    SDL_Point newHead = {snake->bodyParts->head->position.x, 
+                         snake->bodyParts->head->position.y};
+
+    /* If the snake already is moving in the horizontal direction, 
+       it's direction can only change to the vertical direction. */
     if (snake->currentDirection == LEFT || snake->currentDirection == RIGHT) {
         if (snake->incomingDirection == UP) {
             newHead.y -= snake->blockSize;
             snake->currentDirection = snake->incomingDirection;
-        }
-        else if (snake->incomingDirection == DOWN) {
+
+        } else if (snake->incomingDirection == DOWN) {
             newHead.y += snake->blockSize;
             snake->currentDirection = snake->incomingDirection;
-        }
-        else {
-            newHead.x += (snake->currentDirection == LEFT) ? -1 * snake->blockSize : snake->blockSize;
+
+        } else {
+            newHead.x += (snake->currentDirection == LEFT) ? 
+                         -1 * snake->blockSize : snake->blockSize;
         }
     }
-    // If the snake is moving in the vertical direction, it's direction can only change to the horizontal direction
+
+    /* If the snake is moving in the vertical direction, 
+       it's direction can only change to the horizontal direction. */
     else if (snake->currentDirection == UP || snake->currentDirection == DOWN) {
         if (snake->incomingDirection == LEFT) {
             newHead.x -= snake->blockSize;
             snake->currentDirection = snake->incomingDirection;
-        }
-        else if (snake->incomingDirection == RIGHT) {
+
+        } else if (snake->incomingDirection == RIGHT) {
             newHead.x += snake->blockSize;
             snake->currentDirection = snake->incomingDirection;
-        }
-        else {
-            newHead.y += (snake->currentDirection == UP) ? -1 * snake->blockSize : snake->blockSize;
+
+        } else {
+            newHead.y += (snake->currentDirection == UP) ? 
+            -1 * snake->blockSize : snake->blockSize;
         }
     }
 
@@ -162,17 +184,23 @@ void update_snake(Snake* snake) {
     deque_push_front(snake->bodyParts, newHead.x, newHead.y);
 }
 
-void draw_snake(Snake* snake, SDL_Renderer* renderer) {
-    // Draw head
-    SDL_SetRenderDrawColor(renderer, snake->headColor.r, snake->headColor.g, snake->headColor.b, snake->headColor.a); 
+
+void draw_snake (Snake *snake, SDL_Renderer *renderer) {
+    /* Draw head. */
+    SDL_SetRenderDrawColor(renderer, snake->headColor.r, snake->headColor.g, 
+                           snake->headColor.b, snake->headColor.a); 
     PositionNode* snakeHead = snake->bodyParts->head;
-    snake->drawShape = (SDL_Rect) {snakeHead->position.x, snakeHead->position.y, snake->blockSize, snake->blockSize};
+    snake->drawShape = (SDL_Rect) {snakeHead->position.x, snakeHead->position.y, 
+                                   snake->blockSize, snake->blockSize};
     SDL_RenderFillRect(renderer, &(snake->drawShape));
 
-    // Draw body
-    SDL_SetRenderDrawColor(renderer, snake->bodyColor.r, snake->bodyColor.g, snake->bodyColor.b, snake->bodyColor.a);
-    for (PositionNode* iterator = snakeHead->next; iterator != NULL; iterator = iterator->next) {
-        snake->drawShape = (SDL_Rect) {iterator->position.x, iterator->position.y, snake->blockSize, snake->blockSize};
+    /* Draw body. */
+    SDL_SetRenderDrawColor(renderer, snake->bodyColor.r, snake->bodyColor.g, 
+                           snake->bodyColor.b, snake->bodyColor.a);
+    for (PositionNode* iterator = snakeHead->next; iterator != NULL; 
+         iterator = iterator->next) {
+        snake->drawShape = (SDL_Rect) {iterator->position.x, iterator->position.y, 
+                                       snake->blockSize, snake->blockSize};
         SDL_RenderFillRect(renderer, &(snake->drawShape));
     }
 }
