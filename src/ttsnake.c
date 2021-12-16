@@ -45,10 +45,13 @@
 #define SCENE_DIR_INTRO "intro"        /* Path to the intro animation scenes.*/
 #define SCENE_DIR_GAME  "game"	       /* Path to the game animation scene. */
 
-#define SNAKE_TAIL	 '.'	             /* Character to draw the snake tail.  */
+#define SNAKE_TAIL	     '.'           /* Character to draw the snake tail.  */
 #define SNAKE_BODY       'x'           /* Character to draw the snake body.  */
-#define SNAKE_HEAD	 '0'	             /* Character to draw the snake head.  */
+#define SNAKE_HEAD	     '0'	         /* Character to draw the snake head.  */
 #define ENERGY_BLOCK     '+'	         /* Character to draw the energy block.*/
+
+#define HORIZONTAL_MOVE  2   /* Number of positions on matrix to move horizontally. */
+#define VERTICAL_MOVE    1   /* Number of positions on matrix to move vertically. */
 
 #define MAX_ENERGY_BLOCKS_LIMIT 50	   /* How many energy blocks we can have.*/
 #define MAX_SNAKE_ENERGY (NCOLS+NROWS) /* How much energy the snake can hold.*/
@@ -433,16 +436,16 @@ void move_snake() {
 
 	switch (snake.direction) {
 		case up:
-			snake.head.y -= 1;
+			snake.head.y -= VERTICAL_MOVE;
 			break;
 		case left:
-			snake.head.x -= 1;
+			snake.head.x -= HORIZONTAL_MOVE;
 			break;
 		case down:
-			snake.head.y += 1;
+			snake.head.y += VERTICAL_MOVE;
 			break;
 		case right:
-			snake.head.x += 1;
+			snake.head.x += HORIZONTAL_MOVE;
 			break;
 	}
 }
