@@ -194,7 +194,7 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
 
 
 /* Draw a the given scene on the screen. Currently, this iterates through the
-   scene matrix outputig each caracter by means of indivudal puchar calls. One
+   scene matrix outputig each caracter by means of individudal puchar calls. One
    may want to try a different approach which favour performance. For instance,
    issuing a single 'write' call for each line. Would this yield any significant
    performance improvement? */
@@ -314,8 +314,8 @@ void init_game () {
 
 	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
   for (i = 0; i < snake.length; i++) {
-		snake.positions[i].x = snake.head.x - i - 1;
-		snake.positions[i].y = snake.head.y - i - 1;
+		snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
+		snake.positions[i].y = snake.head.y - i - VERTICAL_MOVE;
 	}
 
 	energy_block[0].x = 27;
@@ -330,7 +330,7 @@ void generate_energy_block () {
   energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
   /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
-  if ((energy_block[0].x)%2 != 0)
+  if ((energy_block[0].x)%2 == 0)
     energy_block[0].x -= 1;
 }
 
@@ -492,7 +492,6 @@ void draw_settings(scene_t *scene) {
 
 void run(scene_t* scene) {
 	int i; 
-	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 
 	int tail = snake.length - 1;
 	scene[0][snake.positions[tail].y][snake.positions[tail].x] = ' ';
@@ -506,6 +505,8 @@ void run(scene_t* scene) {
 	}
 
 	scene[0][snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
+
+	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 }
 
 
