@@ -326,8 +326,12 @@ void init_game () {
 /* Generates energy_block[0] coordinates randomly. */
 
 void generate_energy_block () {
-  energy_block[0].x = (rand() % (NCOLS - 2)) + 1;
-  energy_block[0].y = (rand() % (NROWS - 2)) + 1;
+  energy_block[0].x = (rand() % (NCOLS - 2)) + HORIZONTAL_MOVE;
+  energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
+
+  /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
+  if ((energy_block[0].x)%2 != 0)
+    energy_block[0].x -= 1;
 }
 
 
@@ -378,11 +382,11 @@ void grown_snake () {
 void check_colision () {
 	int i;
 
-	if (snake.head.x == 0 || snake.head.x == NCOLS - 1) {
+	if (snake.head.x <= 0 || snake.head.x >= NCOLS - 1) {
 		game_end = 1;
 		paused = 1;
 
-	} else if (snake.head.y == 0 || snake.head.y == NROWS - 1) {
+	} else if (snake.head.y <= 0 || snake.head.y >= NROWS - 1) {
 		game_end = 1;
 		paused = 1;
 
