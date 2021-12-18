@@ -29,16 +29,15 @@
 #include <config.h>
 #include <getopt.h>
 #include <math.h>
-
 #include "utils.h"
 #include "score.h"
 
+
 /* Game defaults. */
+#define N_GAME_SCENES   4	             /* Number of frames of the gamepay scnene. */
+#define N_INTRO_SCENES  485	           /* Number of frames of game intro. */
 
-#define N_GAME_SCENES   4	      /* Number of frames of the gamepay scnene. */
-#define N_INTRO_SCENES  485	    /* Number of frames of game intro. */
-
-#define LOWER_PANEL_ROWS 6      /* Number of rows occuped by the lower panel.*/
+#define LOWER_PANEL_ROWS 6             /* Number of rows occuped by the lower panel.*/
 
 #define BLANK ' '		                   /* Blank-screen character. */
 
@@ -129,7 +128,6 @@ typedef char scene_t[40][90]; /* Maximum values. TODO: allocate dyamically. */
    return the number of readed scenes. */
   
 int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
-  int i, j, k;
   FILE *file;
   char scenefile[1024], c, allocate = false;
 
@@ -137,7 +135,7 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
   allocate = true;
     
   /* Read nscenes. */
-  for (k = 0; k < nscenes; k++) {
+  for (int k = 0; k < nscenes; k++) {
     sprintf(scenefile, "%s/%s/scene-%07d.txt",data_dir, dir, k+1);
       
     file = fopen (scenefile, "r");
@@ -150,7 +148,7 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
 	  }
 
     /* Write top and bottom borders. */
-    for (j = 0; j < NCOLS; j++) {
+    for (int j = 0; j < NCOLS; j++) {
 	  (*scene)[k][0][j] = '-';
 	  (*scene)[k][NROWS-1][j] = '-';
 	  }
@@ -159,14 +157,14 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
     while (((c = fgetc(file)) != '\n') && (c != EOF));
 
     /* Iterate through NROWS. */
-    for (i = 1; i < NROWS-1; i++) {
+    for (int i = 1; i < NROWS-1; i++) {
 
 	    /* Write left border.  */
 	    (*scene)[k][i][0] = '|';
 	    fseek(file, sizeof(char), SEEK_CUR);
 	  
 	    /* Read NCOLS columns from row i. */
-	    for (j = 1; j < NCOLS-1; j++) {
+	    for (int j = 1; j < NCOLS-1; j++) {
 	      
 	      /* Actual ascii text file may be smaller than NROWS x NCOLS.
 		    If we read something out of the 32-127 ascii range,
@@ -232,7 +230,6 @@ void draw (scene_t* scene, int number) {
 
 void showscene (scene_t* scene, int scene_type, int menu) {
   double fps;
-  int i;
 
   /* Draw the scene. */
   draw (scene, scene_type);
@@ -279,7 +276,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
     wprintw(main_window, "Score: %d\n", block_count);
     wprintw(main_window, "Energy: %d\n", snake.energy);
 
-    for (i = 0; i < snake.energy; i++) {
+    for (int i = 0; i < snake.energy; i++) {
 	    if (i%((MAX_SNAKE_ENERGY/100)*5) == 0) { 
         /* Prints one bar for every 5% energy left. */
 	      wprintw(main_window, "|");
@@ -331,13 +328,12 @@ void generate_energy_block () {
 /* Verifies if the block positions conflicts with the snake coordinates. */
 
 int energy_block_conflict () {
-  int i;
 
   if (energy_block[0].x == snake.head.x && energy_block[0].y == snake.head.y) {
         return 1;
   }
 
-  for (i = 0; i < snake.length - 1; i++) {
+  for (int i = 0; i < snake.length - 1; i++) {
     if (energy_block[0].x == snake.positions[i].x && 
         energy_block[0].y == snake.positions[i].y) {
       return 1; 
@@ -373,7 +369,6 @@ void grown_snake () {
 /* Checks if the snake has hit itself, a wall or a energy block. */
 
 void check_colision () {
-	int i;
 
 	if (snake.head.x == 0 || snake.head.x == NCOLS - 1) {
 		game_end = 1;
@@ -391,7 +386,7 @@ void check_colision () {
 		snake.energy = ENERGY_MINIMAL;
 	}
 
-	for (i = 0; i < snake.length - 1; i++) {
+	for (int i = 0; i < snake.length - 1; i++) {
 		if (snake.head.x == snake.positions[i].x && 
         snake.head.y == snake.positions[i].y) {
 			game_end = 1;
@@ -418,9 +413,8 @@ void check_colision () {
 /* This function moves the snake. */
 
 void move_snake() {
-	int i;
 
-	for (i = snake.length - 1; i >= 0; i--) {
+	for (int i = snake.length - 1; i >= 0; i--) {
 		if (i) {
 			snake.positions[i].x = snake.positions[i - 1].x;
 			snake.positions[i].y = snake.positions[i - 1].y;
@@ -451,11 +445,11 @@ void move_snake() {
 /* This function plays the game introduction animation. */
 
 void playmovie (scene_t* scene, int nscenes) {
-  int k;
+
   struct timespec how_long;
   how_long.tv_sec = 0;
 
-  for (k = 0; (k < nscenes) && go_on; k++) {
+  for (int k = 0; (k < nscenes) && go_on; k++) {
     wclear(main_window);			               /* Clear screen.    */
     wrefresh(main_window);			             /* Refresh screen.  */
     showscene(scene, k, 0);                  /* Show k-th scene .*/
@@ -467,10 +461,9 @@ void playmovie (scene_t* scene, int nscenes) {
 
 void draw_settings(scene_t *scene) {
   char buffer[NCOLS];
-  int i;
 
   /* Clean buffer. */
-  for(i = 0; i < NCOLS; i++) {
+  for(int i = 0; i < NCOLS; i++) {
     buffer[i] = ' ';
   }
 
@@ -484,7 +477,7 @@ void draw_settings(scene_t *scene) {
 /* This function implements the gameplay. */
 
 void run(scene_t* scene) {
-	int i; 
+
 	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 
 	int tail = snake.length - 1;
@@ -494,7 +487,7 @@ void run(scene_t* scene) {
 	check_colision();
 	scene[0][snake.head.y][snake.head.x] = SNAKE_HEAD;
 
-	for (i = 0; i < tail; i++) {
+	for (int i = 0; i < tail; i++) {
 		scene[0][snake.positions[i].y][snake.positions[i].x] = SNAKE_BODY;
 	}
 
