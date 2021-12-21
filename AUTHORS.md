@@ -102,7 +102,8 @@ the following authors:
             <br />
             <sub><b>Erik Melges</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/andrecoco">
             <img src="https://avatars.githubusercontent.com/u/16878985?v=4" width="100;" alt="andrecoco"/>
@@ -145,7 +146,8 @@ the following authors:
             <br />
             <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/joaofavoretti">
             <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
