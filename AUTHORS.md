@@ -68,13 +68,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Tyago-Teoi">
-            <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
-            <br />
-            <sub><b>Tyago Teoi</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/CarlosCraveiro">
             <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
             <br />
@@ -86,6 +79,13 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
             <br />
             <sub><b>Gabriel Souza</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Tyago-Teoi">
+            <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
+            <br />
+            <sub><b>Tyago Teoi</b></sub>
         </a>
     </td>
     <td align="center">
