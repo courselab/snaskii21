@@ -75,13 +75,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/gsasouza">
-            <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
-            <br />
-            <sub><b>Gabriel Souza</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Tyago-Teoi">
             <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
             <br />
@@ -89,13 +82,27 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/gsasouza">
+            <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
+            <br />
+            <sub><b>Gabriel Souza</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/LeoFonsecaP">
+            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
+            <br />
+            <sub><b>LeoFonsecaP</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
             <sub><b>Erik Melges</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/andrecoco">
             <img src="https://avatars.githubusercontent.com/u/16878985?v=4" width="100;" alt="andrecoco"/>
@@ -130,15 +137,15 @@ the following authors:
             <br />
             <sub><b>Yudi Asano Ramos</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
             <br />
             <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/joaofavoretti">
             <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
@@ -165,13 +172,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
             <br />
             <sub><b>FelipeMoleiro</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/LeoFonsecaP">
-            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
-            <br />
-            <sub><b>LeoFonsecaP</b></sub>
         </a>
     </td>
     <td align="center">
