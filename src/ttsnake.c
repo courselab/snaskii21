@@ -330,8 +330,9 @@ void generate_energy_block () {
   energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
   /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
-  if ((energy_block[0].x)%2 == 0)
+  if ((energy_block[0].x)%2 == 0) {
     energy_block[0].x -= 1;
+  }
 }
 
 
