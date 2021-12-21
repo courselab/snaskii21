@@ -89,6 +89,14 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/LeoFonsecaP">
+            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
+            <br />
+            <sub><b>LeoFonsecaP</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
@@ -130,7 +138,8 @@ the following authors:
             <br />
             <sub><b>Yudi Asano Ramos</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
@@ -165,13 +174,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
             <br />
             <sub><b>FelipeMoleiro</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/LeoFonsecaP">
-            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
-            <br />
-            <sub><b>LeoFonsecaP</b></sub>
         </a>
     </td>
     <td align="center">
