@@ -318,8 +318,8 @@ void init_game () {
 		snake.positions[i].y = snake.head.y - i - VERTICAL_MOVE;
 	}
 
-	energy_block[0].x = 27;
-	energy_block[0].y = 27;
+	energy_block[0].x = 25;
+	energy_block[0].y = 25;
 }
 
 
