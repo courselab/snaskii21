@@ -82,6 +82,21 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Tyago-Teoi">
+            <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
+            <br />
+            <sub><b>Tyago Teoi</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/LeoFonsecaP">
+            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
+            <br />
+            <sub><b>LeoFonsecaP</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
@@ -94,8 +109,7 @@ the following authors:
             <br />
             <sub><b>André Viana</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/MuketaUeda">
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
@@ -123,7 +137,8 @@ the following authors:
             <br />
             <sub><b>Yudi Asano Ramos</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
@@ -137,8 +152,7 @@ the following authors:
             <br />
             <sub><b>João Pedro Favoretti</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/lucasxavierleite">
             <img src="https://avatars.githubusercontent.com/u/25937648?v=4" width="100;" alt="lucasxavierleite"/>
@@ -161,27 +175,20 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/LeoFonsecaP">
-            <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
-            <br />
-            <sub><b>LeoFonsecaP</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
             <br />
             <sub><b>MauricioGGCatellan</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/monacofj">
             <img src="https://avatars.githubusercontent.com/u/3980792?v=4" width="100;" alt="monacofj"/>
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
@@ -215,13 +222,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/8800471?v=4" width="100;" alt="Beadurof"/>
             <br />
             <sub><b>Marcelo Temoteo</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Tyago-Teoi">
-            <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
-            <br />
-            <sub><b>Tyago Teoi</b></sub>
         </a>
     </td></tr>
 <tr>
