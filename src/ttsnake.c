@@ -45,10 +45,13 @@
 #define SCENE_DIR_INTRO "intro"        /* Path to the intro animation scenes.*/
 #define SCENE_DIR_GAME  "game"	       /* Path to the game animation scene. */
 
-#define SNAKE_TAIL	 '.'	             /* Character to draw the snake tail.  */
+#define SNAKE_TAIL	     '.'           /* Character to draw the snake tail.  */
 #define SNAKE_BODY       'x'           /* Character to draw the snake body.  */
-#define SNAKE_HEAD	 '0'	             /* Character to draw the snake head.  */
+#define SNAKE_HEAD	     '0'	         /* Character to draw the snake head.  */
 #define ENERGY_BLOCK     '+'	         /* Character to draw the energy block.*/
+
+#define HORIZONTAL_MOVE  2   /* Number of positions on matrix to move horizontally. */
+#define VERTICAL_MOVE    1   /* Number of positions on matrix to move vertically. */
 
 #define MAX_ENERGY_BLOCKS_LIMIT 50	   /* How many energy blocks we can have.*/
 #define MAX_SNAKE_ENERGY (NCOLS+NROWS) /* How much energy the snake can hold.*/
@@ -191,7 +194,7 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
 
 
 /* Draw a the given scene on the screen. Currently, this iterates through the
-   scene matrix outputig each caracter by means of indivudal puchar calls. One
+   scene matrix outputig each caracter by means of individudal puchar calls. One
    may want to try a different approach which favour performance. For instance,
    issuing a single 'write' call for each line. Would this yield any significant
    performance improvement? */
@@ -311,20 +314,25 @@ void init_game () {
 
 	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
   for (i = 0; i < snake.length; i++) {
-		snake.positions[i].x = snake.head.x - i - 1;
-		snake.positions[i].y = snake.head.y - i - 1;
+		snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
+		snake.positions[i].y = snake.head.y - i - VERTICAL_MOVE;
 	}
 
-	energy_block[0].x = 27;
-	energy_block[0].y = 27;
+	energy_block[0].x = 25;
+	energy_block[0].y = 25;
 }
 
 
 /* Generates energy_block[0] coordinates randomly. */
 
 void generate_energy_block () {
-  energy_block[0].x = (rand() % (NCOLS - 2)) + 1;
-  energy_block[0].y = (rand() % (NROWS - 2)) + 1;
+  energy_block[0].x = (rand() % (NCOLS - 2)) + HORIZONTAL_MOVE;
+  energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
+
+  /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
+  if ((energy_block[0].x)%2 == 0) {
+    energy_block[0].x -= 1;
+  }
 }
 
 
@@ -375,11 +383,11 @@ void grown_snake () {
 void check_colision () {
 	int i;
 
-	if (snake.head.x == 0 || snake.head.x == NCOLS - 1) {
+	if (snake.head.x <= 0 || snake.head.x >= NCOLS - 1) {
 		game_end = 1;
 		paused = 1;
 
-	} else if (snake.head.y == 0 || snake.head.y == NROWS - 1) {
+	} else if (snake.head.y <= 0 || snake.head.y >= NROWS - 1) {
 		game_end = 1;
 		paused = 1;
 
@@ -433,16 +441,16 @@ void move_snake() {
 
 	switch (snake.direction) {
 		case up:
-			snake.head.y -= 1;
+			snake.head.y -= VERTICAL_MOVE;
 			break;
 		case left:
-			snake.head.x -= 1;
+			snake.head.x -= HORIZONTAL_MOVE;
 			break;
 		case down:
-			snake.head.y += 1;
+			snake.head.y += VERTICAL_MOVE;
 			break;
 		case right:
-			snake.head.x += 1;
+			snake.head.x += HORIZONTAL_MOVE;
 			break;
 	}
 }
@@ -485,7 +493,6 @@ void draw_settings(scene_t *scene) {
 
 void run(scene_t* scene) {
 	int i; 
-	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 
 	int tail = snake.length - 1;
 	scene[0][snake.positions[tail].y][snake.positions[tail].x] = ' ';
@@ -499,6 +506,8 @@ void run(scene_t* scene) {
 	}
 
 	scene[0][snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
+
+	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 }
 
 
