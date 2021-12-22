@@ -75,7 +75,8 @@ top_scores_t* read_scores(){
 
     topScores->nTopScores = nScores;
 
-    for(int i = 0; i < nScores; i++) {
+    int i;
+    for(i = 0; i < nScores; i++) {
         fread(topScores->scores[i].nickname, sizeof(char), MAX_NICKNAME + 1, fp);
         fread(&(topScores->scores[i].points), sizeof(int), 1, fp);
     }
@@ -96,7 +97,8 @@ void write_scores(top_scores_t* topScores){
 
     fwrite(&(topScores->nTopScores), sizeof(int), 1, fp);
 
-    for(int i = 0; i < topScores->nTopScores; i++) {
+    int i;
+    for(i = 0; i < topScores->nTopScores; i++) {
         fwrite(topScores->scores[i].nickname, sizeof(char), MAX_NICKNAME + 1, fp);
         fwrite(&(topScores->scores[i].points), sizeof(int), 1, fp);
     }
@@ -148,7 +150,8 @@ void print_scores(WINDOW* mainWindow, int NROWS, int NCOLS) {
     int actualY = NROWS*3/4+10;
     int actualX = 0;
 
-    for(int i = 0; i < topScores->nTopScores; i++) {
+    int i;
+    for(i = 0; i < topScores->nTopScores; i++) {
         mvwprintw(mainWindow,actualY,actualX,"%d: Nickname: %4s; Score: %d\t", i+1, topScores->scores[i].nickname,  topScores->scores[i].points);
 
         actualX+=NCOLS/3;
