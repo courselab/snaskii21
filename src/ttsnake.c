@@ -36,22 +36,23 @@
 /* Game defaults. */
 
 #define N_GAME_SCENES   4	      /* Number of frames of the gamepay scnene. */
-#define N_INTRO_SCENES  485	    /* Number of frames of game intro. */
+#define N_INTRO_SCENES  485	    /* Number of frames of game intro.         */
 
 #define LOWER_PANEL_ROWS 6      /* Number of rows occuped by the lower panel.*/
 
 #define BLANK ' '		                   /* Blank-screen character. */
 
 #define SCENE_DIR_INTRO "intro"        /* Path to the intro animation scenes.*/
-#define SCENE_DIR_GAME  "game"	       /* Path to the game animation scene. */
+#define SCENE_DIR_GAME  "game"	       /* Path to the game animation scene.  */
 
 #define SNAKE_TAIL	     '.'           /* Character to draw the snake tail.  */
 #define SNAKE_BODY       'x'           /* Character to draw the snake body.  */
 #define SNAKE_HEAD	     '0'	         /* Character to draw the snake head.  */
 #define ENERGY_BLOCK     '+'	         /* Character to draw the energy block.*/
+#define FRUIT_BLOCK      '$'	         /* Character to draw the fruit block. */
 
 #define HORIZONTAL_MOVE  2   /* Number of positions on matrix to move horizontally. */
-#define VERTICAL_MOVE    1   /* Number of positions on matrix to move vertically. */
+#define VERTICAL_MOVE    1   /* Number of positions on matrix to move vertically.   */
 
 #define MAX_ENERGY_BLOCKS_LIMIT 50	   /* How many energy blocks we can have.*/
 #define MAX_SNAKE_ENERGY (NCOLS+NROWS) /* How much energy the snake can hold.*/
@@ -124,6 +125,12 @@ struct {
   int y;			/* Coordinate y of the energy block. */
 } energy_block[MAX_ENERGY_BLOCKS_LIMIT];   /* Array of energy blocks. */
 
+/* Fruit block. */
+struct {
+  int x;			/* Coordinate x of the fruit block. */
+  int y;			/* Coordinate y of the fruit block. */
+} fruit_block;
+
 /* All chars of one single scene. */
 typedef char scene_t[40][90]; /* Maximum values. TODO: allocate dyamically. */
 
@@ -194,7 +201,7 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
 
 
 /* Draw a the given scene on the screen. Currently, this iterates through the
-   scene matrix outputig each caracter by means of individudal puchar calls. One
+   scene matrix outputig each caracter by means of individual puchar calls. One
    may want to try a different approach which favour performance. For instance,
    issuing a single 'write' call for each line. Would this yield any significant
    performance improvement? */
@@ -318,8 +325,57 @@ void init_game () {
 		snake.positions[i].y = snake.head.y - i - VERTICAL_MOVE;
 	}
 
+  /* Position of the first energy block. */
 	energy_block[0].x = NCOLS/2;
 	energy_block[0].y = NROWS/2;
+
+  /* Position of the first fruit block. */
+  fruit_block.x = NCOLS/2 + 2;
+  fruit_block.y = NROWS/2 + 2;
+}
+
+
+/* Generates fruit_block coordinates randomly. */
+
+void generate_fruit_block () {
+  fruit_block.x = (rand() % (NCOLS - 2)) + HORIZONTAL_MOVE;
+  fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
+
+  /* Verifies if the fruit is in a pair position, 'cause the snake moves 2 pos horizontally */
+  if ((fruit_block.x)%2 == 0) {
+    fruit_block.x -= 1;
+  }
+}
+
+
+/* Verifies if the block positions conflicts with the snake coordinates. */
+
+int fruit_block_conflict () {
+  int i;
+
+  if (fruit_block.x == snake.head.x && fruit_block.y == snake.head.y) {
+        return 1;
+  }
+
+  for (i = 0; i < snake.length - 1; i++) {
+    if (fruit_block.x == snake.positions[i].x && 
+        fruit_block.y == snake.positions[i].y) {
+      return 1; 
+    }
+  }
+
+  return 0;
+}
+
+
+/* Spawns an fruit_block on the map. */
+
+void spawn_fruit_block () {
+  generate_fruit_block();
+    
+  while (fruit_block_conflict()) {
+    generate_fruit_block(); 
+  }
 }
 
 
@@ -397,7 +453,12 @@ void check_colision () {
     grown_snake();
 		spawn_energy_block();
 		snake.energy = ENERGY_MINIMAL;
-	}
+
+	} else if (snake.head.x == fruit_block.x && 
+             snake.head.y == fruit_block.y) {
+		block_count++;
+		spawn_fruit_block();
+  }
 
 	for (i = 0; i < snake.length - 1; i++) {
 		if (snake.head.x == snake.positions[i].x && 
@@ -508,6 +569,8 @@ void run(scene_t* scene) {
 	scene[0][snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
 
 	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
+
+  scene[0][fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
 }
 
 
