@@ -570,7 +570,7 @@ void run(scene_t* scene) {
 
 	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 
-  scene[0][fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
+        scene[0][fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
 }
 
 
