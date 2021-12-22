@@ -368,7 +368,7 @@ int fruit_block_conflict () {
 }
 
 
-/* Spawns an fruit_block on the map. */
+/* Spawns a fruit_block on the map. */
 
 void spawn_fruit_block () {
   generate_fruit_block();
