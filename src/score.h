@@ -27,7 +27,7 @@
 #define SCORES_FILE "scores.bin"
 
 
-void add_score(const char nickname[MAX_NICKNAME+1], int points);
+void add_score(const char nickname[], int points);
 void print_scores(WINDOW* mainWindow, int NROWS, int NCOLS);
 
 #endif
