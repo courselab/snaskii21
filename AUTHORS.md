@@ -46,13 +46,20 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Tyago-Teoi">
+            <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
+            <br />
+            <sub><b>Tyago Teoi</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/artP2">
             <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
             <br />
             <sub><b>ArtP2</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/gabriel-libardi">
             <img src="https://avatars.githubusercontent.com/u/93263761?v=4" width="100;" alt="gabriel-libardi"/>
@@ -79,13 +86,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
             <br />
             <sub><b>Gabriel Souza</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Tyago-Teoi">
-            <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
-            <br />
-            <sub><b>Tyago Teoi</b></sub>
         </a>
     </td>
     <td align="center">
