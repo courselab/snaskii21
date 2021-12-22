@@ -341,7 +341,7 @@ void generate_fruit_block () {
   fruit_block.x = (rand() % (NCOLS - 2)) + HORIZONTAL_MOVE;
   fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
-  /* Verifies if the fruit is in a pair position, 'cause the snake moves 2 pos horizontally */
+  /* Verifies if the fruit is in an even position, because the snake moves 2 positions horizontally */
   if ((fruit_block.x)%2 == 0) {
     fruit_block.x -= 1;
   }
