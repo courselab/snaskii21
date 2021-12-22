@@ -450,7 +450,7 @@ void check_colision () {
 	} else if (snake.head.x == energy_block[0].x && 
              snake.head.y == energy_block[0].y) {
 		block_count++;
-    grown_snake();
+                grown_snake();
 		spawn_energy_block();
 		snake.energy = ENERGY_MINIMAL;
 
