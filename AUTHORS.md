@@ -25,17 +25,17 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/di-press">
-            <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
-            <br />
-            <sub><b>Di Press</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Tyago-Teoi">
             <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
             <br />
             <sub><b>Tyago Teoi</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/di-press">
+            <img src="https://avatars.githubusercontent.com/u/63003427?v=4" width="100;" alt="di-press"/>
+            <br />
+            <sub><b>Di Press</b></sub>
         </a>
     </td>
     <td align="center">
