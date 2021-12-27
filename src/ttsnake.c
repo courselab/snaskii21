@@ -342,7 +342,7 @@ void init_game () {
 /* Generates fruit_block coordinates randomly. */
 
 void generate_fruit_block () {
-  fruit_block.x = (rand() % (NCOLS - 2)) + HORIZONTAL_MOVE;
+  fruit_block.x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
   fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
   /* Verifies if the fruit is in an even position, because the snake moves 2 positions horizontally */
@@ -385,7 +385,7 @@ void spawn_fruit_block () {
 
 /* Generates energy_block[0] coordinates randomly. */
 void generate_energy_block () {
-  energy_block[0].x = (rand() % (NCOLS - 2)) + HORIZONTAL_MOVE;
+  energy_block[0].x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
   energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
   /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
