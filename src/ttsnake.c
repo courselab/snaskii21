@@ -320,8 +320,9 @@ void init_game () {
 	snake.energy = ENERGY_MINIMAL;
 	snake.direction = right;
 	snake.length = 5;
-	snake.head.x = 5;
-	snake.head.y = 5;
+	snake.head.x = 11;
+	snake.head.y = 11;
+
 	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
 
   for (i = 0; i < snake.length; i++) {
