@@ -37,6 +37,7 @@ typedef struct {
     score_t scores[MAX_SCORES];
 } top_scores_t;
 
+
 /*Function used to sort scores after new score is entered*/
 int compare_scores(const void* a, const void* b){
     score_t* score1 = (score_t*) a;
@@ -53,13 +54,14 @@ int compare_scores(const void* a, const void* b){
     }
 }
 
+
 /*Read all scores from score file and returns a top_scores_t struct*/
 top_scores_t* read_scores(){
     top_scores_t* topScores = (top_scores_t*) malloc(sizeof(top_scores_t));
 
     FILE* fp = fopen(SCORES_FILE, "rb");
     
-    if(fp == NULL){
+    if(!fp){
         topScores->nTopScores = 0;
         return topScores;  
     }
@@ -80,7 +82,6 @@ top_scores_t* read_scores(){
     }
 
     fclose(fp);
-
     return topScores;
 }
 
@@ -90,7 +91,7 @@ void write_scores(top_scores_t* topScores){
 
     FILE* fp = fopen(SCORES_FILE, "wb");
     
-    if(fp == NULL){
+    if(!fp){
         return;
     }
 
@@ -103,9 +104,8 @@ void write_scores(top_scores_t* topScores){
     }
 
     fclose(fp);
-
-    return;
 }
+
 
 /*Add new score to score file if has space or score is greater than last score*/
 void add_score(const char nickname[MAX_NICKNAME+1], int points){
@@ -116,7 +116,6 @@ void add_score(const char nickname[MAX_NICKNAME+1], int points){
 
     top_scores_t* topScores = read_scores();
 
-        
     if(topScores->nTopScores == MAX_SCORES && score.points <= topScores->scores[MAX_SCORES-1].points){
         free(topScores);
         return;
@@ -124,7 +123,6 @@ void add_score(const char nickname[MAX_NICKNAME+1], int points){
 
     if(topScores->nTopScores == MAX_SCORES) {
         topScores->scores[topScores->nTopScores-1].points = score.points;
-
         strcpy(topScores->scores[topScores->nTopScores-1].nickname, score.nickname);
     }
     
@@ -136,25 +134,23 @@ void add_score(const char nickname[MAX_NICKNAME+1], int points){
         topScores->nTopScores++;
     }
 
-
     qsort(topScores->scores,topScores->nTopScores,sizeof(score_t),compare_scores);
 
     write_scores(topScores);
 
     free(topScores);
-    return;
 }
 
 
 /*Print all score at the bottom of the window*/
 void print_scores(WINDOW* mainWindow, int NROWS, int NCOLS) {
     top_scores_t* topScores = read_scores();
-
-    int i;
-
     mvwprintw(mainWindow, NROWS*3/4+8,0,"Top Scores:\n");
+
     int actualY = NROWS*3/4+10;
     int actualX = 0;
+
+    int i;
     for(i = 0; i < topScores->nTopScores; i++) {
         mvwprintw(mainWindow,actualY,actualX,"%d: Nickname: %4s; Score: %d\t", i+1, topScores->scores[i].nickname,  topScores->scores[i].points);
 
@@ -164,9 +160,5 @@ void print_scores(WINDOW* mainWindow, int NROWS, int NCOLS) {
             actualY++;
         }
     }
-
     free(topScores);
 }
-
-
-
