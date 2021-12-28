@@ -91,6 +91,7 @@ int actual_pos_nickname = 0;
 
 WINDOW *main_window;
 
+int number_of_walls = 0;  /* Number of Walls to be generated on the map */
 
 /* SIGINT handler. The variable go_on controls the main loop. */
 void quit () {
@@ -130,6 +131,12 @@ struct {
   int x;			/* Coordinate x of the fruit block. */
   int y;			/* Coordinate y of the fruit block. */
 } fruit_block;
+
+/* Wall block. */
+struct {
+  int x;			/* Coordinate x of the wall block. */
+  int y;			/* Coordinate y of the wall block. */
+} wall_block;
 
 /* All chars of one single scene. */
 typedef char scene_t[40][90]; /* Maximum values. TODO: allocate dyamically. */
@@ -332,6 +339,11 @@ void init_game () {
   /* Position of the first fruit block. */
   fruit_block.x = NCOLS/2 + 2;
   fruit_block.y = NROWS/2 + 2;
+
+  /* Position of the Walls */
+  if(number_of_walls > 0){
+    spawn_wall_blocks();
+  }
 }
 
 
@@ -378,6 +390,11 @@ void spawn_fruit_block () {
   }
 }
 
+/* Spawns some wall_blocks on the map. */
+
+void spawn_wall_blocks () {
+    //TODO
+}
 
 /* Generates energy_block[0] coordinates randomly. */
 
