@@ -154,6 +154,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/allthecoder">
+            <img src="https://avatars.githubusercontent.com/u/55332784?v=4" width="100;" alt="allthecoder"/>
+            <br />
+            <sub><b>Alexandre Brito Gomes</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/joaofavoretti">
             <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
             <br />
@@ -173,15 +180,15 @@ the following authors:
             <br />
             <sub><b>Brugazoni</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/FelipeMoleiro">
             <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
             <br />
             <sub><b>FelipeMoleiro</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
@@ -216,15 +223,15 @@ the following authors:
             <br />
             <sub><b>JulioEO</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/karolinyoliveira">
             <img src="https://avatars.githubusercontent.com/u/45614118?v=4" width="100;" alt="karolinyoliveira"/>
             <br />
             <sub><b>Karoliny Oliveira</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Beadurof">
             <img src="https://avatars.githubusercontent.com/u/8800471?v=4" width="100;" alt="Beadurof"/>
