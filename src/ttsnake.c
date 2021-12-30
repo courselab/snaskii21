@@ -668,7 +668,7 @@ void *userinput () {
                 entered_score = 1;
             }
 
-        }if(go_on_cutscene){ /*if its playing the cutscene*/
+        }else if(go_on_cutscene){ /*if its playing the cutscene*/
             if(c == ' '){
                 kill(mainProcessPid, SIGUSR1);
             }
