@@ -451,6 +451,15 @@ void generate_wall_blocks () {
         if ((wall_block[i].x)%2 == 0) {
             wall_block[i].x -= 1;
         }
+
+        /* Prevents a wall from being created in front of the snake */
+        /* int j;
+        for (j=0; j<snake.length; j++) {
+            while (abs(wall_block[i].y - snake.positions[j].y) == 0 && abs(wall_block[i].x - snake.positions[j].x) < 8) {
+                wall_block[i].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
+            }
+        }
+        */
     }
 }
 
