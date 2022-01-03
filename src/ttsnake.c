@@ -351,7 +351,7 @@ void init_game () {
   fruit_block.y = NROWS/2 + 2;
 
   /* Position of the Wall Blocks */
-    spawn_wall_blocks();
+  spawn_wall_blocks();
 }
 
 
@@ -443,23 +443,14 @@ void spawn_energy_block () {
 /* Generates wall blocks coordinates randomly. */
 void generate_wall_blocks () {
     int i;
-    for (i = 0; i < number_of_walls; i++){
+    for (i = 0; i < MAX_WALL_BLOCKS_LIMIT; i++){
         wall_block[i].x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
         wall_block[i].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
-        /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
+        /* Verifies if the wall is in a pair position, 'cause the snake moves 2 pos horizontally */
         if ((wall_block[i].x)%2 == 0) {
             wall_block[i].x -= 1;
         }
-
-        /* Prevents a wall from being created in front of the snake */
-        /* int j;
-        for (j=0; j<snake.length; j++) {
-            while (abs(wall_block[i].y - snake.positions[j].y) == 0 && abs(wall_block[i].x - snake.positions[j].x) < 8) {
-                wall_block[i].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
-            }
-        }
-        */
     }
 }
 
@@ -468,7 +459,7 @@ void reposition_wall_block (int i) {
     wall_block[i].x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
     wall_block[i].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
-    /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
+    /* Verifies if the wall is in a pair position, 'cause the snake moves 2 pos horizontally */
     if ((wall_block[i].x)%2 == 0) {
         wall_block[i].x -= 1;
     }
@@ -477,16 +468,41 @@ void reposition_wall_block (int i) {
 /* Verifies if walls are too close or conflict with snake position. */
 void resolve_wall_block_conflict () {
     int i, j, repositioned = 0;
-    for (i = 0; i < number_of_walls; i++) { /* test conflict on all walls */
-        while (energy_block[i].x == snake.head.x && energy_block[i].y == snake.head.y) {
+    for (i = 0; i < MAX_WALL_BLOCKS_LIMIT; i++) { /* test conflict on all walls */
+
+        /* Test if the 'i' Wall is in conflict with the Snake head */
+        while (wall_block[i].x == snake.head.x && wall_block[i].y == snake.head.y) {
             reposition_wall_block(i);  /* reposition conflicting wall */
         }
 
+        /* Test if the 'i' Wall is in conflict with the Snake body */
         for (j = 0; j < snake.length - 1; j++) {
-            if (energy_block[i].x == snake.positions[j].x &&
-                energy_block[i].y == snake.positions[j].y) {
+            if (wall_block[i].y == snake.positions[j].y &&
+                abs(wall_block[i].x - snake.positions[j].x) < 8) {
                 reposition_wall_block(i); /* reposition conflicting wall */
                 repositioned = 1;
+            }
+        }
+
+        /* Test if the 'i' Wall is in conflict with the Energy block */
+        while (wall_block[i].x == energy_block[0].x && wall_block[i].y == energy_block[0].y) {
+            reposition_wall_block(i);  /* reposition conflicting wall */
+            repositioned = 1;
+        }
+
+        /* Test if the 'i' Wall is in conflict with the Fruit block */
+        while (wall_block[i].x == fruit_block.x && wall_block[i].y == fruit_block.y) {
+            reposition_wall_block(i);  /* reposition conflicting wall */
+            repositioned = 1;
+        }
+
+        /* Test if the 'i' Wall is in conflict with another Wall (that passed all checks) block */
+        for (j = 0; j < i; j++){
+            if (wall_block[i].x == wall_block[j].x &&
+                wall_block[i].y == wall_block[j].y ) {
+                reposition_wall_block(i); /* reposition conflicting wall */
+                repositioned = 1;
+                break;
             }
         }
 
@@ -498,12 +514,11 @@ void resolve_wall_block_conflict () {
     }
 }
 
-/* Spawns some wall_blocks on the map. */
+/* Spawns wall_blocks on the map. */
 void spawn_wall_blocks () {
     generate_wall_blocks();
     resolve_wall_block_conflict();
 }
-
 
 /* Grows the snake - increases the snake length by one. */
 void grown_snake () {
@@ -624,6 +639,7 @@ void playmovie (scene_t* scene, int nscenes) {
 
 void draw_settings(scene_t *scene) {
     char buffer[NCOLS];
+    char buffer2[NCOLS];
     int i;
 
     /* Clean buffer. */
@@ -633,7 +649,10 @@ void draw_settings(scene_t *scene) {
 
     sprintf(buffer, "\
         < %3d >     Maximum number of blocks to display at the same time.",max_energy_blocks);
+    sprintf(buffer2, "\
+        < %3d >     Number of walls on map (press m/n to change).", number_of_walls);
     memcpy(&scene[2][22][12], buffer, strlen(buffer));
+    memcpy(&scene[2][24][12], buffer2, strlen(buffer2));
 }
 
 
@@ -826,6 +845,22 @@ void *userinput () {
                     }
                      break;
 
+                case 'm':
+                    if(game_end || restarted){
+                        if(number_of_walls < MAX_WALL_BLOCKS_LIMIT){
+                            number_of_walls ++;
+                        }
+                    }
+                    break;
+
+                case 'n':
+                    if(game_end || restarted){
+                        if(number_of_walls > 0){
+                            number_of_walls --;
+                        }
+                    }
+                    break;
+
                 default:
                     break;
             }
@@ -920,7 +955,7 @@ int main (int argc, char **argv) {
     movie_delay = 2.5E4;	            /* Movie frame duration in usec (40usec) */
     game_delay  = DEFAULT_GAME_DELAY;	/* Game frame duration in usec (4usec) */
     max_energy_blocks = 3;
-    number_of_walls = 10;
+    number_of_walls = 0;
 
     /* Handle game controls in a different thread. */
     rs = pthread_create(&pthread, NULL, &userinput, NULL);
