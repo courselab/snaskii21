@@ -179,6 +179,7 @@ The game score is the count of eaten blocks until the game is over.
 	Q to quit the game
 	space to skip the loading animation
 	R at game over screen to restart the game
+	m/n on menu to change the number of walls
 
 ## Contributing
 
