@@ -10,7 +10,7 @@ There are always positive contributions to be done in this project. If you wish 
 - [Commit messages](#commit-messages)
 - [Building the source code](#building)
 - [Communication Language](#language)
-- [Code Styles] (#code-styles)
+- [Code Styles](#code-styles)
 - [Versions](#versions)
 
 ## <a name="general-information"></a> General information
