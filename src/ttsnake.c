@@ -82,6 +82,7 @@ int NCOLS;                /* Number of cols of the game board. */
 int movie_delay;	      /* How long between move scenes. */
 int game_delay;		      /* How long between game scenes. */
 int go_on; 			      /* Whether to continue or to exit main loop.*/
+int go_on_cutscene = 0;   /* Whether to continue to display cutscene or skip it.*/
 int max_energy_blocks;    /* Max number of energy blocks to display at once. */
 
 int block_count; 		      /* Number of energy blocks collected. */
@@ -98,9 +99,16 @@ int actual_pos_nickname = 0;
 
 WINDOW *main_window;
 
+int mainProcessPid; /*Keeps track of main process PID*/
+
 /* SIGINT handler. The variable go_on controls the main loop. */
 void quit () {
     go_on = 0;
+}
+
+/* SIGUSR1 handler. The variable go_on_cutscene controls the cutscene loop. */
+void stop_cutscene () {
+    go_on_cutscene = 0;
 }
 
 
@@ -304,7 +312,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
         /* Add to the menu score and blocks collected. */
         wprintw(main_window, "Score: %d\n", block_count);
         wprintw(main_window, "Energy: %d\n", snake.energy);
-
+        
         for (i = 0; i < snake.energy; i++) {
             if((MAX_SNAKE_ENERGY / 100) != 0 && i % ((MAX_SNAKE_ENERGY / 100) * 5) == 0) {
                 /* Prints one bar for every 5% energy left. */
@@ -627,10 +635,16 @@ void playmovie (scene_t* scene, int nscenes) {
     struct timespec how_long;
     how_long.tv_sec = 0;
 
-    for (k = 0; (k < nscenes) && go_on; k++) {
+    /*Skip String*/
+    char* skipString = "Press the 'space' key to skip the animation";
+    double halfLen = strlen(skipString)/2.0;
+
+    for (k = 0; (k < nscenes) && go_on_cutscene; k++) {
         wclear(main_window);			               /* Clear screen.    */
         wrefresh(main_window);			               /* Refresh screen.  */
         showscene(scene, k, 0);                  /* Show k-th scene .*/
+        mvwprintw(main_window, NROWS, (int)(NCOLS/2.0-halfLen), skipString); /*Print skip String*/
+        wrefresh(main_window);                          /* Refresh screen.  */
         how_long.tv_nsec = movie_delay*1e3;            /* Compute delay.   */
         nanosleep(&how_long, NULL);	       /* Apply delay.     */
     }
@@ -767,6 +781,10 @@ void *userinput () {
                 entered_score = 1;
             }
 
+        }else if(go_on_cutscene){ /*if its playing the cutscene*/
+            if(c == ' '){
+                kill(mainProcessPid, SIGUSR1);
+            }
         } else {
             switch (c) {
                 case 'p':
@@ -811,7 +829,7 @@ void *userinput () {
 
                 case 'q':
                     if (game_end || restarted) {
-                        kill(0, SIGINT);
+                        kill(mainProcessPid, SIGINT);
                     }
                     break;
 
@@ -925,6 +943,11 @@ int main (int argc, char **argv) {
     act.sa_handler = &quit;
     sigaction(SIGINT, &act, NULL);
 
+    /* Handle SIGUSR1(animation control flag). */
+    sigaction(SIGUSR1, NULL, &act);
+    act.sa_handler = &stop_cutscene;
+    sigaction(SIGUSR1, &act, NULL);
+
     /* Ncurses initialization. */
     initscr();
     noecho();
@@ -957,6 +980,8 @@ int main (int argc, char **argv) {
     max_energy_blocks = 3;
     number_of_walls = 0;
 
+
+    mainProcessPid = getpid();
     /* Handle game controls in a different thread. */
     rs = pthread_create(&pthread, NULL, &userinput, NULL);
     sysfatal(rs);
@@ -965,9 +990,9 @@ int main (int argc, char **argv) {
     if(curr_data_dir) {
         nscenes = read_scenes(SCENE_DIR_INTRO, curr_data_dir, &intro_scene,
                             N_INTRO_SCENES);
-        go_on = 1;            /* User may skip intro (q). */
+        go_on_cutscene = 1;            /* User may skip intro (space). */
         playmovie(intro_scene, nscenes);
-
+        go_on_cutscene = 0;
         /* Play game. */
         read_scenes(SCENE_DIR_GAME, curr_data_dir, &game_scene, N_GAME_SCENES);
         go_on = 1;
