@@ -161,6 +161,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Kodhi314">
+            <img src="https://avatars.githubusercontent.com/u/48361852?v=4" width="100;" alt="Kodhi314"/>
+            <br />
+            <sub><b>Kodhi314</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
             <br />
@@ -172,6 +179,14 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
             <br />
             <sub><b>João Pedro Favoretti</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/JoaoHardline">
+            <img src="https://avatars.githubusercontent.com/u/84240829?v=4" width="100;" alt="JoaoHardline"/>
+            <br />
+            <sub><b>João Pedro Gonçalves Ferreira</b></sub>
         </a>
     </td>
     <td align="center">
@@ -217,7 +232,8 @@ the following authors:
             <br />
             <sub><b>Ceneme</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/aocard">
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
@@ -260,7 +276,8 @@ the following authors:
             <br />
             <sub><b>Karoliny Silva</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/sleifnir">
             <img src="https://avatars.githubusercontent.com/u/50050993?v=4" width="100;" alt="sleifnir"/>
