@@ -175,6 +175,14 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/JoaoHardline">
+            <img src="https://avatars.githubusercontent.com/u/84240829?v=4" width="100;" alt="JoaoHardline"/>
+            <br />
+            <sub><b>João Pedro Gonçalves Ferreira</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/lucasxavierleite">
             <img src="https://avatars.githubusercontent.com/u/25937648?v=4" width="100;" alt="lucasxavierleite"/>
             <br />
@@ -216,15 +224,15 @@ the following authors:
             <br />
             <sub><b>AOCard</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/JulioEO">
             <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
             <br />
             <sub><b>JulioEO</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/karolinyoliveira">
             <img src="https://avatars.githubusercontent.com/u/45614118?v=4" width="100;" alt="karolinyoliveira"/>
