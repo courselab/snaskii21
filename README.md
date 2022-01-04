@@ -11,9 +11,6 @@ students.
 
 ## SETUP
 
-In the following section, the leading `#` in commands indicates that it requires
-administrative privileges (`sudo`).
-
 ### Dependencies
 
 
@@ -23,7 +20,7 @@ repository__, you'll need to have GNU Build System (Autotools) installed.
 ### Debian/Ubuntu based platforms:
 
 ```
-# apt install automake autoconf
+$ sudo apt install automake autoconf
 ```
 
 ### [Homebrew](https://brew.sh/) (macOS/Linux):
@@ -35,17 +32,17 @@ $ brew install autoconf automake
 ### Arch Linux/Manjaro based platforms:
 
 ```
-# pacman -S automake autoconf
+$ sudo pacman -S automake autoconf
 ```
 
-Other missing dependencies will be indicated by the configuration script ---
+Other missing dependencies will be indicated by the configuration script,
 e.g.: if you don't have `libncurses` installed, it'll complain about it and you
 may install it.
 
 ### Debian/Ubuntu based platforms:
 
 ```
-# apt install libncurses5-dev
+$ sudo apt install libncurses5-dev
 ```
 
 ### [Homebrew](https://brew.sh/) (macOS/Linux):
@@ -57,7 +54,7 @@ $ brew install ncurses
 ### Arch Linux/Manjaro based platforms:
 
 ```
-# pacman -S ncurses
+$ sudo pacman -S ncurses
 ```
 
 It is also required for your system to have support for POSIX threads.
@@ -94,7 +91,7 @@ in `/usr/bin` and the data files in `/usr/share` ---, run:
 
 ```
  $ make
- # make install
+ $ sudo make install
 ```
 
 Optionally, if you wish to install the software under a different location,
@@ -116,15 +113,15 @@ An alternative option to install the dependencies and the repository is to use t
 
 For `install_all.sh`, execute the following command on the terminal:
 
-```sudo install_all.sh```
+```$ sudo ./install_all.sh```
 
 For `install_all.py`, it's required to use Python 3.x. The usage is:
 
-```python install_all.py [--password SUDO_PASSWORD]```
+```python ./install_all.py [--password SUDO_PASSWORD]```
 
 The password argument is optional. It's required only if your system is unable to install the packages and the repository without root privileges. In this case, type your password on the terminal as a command-line argument (for example, suposing a password `xyz`):
 
-```python install_all.py --password xyz```
+```python ./install_all.py --password xyz```
 
 
 ## Docker environment execution
@@ -159,14 +156,14 @@ If, for some reason, the command returns a message asking for a minimum terminal
 
 ### Playing the game
 
-The game takes place on a rectangular areana where a snake continuously
-move in one of the four directions: left, right, up and down --- it never
-stops. As the snake moves it looses energy and if all of it is exausted, the
+The game takes place on a rectangular arena where a snake continuously move (that is,
+it never stops) in one of the four directions: left, right, up and down.
+As the snake moves it looses energy and if all of it is exausted, the
 snake dies. To recover energy, the snake needs to eat pieces of food which
 are constantly replaced at random positions.
 
 Be careful, though. The arena borders are electrified and would kill the snake
-if touched. Morover, mind that the snake is poisonous and it would also die if
+if touched. Moreover, mind that the snake is poisonous and it would also die if
 it accidently bites itself, i.e. if the snake's head crosses its own body (yes,
 this is weird for snakes, but this is a Tron Snake).
 
