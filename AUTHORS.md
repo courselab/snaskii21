@@ -54,6 +54,13 @@ the following authors:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/andrecoco">
+            <img src="https://avatars.githubusercontent.com/u/16878985?v=4" width="100;" alt="andrecoco"/>
+            <br />
+            <sub><b>André Viana</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/artP2">
             <img src="https://avatars.githubusercontent.com/u/36577408?v=4" width="100;" alt="artP2"/>
             <br />
@@ -87,15 +94,15 @@ the following authors:
             <br />
             <sub><b>Gabriel Souza</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/UesleiPina">
             <img src="https://avatars.githubusercontent.com/u/78181182?v=4" width="100;" alt="UesleiPina"/>
             <br />
             <sub><b>Ueslei Pina</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/FelipeMoleiro">
             <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
@@ -115,13 +122,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
             <sub><b>Erik Melges</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/andrecoco">
-            <img src="https://avatars.githubusercontent.com/u/16878985?v=4" width="100;" alt="andrecoco"/>
-            <br />
-            <sub><b>André Viana</b></sub>
         </a>
     </td>
     <td align="center">
@@ -190,21 +190,12 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/JoaoHardline">
-            <img src="https://avatars.githubusercontent.com/u/84240829?v=4" width="100;" alt="JoaoHardline"/>
-            <br />
-            <sub><b>João Pedro Gonçalves Ferreira</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
         <a href="https://github.com/lucasxavierleite">
             <img src="https://avatars.githubusercontent.com/u/25937648?v=4" width="100;" alt="lucasxavierleite"/>
             <br />
             <sub><b>Lucas Xavier Leite</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
@@ -240,8 +231,7 @@ the following authors:
             <br />
             <sub><b>AOCard</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/JulioEO">
             <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
