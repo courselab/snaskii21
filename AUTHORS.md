@@ -111,13 +111,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/FelipeMoleiro">
-            <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
-            <br />
-            <sub><b>FelipeMoleiro</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
             <br />
@@ -197,21 +190,12 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/JoaoHardline">
-            <img src="https://avatars.githubusercontent.com/u/84240829?v=4" width="100;" alt="JoaoHardline"/>
-            <br />
-            <sub><b>João Pedro Gonçalves Ferreira</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
         <a href="https://github.com/lucasxavierleite">
             <img src="https://avatars.githubusercontent.com/u/25937648?v=4" width="100;" alt="lucasxavierleite"/>
             <br />
             <sub><b>Lucas Xavier Leite</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
@@ -247,8 +231,7 @@ the following authors:
             <br />
             <sub><b>AOCard</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/JulioEO">
             <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
