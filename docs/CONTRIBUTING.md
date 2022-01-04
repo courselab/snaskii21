@@ -10,6 +10,7 @@ There are always positive contributions to be done in this project. If you wish 
 - [Commit messages](#commit-messages)
 - [Building the source code](#building)
 - [Communication Language](#language)
+- [Code Styles](#code-styles)
 - [Versions](#versions)
 
 ## <a name="general-information"></a> General information
@@ -156,6 +157,19 @@ Do not mind at all if your current skills are modest or incipient; no one
 expects otherwise --- your coding skills and will to help matter more.
 Use an automatic translator if needed. Just don't name variable and 
 functions in a language other than English.
+
+## <a name="code-styles"></a> Code Styles
+
+- Variables/functions formatting: snake_case
+- Structs formatting: snake_case_t
+- Indentation: Tabs
+- Blocks: Same-line curly brackets separated by spaces
+- If-like statements: Spaces before parenthesis
+- Pointer asterisks: 'int *a'
+- Declare multiple variable in same line: Yes
+- One-liners: Break to multiple lines nevertheless
+- Line's max-width: 80
+
 
 ## <a name="versions"></a> Versions
 
