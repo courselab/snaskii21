@@ -7,7 +7,7 @@ students.
 
 ## SETUP
 
-In the following section, the leading `#` in commands indicates that they require
+In the following section, the leading `#` in commands indicates that require
 administrative privileges (`sudo`).
 
 ### Dependencies
