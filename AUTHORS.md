@@ -18,17 +18,17 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/math-araujo">
-            <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
-            <br />
-            <sub><b>Math-araujo</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Tyago-Teoi">
             <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
             <br />
             <sub><b>Tyago Teoi</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/math-araujo">
+            <img src="https://avatars.githubusercontent.com/u/52018308?v=4" width="100;" alt="math-araujo"/>
+            <br />
+            <sub><b>Math-araujo</b></sub>
         </a>
     </td>
     <td align="center">
@@ -204,6 +204,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/DiogoCE">
+            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
+            <br />
+            <sub><b>Diogo Castanho Emídio</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
             <br />
@@ -216,15 +223,15 @@ the following authors:
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
             <br />
             <sub><b>Ceneme</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/aocard">
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
@@ -259,15 +266,15 @@ the following authors:
             <br />
             <sub><b>Guynamedped</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/karolinysilva">
             <img src="https://avatars.githubusercontent.com/u/78601574?v=4" width="100;" alt="karolinysilva"/>
             <br />
             <sub><b>Karoliny Silva</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/sleifnir">
             <img src="https://avatars.githubusercontent.com/u/50050993?v=4" width="100;" alt="sleifnir"/>
