@@ -11,17 +11,17 @@ the following authors:
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/Dauboau">
-            <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
-            <br />
-            <sub><b>Daniel Contente Romanzini</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Tyago-Teoi">
             <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
             <br />
             <sub><b>Tyago Teoi</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Dauboau">
+            <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
+            <br />
+            <sub><b>Daniel Contente Romanzini</b></sub>
         </a>
     </td>
     <td align="center">
@@ -132,13 +132,20 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Haltz01">
+            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
+            <br />
+            <sub><b>Pedro Guerra</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/allthecoder">
             <img src="https://avatars.githubusercontent.com/u/55332784?v=4" width="100;" alt="allthecoder"/>
             <br />
             <sub><b>Alexandre Brito Gomes</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/lucasvianav">
             <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
@@ -147,10 +154,10 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Haltz01">
-            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
+        <a href="https://github.com/DiogoCE">
+            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
             <br />
-            <sub><b>Pedro Guerra</b></sub>
+            <sub><b>Diogo Castanho Emídio</b></sub>
         </a>
     </td>
     <td align="center">
@@ -165,13 +172,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/48361852?v=4" width="100;" alt="Kodhi314"/>
             <br />
             <sub><b>Kodhi314</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/DiogoCE">
-            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
-            <br />
-            <sub><b>Diogo Castanho Emídio</b></sub>
         </a>
     </td>
     <td align="center">
