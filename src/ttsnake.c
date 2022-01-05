@@ -73,6 +73,7 @@
 struct timeval beginning,       /* Time when game started. */
     now,		                /* Time now. */
     before,			            /* Time in the last frame. */
+    paused_time,                /* Time slice when game is paused. */
     elapsed_last,			    /* Elapsed time since last frame. */
     elapsed_total;		        /* Elapsed time since game baginning. */
 
@@ -284,10 +285,17 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 
     switch (scene_type) {
         case RUNNING:
-        case PAUSED:
             /* Calculating elapsed time to display while the game is running. */
             timeval_subtract(&elapsed_last, &before, &beginning);
             timeval_subtract(&elapsed_total, &now, &beginning);
+            break;
+
+        case PAUSED:
+            /* Calculating a short time while paused. */
+            timeval_subtract(&paused_time, &now, &before);
+
+            /* Update the beginning adding the paused_time. */
+            timeval_add(&beginning, &paused_time, &beginning);
             break;
 
         case RESTARTED:
@@ -505,7 +513,7 @@ void resolve_wall_block_conflict () {
         }
 
         /* Test if the 'i' Wall is in conflict with another Wall (that passed all checks) block */
-        for (j = 0; j < i; j++){
+        for (j = 0; j < i; j++) {
             if (wall_block[i].x == wall_block[j].x &&
                 wall_block[i].y == wall_block[j].y ) {
                 reposition_wall_block(i); /* reposition conflicting wall */
