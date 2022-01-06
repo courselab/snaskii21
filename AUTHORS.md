@@ -97,6 +97,13 @@ the following authors:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/DiogoCE">
+            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
+            <br />
+            <sub><b>Diogo Castanho Emídio</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/UesleiPina">
             <img src="https://avatars.githubusercontent.com/u/78181182?v=4" width="100;" alt="UesleiPina"/>
             <br />
@@ -129,13 +136,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/DiogoCE">
-            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
-            <br />
-            <sub><b>Diogo Castanho Emídio</b></sub>
         </a>
     </td></tr>
 <tr>
@@ -211,20 +211,27 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Idalen">
+            <img src="https://avatars.githubusercontent.com/u/48536015?v=4" width="100;" alt="Idalen"/>
+            <br />
+            <sub><b>Daniel Martins Vieira</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
             <br />
             <sub><b>MauricioGGCatellan</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/monacofj">
             <img src="https://avatars.githubusercontent.com/u/3980792?v=4" width="100;" alt="monacofj"/>
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
@@ -259,15 +266,15 @@ the following authors:
             <br />
             <sub><b>Marcelo Temoteo</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
             <br />
             <sub><b>Guynamedped</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/karolinysilva">
             <img src="https://avatars.githubusercontent.com/u/78601574?v=4" width="100;" alt="karolinysilva"/>
