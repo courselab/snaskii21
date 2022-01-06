@@ -30,6 +30,7 @@
 #include <getopt.h>
 #include <math.h>
 
+
 #include "utils.h"
 #include "score.h"
 
@@ -343,7 +344,10 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 
 /* Initialize resources and counters. */
 void init_game () {
-	int i;
+	
+    system("mpg123 --no-visual --no-control --quiet ./sound/maintheme.mp3 &");
+
+    int i;
 	block_count = 0;
 	snake.energy = ENERGY_MINIMAL;
 	snake.direction = right;
@@ -843,6 +847,7 @@ void *userinput () {
 
                 case 'r':
                     if (game_end) {
+                        system("killall mpg123");
                         init_game();
                         restarted = 1;
                         game_end = 0;
@@ -1015,5 +1020,6 @@ int main (int argc, char **argv) {
     free(game_scene);
     free(curr_data_dir);
 
+    system("killall mpg123");
     return EXIT_SUCCESS;
 }
