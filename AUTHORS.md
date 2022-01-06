@@ -82,27 +82,20 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/DiogoCE">
-            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
-            <br />
-            <sub><b>Diogo Castanho Emídio</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/CarlosCraveiro">
             <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
             <br />
             <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/gsasouza">
             <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
             <br />
             <sub><b>Gabriel Souza</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/UesleiPina">
             <img src="https://avatars.githubusercontent.com/u/78181182?v=4" width="100;" alt="UesleiPina"/>
@@ -137,6 +130,13 @@ the following authors:
             <br />
             <sub><b>MuketaUeda</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/DiogoCE">
+            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
+            <br />
+            <sub><b>Diogo Castanho Emídio</b></sub>
+        </a>
     </td></tr>
 <tr>
     <td align="center">
@@ -168,27 +168,20 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Idalen">
-            <img src="https://avatars.githubusercontent.com/u/48536015?v=4" width="100;" alt="Idalen"/>
-            <br />
-            <sub><b>Daniel Martins Vieira</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Kodhi314">
             <img src="https://avatars.githubusercontent.com/u/48361852?v=4" width="100;" alt="Kodhi314"/>
             <br />
             <sub><b>Kodhi314</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
             <br />
             <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/joaofavoretti">
             <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
@@ -223,15 +216,15 @@ the following authors:
             <br />
             <sub><b>MauricioGGCatellan</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/monacofj">
             <img src="https://avatars.githubusercontent.com/u/3980792?v=4" width="100;" alt="monacofj"/>
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
@@ -261,14 +254,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/l-a-motta">
-            <img src="https://avatars.githubusercontent.com/u/42696793?v=4" width="100;" alt="l-a-motta"/>
-            <br />
-            <sub><b>Leonardo Antonetti Da Motta</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
         <a href="https://github.com/Beadurof">
             <img src="https://avatars.githubusercontent.com/u/8800471?v=4" width="100;" alt="Beadurof"/>
             <br />
@@ -281,7 +266,8 @@ the following authors:
             <br />
             <sub><b>Guynamedped</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/karolinysilva">
             <img src="https://avatars.githubusercontent.com/u/78601574?v=4" width="100;" alt="karolinysilva"/>
