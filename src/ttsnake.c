@@ -46,20 +46,17 @@
 #define SCENE_DIR_GAME  "game"	       /* Path to the game animation scene.  */
 
 
-#define SNAKE_TAIL       '.'           /* Character to draw the snake tail.  */
+#define SNAKE_TAIL	     '.'           /* Character to draw the snake tail.  */
 #define SNAKE_BODY       'x'           /* Character to draw the snake body.  */
-#define SNAKE_HEAD       '0'           /* Character to draw the snake head.  */
-#define ENERGY_BLOCK     '+'           /* Character to draw the energy block.*/
-#define FRUIT_BLOCK      '$'           /* Character to draw the fruit block. */
-#define WALL_BLOCK       'W'           /* Character to draw the wall block.  */
+#define SNAKE_HEAD	     '0'	         /* Character to draw the snake head.  */
+#define ENERGY_BLOCK     '+'	         /* Character to draw the energy block.*/
+#define FRUIT_BLOCK      '$'	         /* Character to draw the fruit block. */
 
 #define HORIZONTAL_MOVE  2   /* Number of positions on matrix to move horizontally. */
 #define VERTICAL_MOVE    1   /* Number of positions on matrix to move vertically.   */
 
 #define MAX_ENERGY_BLOCKS_LIMIT 50	   /* How many energy blocks we can have.*/
 #define MAX_SNAKE_ENERGY (NCOLS+NROWS) /* How much energy the snake can hold.*/
-
-#define MAX_WALL_BLOCKS_LIMIT 10	   /* How many wall blocks we can have.*/
 
 #define MIN_GAME_DELAY 10200	         /* Empirically set. */
 #define MAX_GAME_DELAY 2.5E5	         /* Empirically set. */
@@ -73,7 +70,6 @@
 struct timeval beginning,       /* Time when game started. */
     now,		                /* Time now. */
     before,			            /* Time in the last frame. */
-    paused_time,                /* Time slice when game is paused. */
     elapsed_last,			    /* Elapsed time since last frame. */
     elapsed_total;		        /* Elapsed time since game baginning. */
 
@@ -87,8 +83,6 @@ int go_on_cutscene = 0;   /* Whether to continue to display cutscene or skip it.
 int max_energy_blocks;    /* Max number of energy blocks to display at once. */
 
 int block_count; 		      /* Number of energy blocks collected. */
-
-int number_of_walls;    /* Number of wall blocks on map. */
 
 int paused = 1; 		      /* Play/Pause indicator. */
 int game_end = 0;		      /* End of the game indicator.  */
@@ -131,7 +125,7 @@ typedef struct pair_st {
 struct snake_st {
     pair_t head;		       /* The snake's head. */
     int length;			       /* The snake length (including head). */
-    pair_t *positions;	       /* Position of each body part of the snake. */
+    pair_t* positions;	       /* Position of each body part of the snake. */
     direction_t direction;     /* Movement direction. */
     int energy;                /* Snake energy. */
 };
@@ -151,17 +145,9 @@ struct {
   int y;			/* Coordinate y of the fruit block. */
 } fruit_block;
 
-/* Wall block. */
-struct {
-  int x;			/* Coordinate x of the wall block. */
-  int y;			/* Coordinate y of the wall block. */
-} wall_block[MAX_WALL_BLOCKS_LIMIT];   /* Array of wall blocks. */
-
 /* All chars of one single scene. */
 typedef char scene_t[40][90]; /* Maximum values. TODO: allocate dyamically. */
 
-/* Declare function for later use. */
-void spawn_wall_blocks ();
 
 /* Read all the scenes in the 'dir' directory, save it in 'scene' and
    return the number of readed scenes. */
@@ -285,17 +271,10 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 
     switch (scene_type) {
         case RUNNING:
+        case PAUSED:
             /* Calculating elapsed time to display while the game is running. */
             timeval_subtract(&elapsed_last, &before, &beginning);
             timeval_subtract(&elapsed_total, &now, &beginning);
-            break;
-
-        case PAUSED:
-            /* Calculating a short time while paused. */
-            timeval_subtract(&paused_time, &now, &before);
-
-            /* Update the beginning adding the paused_time. */
-            timeval_add(&beginning, &paused_time, &beginning);
             break;
 
         case RESTARTED:
@@ -351,7 +330,11 @@ void init_game () {
 	snake.head.x = 11;
 	snake.head.y = 11;
 
-	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
+	if(snake.positions != NULL){
+        free(snake.positions);
+    }
+
+    snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
 
   for (i = 0; i < snake.length; i++) {
 		snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
@@ -365,9 +348,6 @@ void init_game () {
   /* Position of the first fruit block. */
   fruit_block.x = NCOLS/2 + 2;
   fruit_block.y = NROWS/2 + 2;
-
-  /* Position of the Wall Blocks */
-  spawn_wall_blocks();
 }
 
 
@@ -456,86 +436,6 @@ void spawn_energy_block () {
 }
 
 
-/* Generates wall blocks coordinates randomly. */
-void generate_wall_blocks () {
-    int i;
-    for (i = 0; i < MAX_WALL_BLOCKS_LIMIT; i++){
-        wall_block[i].x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
-        wall_block[i].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
-
-        /* Verifies if the wall is in a pair position, 'cause the snake moves 2 pos horizontally */
-        if ((wall_block[i].x)%2 == 0) {
-            wall_block[i].x -= 1;
-        }
-    }
-}
-
-/* Reposition a wall block coordinates randomly. */
-void reposition_wall_block (int i) {
-    wall_block[i].x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
-    wall_block[i].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
-
-    /* Verifies if the wall is in a pair position, 'cause the snake moves 2 pos horizontally */
-    if ((wall_block[i].x)%2 == 0) {
-        wall_block[i].x -= 1;
-    }
-}
-
-/* Verifies if walls are too close or conflict with snake position. */
-void resolve_wall_block_conflict () {
-    int i, j, repositioned = 0;
-    for (i = 0; i < MAX_WALL_BLOCKS_LIMIT; i++) { /* test conflict on all walls */
-
-        /* Test if the 'i' Wall is in conflict with the Snake head */
-        while (wall_block[i].x == snake.head.x && wall_block[i].y == snake.head.y) {
-            reposition_wall_block(i);  /* reposition conflicting wall */
-        }
-
-        /* Test if the 'i' Wall is in conflict with the Snake body */
-        for (j = 0; j < snake.length - 1; j++) {
-            if (wall_block[i].y == snake.positions[j].y &&
-                abs(wall_block[i].x - snake.positions[j].x) < 8) {
-                reposition_wall_block(i); /* reposition conflicting wall */
-                repositioned = 1;
-            }
-        }
-
-        /* Test if the 'i' Wall is in conflict with the Energy block */
-        while (wall_block[i].x == energy_block[0].x && wall_block[i].y == energy_block[0].y) {
-            reposition_wall_block(i);  /* reposition conflicting wall */
-            repositioned = 1;
-        }
-
-        /* Test if the 'i' Wall is in conflict with the Fruit block */
-        while (wall_block[i].x == fruit_block.x && wall_block[i].y == fruit_block.y) {
-            reposition_wall_block(i);  /* reposition conflicting wall */
-            repositioned = 1;
-        }
-
-        /* Test if the 'i' Wall is in conflict with another Wall (that passed all checks) block */
-        for (j = 0; j < i; j++) {
-            if (wall_block[i].x == wall_block[j].x &&
-                wall_block[i].y == wall_block[j].y ) {
-                reposition_wall_block(i); /* reposition conflicting wall */
-                repositioned = 1;
-                break;
-            }
-        }
-
-        if(repositioned) { /* this wall needs to be checked again */
-            repositioned = 0;
-            i--;
-            continue;
-        }
-    }
-}
-
-/* Spawns wall_blocks on the map. */
-void spawn_wall_blocks () {
-    generate_wall_blocks();
-    resolve_wall_block_conflict();
-}
-
 /* Grows the snake - increases the snake length by one. */
 void grown_snake () {
     snake.length++;
@@ -569,20 +469,11 @@ void check_colision () {
              snake.head.y == fruit_block.y) {
 		block_count++;
 		spawn_fruit_block();
-    }
+  }
 
 	for (i = 0; i < snake.length - 1; i++) {
 		if (snake.head.x == snake.positions[i].x &&
         snake.head.y == snake.positions[i].y) {
-			game_end = 1;
-			paused = 1;
-			break;
-		}
-	}
-
-    for (i = 0; i < number_of_walls; i++) {
-		if (snake.head.x == wall_block[i].x &&
-        snake.head.y == wall_block[i].y) {
 			game_end = 1;
 			paused = 1;
 			break;
@@ -661,7 +552,6 @@ void playmovie (scene_t* scene, int nscenes) {
 
 void draw_settings(scene_t *scene) {
     char buffer[NCOLS];
-    char buffer2[NCOLS];
     int i;
 
     /* Clean buffer. */
@@ -671,10 +561,7 @@ void draw_settings(scene_t *scene) {
 
     sprintf(buffer, "\
         < %3d >     Maximum number of blocks to display at the same time.",max_energy_blocks);
-    sprintf(buffer2, "\
-        < %3d >     Number of walls on map (press m/n to change).", number_of_walls);
     memcpy(&scene[2][22][12], buffer, strlen(buffer));
-    memcpy(&scene[2][24][12], buffer2, strlen(buffer2));
 }
 
 
@@ -697,11 +584,7 @@ void run(scene_t* scene) {
 
 	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 
-    scene[0][fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
-
-    for (i = 0; i < number_of_walls; i++) {
-        scene[0][wall_block[i].y][wall_block[i].x] = WALL_BLOCK;
-    }
+        scene[0][fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
 }
 
 
@@ -871,22 +754,6 @@ void *userinput () {
                     }
                      break;
 
-                case 'm':
-                    if(game_end || restarted){
-                        if(number_of_walls < MAX_WALL_BLOCKS_LIMIT){
-                            number_of_walls ++;
-                        }
-                    }
-                    break;
-
-                case 'n':
-                    if(game_end || restarted){
-                        if(number_of_walls > 0){
-                            number_of_walls --;
-                        }
-                    }
-                    break;
-
                 default:
                     break;
             }
@@ -986,7 +853,6 @@ int main (int argc, char **argv) {
     movie_delay = 2.5E4;	            /* Movie frame duration in usec (40usec) */
     game_delay  = DEFAULT_GAME_DELAY;	/* Game frame duration in usec (4usec) */
     max_energy_blocks = 3;
-    number_of_walls = 0;
 
 
     mainProcessPid = getpid();
@@ -1014,6 +880,7 @@ int main (int argc, char **argv) {
     free(intro_scene);
     free(game_scene);
     free(curr_data_dir);
+    free(snake.positions);
 
     return EXIT_SUCCESS;
 }
