@@ -323,7 +323,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 
 /* Initialize resources and counters. */
 void init_game () {
-	
+	// Possible solution to filepath: either use path as 'sound/maintheme.mp3' or use HTTP protocol from mpg123 (https://www.mankier.com/1/mpg123)
     system("mpg123 --no-visual --no-control --quiet ./sound/maintheme.mp3 &");
 
     int i;
@@ -887,6 +887,7 @@ int main (int argc, char **argv) {
     free(curr_data_dir);
     free(snake.positions);
 
+    // Be careful with the killall or we might leave the program without enough time to end, resulting in infinite music
     system("killall mpg123");
     return EXIT_SUCCESS;
 }
