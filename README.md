@@ -15,7 +15,9 @@ students.
 
 
 If you have obtained the project source from the __version control
-repository__, you'll need to have GNU Build System (Autotools) installed.
+repository__, you'll need to have GNU Build System (Autotools) installed. 
+
+In case you do not hear any music, make sure you have mpg123 installed in your current machine executing the code.
 
 ### Debian/Ubuntu based platforms:
 
