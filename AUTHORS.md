@@ -132,13 +132,20 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/DiogoCE">
+            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
+            <br />
+            <sub><b>Diogo Castanho Emídio</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/Haltz01">
             <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
             <br />
             <sub><b>Pedro Guerra</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/allthecoder">
             <img src="https://avatars.githubusercontent.com/u/55332784?v=4" width="100;" alt="allthecoder"/>
@@ -151,13 +158,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
             <br />
             <sub><b>Lucas Viana</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/DiogoCE">
-            <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
-            <br />
-            <sub><b>Diogo Castanho Emídio</b></sub>
         </a>
     </td>
     <td align="center">
