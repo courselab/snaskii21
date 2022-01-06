@@ -345,7 +345,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 /* Initialize resources and counters. */
 void init_game () {
 	
-    system("mpg123 --no-visual --no-control --quiet ~/Music/\"MACINTOSH PLUS - FLORAL SHOPPE\"/\"MACINTOSH PLUS - FLORAL SHOPPE - 02 リサフランク420 - 現代のコンピュー.mp3\" &");
+    system("mpg123 --no-visual --no-control --quiet ./sound/maintheme.mp3 &");
 
     int i;
 	block_count = 0;
