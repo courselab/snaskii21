@@ -46,18 +46,18 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/Float07">
-            <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
-            <br />
-            <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
         <a href="https://github.com/DiogoCE">
             <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
             <br />
             <sub><b>Diogo Castanho Emídio</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/Float07">
+            <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
+            <br />
+            <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
         </a>
     </td>
     <td align="center">
