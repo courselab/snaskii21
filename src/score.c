@@ -34,16 +34,17 @@ typedef struct {
 
 /* Struct used to represent all scores from score system */
 typedef struct {
-    int nTopScores;
-    score_t scores[MAX_SCORES];
+    int nTopScores; /* Highest scores ever achieved */
+    score_t scores[MAX_SCORES]; /* All scores */
 } top_scores_t;
 
 
-/*Function used to sort scores after new score is entered*/
+/* Function used to sort scores after new score is entered */
 int compare_scores(const void* a, const void* b){
     score_t* score1 = (score_t*) a;
     score_t* score2 = (score_t*) b;
 
+    /* Compare the scores */    
     if(score1->points < score2->points){
         return 1;
     }
@@ -56,18 +57,20 @@ int compare_scores(const void* a, const void* b){
 }
 
 
-/*Read all scores from score file and returns a top_scores_t struct*/
+/* Read all scores from score file and returns a top_scores_t struct */
 top_scores_t* read_scores(){
-    top_scores_t* topScores = (top_scores_t*) malloc(sizeof(top_scores_t));
+    top_scores_t* topScores = (top_scores_t*) malloc(sizeof(top_scores_t)); /* Allocates space to place the highest scores */
 
-    FILE* fp = fopen(SCORES_FILE, "rb");
+    FILE* fp = fopen(SCORES_FILE, "rb"); /* Open the file where scores are stored to read */
     
+    /* No file */
     if(!fp){
         topScores->nTopScores = 0;
         return topScores;  
     }
 
     int nScores;
+    /* File without scores */
     if(!fread(&nScores, sizeof(int), 1, fp)){
         fclose(fp);
         topScores->nTopScores = 0;
@@ -77,17 +80,18 @@ top_scores_t* read_scores(){
     topScores->nTopScores = nScores;
 
     int i;
+    /* Run through the scores by reading each player's score */
     for(i = 0; i < nScores; i++) {
         fread(topScores->scores[i].nickname, sizeof(char), MAX_NICKNAME + 1, fp);
         fread(&(topScores->scores[i].points), sizeof(int), 1, fp);
     }
 
-    fclose(fp);
-    return topScores;
+    fclose(fp); /* Close the file */
+    return topScores; 
 }
 
 
-/*Write top scores to score file*/
+/* Write top scores to score file */
 void write_scores(top_scores_t* topScores){
 
     FILE* fp = fopen(SCORES_FILE, "wb");
