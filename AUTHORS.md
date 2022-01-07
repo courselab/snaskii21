@@ -190,6 +190,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/isadoracsiebert">
+            <img src="https://avatars.githubusercontent.com/u/75046559?v=4" width="100;" alt="isadoracsiebert"/>
+            <br />
+            <sub><b>Isadora</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/marcuscastelo">
             <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
             <br />
@@ -216,15 +223,15 @@ the following authors:
             <br />
             <sub><b>Lucas Xavier Leite</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
             <br />
             <sub><b>Brugazoni</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
@@ -259,15 +266,15 @@ the following authors:
             <br />
             <sub><b>JulioEO</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/karolinyoliveira">
             <img src="https://avatars.githubusercontent.com/u/45614118?v=4" width="100;" alt="karolinyoliveira"/>
             <br />
             <sub><b>Karoliny Oliveira</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Beadurof">
             <img src="https://avatars.githubusercontent.com/u/8800471?v=4" width="100;" alt="Beadurof"/>
