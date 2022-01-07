@@ -18,20 +18,21 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/* Importing libraries */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <curses.h>
 #include "score.h"
 
-/*Struct used to represent a single score*/
+/* Struct used to represent a single score */
 typedef struct {
-    char nickname[MAX_NICKNAME + 1];
-    int points;
+    char nickname[MAX_NICKNAME + 1]; /* User defined nickname */
+    int points; /* Points earned in the game */
 } score_t;
 
 
-/*Struct used to represent all scores from score system*/
+/* Struct used to represent all scores from score system */
 typedef struct {
     int nTopScores;
     score_t scores[MAX_SCORES];
