@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "type_traits": "c",
+        "*.tcc": "c"
+    }
+}
