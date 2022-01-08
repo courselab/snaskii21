@@ -37,7 +37,7 @@
 /* Game defaults. */
 
 /* assert if a system call was properly made and */
-#define ASSERT_SYSTEM_CALL(x) if(!(x)) \
+#define ASSERT_SYSTEM_CALL(x) if (!(x)) \
 	fprintf(stderr, "System does not recognize call \""#x"\"\n");
 
 #define N_GAME_SCENES   4	      /* Number of frames of the gamepay scnene. */
@@ -246,7 +246,7 @@ void draw (scene_t* scene_array, int number) {
 	mvwprintw(main_window, NROWS*3/4, NCOLS/2-7, "Score: %d", block_count);
 
 	/*Instructions to enter nickname*/
-		if(!entered_score) {
+		if (!entered_score) {
 			mvwprintw(main_window, NROWS*3/4 + 1,NCOLS/5 - 2,
 					  "                                             ");
 			mvwprintw(main_window, NROWS*3/4 + 3, NCOLS/5 - 2,
@@ -316,7 +316,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 		wprintw(main_window, "Energy: %d\n", snake.energy);
 		
 		for (i = 0; i < snake.energy; i++) {
-			if((MAX_SNAKE_ENERGY / 100) != 0 && i % ((MAX_SNAKE_ENERGY / 100) * 5) == 0) {
+			if ((MAX_SNAKE_ENERGY / 100) != 0 && i % ((MAX_SNAKE_ENERGY / 100) * 5) == 0) {
 				/* Prints one bar for every 5% energy left. */
 				wprintw(main_window, "|");
 			}
@@ -347,7 +347,7 @@ void init_game () {
 	snake.head.x = 11;
 	snake.head.y = 11;
 
-	if(snake.positions != NULL){
+	if (snake.positions != NULL){
 		free(snake.positions);
 	}
 
@@ -546,7 +546,7 @@ void draw_settings(scene_t *scene) {
 	int i;
 
 	/* Clear buffer. */
-	for(i = 0; i < NCOLS; i++) {
+	for (i = 0; i < NCOLS; i++) {
 		buffer[i] = ' ';
 	}
 
@@ -682,7 +682,7 @@ void *userinput () {
 
 		/* If the game is over and you havent entered
 		   your nickname, the key is used here. */
-		if(game_end && !entered_score) {
+		if (game_end && !entered_score) {
 
 			/* Dont insert score. */
 			if (c == '#') {
@@ -715,8 +715,8 @@ void *userinput () {
 				entered_score = 1;
 			}
 
-		} else if(go_on_cutscene) { /* If its playing the cutscene */
-			if(c == ' '){
+		} else if (go_on_cutscene) { /* If its playing the cutscene */
+			if (c == ' '){
 				kill(main_process_pid, SIGUSR1);
 			}
 		} else {
@@ -905,7 +905,7 @@ int main (int argc, char **argv) {
 	sysfatal(rs);
 
 	/* Play intro. */
-	if(curr_data_dir) {
+	if (curr_data_dir) {
 		nscenes = read_scenes(SCENE_DIR_INTRO, curr_data_dir, &intro_scene,
 							N_INTRO_SCENES);
 		go_on_cutscene = 1;            /* User may skip intro (space). */
