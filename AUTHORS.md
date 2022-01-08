@@ -39,25 +39,39 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/marcuscastelo">
+            <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
+            <br />
+            <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Henrique1792">
             <img src="https://avatars.githubusercontent.com/u/7610888?v=4" width="100;" alt="Henrique1792"/>
             <br />
             <sub><b>Henrique Freitas</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/DiogoCE">
             <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
             <br />
             <sub><b>Diogo Castanho Emídio</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Float07">
             <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
             <br />
             <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Haltz01">
+            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
+            <br />
+            <sub><b>Pedro Guerra</b></sub>
         </a>
     </td>
     <td align="center">
@@ -80,7 +94,8 @@ the following authors:
             <br />
             <sub><b>Gabriel Franceschi Libardi</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/gabriel-vr">
             <img src="https://avatars.githubusercontent.com/u/66570705?v=4" width="100;" alt="gabriel-vr"/>
@@ -94,20 +109,12 @@ the following authors:
             <br />
             <sub><b>Leonardo Antonetti Da Motta</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/CarlosCraveiro">
             <img src="https://avatars.githubusercontent.com/u/85318248?v=4" width="100;" alt="CarlosCraveiro"/>
             <br />
             <sub><b>Carlos Henrique Craveiro Aquino Veras</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Haltz01">
-            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
-            <br />
-            <sub><b>Pedro Guerra</b></sub>
         </a>
     </td>
     <td align="center">
@@ -130,15 +137,15 @@ the following authors:
             <br />
             <sub><b>Daniel Martins Vieira</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/FelipeMoleiro">
             <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
             <br />
             <sub><b>FelipeMoleiro</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
@@ -173,15 +180,15 @@ the following authors:
             <br />
             <sub><b>Lucas Viana</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Yudiaramos">
             <img src="https://avatars.githubusercontent.com/u/71808184?v=4" width="100;" alt="Yudiaramos"/>
             <br />
             <sub><b>Yudi Asano Ramos</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Kodhi314">
             <img src="https://avatars.githubusercontent.com/u/48361852?v=4" width="100;" alt="Kodhi314"/>
@@ -194,13 +201,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/75046559?v=4" width="100;" alt="isadoracsiebert"/>
             <br />
             <sub><b>Isadora</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/marcuscastelo">
-            <img src="https://avatars.githubusercontent.com/u/27441558?v=4" width="100;" alt="marcuscastelo"/>
-            <br />
-            <sub><b>Marcus Vinicius Castelo Branco Martins</b></sub>
         </a>
     </td>
     <td align="center">
