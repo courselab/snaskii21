@@ -171,9 +171,11 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
 	scene_t *scene_array;
 
 	/* Same scene is used sometimes. In this case, *scene != NULL and there's no need to malloc again */
-	if (*scene_array == NULL) {
-		scene_array = *scene_array_ptr = malloc(sizeof(**scene_array_ptr) * nscenes);
+	if (*scene_array_ptr == NULL) {
+		*scene_array_ptr = malloc(sizeof(**scene_array_ptr) * nscenes);
 	}
+	
+	scene_array = *scene_array_ptr;
 
 	/* Read nscenes. */
 	for (k = 0; k < nscenes; k++) {
