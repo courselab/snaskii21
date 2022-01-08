@@ -118,6 +118,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Idalen">
+            <img src="https://avatars.githubusercontent.com/u/48536015?v=4" width="100;" alt="Idalen"/>
+            <br />
+            <sub><b>Daniel Martins Vieira</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/FelipeMoleiro">
             <img src="https://avatars.githubusercontent.com/u/40440420?v=4" width="100;" alt="FelipeMoleiro"/>
             <br />
@@ -129,13 +136,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
             <br />
             <sub><b>LeoFonsecaP</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Idalen">
-            <img src="https://avatars.githubusercontent.com/u/48536015?v=4" width="100;" alt="Idalen"/>
-            <br />
-            <sub><b>Daniel Martins Vieira</b></sub>
         </a>
     </td></tr>
 <tr>
@@ -294,6 +294,13 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/78601574?v=4" width="100;" alt="karolinysilva"/>
             <br />
             <sub><b>Karoliny Silva</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/mvellosa">
+            <img src="https://avatars.githubusercontent.com/u/80607728?v=4" width="100;" alt="mvellosa"/>
+            <br />
+            <sub><b>Matheus Vellosa</b></sub>
         </a>
     </td>
     <td align="center">
