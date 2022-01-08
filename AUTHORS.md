@@ -104,6 +104,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Haltz01">
+            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
+            <br />
+            <sub><b>Pedro Guerra</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/gsasouza">
             <img src="https://avatars.githubusercontent.com/u/8701003?v=4" width="100;" alt="gsasouza"/>
             <br />
@@ -130,15 +137,15 @@ the following authors:
             <br />
             <sub><b>FelipeMoleiro</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
             <br />
             <sub><b>LeoFonsecaP</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
@@ -151,13 +158,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Haltz01">
-            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
-            <br />
-            <sub><b>Pedro Guerra</b></sub>
         </a>
     </td>
     <td align="center">
