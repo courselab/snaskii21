@@ -164,12 +164,13 @@ typedef char scene_t[40][90]; /* Maximum values. TODO: allocate dyamically. */
 
 /* Read all the scenes in the 'dir' directory, save it in 'scene_array' and
    return the number of read scenes. */
-int read_scenes (char *dir, char *data_dir, scene_t **scene, int nscenes) {
+int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscenes) {
     int i, j, k;
     FILE *file;
     char scenefile[1024], c;
+    scene_t *scene_array;
 
-    *scene = malloc(sizeof(**scene) * nscenes);
+    scene_array = *scene_array_ptr = malloc(sizeof(**scene_array_ptr) * nscenes);
 
     /* Read nscenes. */
     for (k = 0; k < nscenes; k++) {
@@ -177,15 +178,16 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene, int nscenes) {
 
         file = fopen (scenefile, "r");
         if (!file) {
-            free(*scene);
+            free(*scene_array_ptr);
+            *scene_array_ptr = NULL;
             endwin();
             sysfatal(!file);
         }
 
         /* Write top and bottom borders. */
         for (j = 0; j < NCOLS; j++) {
-            (*scene)[k][0][j] = '-';
-            (*scene)[k][NROWS-1][j] = '-';
+            scene_array[k][0][j] = '-';
+            scene_array[k][NROWS-1][j] = '-';
         }
 
         fseek(file, sizeof(char) * NCOLS, SEEK_CUR);
@@ -195,7 +197,7 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene, int nscenes) {
         for (i = 1; i < NROWS-1; i++)
         {
             /* Write left border.  */
-            (*scene)[k][i][0] = '|';
+            scene_array[k][i][0] = '|';
             fseek(file, sizeof(char), SEEK_CUR);
 
             /* Read NCOLS columns from row i. */
@@ -205,11 +207,11 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene, int nscenes) {
                 If we read something out of the 32-127 ascii range,
                 consider a blank instead. */
                 c = (char) fgetc(file);
-                (*scene)[k][i][j] = ((c >= ' ') && (c <= '~')) ? c : BLANK;
+                scene_array[k][i][j] = ((c >= ' ') && (c <= '~')) ? c : BLANK;
             }
 
             /* Write right border and correct stream position. */
-            (*scene)[k][i][NCOLS-1] = '|';
+            scene_array[k][i][NCOLS-1] = '|';
             fseek(file, sizeof(char), SEEK_CUR);
 
             /* Discard the rest of the line (if longer than NCOLS). */
@@ -228,13 +230,13 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene, int nscenes) {
    may want to try a different approach which favour performance. For instance,
    issuing a single 'write' call for each line. Would this yield any significant
    performance improvement? */
-void draw (scene_t* scene, int number) {
+void draw (scene_t* scene_array, int number) {
     int i, j;
 
     wmove(main_window, 0, 0);
     for (i = 0; i < NROWS; i++) {
         for (j = 0; j < NCOLS; j++) {
-          waddch(main_window, scene[number][i][j]);
+          waddch(main_window, scene_array[number][i][j]);
         }
     }
 
@@ -518,7 +520,7 @@ void move_snake() {
 
 
 /* This function plays the game introduction animation. */
-void playmovie (scene_t* scene, int nscenes) {
+void playmovie (scene_t* scene_array, int nscenes) {
     int k;
     struct timespec how_long;
     how_long.tv_sec = 0;
@@ -530,7 +532,7 @@ void playmovie (scene_t* scene, int nscenes) {
     for (k = 0; (k < nscenes) && go_on_cutscene; k++) {
         wclear(main_window);			               /* Clear screen.    */
         wrefresh(main_window);			               /* Refresh screen.  */
-        showscene(scene, k, 0);                  /* Show k-th scene .*/
+        showscene(scene_array, k, 0);                  /* Show k-th scene .*/
         mvwprintw(main_window, NROWS, (int)(NCOLS/2.0-halfLen), skipString); /*Print skip String*/
         wrefresh(main_window);                          /* Refresh screen.  */
         how_long.tv_nsec = movie_delay*1e3;            /* Compute delay.   */
@@ -543,7 +545,7 @@ void draw_settings(scene_t *scene) {
     char buffer[NCOLS];
     int i;
 
-    /* Clean buffer. */
+    /* Clear buffer. */
     for(i = 0; i < NCOLS; i++) {
         buffer[i] = ' ';
     }
@@ -553,27 +555,27 @@ void draw_settings(scene_t *scene) {
     memcpy(&scene[2][22][12], buffer, strlen(buffer));
 }
 
-void update_snake_in_scene(scene_t *scene, pair_t old_tail_pos) {
+void update_snake_in_scene(scene_t scene, pair_t old_tail_pos) {
     int i;
 	int tail = snake.length - 1;
 
     /* Erase old tail. */
-	scene[0][old_tail_pos.y][old_tail_pos.x] = ' ';
+	scene[old_tail_pos.y][old_tail_pos.x] = ' ';
 
     /* Draw head. */
-    scene[0][snake.head.y][snake.head.x] = SNAKE_HEAD;
+    scene[snake.head.y][snake.head.x] = SNAKE_HEAD;
 
     /* Draw body. */
 	for (i = 0; i < tail; i++) {
-		scene[0][snake.positions[i].y][snake.positions[i].x] = SNAKE_BODY;
+		scene[snake.positions[i].y][snake.positions[i].x] = SNAKE_BODY;
 	}
 
-	scene[0][snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
+	scene[snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
 }
 
-void update_blocks_in_scene(scene_t *scene) {
-    scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
-    scene[0][fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
+void update_blocks_in_scene(scene_t scene) {
+    scene[energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
+    scene[fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
 }
 
 void drain_energy() {
@@ -587,7 +589,7 @@ void drain_energy() {
 }
 
 /* This function implements the gameplay. */
-void run(scene_t* scene) {
+void run(scene_t game_scene) {
     collision_type_t collision;
     pair_t old_tail_pos = snake.positions[snake.length - 1];
 
@@ -620,8 +622,8 @@ void run(scene_t* scene) {
             break;
     }
 
-    update_snake_in_scene(scene, old_tail_pos);
-    update_blocks_in_scene(scene);
+    update_snake_in_scene(game_scene, old_tail_pos);
+    update_blocks_in_scene(game_scene);
     
     /* If the game is over, set delay to default. */
     if (game_end) {
@@ -631,7 +633,7 @@ void run(scene_t* scene) {
 
 
 /* This function implements the gameplay loop. */
-void playgame (scene_t* scene, char* curr_data_dir) {
+void playgame (scene_t* scene_array, char* curr_data_dir) {
     struct timespec how_long;
     how_long.tv_sec = 0;
 
@@ -641,19 +643,19 @@ void playgame (scene_t* scene, char* curr_data_dir) {
         refresh();	         /* Refresh screen. */
 
         if (restarted) {
-            draw_settings(scene);
-            showscene(scene, RESTARTED, 1);
+            draw_settings(scene_array);
+            showscene(scene_array, RESTARTED, 1);
 
         } else if (game_end) {
-            showscene(scene, GAME_OVER, 0);
-            read_scenes(SCENE_DIR_GAME, curr_data_dir, &scene, N_GAME_SCENES);
+            showscene(scene_array, GAME_OVER, 0);
+            read_scenes(SCENE_DIR_GAME, curr_data_dir, &scene_array, N_GAME_SCENES);
 
         } else if (paused) {
-            showscene(scene, PAUSED, 1);
+            showscene(scene_array, PAUSED, 1);
 
         } else {
-            run(scene);
-            showscene(scene, RUNNING, 1);
+            run(scene_array[RUNNING]);
+            showscene(scene_array, RUNNING, 1);
         }
 
         how_long.tv_nsec = game_delay * 1e3;  /* Compute delay. */
