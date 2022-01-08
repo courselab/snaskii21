@@ -297,6 +297,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 			timeval_subtract(&elapsed_total, &now, &beginning);
 
 			break;
+			
 		case PAUSED:
 			/* Calculating a short time while the game is paused. */
 			timeval_subtract(&paused_time, &now, &before);
