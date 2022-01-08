@@ -344,6 +344,9 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 void init_game () {
 	ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
 
+    /* fflush to avoid influence of past key pressed after game is restarted */
+    fflush(stdin);
+
 	int i;
 	block_count = 0;
 	snake.energy = ENERGY_MINIMAL;
