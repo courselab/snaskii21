@@ -739,6 +739,9 @@ void *userinput () {
 				case 'w':
 				case 'k':
 				case 'e':
+					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						break;
+					}
 					if (snake.direction != down) {
 						snake.direction = up;
 					}
@@ -747,6 +750,10 @@ void *userinput () {
 				case KEY_LEFT:
 				case 'h':
 				case 'a':
+					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						break;
+					}
+
 					if (snake.direction != right) {
 						snake.direction = left;
 					}
@@ -755,6 +762,10 @@ void *userinput () {
 				case KEY_DOWN:
 				case 'j':
 				case 's':
+					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						break;
+					}
+
 					if (snake.direction != up) {
 						snake.direction = down;
 					}
@@ -763,6 +774,10 @@ void *userinput () {
 				case KEY_RIGHT:
 				case 'l':
 				case 'd':
+					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						break;
+					}
+
 					if (snake.direction != left) {
 						snake.direction = right;
 					}
