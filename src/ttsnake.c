@@ -551,7 +551,7 @@ void draw_settings(scene_t *scene) {
 	}
 
 	sprintf(buffer, "\
-		< %3d >     Maximum number of blocks to display at the same time.",max_energy_blocks);
+        < %3d >     Maximum number of blocks to display at the same time.", max_energy_blocks);
 	memcpy(&scene[2][22][12], buffer, strlen(buffer));
 }
 
