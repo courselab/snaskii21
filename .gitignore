@@ -31,8 +31,7 @@ src/.deps/
 ## make resulting files:
 
 src/ttsnake
-src/ttsnake_bin-ttsnake.o
-src/ttsnake_bin-utils.o
+src/*.o
 src/ttsnake.ttsnake_bin
 src/ttsnake.bin
 src/scores.bin

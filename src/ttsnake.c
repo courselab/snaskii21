@@ -170,7 +170,10 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
 	char scenefile[1024], c;
 	scene_t *scene_array;
 
-	scene_array = *scene_array_ptr = malloc(sizeof(**scene_array_ptr) * nscenes);
+	/* Same scene is used sometimes. In this case, *scene != NULL and there's no need to malloc again */
+	if (*scene_array == NULL) {
+		scene_array = *scene_array_ptr = malloc(sizeof(**scene_array_ptr) * nscenes);
+	}
 
 	/* Read nscenes. */
 	for (k = 0; k < nscenes; k++) {
@@ -550,8 +553,7 @@ void draw_settings(scene_t *scene) {
 		buffer[i] = ' ';
 	}
 
-	sprintf(buffer, "\
-        < %3d >     Maximum number of blocks to display at the same time.", max_energy_blocks);
+	sprintf(buffer, "        < %3d >     Maximum number of blocks to display at the same time.", max_energy_blocks);
 	memcpy(&scene[2][22][12], buffer, strlen(buffer));
 }
 
@@ -763,7 +765,9 @@ void *userinput () {
 
 				case 'q':
 					if (game_end || restarted) {
-						kill(main_process_pid, SIGINT);
+						/* Both flags equals 1 means game is over for real and we should (try to) quit gracefully */
+						quit();
+						return NULL; /* Ending thread */
 					}
 					break;
 
@@ -812,7 +816,7 @@ void *userinput () {
 int main (int argc, char **argv) {
 	int rs, nscenes;
 	pthread_t pthread;
-	scene_t *intro_scene, *game_scene;
+	scene_t *intro_scene = NULL, *game_scene = NULL;
 	struct sigaction act;
 	const struct option stoptions[] = {
 					 {"data", required_argument, 0, 'd'},
@@ -849,12 +853,6 @@ int main (int argc, char **argv) {
 			default:
 				show_help(true, curr_data_dir);
 		}
-	}
-
-	game_scene = (scene_t *) malloc(sizeof(*game_scene) * N_GAME_SCENES);
-	if (!game_scene) {
-		endwin();
-		sysfatal(!game_scene);
 	}
 
 	/* Handle SIGNINT (loop control flag). */
@@ -922,9 +920,18 @@ int main (int argc, char **argv) {
 
 	endwin();
 	free(intro_scene);
+	intro_scene = NULL;
 	free(game_scene);
+	game_scene = NULL;
 	free(curr_data_dir);
 	free(snake.positions);
+
+	/* Waits game control thread to end */
+	int controls_thread_err = pthread_join(pthread, NULL);
+	
+	if (controls_thread_err) {
+		return EXIT_FAILURE;
+	}
 
 	ASSERT_SYSTEM_CALL(system("killall mpg123"));
 	return EXIT_SUCCESS;
