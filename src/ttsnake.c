@@ -165,50 +165,50 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
 
     /* Read nscenes. */
     for (k = 0; k < nscenes; k++) {
-    sprintf(scenefile, "%s/%s/scene-%07d.txt",data_dir, dir, k+1);
+        sprintf(scenefile, "%s/%s/scene-%07d.txt",data_dir, dir, k+1);
 
-    file = fopen (scenefile, "r");
-    if (!file) {
-        free(*scene);
-        endwin();
-        sysfatal(!file);
-    }
-
-    /* Write top and bottom borders. */
-    for (j = 0; j < NCOLS; j++) {
-      (*scene)[k][0][j] = '-';
-      (*scene)[k][NROWS-1][j] = '-';
-    }
-
-    fseek(file, sizeof(char) * NCOLS, SEEK_CUR);
-    while (((c = fgetc(file)) != '\n') && (c != EOF));
-
-    /* Iterate through NROWS. */
-    for (i = 1; i < NROWS-1; i++)
-    {
-        /* Write left border.  */
-        (*scene)[k][i][0] = '|';
-        fseek(file, sizeof(char), SEEK_CUR);
-
-        /* Read NCOLS columns from row i. */
-        for (j = 1; j < NCOLS-1; j++) {
-
-            /* Actual ascii text file may be smaller than NROWS x NCOLS.
-            If we read something out of the 32-127 ascii range,
-            consider a blank instead. */
-            c = (char) fgetc(file);
-            (*scene)[k][i][j] = ((c >= ' ') && (c <= '~')) ? c : BLANK;
+        file = fopen (scenefile, "r");
+        if (!file) {
+            free(*scene);
+            endwin();
+            sysfatal(!file);
         }
 
-        /* Write right border and correct stream position. */
-        (*scene)[k][i][NCOLS-1] = '|';
-        fseek(file, sizeof(char), SEEK_CUR);
+        /* Write top and bottom borders. */
+        for (j = 0; j < NCOLS; j++) {
+        (*scene)[k][0][j] = '-';
+        (*scene)[k][NROWS-1][j] = '-';
+        }
 
-        /* Discard the rest of the line (if longer than NCOLS). */
+        fseek(file, sizeof(char) * NCOLS, SEEK_CUR);
         while (((c = fgetc(file)) != '\n') && (c != EOF));
-    }
 
-    fclose(file);
+        /* Iterate through NROWS. */
+        for (i = 1; i < NROWS-1; i++)
+        {
+            /* Write left border.  */
+            (*scene)[k][i][0] = '|';
+            fseek(file, sizeof(char), SEEK_CUR);
+
+            /* Read NCOLS columns from row i. */
+            for (j = 1; j < NCOLS-1; j++) {
+
+                /* Actual ascii text file may be smaller than NROWS x NCOLS.
+                If we read something out of the 32-127 ascii range,
+                consider a blank instead. */
+                c = (char) fgetc(file);
+                (*scene)[k][i][j] = ((c >= ' ') && (c <= '~')) ? c : BLANK;
+            }
+
+            /* Write right border and correct stream position. */
+            (*scene)[k][i][NCOLS-1] = '|';
+            fseek(file, sizeof(char), SEEK_CUR);
+
+            /* Discard the rest of the line (if longer than NCOLS). */
+            while (((c = fgetc(file)) != '\n') && (c != EOF));
+        }
+
+        fclose(file);
     }
 
     return k;
@@ -778,7 +778,7 @@ void *userinput () {
 int main (int argc, char **argv) {
     int rs, nscenes;
     pthread_t pthread;
-    scene_t *intro_scene, *game_scene;
+    scene_t *intro_scene = NULL, *game_scene = NULL;
     struct sigaction act;
     const struct option stoptions[] = {
                      {"data", required_argument, 0, 'd'},
@@ -815,12 +815,6 @@ int main (int argc, char **argv) {
             default:
                 show_help(true, curr_data_dir);
         }
-    }
-
-    game_scene = (scene_t *) malloc(sizeof(*game_scene) * N_GAME_SCENES);
-    if (!game_scene) {
-        endwin();
-        sysfatal(!game_scene);
     }
 
     /* Handle SIGNINT (loop control flag). */
@@ -886,17 +880,20 @@ int main (int argc, char **argv) {
         playgame(game_scene, curr_data_dir);
     }
 
+    endwin();
+    free(intro_scene);
+    intro_scene = NULL;
+    free(game_scene);
+    game_scene = NULL;
+    free(curr_data_dir);
+    free(snake.positions);
+
     /* Waits game control thread to end */
     int controls_thread_err = pthread_join(pthread, NULL);
+    
     if (controls_thread_err) {
         return EXIT_FAILURE;
     }
-
-    endwin();
-    free(intro_scene);
-    free(game_scene);
-    free(curr_data_dir);
-    free(snake.positions);
 
     ASSERT_SYSTEM_CALL(system("killall mpg123"));
     return EXIT_SUCCESS;
