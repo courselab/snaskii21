@@ -121,6 +121,14 @@ enum SCENE_TYPE {
 /* The snake data structrue. */
 typedef enum {up, right, left, down} direction_t;
 
+typedef enum {
+    collision_none,
+    collision_self,
+    collision_wall,
+    collision_energy,
+    collision_fruit,
+} collision_type_t;
+
 typedef struct snake_st snake_t;
 
 typedef struct pair_st {
@@ -453,52 +461,27 @@ void grown_snake () {
 }
 
 
-/* Checks if the snake has hit itself, a wall or a energy block. */
-void check_colision () {
+/* Checks if the snake has hit itself, a wall, energy block or fruit block. */
+collision_type_t check_collision() {
 	int i;
 
-	if (snake.head.x <= 0 || snake.head.x >= NCOLS - 1) {
-		game_end = 1;
-		paused = 1;
-
-	} else if (snake.head.y <= 0 || snake.head.y >= NROWS - 1) {
-		game_end = 1;
-		paused = 1;
-
-	} else if (snake.head.x == energy_block[0].x &&
-             snake.head.y == energy_block[0].y) {
-		block_count++;
-    grown_snake();
-		spawn_energy_block();
-		snake.energy = ENERGY_MINIMAL;
-
-	} else if (snake.head.x == fruit_block.x && 
-             snake.head.y == fruit_block.y) {
-		block_count++;
-		spawn_fruit_block();
-  }
+	if (snake.head.x <= 0 || snake.head.x >= NCOLS - 1 || snake.head.y <= 0 || snake.head.y >= NROWS - 1) {
+        return collision_wall;
+	} else if (snake.head.x == energy_block[0].x && snake.head.y == energy_block[0].y) {
+        return collision_energy;
+		
+	} else if (snake.head.x == fruit_block.x && snake.head.y == fruit_block.y) {
+        return collision_fruit;
+    }
 
 	for (i = 0; i < snake.length - 1; i++) {
 		if (snake.head.x == snake.positions[i].x &&
         snake.head.y == snake.positions[i].y) {
-			game_end = 1;
-			paused = 1;
-			break;
+            return collision_self;
 		}
 	}
 
-	if (snake.energy > 0) {
-        snake.energy -= 1;
-
-	} else {
-		game_end = 1;
-		paused = 1;
-	}
-  
-    /* If the game is over, set delay to default. */
-    if (game_end) {
-      game_delay = DEFAULT_GAME_DELAY;
-    }
+    return collision_none;
 }
 
 
@@ -571,27 +554,80 @@ void draw_settings(scene_t *scene) {
     memcpy(&scene[2][22][12], buffer, strlen(buffer));
 }
 
-
-/* This function implements the gameplay. */
-void run(scene_t* scene) {
-	int i; 
-
+void update_snake_in_scene(scene_t *scene, pair_t old_tail_pos) {
+    int i;
 	int tail = snake.length - 1;
-	scene[0][snake.positions[tail].y][snake.positions[tail].x] = ' ';
 
-	move_snake();
-	check_colision();
-	scene[0][snake.head.y][snake.head.x] = SNAKE_HEAD;
+    /* Erase old tail. */
+	scene[0][old_tail_pos.y][old_tail_pos.x] = ' ';
 
+    /* Draw head. */
+    scene[0][snake.head.y][snake.head.x] = SNAKE_HEAD;
+
+    /* Draw body. */
 	for (i = 0; i < tail; i++) {
 		scene[0][snake.positions[i].y][snake.positions[i].x] = SNAKE_BODY;
 	}
 
 	scene[0][snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
+}
 
-	scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
+void update_blocks_in_scene(scene_t *scene) {
+    scene[0][energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
+    scene[0][fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
+}
 
-        scene[0][fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
+void drain_energy() {
+    /* Consume energy. */
+    if (snake.energy > 0) {
+        snake.energy -= 1;
+    } else { /* Snake is dead. */
+        game_end = 1;
+        paused = 1;
+    }
+}
+
+/* This function implements the gameplay. */
+void run(scene_t* scene) {
+    collision_type_t collision;
+    pair_t old_tail_pos = snake.positions[snake.length - 1];
+
+    /* Move snake and check for collisions. */
+	move_snake();
+    drain_energy();
+	collision = check_collision();
+
+    /* Apply collision effects. */
+    switch (collision) {
+        case collision_none:
+            break;
+        case collision_self:
+            game_end = 1;
+            paused = 1;
+            break;
+        case collision_wall:
+            game_end = 1;
+            paused = 1;
+            break;
+        case collision_energy:
+            block_count++;
+            grown_snake();
+            spawn_energy_block();
+            snake.energy = ENERGY_MINIMAL;
+            break;
+        case collision_fruit:
+            block_count++;
+            spawn_fruit_block();
+            break;
+    }
+
+    update_snake_in_scene(scene, old_tail_pos);
+    update_blocks_in_scene(scene);
+    
+    /* If the game is over, set delay to default. */
+    if (game_end) {
+        game_delay = DEFAULT_GAME_DELAY;
+    }
 }
 
 
