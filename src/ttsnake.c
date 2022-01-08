@@ -161,7 +161,9 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
     FILE *file;
     char scenefile[1024], c;
 
-    *scene = malloc(sizeof(**scene) * nscenes);
+    /* Same scene is used sometimes. In this case, *scene != NULL and there's no need to malloc again */
+    if (*scene == NULL)
+        *scene = malloc(sizeof(**scene) * nscenes);
 
     /* Read nscenes. */
     for (k = 0; k < nscenes; k++) {
