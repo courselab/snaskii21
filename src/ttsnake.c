@@ -613,7 +613,7 @@ void playgame (scene_t* scene, char* curr_data_dir) {
         } else if (game_end) {
             showscene(scene, GAME_OVER, 0);
             read_scenes(SCENE_DIR_GAME, curr_data_dir, &scene, N_GAME_SCENES);
-
+        
         } else if (paused) {
             showscene(scene, PAUSED, 1);
 
@@ -727,7 +727,9 @@ void *userinput () {
 
                 case 'q':
                     if (game_end || restarted) {
-                        kill(mainProcessPid, SIGINT);
+                        /* Both flags equals 1 means game is over for real and we should (try to) quit gracefully */
+                        quit();
+                        return NULL; /* Ending thread */
                     }
                     break;
 
@@ -882,6 +884,12 @@ int main (int argc, char **argv) {
         gettimeofday(&beginning, NULL);
         init_game();
         playgame(game_scene, curr_data_dir);
+    }
+
+    /* Waits game control thread to end */
+    int controls_thread_err = pthread_join(pthread, NULL);
+    if (controls_thread_err) {
+        return EXIT_FAILURE;
     }
 
     endwin();
