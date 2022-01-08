@@ -36,6 +36,10 @@
 
 /* Game defaults. */
 
+/* assert if a system call was properly made and */
+#define ASSERT_SYSTEM_CALL(x) if(!(x)) \
+    fprintf(stderr, "System does not recognize call \""#x"\"\n");
+
 #define N_GAME_SCENES   4	      /* Number of frames of the gamepay scnene. */
 #define N_INTRO_SCENES  485	    /* Number of frames of game intro.         */
 
@@ -323,7 +327,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 
 /* Initialize resources and counters. */
 void init_game () {
-    system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &");
+    ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
 
     int i;
 	block_count = 0;
@@ -729,7 +733,7 @@ void *userinput () {
 
                 case 'r':
                     if (game_end) {
-                        system("killall mpg123");
+                        ASSERT_SYSTEM_CALL(system("killall mpg123"));
                         init_game();
                         restarted = 1;
                         game_end = 0;
@@ -886,6 +890,6 @@ int main (int argc, char **argv) {
     free(curr_data_dir);
     free(snake.positions);
 
-    system("killall mpg123");
+    ASSERT_SYSTEM_CALL(system("killall mpg123"));
     return EXIT_SUCCESS;
 }
