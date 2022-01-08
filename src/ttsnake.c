@@ -99,7 +99,7 @@ int actual_pos_nickname = 0;
 
 WINDOW *main_window;
 
-int mainProcessPid; /*Keeps track of main process PID*/
+int main_process_pid; /*Keeps track of main process PID*/
 
 /* SIGINT handler. The variable go_on controls the main loop. */
 void quit () {
@@ -113,9 +113,9 @@ void stop_cutscene () {
 
 
 /* Scene types enumerated from 0 to 3. */
-enum SCENE_TYPE {
+typedef enum {
     RUNNING = 0, GAME_OVER, RESTARTED, PAUSED
-};
+} scene_type_t;
 
 
 /* The snake data structrue. */
@@ -162,9 +162,9 @@ struct {
 typedef char scene_t[40][90]; /* Maximum values. TODO: allocate dyamically. */
 
 
-/* Read all the scenes in the 'dir' directory, save it in 'scene' and
-   return the number of readed scenes. */
-int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
+/* Read all the scenes in the 'dir' directory, save it in 'scene_array' and
+   return the number of read scenes. */
+int read_scenes (char *dir, char *data_dir, scene_t **scene, int nscenes) {
     int i, j, k;
     FILE *file;
     char scenefile[1024], c;
@@ -173,50 +173,50 @@ int read_scenes (char *dir, char *data_dir, scene_t** scene, int nscenes) {
 
     /* Read nscenes. */
     for (k = 0; k < nscenes; k++) {
-    sprintf(scenefile, "%s/%s/scene-%07d.txt",data_dir, dir, k+1);
+        sprintf(scenefile, "%s/%s/scene-%07d.txt",data_dir, dir, k+1);
 
-    file = fopen (scenefile, "r");
-    if (!file) {
-        free(*scene);
-        endwin();
-        sysfatal(!file);
-    }
-
-    /* Write top and bottom borders. */
-    for (j = 0; j < NCOLS; j++) {
-      (*scene)[k][0][j] = '-';
-      (*scene)[k][NROWS-1][j] = '-';
-    }
-
-    fseek(file, sizeof(char) * NCOLS, SEEK_CUR);
-    while (((c = fgetc(file)) != '\n') && (c != EOF));
-
-    /* Iterate through NROWS. */
-    for (i = 1; i < NROWS-1; i++)
-    {
-        /* Write left border.  */
-        (*scene)[k][i][0] = '|';
-        fseek(file, sizeof(char), SEEK_CUR);
-
-        /* Read NCOLS columns from row i. */
-        for (j = 1; j < NCOLS-1; j++) {
-
-            /* Actual ascii text file may be smaller than NROWS x NCOLS.
-            If we read something out of the 32-127 ascii range,
-            consider a blank instead. */
-            c = (char) fgetc(file);
-            (*scene)[k][i][j] = ((c >= ' ') && (c <= '~')) ? c : BLANK;
+        file = fopen (scenefile, "r");
+        if (!file) {
+            free(*scene);
+            endwin();
+            sysfatal(!file);
         }
 
-        /* Write right border and correct stream position. */
-        (*scene)[k][i][NCOLS-1] = '|';
-        fseek(file, sizeof(char), SEEK_CUR);
+        /* Write top and bottom borders. */
+        for (j = 0; j < NCOLS; j++) {
+            (*scene)[k][0][j] = '-';
+            (*scene)[k][NROWS-1][j] = '-';
+        }
 
-        /* Discard the rest of the line (if longer than NCOLS). */
-        while (((c = fgetc(file)) != '\n') && (c != EOF));
-    }
+        fseek(file, sizeof(char) * NCOLS, SEEK_CUR);
+        while (((c = fgetc(file)) != '\n') && (c != EOF)) {}
 
-    fclose(file);
+        /* Iterate through NROWS. */
+        for (i = 1; i < NROWS-1; i++)
+        {
+            /* Write left border.  */
+            (*scene)[k][i][0] = '|';
+            fseek(file, sizeof(char), SEEK_CUR);
+
+            /* Read NCOLS columns from row i. */
+            for (j = 1; j < NCOLS-1; j++) {
+
+                /* Actual ascii text file may be smaller than NROWS x NCOLS.
+                If we read something out of the 32-127 ascii range,
+                consider a blank instead. */
+                c = (char) fgetc(file);
+                (*scene)[k][i][j] = ((c >= ' ') && (c <= '~')) ? c : BLANK;
+            }
+
+            /* Write right border and correct stream position. */
+            (*scene)[k][i][NCOLS-1] = '|';
+            fseek(file, sizeof(char), SEEK_CUR);
+
+            /* Discard the rest of the line (if longer than NCOLS). */
+            while (((c = fgetc(file)) != '\n') && (c != EOF));
+        }
+
+        fclose(file);
     }
 
     return k;
@@ -351,31 +351,31 @@ void init_game () {
 
     snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
 
-  for (i = 0; i < snake.length; i++) {
-		snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
-		snake.positions[i].y = snake.head.y - i - VERTICAL_MOVE;
-	}
+    for (i = 0; i < snake.length; i++) {
+        snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
+        snake.positions[i].y = snake.head.y - i - VERTICAL_MOVE;
+    }
 
-  /* Position of the first energy block. */
-	energy_block[0].x = NCOLS/2;
-	energy_block[0].y = NROWS/2;
+    /* Position of the first energy block. */
+    energy_block[0].x = NCOLS/2;
+    energy_block[0].y = NROWS/2;
 
-  /* Position of the first fruit block. */
-  fruit_block.x = NCOLS/2 + 2;
-  fruit_block.y = NROWS/2 + 2;
+    /* Position of the first fruit block. */
+    fruit_block.x = NCOLS/2 + 2;
+    fruit_block.y = NROWS/2 + 2;
 }
 
 
 /* Generates fruit_block coordinates randomly. */
 
 void generate_fruit_block () {
-  fruit_block.x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
-  fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
+    fruit_block.x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
+    fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
-  /* Verifies if the fruit is in an even position, because the snake moves 2 positions horizontally */
-  if ((fruit_block.x)%2 == 0) {
-    fruit_block.x -= 1;
-  }
+    /* Verifies if the fruit is in an even position, because the snake moves 2 positions horizontally */
+    if ((fruit_block.x)%2 == 0) {
+        fruit_block.x -= 1;
+    }
 }
 
 
@@ -391,7 +391,7 @@ int fruit_block_conflict () {
   for (i = 0; i < snake.length - 1; i++) {
     if (fruit_block.x == snake.positions[i].x && 
         fruit_block.y == snake.positions[i].y) {
-      return 1; 
+        return 1; 
     }
   }
 
@@ -400,25 +400,24 @@ int fruit_block_conflict () {
 
 
 /* Spawns a fruit_block on the map. */
-
 void spawn_fruit_block () {
-  generate_fruit_block();
+    generate_fruit_block();
     
-  while (fruit_block_conflict()) {
-    generate_fruit_block(); 
-  }
+    while (fruit_block_conflict()) {
+        generate_fruit_block(); 
+    }
 }
 
 
 /* Generates energy_block[0] coordinates randomly. */
 void generate_energy_block () {
-  energy_block[0].x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
-  energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
+    energy_block[0].x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
+    energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
-  /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
-  if ((energy_block[0].x)%2 == 0) {
-    energy_block[0].x -= 1;
-  }
+    /* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
+    if ((energy_block[0].x)%2 == 0) {
+        energy_block[0].x -= 1;
+    }
 }
 
 
@@ -452,7 +451,7 @@ void spawn_energy_block () {
 
 
 /* Grows the snake - increases the snake length by one. */
-void grown_snake () {
+void grow_snake () {
     snake.length++;
     snake.positions = (pair_t *) realloc(snake.positions,
                                        sizeof(pair_t) * snake.length);
@@ -611,7 +610,7 @@ void run(scene_t* scene) {
             break;
         case collision_energy:
             block_count++;
-            grown_snake();
+            grow_snake();
             spawn_energy_block();
             snake.energy = ENERGY_MINIMAL;
             break;
@@ -633,7 +632,6 @@ void run(scene_t* scene) {
 
 /* This function implements the gameplay loop. */
 void playgame (scene_t* scene, char* curr_data_dir) {
-
     struct timespec how_long;
     how_long.tv_sec = 0;
 
@@ -715,9 +713,9 @@ void *userinput () {
                 entered_score = 1;
             }
 
-        }else if(go_on_cutscene){ /*if its playing the cutscene*/
+        } else if(go_on_cutscene) { /* If its playing the cutscene */
             if(c == ' '){
-                kill(mainProcessPid, SIGUSR1);
+                kill(main_process_pid, SIGUSR1);
             }
         } else {
             switch (c) {
@@ -763,7 +761,7 @@ void *userinput () {
 
                 case 'q':
                     if (game_end || restarted) {
-                        kill(mainProcessPid, SIGINT);
+                        kill(main_process_pid, SIGINT);
                     }
                     break;
 
@@ -803,7 +801,7 @@ void *userinput () {
             }
         }
 
-    nanosleep (&how_long, NULL);
+        nanosleep (&how_long, NULL);
     }
 }
 
@@ -825,12 +823,12 @@ int main (int argc, char **argv) {
     strcpy(curr_data_dir, DATADIR "/" ALT_SHORT_NAME);
 
     /* Initializes program options struct. */
-    char currOpt;
+    char curr_opt;
 
     /* Handle options passed as arguments. */
-    while ((currOpt = (getopt_long(argc, argv, "d:h:v", stoptions, NULL))) != -1) {
+    while ((curr_opt = (getopt_long(argc, argv, "d:h:v", stoptions, NULL))) != -1) {
 
-        switch (currOpt) {
+        switch (curr_opt) {
             /* Changes data_dir to one passed via argument. */
             case 'd':
                 curr_data_dir = (char *) realloc(curr_data_dir, (strlen(optarg) + 1) * sizeof(char));
@@ -874,12 +872,12 @@ int main (int argc, char **argv) {
     cbreak();
 
     /* Get terminal size. */
-    int maxWidth, maxHeight;
-    getmaxyx(stdscr, maxHeight, maxWidth);
+    int max_width, max_height;
+    getmaxyx(stdscr, max_height, max_width);
 
     /* Set game board size. */
-    NROWS = (int) fmin(maxHeight - LOWER_PANEL_ROWS, 40);
-    NCOLS = (int) fmin(maxWidth, 90);
+    NROWS = (int) fmin(max_height - LOWER_PANEL_ROWS, 40);
+    NCOLS = (int) fmin(max_width, 90);
 
     if (NROWS < 20 || NCOLS < 80) {
         endwin();
@@ -889,8 +887,8 @@ int main (int argc, char **argv) {
     }
 
     main_window = newwin(NROWS + LOWER_PANEL_ROWS, NCOLS,
-                            (maxHeight - NROWS - LOWER_PANEL_ROWS)/2,
-                            (maxWidth - NCOLS)/2);
+                            (max_height - NROWS - LOWER_PANEL_ROWS)/2,
+                            (max_width - NCOLS)/2);
     wrefresh(main_window);
 
     /* Default values. */
@@ -899,7 +897,7 @@ int main (int argc, char **argv) {
     max_energy_blocks = 3;
 
 
-    mainProcessPid = getpid();
+    main_process_pid = getpid();
     /* Handle game controls in a different thread. */
     rs = pthread_create(&pthread, NULL, &userinput, NULL);
     sysfatal(rs);
