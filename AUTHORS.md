@@ -46,13 +46,20 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Haltz01">
+            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
+            <br />
+            <sub><b>Pedro Guerra</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/Henrique1792">
             <img src="https://avatars.githubusercontent.com/u/7610888?v=4" width="100;" alt="Henrique1792"/>
             <br />
             <sub><b>Henrique Freitas</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/DiogoCE">
             <img src="https://avatars.githubusercontent.com/u/64482147?v=4" width="100;" alt="DiogoCE"/>
@@ -65,13 +72,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/39651883?v=4" width="100;" alt="Float07"/>
             <br />
             <sub><b>Thiago Daniel Cagnoni De Pauli</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Haltz01">
-            <img src="https://avatars.githubusercontent.com/u/47257437?v=4" width="100;" alt="Haltz01"/>
-            <br />
-            <sub><b>Pedro Guerra</b></sub>
         </a>
     </td>
     <td align="center">
