@@ -233,6 +233,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/JulioEO">
+            <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
+            <br />
+            <sub><b>JulioEO</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
             <br />
@@ -259,13 +266,6 @@ the following authors:
             <br />
             <sub><b>AOCard</b></sub>
         </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/JulioEO">
-            <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
-            <br />
-            <sub><b>JulioEO</b></sub>
-        </a>
     </td></tr>
 <tr>
     <td align="center">
@@ -280,6 +280,13 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/8800471?v=4" width="100;" alt="Beadurof"/>
             <br />
             <sub><b>Marcelo Temoteo</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/viniciussm07">
+            <img src="https://avatars.githubusercontent.com/u/78987625?v=4" width="100;" alt="viniciussm07"/>
+            <br />
+            <sub><b>Vinicius Martins</b></sub>
         </a>
     </td>
     <td align="center">
@@ -302,7 +309,8 @@ the following authors:
             <br />
             <sub><b>Matheus Vellosa</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/sleifnir">
             <img src="https://avatars.githubusercontent.com/u/50050993?v=4" width="100;" alt="sleifnir"/>
