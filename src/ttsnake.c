@@ -352,6 +352,9 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 void init_game () {
 	ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
 
+    /* fflush to avoid influence of past key pressed after game is restarted */
+    fflush(stdin);
+
 	int i;
 	block_count = 0;
 	snake.energy = ENERGY_MINIMAL;
@@ -744,6 +747,9 @@ void *userinput () {
 				case 'w':
 				case 'k':
 				case 'e':
+					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						break;
+					}
 					if (snake.direction != down) {
 						snake.direction = up;
 					}
@@ -752,6 +758,10 @@ void *userinput () {
 				case KEY_LEFT:
 				case 'h':
 				case 'a':
+					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						break;
+					}
+
 					if (snake.direction != right) {
 						snake.direction = left;
 					}
@@ -760,6 +770,10 @@ void *userinput () {
 				case KEY_DOWN:
 				case 'j':
 				case 's':
+					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						break;
+					}
+
 					if (snake.direction != up) {
 						snake.direction = down;
 					}
@@ -768,6 +782,10 @@ void *userinput () {
 				case KEY_RIGHT:
 				case 'l':
 				case 'd':
+					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						break;
+					}
+
 					if (snake.direction != left) {
 						snake.direction = right;
 					}
