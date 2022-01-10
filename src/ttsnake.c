@@ -89,8 +89,10 @@ int go_on_cutscene = 0;   /* Whether to continue to display cutscene or skip it.
 int max_energy_blocks;    /* Max number of energy blocks to display at once. */
 
 const int num_option_in_menu = 2; /*Number of options in setting menu*/
+int term_has_colored_mode;
 int colored_mode = 0;	  /*Whether or not to display the game in colored mode*/
 int selected_option = 0;
+
 
 int block_count; 		      /* Number of energy blocks collected. */
 
@@ -117,9 +119,10 @@ void stop_cutscene () {
 }
 
 void enter_colored_mode(){
-	colored_mode = 1;
-	start_color();
-	use_default_colors();
+	if(term_has_colored_mode){
+		colored_mode = 1;
+	}
+
 }
 
 void exit_colored_mode(){
@@ -252,11 +255,28 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
    performance improvement? */
 void draw (scene_t* scene_array, int number) {
 	int i, j;
+	
 
 	wmove(main_window, 0, 0);
 	for (i = 0; i < NROWS; i++) {
 		for (j = 0; j < NCOLS; j++) {
-		  waddch(main_window, scene_array[number][i][j]);
+			if(number == RUNNING && colored_mode == 1){
+				if(scene_array[number][i][j] == SNAKE_TAIL || scene_array[number][i][j] == SNAKE_BODY || scene_array[number][i][j] == SNAKE_HEAD ){
+					wattron(main_window,COLOR_PAIR(1));
+					waddch(main_window, scene_array[number][i][j]);
+					wattroff(main_window,COLOR_PAIR(1));
+				}else if(scene_array[number][i][j] == ENERGY_BLOCK || scene_array[number][i][j] == FRUIT_BLOCK){
+					wattron(main_window,COLOR_PAIR(2));
+					waddch(main_window, scene_array[number][i][j]);
+					wattroff(main_window,COLOR_PAIR(2));
+				}else{
+					waddch(main_window, scene_array[number][i][j]);
+				}
+			
+			}else{
+				waddch(main_window, scene_array[number][i][j]);
+			}
+		  
 		}
 	}
 
@@ -594,7 +614,12 @@ void draw_settings(scene_t *scene) {
 
 	sprintf(buffer,"        < %3d >     Maximum number of blocks to display at the same time.", max_energy_blocks);
 	memcpy(&scene[2][22][12], buffer, strlen(buffer));
-	sprintf(buffer, "        < %3d >     Colored Mode.", colored_mode);
+	if(term_has_colored_mode){
+		sprintf(buffer, "        < %3d >     Colored Mode.", colored_mode);
+	}else{
+		sprintf(buffer, "        < %3d >     Colored Mode (not available on this terminal).", colored_mode);
+	}
+	
 	memcpy(&scene[2][23][12], buffer, strlen(buffer));
 }
 
@@ -939,6 +964,21 @@ int main (int argc, char **argv) {
 	curs_set(FALSE);
 	cbreak();
 
+	/*Prepare colored mode*/
+	if(has_colors() == FALSE){
+		term_has_colored_mode = 0;
+	}else{
+		term_has_colored_mode = 1;
+		start_color();
+		use_default_colors();
+		init_color(COLOR_BLACK, 0, 0, 0);
+		init_color(COLOR_WHITE, 1000,1000, 1000);
+		init_color(COLOR_GREEN, 0, 700, 0);
+		init_color(COLOR_RED, 700,0, 0);
+		init_pair(1,COLOR_GREEN,-1);
+		init_pair(2,COLOR_RED,-1);
+	}
+
 	/* Get terminal size. */
 	int max_width, max_height;
 	getmaxyx(stdscr, max_height, max_width);
@@ -958,6 +998,11 @@ int main (int argc, char **argv) {
 							(max_height - NROWS - LOWER_PANEL_ROWS)/2,
 							(max_width - NCOLS)/2);
 	wrefresh(main_window);
+	
+
+
+
+	
 
 	/* Default values. */
 	movie_delay = 2.5E4;	            /* Movie frame duration in usec (40usec) */
