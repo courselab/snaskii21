@@ -117,11 +117,14 @@ void stop_cutscene () {
 }
 
 void enter_colored_mode(){
-
+	colored_mode = 1;
+	start_color();
+	use_default_colors();
 }
 
 void exit_colored_mode(){
-
+	colored_mode = 0;
+	
 }
 
 /* Scene types enumerated from 0 to 3. */
@@ -787,6 +790,9 @@ void *userinput () {
 				case 'h':
 				case 'a':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						if(restarted && selected_option == 1 && colored_mode == 1){
+							exit_colored_mode();
+						}
 						break;
 					}
 
@@ -814,6 +820,9 @@ void *userinput () {
 				case 'l':
 				case 'd':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						if(restarted && selected_option == 1 && colored_mode == 0){
+							enter_colored_mode();
+						}
 						break;
 					}
 
