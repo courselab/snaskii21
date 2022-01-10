@@ -88,6 +88,10 @@ int go_on; 			      /* Whether to continue or to exit main loop.*/
 int go_on_cutscene = 0;   /* Whether to continue to display cutscene or skip it.*/
 int max_energy_blocks;    /* Max number of energy blocks to display at once. */
 
+const int num_option_in_menu = 2; /*Number of options in setting menu*/
+int colored_mode = 0;	  /*Whether or not to display the game in colored mode*/
+int selected_option = 0;
+
 int block_count; 		      /* Number of energy blocks collected. */
 
 int paused = 1; 		      /* Play/Pause indicator. */
@@ -112,6 +116,13 @@ void stop_cutscene () {
 	go_on_cutscene = 0;
 }
 
+void enter_colored_mode(){
+
+}
+
+void exit_colored_mode(){
+
+}
 
 /* Scene types enumerated from 0 to 3. */
 typedef enum {
@@ -265,6 +276,8 @@ void draw (scene_t* scene_array, int number) {
 					  "If you want to erase a character, type '&'.");
 			mvwprintw(main_window, NROWS*3/4 + 7, NCOLS/2 - 7, "%s", nickname);
 		}
+	}else if(number == RESTARTED){
+		
 	}
 
 	wrefresh(main_window);
@@ -565,9 +578,21 @@ void draw_settings(scene_t *scene) {
 	for (i = 0; i < NCOLS; i++) {
 		buffer[i] = ' ';
 	}
+	char selected[5] = "-->  ";
+	for(i=0;i<num_option_in_menu;i++){
+		if(i==selected_option){
+			memcpy(&scene[2][22+i][7], selected, strlen(selected));
+		}else{
+			memcpy(&scene[2][22+i][7], "     ",5);
+		}
+		
+	}
+	
 
-	sprintf(buffer, "        < %3d >     Maximum number of blocks to display at the same time.", max_energy_blocks);
+	sprintf(buffer,"        < %3d >     Maximum number of blocks to display at the same time.", max_energy_blocks);
 	memcpy(&scene[2][22][12], buffer, strlen(buffer));
+	sprintf(buffer, "        < %3d >     Colored Mode.", colored_mode);
+	memcpy(&scene[2][23][12], buffer, strlen(buffer));
 }
 
 void update_snake_in_scene(scene_t scene, pair_t old_tail_pos) {
@@ -748,6 +773,9 @@ void *userinput () {
 				case 'k':
 				case 'e':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						if(restarted){
+							selected_option = (selected_option - 1 + num_option_in_menu) % num_option_in_menu;
+						}
 						break;
 					}
 					if (snake.direction != down) {
@@ -771,6 +799,9 @@ void *userinput () {
 				case 'j':
 				case 's':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
+						if(restarted){
+							selected_option = (selected_option + 1) % num_option_in_menu;
+						}
 						break;
 					}
 
