@@ -75,6 +75,7 @@
 struct timeval beginning,       /* Time when game started. */
 	now,		                /* Time now. */
 	before,			            /* Time in the last frame. */
+	paused_time,                /* Time slice of the game when is paused */
 	elapsed_last,			    /* Elapsed time since last frame. */
 	elapsed_total;		        /* Elapsed time since game baginning. */
 
@@ -291,10 +292,17 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 
 	switch (scene_type) {
 		case RUNNING:
-		case PAUSED:
 			/* Calculating elapsed time to display while the game is running. */
 			timeval_subtract(&elapsed_last, &before, &beginning);
 			timeval_subtract(&elapsed_total, &now, &beginning);
+			break;
+			
+		case PAUSED:
+			/* Calculating a short time while the game is paused. */
+			timeval_subtract(&paused_time, &now, &before);
+
+			/* Update the beginning adding the paused_time. */
+			timeval_add(&beginning, &paused_time, &beginning);
 			break;
 
 		case RESTARTED:
