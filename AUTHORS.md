@@ -11,17 +11,17 @@ the following authors:
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/Dauboau">
-            <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
-            <br />
-            <sub><b>Daniel Contente Romanzini</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/Tyago-Teoi">
             <img src="https://avatars.githubusercontent.com/u/47069208?v=4" width="100;" alt="Tyago-Teoi"/>
             <br />
             <sub><b>Tyago Teoi</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Dauboau">
+            <img src="https://avatars.githubusercontent.com/u/86164187?v=4" width="100;" alt="Dauboau"/>
+            <br />
+            <sub><b>Daniel Contente Romanzini</b></sub>
         </a>
     </td>
     <td align="center">
@@ -147,6 +147,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/JulioEO">
+            <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
+            <br />
+            <sub><b>JulioEO</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
             <br />
@@ -165,13 +172,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/JulioEO">
-            <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
-            <br />
-            <sub><b>JulioEO</b></sub>
         </a>
     </td>
     <td align="center">
@@ -311,6 +311,13 @@ the following authors:
         </a>
     </td></tr>
 <tr>
+    <td align="center">
+        <a href="https://github.com/pau1o-hs">
+            <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
+            <br />
+            <sub><b>Paulo Silva</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/sleifnir">
             <img src="https://avatars.githubusercontent.com/u/50050993?v=4" width="100;" alt="sleifnir"/>
