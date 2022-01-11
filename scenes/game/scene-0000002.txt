@@ -21,6 +21,8 @@
                                                                                           
                                                                                           
                               Press 'r' to play again!                                    
+                                          Or                                              
+                              Press 'q' to exit game!                                     
                                                                                           
                                                                                           
                                                                                           
