@@ -25,6 +25,15 @@
 #include <curses.h>
 #include "score.h"
 
+
+/*  assert if a the file was properly read by fread 
+    fread will return the number of members read, so if it differs from the number
+    of members passed as an argument (3rd argument) something went wrong.
+*/
+#define ASSERT_WHOLE_FILE_READ(file, nmemb) if ((file) != (nmemb)) \
+	fprintf(stderr, "File  \""#file"\" could not be properly read\n");
+
+
 /* Struct used to represent a single score */
 typedef struct {
     char nickname[MAX_NICKNAME + 1]; /* User defined nickname */
@@ -82,8 +91,13 @@ top_scores_t* read_scores(){
     int i;
     /* Run through the scores by reading each player's score */
     for(i = 0; i < nScores; i++) {
-        fread(topScores->scores[i].nickname, sizeof(char), MAX_NICKNAME + 1, fp);
-        fread(&(topScores->scores[i].points), sizeof(int), 1, fp);
+        ASSERT_WHOLE_FILE_READ(
+            fread(topScores->scores[i].nickname, sizeof(char), MAX_NICKNAME + 1, fp),
+            MAX_NICKNAME + 1);
+            
+        ASSERT_WHOLE_FILE_READ(
+            fread(&(topScores->scores[i].points), sizeof(int), 1, fp),
+            1);
     }
 
     fclose(fp); /* Close the file */
