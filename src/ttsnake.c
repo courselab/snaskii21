@@ -326,7 +326,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 
 		/* Add to the menu score and blocks collected. */
 		wprintw(main_window, "Score: %d\n", block_count);
-		wprintw(main_window, "Energy: %d\n", snake.energy);
+		wprintw(main_window, "Energy: %d	Game Speed: %.2f\n", snake.energy,(DEFAULT_GAME_DELAY/game_delay));
 		
 		for (i = 0; i < snake.energy; i++) {
 			if ((MAX_SNAKE_ENERGY / 100) != 0 && i % ((MAX_SNAKE_ENERGY / 100) * 5) == 0) {
