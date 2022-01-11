@@ -26,12 +26,12 @@
 #include "score.h"
 
 
-/*  assert if a the file was properly read by fread 
+/*  assert if the file was properly read by fread.
     fread will return the number of members read, so if it differs from the number
     of members passed as an argument (3rd argument) something went wrong.
 */
-#define ASSERT_WHOLE_FILE_READ(file, nmemb) if ((file) != (nmemb)) \
-	fprintf(stderr, "File  \""#file"\" could not be properly read\n");
+#define ASSERT_WHOLE_FILE_READ(freadcall, nmemb) if ((freadcall) != (nmemb)) \
+	fprintf(stderr, "File in \""#freadcall"\" could not be properly read\n");
 
 
 /* Struct used to represent a single score */
@@ -94,7 +94,7 @@ top_scores_t* read_scores(){
         ASSERT_WHOLE_FILE_READ(
             fread(topScores->scores[i].nickname, sizeof(char), MAX_NICKNAME + 1, fp),
             MAX_NICKNAME + 1);
-            
+
         ASSERT_WHOLE_FILE_READ(
             fread(&(topScores->scores[i].points), sizeof(int), 1, fp),
             1);
