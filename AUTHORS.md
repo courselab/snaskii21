@@ -168,20 +168,27 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/JulioEO">
+            <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
+            <br />
+            <sub><b>JulioEO</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/allthecoder">
             <img src="https://avatars.githubusercontent.com/u/55332784?v=4" width="100;" alt="allthecoder"/>
             <br />
             <sub><b>Alexandre Brito Gomes</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/lucasvianav">
             <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
             <br />
             <sub><b>Lucas Viana</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Yudiaramos">
             <img src="https://avatars.githubusercontent.com/u/71808184?v=4" width="100;" alt="Yudiaramos"/>
@@ -216,27 +223,20 @@ the following authors:
             <br />
             <sub><b>João Pedro Gonçalves Ferreira</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/lucasxavierleite">
             <img src="https://avatars.githubusercontent.com/u/25937648?v=4" width="100;" alt="lucasxavierleite"/>
             <br />
             <sub><b>Lucas Xavier Leite</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
             <br />
             <sub><b>Brugazoni</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/JulioEO">
-            <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
-            <br />
-            <sub><b>JulioEO</b></sub>
         </a>
     </td>
     <td align="center">
