@@ -22,19 +22,19 @@ In case you do not hear any music, make sure you have mpg123 installed in your c
 ### Debian/Ubuntu based platforms:
 
 ```
-$ sudo apt install automake autoconf
+sudo apt install automake autoconf
 ```
 
 ### [Homebrew](https://brew.sh/) (macOS/Linux):
 
 ```
-$ brew install autoconf automake
+brew install autoconf automake
 ```
 
 ### Arch Linux/Manjaro based platforms:
 
 ```
-$ sudo pacman -S automake autoconf
+sudo pacman -S automake autoconf
 ```
 
 Other missing dependencies will be indicated by the configuration script,
@@ -44,19 +44,19 @@ may install it.
 ### Debian/Ubuntu based platforms:
 
 ```
-$ sudo apt install libncurses5-dev
+sudo apt install libncurses5-dev
 ```
 
 ### [Homebrew](https://brew.sh/) (macOS/Linux):
 
 ```
-$ brew install ncurses
+brew install ncurses
 ```
 
 ### Arch Linux/Manjaro based platforms:
 
 ```
-$ sudo pacman -S ncurses
+sudo pacman -S ncurses
 ```
 
 It is also required for your system to have support for POSIX threads.
@@ -67,7 +67,7 @@ If you have obtained the project source from the __version control repository__,
 execute the script
 
  ```
- $ ./autogen.sh
+ ./autogen.sh
  ```
 
 to bootstrap the build configuration script `configure`.
@@ -80,7 +80,7 @@ platform.
 Either way, locate the file in the root of source directory and execute it:
 
 ```
- $ ./configure
+ ./configure
 ```
 
 If it complains about missing pieces of software, install them as needed.
@@ -92,17 +92,17 @@ To install the programa under the system path --- usually placing the binary
 in `/usr/bin` and the data files in `/usr/share` ---, run:
 
 ```
- $ make
- $ sudo make install
+make
+sudo make install
 ```
 
 Optionally, if you wish to install the software under a different location,
  for instance, in `/tmp/foo`, execute:
 
 ```
- $ ./configure --prefix=/tmp/foo
- $ make
- $ make install
+./configure --prefix=/tmp/foo
+make
+make install
 ```
 
 This shall install the software locally, with the binary in `/tmp/foo/bin`
@@ -115,7 +115,7 @@ An alternative option to install the dependencies and the repository is to use t
 
 For `install_all.sh`, execute the following command on the terminal:
 
-```$ sudo ./install_all.sh```
+``sudo ./install_all.sh```
 
 For `install_all.py`, it's required to use Python 3.x. The usage is:
 
@@ -139,7 +139,7 @@ For instructions on how to compile and execute using Docker, checkout the [dedic
 After following the installation process, execute the following command to open the game:
 
 ```
- $ ttsnake
+ttsnake
 ```
 
 If, for some reason, the command returns a message asking for a minimum terminal size to play the game, try running the command with the terminal in fullscreen mode.
