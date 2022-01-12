@@ -17,7 +17,7 @@
                                   Press 'p' to play                                       
                                   Press 'q' to exit                                       
                                                                                           
-                           Change settings with 'WASD' keys                               
+                      Change settings with 'WASD/HJKL/ARROWS' keys                               
                                                                                           
                                                                                            
                                                                                           
