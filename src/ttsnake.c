@@ -383,43 +383,6 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 	}
 }
 
-
-/* Initialize resources and counters. */
-void init_game () {
-	ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
-
-    /* fflush to avoid influence of past key pressed after game is restarted */
-    fflush(stdin);
-
-	int i;
-	block_count = 0;
-	snake.energy = ENERGY_MINIMAL;
-	snake.direction = right;
-	snake.length = 5;
-	snake.head.x = 11;
-	snake.head.y = 11;
-
-	if (snake.positions != NULL){
-		free(snake.positions);
-	}
-
-	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
-
-	for (i = 0; i < snake.length; i++) {
-		snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
-		snake.positions[i].y = snake.head.y - i - VERTICAL_MOVE;
-	}
-
-	/* Position of the first energy block. */
-	energy_block[0].x = NCOLS/2;
-	energy_block[0].y = NROWS/2;
-
-	/* Position of the first fruit block. */
-	fruit_block.x = NCOLS/2 + 2;
-	fruit_block.y = NROWS/2 + 2;
-}
-
-
 /* Generates fruit_block coordinates randomly. */
 
 void generate_fruit_block () {
@@ -493,7 +456,6 @@ int energy_block_conflict () {
 	return 0;
 }
 
-
 /* Spawns an energy_block on the map. */
 void spawn_energy_block () {
 	generate_energy_block();
@@ -503,6 +465,38 @@ void spawn_energy_block () {
 	}
 }
 
+/* Initialize resources and counters. */
+void init_game () {
+	ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
+
+    /* fflush to avoid influence of past key pressed after game is restarted */
+    fflush(stdin);
+
+	int i;
+	block_count = 0;
+	snake.energy = ENERGY_MINIMAL;
+	snake.direction = right;
+	snake.length = 5;
+	snake.head.x = 11;
+	snake.head.y = 11;
+
+	if (snake.positions != NULL){
+		free(snake.positions);
+	}
+
+	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
+
+	for (i = 0; i < snake.length; i++) {
+		snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
+		snake.positions[i].y = snake.head.y - i - VERTICAL_MOVE;
+	}
+
+	/* Spawns of the first energy block. */
+	spawn_energy_block();
+
+	/* Spawns of the first fruit block. */
+	spawn_fruit_block();
+}
 
 /* Grows the snake - increases the snake length by one. */
 void grow_snake () {
