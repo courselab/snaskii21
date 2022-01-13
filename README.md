@@ -72,6 +72,16 @@ execute the script
 
 to bootstrap the build configuration script `configure`.
 
+If you're using Ubuntu on WSL, maybe you can face the following problem 
+`-bash: ./autogen.sh: /bin/bash^M: bad interpreter: No such file or directory`
+
+Execute the following commands to solve the problem
+
+```
+$ sed -i -e 's/\r$//' autogen.sh
+$ ./autogen.sh
+```
+
 On the other hand, if you have obtained the software form a __distribution
 repository__, usually as a tarball, you should already have the script
 `configure`, which performs a series of tests to collect data about the build
@@ -81,6 +91,18 @@ Either way, locate the file in the root of source directory and execute it:
 
 ```
  $ ./configure
+```
+
+Again, if you're using Ubuntu on WSL, maybe you can face the following problem 
+`configure: error: cannot run /bin/bash build-aux/config.sub`
+
+Execute the following commands to solve the problem
+
+```
+$ autoreconf -ivf
+$ dos2unix configure.ac
+$ autoconf
+$ ./configure
 ```
 
 If it complains about missing pieces of software, install them as needed.
