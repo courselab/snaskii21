@@ -46,7 +46,16 @@ void timeval_add (struct timeval *result, struct timeval *x, struct timeval *y);
 /* Shows help screen. Exit code is -1 if isError is set to true */
 void show_help (char isError, char * curr_data_dir);
 
-/* Mallocs and verifies if the memory was correctly allocated */
+/* 
+ * Mallocs and verifies if the memory was correctly allocated 
+ * Should be used instead of regular malloc calls
+ */
 void * xmalloc (size_t size);
+
+/*  
+ * Callocs and verifies if the memory was correctly allocated
+ * Should be used instead of regular calloc calls
+ */
+void * xcalloc (size_t nmemb, size_t size);
 
 #endif /* UTILS_H */

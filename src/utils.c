@@ -85,7 +85,10 @@ Usage: " BIN_NAME " [options]\n\n\
   exit(isError ? -1 : 0);
 } 
 
-/* Mallocs and verifies if the memory was correctly allocated */
+/* 
+ * Mallocs and verifies if the memory was correctly allocated 
+ * Should be used instead of regular malloc calls
+ */
 void * xmalloc (size_t size)
 {
   void *p;
@@ -93,6 +96,24 @@ void * xmalloc (size_t size)
   p = malloc(size);
   if (!p) {
     perror("xmalloc");
+    exit(EXIT_FAILURE);
+  }
+
+  return p;
+}
+
+
+/*  
+ * Callocs and verifies if the memory was correctly allocated
+ * Should be used instead of regular calloc calls
+ */
+void * xcalloc (size_t nmemb, size_t size)
+{
+  void *p;
+
+  p = calloc(nmemb, size);
+  if (!p) {
+    perror("xcalloc");
     exit(EXIT_FAILURE);
   }
 
