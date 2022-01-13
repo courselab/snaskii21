@@ -190,7 +190,7 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
 
 	/* Same scene is used sometimes. In this case, *scene != NULL and there's no need to malloc again */
 	if (*scene_array_ptr == NULL) {
-		*scene_array_ptr = malloc(sizeof(**scene_array_ptr) * nscenes);
+		*scene_array_ptr = xmalloc(sizeof(**scene_array_ptr) * nscenes);
 	}
 	
 	scene_array = *scene_array_ptr;
@@ -488,7 +488,7 @@ void init_game () {
 		free(snake.positions);
 	}
 
-	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
+	snake.positions = (pair_t*) xmalloc(sizeof(pair_t) * snake.length);
 
 	for (i = 0; i < snake.length; i++) {
 		snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
@@ -920,7 +920,7 @@ int main (int argc, char **argv) {
 					 {"version", no_argument, 0, 'v'}};
 
 	/* Defaults curr_data_screen to {datarootdir}/ttsnake */
-	char *curr_data_dir = (char *)malloc((strlen(DATADIR "/" ALT_SHORT_NAME) + 1)
+	char *curr_data_dir = (char *)xmalloc((strlen(DATADIR "/" ALT_SHORT_NAME) + 1)
 									   * sizeof(char));
 	strcpy(curr_data_dir, DATADIR "/" ALT_SHORT_NAME);
 

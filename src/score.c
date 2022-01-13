@@ -24,6 +24,7 @@
 #include <string.h>
 #include <curses.h>
 #include "score.h"
+#include "utils.h"
 
 
 /*  assert if the file was properly read by fread.
@@ -68,7 +69,7 @@ int compare_scores(const void* a, const void* b){
 
 /* Read all scores from score file and returns a top_scores_t struct */
 top_scores_t* read_scores(){
-    top_scores_t* topScores = (top_scores_t*) malloc(sizeof(top_scores_t)); /* Allocates space to place the highest scores */
+    top_scores_t* topScores = (top_scores_t*) xmalloc(sizeof(top_scores_t)); /* Allocates space to place the highest scores */
 
     FILE* fp = fopen(SCORES_FILE, "rb"); /* Open the file where scores are stored to read */
     
