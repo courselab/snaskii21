@@ -137,29 +137,48 @@ void add_score(const char nickname[MAX_NICKNAME+1], int points){
 
     top_scores_t* topScores = read_scores();
 
-    /* Check if the file is full and if the player's score is less than or equal to the last score in the file */
-    if(topScores->nTopScores == MAX_SCORES && score.points <= topScores->scores[MAX_SCORES-1].points){
-        free(topScores); /* Frees memory */
-        return;
+    /* Check if player is already logged */
+    bool alreadyLogged = false;
+    int i;
+
+    for (i = 0; i < topScores->nTopScores; i++)
+    {
+        if (strcmp(topScores->scores[i].nickname, nickname) == 0)
+        {
+            if (points > topScores->scores[i].points)
+                topScores->scores[i].points = points;
+
+            alreadyLogged = true;
+            break;
+        }
     }
 
-    /* If the file is full but the player's score is greater than the last score in the file */
-    if(topScores->nTopScores == MAX_SCORES) {
-        topScores->scores[topScores->nTopScores-1].points = score.points;
-        strcpy(topScores->scores[topScores->nTopScores-1].nickname, score.nickname);
-    }
-    
-    /* If the file space is not full */
-    else {
-        topScores->scores[topScores->nTopScores].points = score.points;
+    if (!alreadyLogged)
+    {
+        /* Check if the file is full and if the player's score is less than or equal to the last score in the file */
+        if(topScores->nTopScores == MAX_SCORES && score.points <= topScores->scores[MAX_SCORES-1].points){
+            free(topScores); /* Frees memory */
+            return;
+        }
 
-        strcpy(topScores->scores[topScores->nTopScores].nickname, score.nickname);
+        /* If the file is full but the player's score is greater than the last score in the file */
+        if(topScores->nTopScores == MAX_SCORES) {
+            topScores->scores[topScores->nTopScores-1].points = score.points;
+            strcpy(topScores->scores[topScores->nTopScores-1].nickname, score.nickname);
+        }
         
-        topScores->nTopScores++; 
-    }
+        /* If the file space is not full */
+        else {
+            topScores->scores[topScores->nTopScores].points = score.points;
 
-    /* Rank the top scores */
-    qsort(topScores->scores,topScores->nTopScores,sizeof(score_t),compare_scores);
+            strcpy(topScores->scores[topScores->nTopScores].nickname, score.nickname);
+            
+            topScores->nTopScores++; 
+        }
+
+        /* Rank the top scores */
+        qsort(topScores->scores,topScores->nTopScores,sizeof(score_t),compare_scores);
+    }
 
     write_scores(topScores); /* Write the ordered top scores to the file */
 
