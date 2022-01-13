@@ -175,13 +175,20 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/pau1o-hs">
+            <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
+            <br />
+            <sub><b>Paulo Silva</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/allthecoder">
             <img src="https://avatars.githubusercontent.com/u/55332784?v=4" width="100;" alt="allthecoder"/>
             <br />
             <sub><b>Alexandre Brito Gomes</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/lucasvianav">
             <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
@@ -216,15 +223,15 @@ the following authors:
             <br />
             <sub><b>Maria Eduarda Kawakami</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/viniciussm07">
             <img src="https://avatars.githubusercontent.com/u/78987625?v=4" width="100;" alt="viniciussm07"/>
             <br />
             <sub><b>Vinicius Martins</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/isadoracsiebert">
             <img src="https://avatars.githubusercontent.com/u/75046559?v=4" width="100;" alt="isadoracsiebert"/>
@@ -259,20 +266,13 @@ the following authors:
             <br />
             <sub><b>Lucas Xavier Leite</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
             <br />
             <sub><b>Brugazoni</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/pau1o-hs">
-            <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
-            <br />
-            <sub><b>Paulo Silva</b></sub>
         </a>
     </td>
     <td align="center">
@@ -311,6 +311,13 @@ the following authors:
         </a>
     </td></tr>
 <tr>
+    <td align="center">
+        <a href="https://github.com/henriquesqs">
+            <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
+            <br />
+            <sub><b>Henrique Dos Santos</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/karolinyoliveira">
             <img src="https://avatars.githubusercontent.com/u/45614118?v=4" width="100;" alt="karolinyoliveira"/>
