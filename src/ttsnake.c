@@ -505,7 +505,7 @@ void init_game () {
 /* Grows the snake - increases the snake length by one. */
 void grow_snake () {
 	snake.length++;
-	snake.positions = (pair_t *) realloc(snake.positions,
+	snake.positions = (pair_t *) xrealloc(snake.positions,
 									   sizeof(pair_t) * snake.length);
 	snake.positions[snake.length - 1].x = snake.positions[snake.length - 2].x;
 	snake.positions[snake.length - 1].y = snake.positions[snake.length - 2].y;
@@ -933,7 +933,7 @@ int main (int argc, char **argv) {
 		switch (curr_opt) {
 			/* Changes data_dir to one passed via argument. */
 			case 'd':
-				curr_data_dir = (char *) realloc(curr_data_dir, (strlen(optarg) + 1) * sizeof(char));
+				curr_data_dir = (char *) xrealloc(curr_data_dir, (strlen(optarg) + 1) * sizeof(char));
 				strcpy(curr_data_dir, optarg);
 				break;
 
