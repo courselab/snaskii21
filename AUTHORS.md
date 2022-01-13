@@ -154,13 +154,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/JulioEO">
-            <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
-            <br />
-            <sub><b>JulioEO</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/LeoFonsecaP">
             <img src="https://avatars.githubusercontent.com/u/63270818?v=4" width="100;" alt="LeoFonsecaP"/>
             <br />
@@ -292,6 +285,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/fredbr">
+            <img src="https://avatars.githubusercontent.com/u/5673494?v=4" width="100;" alt="fredbr"/>
+            <br />
+            <sub><b>fredbr</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/karolinyoliveira">
             <img src="https://avatars.githubusercontent.com/u/45614118?v=4" width="100;" alt="karolinyoliveira"/>
             <br />
@@ -311,7 +311,8 @@ the following authors:
             <br />
             <sub><b>Maria Eduarda Kawakami</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
