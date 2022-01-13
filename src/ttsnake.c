@@ -739,7 +739,7 @@ void *userinput () {
 	keypad(stdscr, TRUE);
 	noecho();
 
-	int c;
+	int c, last_c = 0;
 	struct timespec how_long;
 
 	how_long.tv_sec = 0;
@@ -788,6 +788,10 @@ void *userinput () {
 				kill(main_process_pid, SIGUSR1);
 			}
 		} else {
+			if (c == last_c && c != 'p') {
+				continue;
+			}
+
 			switch (c) {
 				case 'p':
 					if (!game_end) {
@@ -799,15 +803,17 @@ void *userinput () {
 				case KEY_UP:
 				case 'w':
 				case 'k':
-				case 'e':
+				case 'e':			
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
 						if(restarted){
 							selected_option = (selected_option - 1 + num_option_in_menu) % num_option_in_menu;
 						}
 						break;
 					}
+
 					if (snake.direction != down) {
 						snake.direction = up;
+						last_c = c;
 					}
 					break;
 
@@ -823,6 +829,7 @@ void *userinput () {
 
 					if (snake.direction != right) {
 						snake.direction = left;
+						last_c = c;
 					}
 					break;
 
@@ -838,6 +845,7 @@ void *userinput () {
 
 					if (snake.direction != up) {
 						snake.direction = down;
+						last_c = c;
 					}
 					break;
 
@@ -853,6 +861,7 @@ void *userinput () {
 
 					if (snake.direction != left) {
 						snake.direction = right;
+						last_c = c;
 					}
 					break;
 
@@ -899,7 +908,7 @@ void *userinput () {
 					break;
 			}
 		}
-
+        		
 		nanosleep (&how_long, NULL);
 	}
 }
