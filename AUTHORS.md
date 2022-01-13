@@ -248,13 +248,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/madukm">
-            <img src="https://avatars.githubusercontent.com/u/48024589?v=4" width="100;" alt="madukm"/>
-            <br />
-            <sub><b>Maria Eduarda Kawakami</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/brugazoni">
             <img src="https://avatars.githubusercontent.com/u/38261348?v=4" width="100;" alt="brugazoni"/>
             <br />
@@ -321,6 +314,14 @@ the following authors:
             <sub><b>Marcelo Temoteo</b></sub>
         </a>
     </td>
+    <td align="center">
+        <a href="https://github.com/madukm">
+            <img src="https://avatars.githubusercontent.com/u/48024589?v=4" width="100;" alt="madukm"/>
+            <br />
+            <sub><b>Maria Eduarda Kawakami</b></sub>
+        </a>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>

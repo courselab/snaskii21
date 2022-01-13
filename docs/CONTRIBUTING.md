@@ -33,8 +33,8 @@ If you find a bug in the source code, you can help us by [submitting an issue](#
 As a team, we work to fix all the issues as soon as possible, but before we do that, we need to be able to reproduce and confirm it. In order to reproduce bugs, we require that you provide a description on how to reproduce it. That enables us to go straight to the problem, and does not require wasting time exchanging information.
 
 ## <a name="mising-features"></a> Missing a Feature?
-You can request a new feature by [submitting an issue](#submission-guidelines) to our GitHub repository. If you would like to implmement a new feature, please consider the size of the change in order to determine the right steps to proceed:
-- For a **Major Feature**, first open an issue and outline your proposal sothat it can be discussed. This process allowss us to better coordinate our efforts, prevent duplication of work, ad help you to craft so that it is successflly accepted into the project.
+You can request a new feature by [submitting an issue](#submission-guidelines) to our GitHub repository. If you would like to implement a new feature, please consider the size of the change in order to determine the right steps to proceed:
+- For a **Major Feature**, first open an issue and outline your proposal so that it can be discussed. This process allows us to better coordinate our efforts, prevent duplication of work and help you to craft, so that it is successfully accepted into the project.
 - **Small Features** can be crafter and directly [submitted as Pull Request](#submission-guidelines).
 
 ## <a name="branch-name"></a> Branch name convention
