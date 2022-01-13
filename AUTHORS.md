@@ -204,6 +204,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/henriquesqs">
+            <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
+            <br />
+            <sub><b>Henrique Dos Santos</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/joaofavoretti">
             <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
             <br />
@@ -216,15 +223,15 @@ the following authors:
             <br />
             <sub><b>Kodhi314</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/madukm">
             <img src="https://avatars.githubusercontent.com/u/48024589?v=4" width="100;" alt="madukm"/>
             <br />
             <sub><b>Maria Eduarda Kawakami</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/viniciussm07">
             <img src="https://avatars.githubusercontent.com/u/78987625?v=4" width="100;" alt="viniciussm07"/>
@@ -251,13 +258,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/86624327?v=4" width="100;" alt="mathmorfose"/>
             <br />
             <sub><b>Matheus</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/henriquesqs">
-            <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
-            <br />
-            <sub><b>Henrique Dos Santos</b></sub>
         </a>
     </td>
     <td align="center">
