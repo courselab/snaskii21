@@ -78,9 +78,10 @@ void show_help (char isError, char * curr_data_dir) {
   fprintf(isError ? stderr : stdout, "\
 Usage: " BIN_NAME " [options]\n\n\
   Options\n\n\
-  -d, --data       Selects a non-default data path to game's assets and \"share\" folder\n\
-                   (default: %s).\n\
-  -h, --help       Display this information message.\n\
-  -v, --version    Outputs the program version.\n", curr_data_dir);
+  -d, --data                Selects a non-default data path to game's assets and \"share\" folder\n\
+                            (default: %s).\n\
+  -h, --help                Display this information message.\n\
+  -s, --no-soundtrack       Start the game without the initial soundtrack\n\
+  -v, --version             Outputs the program version.\n", curr_data_dir);
   exit(isError ? -1 : 0);
 } 
