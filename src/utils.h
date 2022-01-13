@@ -58,4 +58,10 @@ void * xmalloc (size_t size);
  */
 void * xcalloc (size_t nmemb, size_t size);
 
+/*  
+ * Reallocs and verifies if the memory was correctly allocated
+ * Should be used instead of regular realloc calls
+ */
+void * xrealloc (void *ptr, size_t size);
+
 #endif /* UTILS_H */

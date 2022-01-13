@@ -119,3 +119,22 @@ void * xcalloc (size_t nmemb, size_t size)
 
   return p;
 }
+
+
+/*  
+ * Reallocs and verifies if the memory was correctly allocated
+ * Should be used instead of regular realloc calls
+ */
+void * xrealloc (void *ptr, size_t size)
+{
+  void *p;
+
+  p = realloc(ptr, size);
+  if (!p) {
+    perror("xrealloc");
+    exit(EXIT_FAILURE);
+  }
+
+  return p;
+}
+
