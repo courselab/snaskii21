@@ -84,3 +84,17 @@ Usage: " BIN_NAME " [options]\n\n\
   -v, --version    Outputs the program version.\n", curr_data_dir);
   exit(isError ? -1 : 0);
 } 
+
+/* Mallocs and verifies if the memory was correctly allocated */
+void * xmalloc (size_t size)
+{
+  void *p;
+
+  p = malloc(size);
+  if (!p) {
+    perror("xmalloc");
+    exit(EXIT_FAILURE);
+  }
+
+  return p;
+}
