@@ -379,7 +379,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 		wprintw(main_window, "\
 		Controls: q: quit | r: restart | WASD/HJKL/ARROWS: move the snake\
 		| +/-: change game speed\n");
-		wprintw(main_window, "          h: help & settings | p: pause game\n");
+		wprintw(main_window, "         | p: pause game\n");
 
 	}
 	else if (game_end) {
