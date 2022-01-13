@@ -122,6 +122,7 @@ After a set amount of reviewers with write access have accepted the changes, it 
     ```
     $ git pull upstream develop
     ```
+10. Use our [pull request template](./PULL_REQUEST_TEMPLATE.md) to make your pull request more descriptive. 
 
 ## <a name="commit-messages"></a> Commit messages
 
