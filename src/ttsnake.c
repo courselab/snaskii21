@@ -297,6 +297,10 @@ void draw (scene_t* scene_array, int number) {
 
 			mvwprintw(main_window, NROWS*3/4 + 5, NCOLS/5 + 3,
 					  "If you want to erase a character, type '&'.");
+
+			mvwprintw(main_window, NROWS*3/4 + 6, NCOLS/5 + 4,
+					  "If you want to reset scoreboard, type '@'.");
+
 			mvwprintw(main_window, NROWS*3/4 + 7, NCOLS/2 - 7, "%s", nickname);
 		}
 	}else if(number == RESTARTED){
@@ -750,6 +754,11 @@ void *userinput () {
 			if (c == '#') {
 				entered_score = 1;
 				actual_pos_nickname = 0;
+
+			/* Clear scoreboard */
+			} else if (c == '@') {
+				FILE* fp = fopen(SCORES_FILE, "wb");
+				fclose(fp);
 
 			/* Insert char to nickname. */
 			} else if (c != '\n' && c!= '\t' && c!=' ' && c!= '\r') {
