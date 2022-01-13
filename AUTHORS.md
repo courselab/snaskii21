@@ -211,28 +211,41 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/madukm">
+            <img src="https://avatars.githubusercontent.com/u/48024589?v=4" width="100;" alt="madukm"/>
+            <br />
+            <sub><b>Maria Eduarda Kawakami</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/viniciussm07">
             <img src="https://avatars.githubusercontent.com/u/78987625?v=4" width="100;" alt="viniciussm07"/>
             <br />
             <sub><b>Vinicius Martins</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/isadoracsiebert">
             <img src="https://avatars.githubusercontent.com/u/75046559?v=4" width="100;" alt="isadoracsiebert"/>
             <br />
             <sub><b>Isadora</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/mvellosa">
             <img src="https://avatars.githubusercontent.com/u/80607728?v=4" width="100;" alt="mvellosa"/>
             <br />
             <sub><b>Matheus Vellosa</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
+    <td align="center">
+        <a href="https://github.com/mathmorfose">
+            <img src="https://avatars.githubusercontent.com/u/86624327?v=4" width="100;" alt="mathmorfose"/>
+            <br />
+            <sub><b>Matheus</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/JoaoHardline">
             <img src="https://avatars.githubusercontent.com/u/84240829?v=4" width="100;" alt="JoaoHardline"/>
@@ -253,6 +266,14 @@ the following authors:
             <br />
             <sub><b>Brugazoni</b></sub>
         </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/pau1o-hs">
+            <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
+            <br />
+            <sub><b>Paulo Silva</b></sub>
+        </a>
     </td>
     <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
@@ -267,16 +288,14 @@ the following authors:
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
             <br />
             <sub><b>Ceneme</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/aocard">
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
@@ -288,9 +307,10 @@ the following authors:
         <a href="https://github.com/fredbr">
             <img src="https://avatars.githubusercontent.com/u/5673494?v=4" width="100;" alt="fredbr"/>
             <br />
-            <sub><b>fredbr</b></sub>
+            <sub><b>Fredbr</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/karolinyoliveira">
             <img src="https://avatars.githubusercontent.com/u/45614118?v=4" width="100;" alt="karolinyoliveira"/>
@@ -306,41 +326,17 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/madukm">
-            <img src="https://avatars.githubusercontent.com/u/48024589?v=4" width="100;" alt="madukm"/>
-            <br />
-            <sub><b>Maria Eduarda Kawakami</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
         <a href="https://github.com/guynamedped">
             <img src="https://avatars.githubusercontent.com/u/86412003?v=4" width="100;" alt="guynamedped"/>
             <br />
             <sub><b>Guynamedped</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/karolinysilva">
             <img src="https://avatars.githubusercontent.com/u/78601574?v=4" width="100;" alt="karolinysilva"/>
             <br />
             <sub><b>Karoliny Silva</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/pau1o-hs">
-            <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
-            <br />
-            <sub><b>Paulo Silva</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/pau1o-hs">
-            <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
-            <br />
-            <sub><b>Paulo Silva</b></sub>
         </a>
     </td>
     <td align="center">
