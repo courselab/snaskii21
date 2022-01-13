@@ -390,7 +390,7 @@ void generate_fruit_block () {
 	fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
 	/* Verifies if the fruit is in an even position, because the snake moves 2 positions horizontally */
-	if ((fruit_block.x)%2 == 0) {
+	if (!(fruit_block.x & 1)) {
 		fruit_block.x -= 1;
 	}
 }
@@ -432,7 +432,7 @@ void generate_energy_block () {
 	energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
 	/* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
-	if ((energy_block[0].x)%2 == 0) {
+	if (!(energy_block[0].x & 1)) {
 		energy_block[0].x -= 1;
 	}
 }
