@@ -147,6 +147,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/lucasvianav">
+            <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
+            <br />
+            <sub><b>Lucas Viana</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/JulioEO">
             <img src="https://avatars.githubusercontent.com/u/40305649?v=4" width="100;" alt="JulioEO"/>
             <br />
@@ -173,15 +180,15 @@ the following authors:
             <br />
             <sub><b>MuketaUeda</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/pau1o-hs">
             <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
             <br />
             <sub><b>Paulo Silva</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/danielsuzumura">
             <img src="https://avatars.githubusercontent.com/u/51420150?v=4" width="100;" alt="danielsuzumura"/>
@@ -197,10 +204,10 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/lucasvianav">
-            <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
+        <a href="https://github.com/joaofavoretti">
+            <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
             <br />
-            <sub><b>Lucas Viana</b></sub>
+            <sub><b>João Pedro Favoretti</b></sub>
         </a>
     </td>
     <td align="center">
@@ -215,13 +222,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
             <br />
             <sub><b>Henrique Dos Santos</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/joaofavoretti">
-            <img src="https://avatars.githubusercontent.com/u/31491328?v=4" width="100;" alt="joaofavoretti"/>
-            <br />
-            <sub><b>João Pedro Favoretti</b></sub>
         </a>
     </td></tr>
 <tr>
