@@ -298,8 +298,6 @@ void draw (scene_t* scene_array, int number) {
 
 			mvwprintw(main_window, NROWS*3/4 + 7, NCOLS/2 - 7, "%s", nickname);
 		}
-	} else if (number == RESTARTED) {
-		
 	}
 
 	wrefresh(main_window);
