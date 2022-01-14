@@ -283,13 +283,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/danielsuzumura">
-            <img src="https://avatars.githubusercontent.com/u/51420150?v=4" width="100;" alt="danielsuzumura"/>
-            <br />
-            <sub><b>Daniel Suzumura</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
             <br />
@@ -309,15 +302,15 @@ the following authors:
             <br />
             <sub><b>Ceneme</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/aocard">
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
             <br />
             <sub><b>AOCard</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/fernandovgs">
             <img src="https://avatars.githubusercontent.com/u/14129900?v=4" width="100;" alt="fernandovgs"/>
@@ -352,15 +345,15 @@ the following authors:
             <br />
             <sub><b>Guynamedped</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/karolinysilva">
             <img src="https://avatars.githubusercontent.com/u/78601574?v=4" width="100;" alt="karolinysilva"/>
             <br />
             <sub><b>Karoliny Silva</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/sleifnir">
             <img src="https://avatars.githubusercontent.com/u/50050993?v=4" width="100;" alt="sleifnir"/>
