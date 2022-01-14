@@ -78,8 +78,8 @@ If you're using Ubuntu on WSL, maybe you can face the following problem
 Execute the following commands to solve the problem
 
 ```
-$ sed -i -e 's/\r$//' autogen.sh
-$ ./autogen.sh
+sed -i -e 's/\r$//' autogen.sh
+./autogen.sh
 ```
 
 On the other hand, if you have obtained the software from a __distribution
@@ -99,10 +99,10 @@ Again, if you're using Ubuntu on WSL, maybe you can face the following problem
 Execute the following commands to solve the problem
 
 ```
-$ autoreconf -ivf
-$ dos2unix configure.ac
-$ autoconf
-$ ./configure
+autoreconf -ivf
+dos2unix configure.ac
+autoconf
+./configure
 ```
 
 If it complains about missing pieces of software, install them as needed.
@@ -137,16 +137,21 @@ An alternative option to install the dependencies and the repository is to use t
 
 For `install_all.sh`, execute the following command on the terminal:
 
-``sudo ./install_all.sh```
+```
+sudo ./install_all.sh
+```
 
 For `install_all.py`, it's required to use Python 3.x. The usage is:
 
-```python ./install_all.py [--password SUDO_PASSWORD]```
+```
+python ./install_all.py [--password SUDO_PASSWORD]
+```
 
 The password argument is optional. It's required only if your system is unable to install the packages and the repository without root privileges. In this case, type your password on the terminal as a command-line argument (for example, supposing a password `xyz`):
 
-```python ./install_all.py --password xyz```
-
+```
+python ./install_all.py --password xyz
+```
 
 ## Docker environment execution
 
