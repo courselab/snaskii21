@@ -82,7 +82,7 @@ $ sed -i -e 's/\r$//' autogen.sh
 $ ./autogen.sh
 ```
 
-On the other hand, if you have obtained the software form a __distribution
+On the other hand, if you have obtained the software from a __distribution
 repository__, usually as a tarball, you should already have the script
 `configure`, which performs a series of tests to collect data about the build
 platform.
@@ -110,7 +110,7 @@ If it complains about missing pieces of software, install them as needed.
 
 Finally, build the software and install it either globally or locally.
 
-To install the programa under the system path --- usually placing the binary
+To install the program under the system path --- usually placing the binary
 in `/usr/bin` and the data files in `/usr/share` ---, run:
 
 ```
@@ -143,7 +143,7 @@ For `install_all.py`, it's required to use Python 3.x. The usage is:
 
 ```python ./install_all.py [--password SUDO_PASSWORD]```
 
-The password argument is optional. It's required only if your system is unable to install the packages and the repository without root privileges. In this case, type your password on the terminal as a command-line argument (for example, suposing a password `xyz`):
+The password argument is optional. It's required only if your system is unable to install the packages and the repository without root privileges. In this case, type your password on the terminal as a command-line argument (for example, supposing a password `xyz`):
 
 ```python ./install_all.py --password xyz```
 
@@ -181,14 +181,14 @@ If, for some reason, the command returns a message asking for a minimum terminal
 ### Playing the game
 
 The game takes place on a rectangular arena where a snake is continuously moving (that is,
-it never stops) in one of the four directions: left, right, up and down.
-As the snake moves, it loses energy and if all of it is exausted, the
-snake dies. To recover energy, the snake needs to eat pieces of food which
+it never stops) in one of the four directions: left, right, up, and down.
+As the snake moves, it loses energy and if all of it is exhausted, the
+snake dies. To recover energy, the snake needs to eat pieces of food that
 are constantly replaced at random positions.
 
 Be careful, though. The arena borders are electrified and will kill the snake
 if touched. Moreover, mind that the snake is poisonous and it will also die if
-it accidently bites itself, i.e. if the snake's head crosses its own body (yes,
+it accidentally bites itself, i.e. if the snake's head crosses its own body (yes,
 this is weird for snakes, but this is a Tron Snake).
 
 The game score is the count of eaten blocks until the game is over.
