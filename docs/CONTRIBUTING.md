@@ -1,17 +1,20 @@
 # Contributing to this project
 
 There are always positive contributions to be done in this project. If you wish to contribute, we as a team would appreciate it. Here are the guidelines we would like you to follow:
-- [General information](#general-information)
-- [Got any questions?](#questions)
-- [Found a bug?](#found-bugs)
-- [Missing a Feature?](#missing-features)
-- [Branch name](#branch-name)
-- [Submission Guidelines](#submission-guidelines)
-- [Commit messages](#commit-messages)
-- [Building the source code](#building)
-- [Communication Language](#language)
-- [Code Styles](#code-styles)
-- [Versions](#versions)
+- [Contributing to this project](#contributing-to-this-project)
+  - [<a name="general-information"></a> General information](#-general-information)
+  - [<a name="questions"></a> Got any questions?](#-got-any-questions)
+  - [<a name="found-bug"></a> Found a bug?](#-found-a-bug)
+  - [<a name="mising-features"></a> Missing a Feature?](#-missing-a-feature)
+  - [<a name="branch-name"></a> Branch name convention](#-branch-name-convention)
+  - [<a name="submission-guidelines"></a>Submission Guidelines](#submission-guidelines)
+    - [Submitting an Issue](#submitting-an-issue)
+    - [Submitting a Pull Request (PR)](#submitting-a-pull-request-pr)
+  - [<a name="commit-messages"></a> Commit messages](#-commit-messages)
+  - [<a name="building"></a>Building the source code](#building-the-source-code)
+  - [<a name="language"></a> Communication Language](#-communication-language)
+  - [<a name="code-styles"></a> Code Styles](#-code-styles)
+  - [<a name="versions"></a> Versions](#-versions)
 
 ## <a name="general-information"></a> General information
 
@@ -91,17 +94,17 @@ Before submitting your Pull Request, consider the following steps:
 3. Fork the [courselab/snaskii21](https://github.com/courselab/snaskii21) repository.
 4. Inside your forked repository, [create a new git branch](branch-name) to start working on your changes:
     ```
-    $ git checkout -b <new-branch-name> develop
+    git checkout -b <new-branch-name> develop
     ```
 5. Create your patch.
 6. Commit your changes using a descriptive commit message that should follow our [commit message standard](#commit-messages):
     ```
-    $ git add
-    $ git commit -am "<your-commit-message>"
+    git add
+    git commit -am "<your-commit-message>"
     ```
 7. Push your changes to the remote Github repository:
     ```
-    $  git push origin <new-branch-name>
+     git push origin <new-branch-name>
     ```
 
 8. Inside the Github page, visit the [pull requests page](https://github.com/courselab/snaskii21/pulls) and select the proper protected branch (e.g. `develop`) as destination branch. 
@@ -114,13 +117,13 @@ After a set amount of reviewers with write access have accepted the changes, it 
     In summary, you must specify a new remote *upstream* repository to be synced with the fork:
 
     ```
-    $ git remote add upstream https://github.com/courselab/snaskii21
+    git remote add upstream https://github.com/courselab/snaskii21
     ```
 
     And then you can use the `git pull` command to update your fork with the changes from the upstream repository:
 
     ```
-    $ git pull upstream develop
+    git pull upstream develop
     ```
 10. Use our [pull request template](./PULL_REQUEST_TEMPLATE.md) to make your pull request more descriptive. 
 
