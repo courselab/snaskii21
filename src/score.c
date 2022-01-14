@@ -141,10 +141,8 @@ void add_score(const char nickname[MAX_NICKNAME+1], int points){
     bool alreadyLogged = false;
     int i;
 
-    for (i = 0; i < topScores->nTopScores; i++)
-    {
-        if (strcmp(topScores->scores[i].nickname, nickname) == 0)
-        {
+    for (i = 0; i < topScores->nTopScores; i++) {
+        if (strcmp(topScores->scores[i].nickname, nickname) == 0) {
             if (points > topScores->scores[i].points)
                 topScores->scores[i].points = points;
 
@@ -153,8 +151,7 @@ void add_score(const char nickname[MAX_NICKNAME+1], int points){
         }
     }
 
-    if (!alreadyLogged)
-    {
+    if (!alreadyLogged) {
         /* Check if the file is full and if the player's score is less than or equal to the last score in the file */
         if(topScores->nTopScores == MAX_SCORES && score.points <= topScores->scores[MAX_SCORES-1].points){
             free(topScores); /* Frees memory */
