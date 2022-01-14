@@ -183,6 +183,13 @@ the following authors:
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/danielsuzumura">
+            <img src="https://avatars.githubusercontent.com/u/51420150?v=4" width="100;" alt="danielsuzumura"/>
+            <br />
+            <sub><b>Daniel Suzumura</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/allthecoder">
             <img src="https://avatars.githubusercontent.com/u/55332784?v=4" width="100;" alt="allthecoder"/>
             <br />
@@ -216,15 +223,15 @@ the following authors:
             <br />
             <sub><b>João Pedro Favoretti</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Kodhi314">
             <img src="https://avatars.githubusercontent.com/u/48361852?v=4" width="100;" alt="Kodhi314"/>
             <br />
             <sub><b>Kodhi314</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/madukm">
             <img src="https://avatars.githubusercontent.com/u/48024589?v=4" width="100;" alt="madukm"/>
@@ -259,6 +266,14 @@ the following authors:
             <br />
             <sub><b>Matheus</b></sub>
         </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/fernandovgs">
+            <img src="https://avatars.githubusercontent.com/u/14129900?v=4" width="100;" alt="fernandovgs"/>
+            <br />
+            <sub><b>Fernando Gianini</b></sub>
+        </a>
     </td>
     <td align="center">
         <a href="https://github.com/JoaoHardline">
@@ -266,8 +281,7 @@ the following authors:
             <br />
             <sub><b>João Pedro Gonçalves Ferreira</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/lucasxavierleite">
             <img src="https://avatars.githubusercontent.com/u/25937648?v=4" width="100;" alt="lucasxavierleite"/>
@@ -283,13 +297,6 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/danielsuzumura">
-            <img src="https://avatars.githubusercontent.com/u/51420150?v=4" width="100;" alt="danielsuzumura"/>
-            <br />
-            <sub><b>Daniel Suzumura</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
             <br />
@@ -302,27 +309,20 @@ the following authors:
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
             <br />
             <sub><b>Ceneme</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/aocard">
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
             <br />
             <sub><b>AOCard</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/fernandovgs">
-            <img src="https://avatars.githubusercontent.com/u/14129900?v=4" width="100;" alt="fernandovgs"/>
-            <br />
-            <sub><b>Fernando Gianini</b></sub>
         </a>
     </td>
     <td align="center">
