@@ -168,32 +168,39 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/lucasvianav">
+            <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
+            <br />
+            <sub><b>Lucas Viana</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/MuketaUeda">
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/pau1o-hs">
             <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
             <br />
             <sub><b>Paulo Silva</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
+    <td align="center">
+        <a href="https://github.com/danielsuzumura">
+            <img src="https://avatars.githubusercontent.com/u/51420150?v=4" width="100;" alt="danielsuzumura"/>
+            <br />
+            <sub><b>Daniel Suzumura</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/allthecoder">
             <img src="https://avatars.githubusercontent.com/u/55332784?v=4" width="100;" alt="allthecoder"/>
             <br />
             <sub><b>Alexandre Brito Gomes</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/lucasvianav">
-            <img src="https://avatars.githubusercontent.com/u/23108450?v=4" width="100;" alt="lucasvianav"/>
-            <br />
-            <sub><b>Lucas Viana</b></sub>
         </a>
     </td>
     <td align="center">
@@ -216,15 +223,15 @@ the following authors:
             <br />
             <sub><b>João Pedro Favoretti</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/Kodhi314">
             <img src="https://avatars.githubusercontent.com/u/48361852?v=4" width="100;" alt="Kodhi314"/>
             <br />
             <sub><b>Kodhi314</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/madukm">
             <img src="https://avatars.githubusercontent.com/u/48024589?v=4" width="100;" alt="madukm"/>
@@ -259,6 +266,14 @@ the following authors:
             <br />
             <sub><b>Matheus</b></sub>
         </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/fernandovgs">
+            <img src="https://avatars.githubusercontent.com/u/14129900?v=4" width="100;" alt="fernandovgs"/>
+            <br />
+            <sub><b>Fernando Gianini</b></sub>
+        </a>
     </td>
     <td align="center">
         <a href="https://github.com/JoaoHardline">
@@ -266,8 +281,7 @@ the following authors:
             <br />
             <sub><b>João Pedro Gonçalves Ferreira</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/lucasxavierleite">
             <img src="https://avatars.githubusercontent.com/u/25937648?v=4" width="100;" alt="lucasxavierleite"/>
@@ -295,7 +309,8 @@ the following authors:
             <br />
             <sub><b>Monaco F. J.</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ceneme">
             <img src="https://avatars.githubusercontent.com/u/40470865?v=4" width="100;" alt="ceneme"/>
@@ -308,14 +323,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/49252510?v=4" width="100;" alt="aocard"/>
             <br />
             <sub><b>AOCard</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/fernandovgs">
-            <img src="https://avatars.githubusercontent.com/u/14129900?v=4" width="100;" alt="fernandovgs"/>
-            <br />
-            <sub><b>Fernando Gianini</b></sub>
         </a>
     </td>
     <td align="center">
@@ -345,15 +352,15 @@ the following authors:
             <br />
             <sub><b>Guynamedped</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/karolinysilva">
             <img src="https://avatars.githubusercontent.com/u/78601574?v=4" width="100;" alt="karolinysilva"/>
             <br />
             <sub><b>Karoliny Silva</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/sleifnir">
             <img src="https://avatars.githubusercontent.com/u/50050993?v=4" width="100;" alt="sleifnir"/>
