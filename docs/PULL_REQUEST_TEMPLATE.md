@@ -1,11 +1,14 @@
 ### **Description**
 
-Add a short description explaining what your pull request does. For example:
+Here it will be a general overview of the changes involved in your pull-request. It allows contributors to piece each modification together while reviewing it.
 
-* Allows snake to walk in diagonal;
-* Fixed that critical bug;
-* Updated README about new game commands;
-* ... and so on.
+Example of usage:
+
+This PR proposes the following changes:
+- Allows snake to walk in diagonal;
+- Fixed that critical bug;
+- Updated README about new game commands;
+- ... and so on.
 
 ### **Closes issue(s)**
 
