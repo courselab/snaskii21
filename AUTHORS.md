@@ -147,10 +147,24 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/henriquesqs">
+            <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
+            <br />
+            <sub><b>Henrique Dos Santos</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Idalen">
             <img src="https://avatars.githubusercontent.com/u/48536015?v=4" width="100;" alt="Idalen"/>
             <br />
             <sub><b>Daniel Martins Vieira</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/pau1o-hs">
+            <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
+            <br />
+            <sub><b>Paulo Silva</b></sub>
         </a>
     </td>
     <td align="center">
@@ -166,7 +180,8 @@ the following authors:
             <br />
             <sub><b>LeoFonsecaP</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
@@ -179,14 +194,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
             <br />
             <sub><b>MuketaUeda</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/pau1o-hs">
-            <img src="https://avatars.githubusercontent.com/u/55563608?v=4" width="100;" alt="pau1o-hs"/>
-            <br />
-            <sub><b>Paulo Silva</b></sub>
         </a>
     </td>
     <td align="center">
@@ -211,6 +218,14 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Rafael-M-V">
+            <img src="https://avatars.githubusercontent.com/u/55121731?v=4" width="100;" alt="Rafael-M-V"/>
+            <br />
+            <sub><b>Rafael-M-V</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/Yudiaramos">
             <img src="https://avatars.githubusercontent.com/u/71808184?v=4" width="100;" alt="Yudiaramos"/>
             <br />
@@ -218,13 +233,12 @@ the following authors:
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/henriquesqs">
-            <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
+        <a href="https://github.com/APMedrado">
+            <img src="https://avatars.githubusercontent.com/u/40172891?v=4" width="100;" alt="APMedrado"/>
             <br />
-            <sub><b>Henrique Dos Santos</b></sub>
+            <sub><b>Antônio Medrado</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Kodhi314">
             <img src="https://avatars.githubusercontent.com/u/48361852?v=4" width="100;" alt="Kodhi314"/>
@@ -252,7 +266,8 @@ the following authors:
             <br />
             <sub><b>Isadora</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/mvellosa">
             <img src="https://avatars.githubusercontent.com/u/80607728?v=4" width="100;" alt="mvellosa"/>
@@ -266,8 +281,7 @@ the following authors:
             <br />
             <sub><b>Matheus</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/fernandovgs">
             <img src="https://avatars.githubusercontent.com/u/14129900?v=4" width="100;" alt="fernandovgs"/>
@@ -295,22 +309,15 @@ the following authors:
             <br />
             <sub><b>Brugazoni</b></sub>
         </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/APMedrado">
-            <img src="https://avatars.githubusercontent.com/u/40172891?v=4" width="100;" alt="APMedrado"/>
-            <br />
-            <sub><b>Antônio Medrado</b></sub>
-        </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/guijun13">
             <img src="https://avatars.githubusercontent.com/u/48109548?v=4" width="100;" alt="guijun13"/>
             <br />
             <sub><b>Guilherme Jun Grillo</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/MauricioGGCatellan">
             <img src="https://avatars.githubusercontent.com/u/40176581?v=4" width="100;" alt="MauricioGGCatellan"/>
@@ -345,15 +352,22 @@ the following authors:
             <br />
             <sub><b>Fredbr</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/karolinyoliveira">
             <img src="https://avatars.githubusercontent.com/u/45614118?v=4" width="100;" alt="karolinyoliveira"/>
             <br />
             <sub><b>Karoliny Oliveira</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
+    <td align="center">
+        <a href="https://github.com/leonrossi">
+            <img src="https://avatars.githubusercontent.com/u/42591979?v=4" width="100;" alt="leonrossi"/>
+            <br />
+            <sub><b>Leonardo Rossi</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/Beadurof">
             <img src="https://avatars.githubusercontent.com/u/8800471?v=4" width="100;" alt="Beadurof"/>
