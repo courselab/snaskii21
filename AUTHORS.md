@@ -147,6 +147,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/henriquesqs">
+            <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
+            <br />
+            <sub><b>Henrique Dos Santos</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Idalen">
             <img src="https://avatars.githubusercontent.com/u/48536015?v=4" width="100;" alt="Idalen"/>
             <br />
@@ -173,15 +180,15 @@ the following authors:
             <br />
             <sub><b>LeoFonsecaP</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
             <br />
             <sub><b>Erik Melges</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/MuketaUeda">
             <img src="https://avatars.githubusercontent.com/u/82850274?v=4" width="100;" alt="MuketaUeda"/>
@@ -194,13 +201,6 @@ the following authors:
             <img src="https://avatars.githubusercontent.com/u/51420150?v=4" width="100;" alt="danielsuzumura"/>
             <br />
             <sub><b>Daniel Suzumura</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/henriquesqs">
-            <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
-            <br />
-            <sub><b>Henrique Dos Santos</b></sub>
         </a>
     </td>
     <td align="center">
