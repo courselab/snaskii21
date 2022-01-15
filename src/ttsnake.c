@@ -94,6 +94,7 @@ int colored_mode = 0;	  /*Whether or not to display the game in colored mode*/
 int selected_option = 0;
 
 
+int run_with_soundtrack = 1;
 int block_count; 		      /* Number of energy blocks collected. */
 
 int paused = 1; 		      /* Play/Pause indicator. */
@@ -462,7 +463,9 @@ void spawn_energy_block () {
 
 /* Initialize resources and counters. */
 void init_game () {
-	ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
+  if (run_with_soundtrack) {
+	  ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
+  }
 
 	/* fflush to avoid influence of past key pressed after game is restarted */
 	fflush(stdin);
@@ -860,8 +863,14 @@ void *userinput () {
 
 				case 'r':
 					if (game_end) {
-						ASSERT_SYSTEM_CALL(system("killall mpg123"));
-						init_game();
+            /* Check wheter the parameter --no-soundtrack was used
+             * during program execution
+             */
+            if (run_with_soundtrack) {
+              ASSERT_SYSTEM_CALL(system("killall mpg123"));
+            }
+	
+            init_game();
 						restarted = 1;
 						game_end = 0;
 					}
@@ -908,8 +917,9 @@ int main (int argc, char **argv) {
 	const struct option stoptions[] = {
 					 {"data", required_argument, 0, 'd'},
 					 {"help", no_argument, 0, 'h'},
-					 {"version", no_argument, 0, 'v'}};
-
+					 {"version", no_argument, 0, 'v'},
+					 {"no-soundtrack", no_argument, 0, 's'}};
+      
 	/* Defaults curr_data_screen to {datarootdir}/ttsnake */
 	char *curr_data_dir = (char *)xmalloc((strlen(DATADIR "/" ALT_SHORT_NAME) + 1)
 									   * sizeof(char));
@@ -919,7 +929,7 @@ int main (int argc, char **argv) {
 	char curr_opt;
 
 	/* Handle options passed as arguments. */
-	while ((curr_opt = (getopt_long(argc, argv, "d:h:v", stoptions, NULL))) != -1) {
+	while ((curr_opt = (getopt_long(argc, argv, "d:h:v:s", stoptions, NULL))) != -1) {
 
 		switch (curr_opt) {
 			/* Changes data_dir to one passed via argument. */
@@ -936,6 +946,11 @@ int main (int argc, char **argv) {
 				free(curr_data_dir);
 				printf (PACKAGE_STRING "\n");
 				exit (EXIT_SUCCESS);
+
+      case 's':
+        /* Disable flag that enables soundtrack on initialization */
+        run_with_soundtrack = 0;
+        break;
 
 			default:
 				show_help(true, curr_data_dir);
@@ -998,7 +1013,6 @@ int main (int argc, char **argv) {
 	game_delay  = DEFAULT_GAME_DELAY;	/* Game frame duration in usec (4usec) */
 	max_energy_blocks = 3;
 
-
 	main_process_pid = getpid();
 	/* Handle game controls in a different thread. */
 	rs = pthread_create(&pthread, NULL, &userinput, NULL);
@@ -1035,6 +1049,12 @@ int main (int argc, char **argv) {
 		return EXIT_FAILURE;
 	}
 
-	ASSERT_SYSTEM_CALL(system("killall mpg123"));
+  /* Check wheter the parameter --no-soundtrack was used
+   * during program execution
+   */
+	if (run_with_soundtrack) {
+    ASSERT_SYSTEM_CALL(system("killall mpg123"));
+  }
+
 	return EXIT_SUCCESS;
 }
