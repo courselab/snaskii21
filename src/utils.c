@@ -84,3 +84,57 @@ Usage: " BIN_NAME " [options]\n\n\
   -v, --version    Outputs the program version.\n", curr_data_dir);
   exit(isError ? -1 : 0);
 } 
+
+/* 
+ * Mallocs and verifies if the memory was correctly allocated 
+ * Should be used instead of regular malloc calls
+ */
+void * xmalloc (size_t size)
+{
+  void *p;
+
+  p = malloc(size);
+  if (!p) {
+    perror("xmalloc");
+    exit(EXIT_FAILURE);
+  }
+
+  return p;
+}
+
+
+/*  
+ * Callocs and verifies if the memory was correctly allocated
+ * Should be used instead of regular calloc calls
+ */
+void * xcalloc (size_t nmemb, size_t size)
+{
+  void *p;
+
+  p = calloc(nmemb, size);
+  if (!p) {
+    perror("xcalloc");
+    exit(EXIT_FAILURE);
+  }
+
+  return p;
+}
+
+
+/*  
+ * Reallocs and verifies if the memory was correctly allocated
+ * Should be used instead of regular realloc calls
+ */
+void * xrealloc (void *ptr, size_t size)
+{
+  void *p;
+
+  p = realloc(ptr, size);
+  if (!p) {
+    perror("xrealloc");
+    exit(EXIT_FAILURE);
+  }
+
+  return p;
+}
+
