@@ -118,16 +118,14 @@ void stop_cutscene () {
 	go_on_cutscene = 0;
 }
 
-void enter_colored_mode(){
+void enter_colored_mode () {
 	if(term_has_colored_mode){
 		colored_mode = 1;
 	}
-
 }
 
-void exit_colored_mode(){
+void exit_colored_mode () {
 	colored_mode = 0;
-	
 }
 
 /* Scene types enumerated from 0 to 3. */
@@ -217,8 +215,7 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
 		while (((c = fgetc(file)) != '\n') && (c != EOF)) {}
 
 		/* Iterate through NROWS. */
-		for (i = 1; i < NROWS-1; i++)
-		{
+		for (i = 1; i < NROWS-1; i++) {
 			/* Write left border.  */
 			scene_array[k][i][0] = '|';
 			fseek(file, sizeof(char), SEEK_CUR);
@@ -256,24 +253,23 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
 void draw (scene_t* scene_array, int number) {
 	int i, j;
 	
-
 	wmove(main_window, 0, 0);
 	for (i = 0; i < NROWS; i++) {
 		for (j = 0; j < NCOLS; j++) {
 			if(number == RUNNING && colored_mode == 1){
-				if(scene_array[number][i][j] == SNAKE_TAIL || scene_array[number][i][j] == SNAKE_BODY || scene_array[number][i][j] == SNAKE_HEAD ){
+				if (scene_array[number][i][j] == SNAKE_TAIL || scene_array[number][i][j] == SNAKE_BODY || scene_array[number][i][j] == SNAKE_HEAD ) {
 					wattron(main_window,COLOR_PAIR(1));
 					waddch(main_window, scene_array[number][i][j]);
 					wattroff(main_window,COLOR_PAIR(1));
-				}else if(scene_array[number][i][j] == ENERGY_BLOCK || scene_array[number][i][j] == FRUIT_BLOCK){
+				} else if (scene_array[number][i][j] == ENERGY_BLOCK || scene_array[number][i][j] == FRUIT_BLOCK) {
 					wattron(main_window,COLOR_PAIR(2));
 					waddch(main_window, scene_array[number][i][j]);
 					wattroff(main_window,COLOR_PAIR(2));
-				}else{
+				} else {
 					waddch(main_window, scene_array[number][i][j]);
 				}
 			
-			}else{
+			} else {
 				waddch(main_window, scene_array[number][i][j]);
 			}
 		  
@@ -281,11 +277,10 @@ void draw (scene_t* scene_array, int number) {
 	}
 
 	if (number == GAME_OVER) {
-	/* If displayed scene is the game over scene.
-	   We must show the final score. */
-	mvwprintw(main_window, NROWS*3/4, NCOLS/2-7, "Score: %d", block_count);
+		/* If displayed scene is the game over scene. We must show the final score. */
+		mvwprintw(main_window, NROWS*3/4, NCOLS/2-7, "Score: %d", block_count);
 
-	/*Instructions to enter nickname*/
+		/*Instructions to enter nickname*/
 		if (!entered_score) {
 			mvwprintw(main_window, NROWS*3/4 + 1,NCOLS/5 - 2,
 					  "                                             ");
@@ -303,8 +298,6 @@ void draw (scene_t* scene_array, int number) {
 
 			mvwprintw(main_window, NROWS*3/4 + 7, NCOLS/2 - 7, "%s", nickname);
 		}
-	}else if(number == RESTARTED){
-		
 	}
 
 	wrefresh(main_window);
@@ -394,7 +387,7 @@ void generate_fruit_block () {
 	fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
 	/* Verifies if the fruit is in an even position, because the snake moves 2 positions horizontally */
-	if ((fruit_block.x)%2 == 0) {
+	if (!(fruit_block.x & 1)) {
 		fruit_block.x -= 1;
 	}
 }
@@ -410,8 +403,7 @@ int fruit_block_conflict () {
   }
 
   for (i = 0; i < snake.length - 1; i++) {
-	if (fruit_block.x == snake.positions[i].x && 
-		fruit_block.y == snake.positions[i].y) {
+	if (fruit_block.x == snake.positions[i].x && fruit_block.y == snake.positions[i].y) {
 		return 1; 
 	}
   }
@@ -436,7 +428,7 @@ void generate_energy_block () {
 	energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
 	/* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
-	if ((energy_block[0].x)%2 == 0) {
+	if (!(energy_block[0].x & 1)) {
 		energy_block[0].x -= 1;
 	}
 }
@@ -451,8 +443,7 @@ int energy_block_conflict () {
 	}
 
 	for (i = 0; i < snake.length - 1; i++) {
-		if (energy_block[0].x == snake.positions[i].x &&
-			energy_block[0].y == snake.positions[i].y) {
+		if (energy_block[0].x == snake.positions[i].x && energy_block[0].y == snake.positions[i].y) {
 			return 1;
 		}
 	}
@@ -473,8 +464,8 @@ void spawn_energy_block () {
 void init_game () {
 	ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
 
-    /* fflush to avoid influence of past key pressed after game is restarted */
-    fflush(stdin);
+	/* fflush to avoid influence of past key pressed after game is restarted */
+	fflush(stdin);
 
 	int i;
 	block_count = 0;
@@ -484,7 +475,7 @@ void init_game () {
 	snake.head.x = 11;
 	snake.head.y = 11;
 
-	if (snake.positions != NULL){
+	if (snake.positions != NULL) {
 		free(snake.positions);
 	}
 
@@ -526,8 +517,7 @@ collision_type_t check_collision() {
 	}
 
 	for (i = 0; i < snake.length - 1; i++) {
-		if (snake.head.x == snake.positions[i].x &&
-		snake.head.y == snake.positions[i].y) {
+		if (snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y) {
 			return collision_self;
 		}
 	}
@@ -591,7 +581,7 @@ void playmovie (scene_t* scene_array, int nscenes) {
 }
 
 
-void draw_settings(scene_t *scene) {
+void draw_settings (scene_t *scene) {
 	char buffer[NCOLS];
 	int i;
 
@@ -600,10 +590,10 @@ void draw_settings(scene_t *scene) {
 		buffer[i] = ' ';
 	}
 	char selected[5] = "-->  ";
-	for(i=0;i<num_option_in_menu;i++){
-		if(i==selected_option){
+	for (i = 0; i < num_option_in_menu; i++) {
+		if (i == selected_option) {
 			memcpy(&scene[2][22+i][7], selected, strlen(selected));
-		}else{
+		} else {
 			memcpy(&scene[2][22+i][7], "     ",5);
 		}
 		
@@ -612,16 +602,16 @@ void draw_settings(scene_t *scene) {
 
 	sprintf(buffer,"        < %3d >     Maximum number of blocks to display at the same time.", max_energy_blocks);
 	memcpy(&scene[2][22][12], buffer, strlen(buffer));
-	if(term_has_colored_mode){
+	if (term_has_colored_mode) {
 		sprintf(buffer, "        < %3d >     Colored Mode.", colored_mode);
-	}else{
+	} else {
 		sprintf(buffer, "        < %3d >     Colored Mode (not available on this terminal).", colored_mode);
 	}
 	
 	memcpy(&scene[2][23][12], buffer, strlen(buffer));
 }
 
-void update_snake_in_scene(scene_t scene, pair_t old_tail_pos) {
+void update_snake_in_scene (scene_t scene, pair_t old_tail_pos) {
 	int i;
 	int tail = snake.length - 1;
 
@@ -787,9 +777,10 @@ void *userinput () {
 			}
 
 		} else if (go_on_cutscene) { /* If its playing the cutscene */
-			if (c == ' '){
+			if (c == ' ') {
 				kill(main_process_pid, SIGUSR1);
 			}
+			
 		} else {
 			switch (c) {
 				case 'p':
@@ -804,7 +795,7 @@ void *userinput () {
 				case 'k':
 				case 'e':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
-						if(restarted){
+						if (restarted) {
 							selected_option = (selected_option - 1 + num_option_in_menu) % num_option_in_menu;
 						}
 						break;
@@ -818,7 +809,7 @@ void *userinput () {
 				case 'h':
 				case 'a':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
-						if(restarted && selected_option == 1 && colored_mode == 1){
+						if (restarted && selected_option == 1 && colored_mode == 1) {
 							exit_colored_mode();
 						}
 						break;
@@ -833,7 +824,7 @@ void *userinput () {
 				case 'j':
 				case 's':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
-						if(restarted){
+						if (restarted) {
 							selected_option = (selected_option + 1) % num_option_in_menu;
 						}
 						break;
@@ -848,7 +839,7 @@ void *userinput () {
 				case 'l':
 				case 'd':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
-						if(restarted && selected_option == 1 && colored_mode == 0){
+						if (restarted && selected_option == 1 && colored_mode == 0) {
 							enter_colored_mode();
 						}
 						break;
@@ -968,9 +959,9 @@ int main (int argc, char **argv) {
 	cbreak();
 
 	/*Prepare colored mode*/
-	if(has_colors() == FALSE){
+	if (has_colors() == FALSE) {
 		term_has_colored_mode = 0;
-	}else{
+	} else {
 		term_has_colored_mode = 1;
 		start_color();
 		use_default_colors();
@@ -1001,11 +992,6 @@ int main (int argc, char **argv) {
 							(max_height - NROWS - LOWER_PANEL_ROWS)/2,
 							(max_width - NCOLS)/2);
 	wrefresh(main_window);
-	
-
-
-
-	
 
 	/* Default values. */
 	movie_delay = 2.5E4;	            /* Movie frame duration in usec (40usec) */
