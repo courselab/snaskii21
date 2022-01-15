@@ -20,6 +20,7 @@
                                                                                           
                                                                                           
                                   Press 'p' to resume                                     
+                                   Press 'q' to quit                                      
                                                                                           
                                                                                           
                                                                                           
