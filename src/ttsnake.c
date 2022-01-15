@@ -854,11 +854,9 @@ void *userinput () {
 					break;
 
 				case 'q':
-					if (game_end || restarted) {
-						/* Both flags equals 1 means game is over for real and we should (try to) quit gracefully */
-						quit();
-						return NULL; /* Ending thread */
-					}
+					/* User can quit any time, with no restrictions */
+					quit();
+					return NULL; /* Ending thread */
 					break;
 
 				case 'r':
