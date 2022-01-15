@@ -147,6 +147,13 @@ the following authors:
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/henriquesqs">
+            <img src="https://avatars.githubusercontent.com/u/36971021?v=4" width="100;" alt="henriquesqs"/>
+            <br />
+            <sub><b>Henrique Dos Santos</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Idalen">
             <img src="https://avatars.githubusercontent.com/u/48536015?v=4" width="100;" alt="Idalen"/>
             <br />
@@ -173,7 +180,8 @@ the following authors:
             <br />
             <sub><b>LeoFonsecaP</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ms-erik">
             <img src="https://avatars.githubusercontent.com/u/87500711?v=4" width="100;" alt="ms-erik"/>
