@@ -381,8 +381,8 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 	}
 }
 
-/* Generates fruit_block coordinates randomly. */
 
+/* Generates fruit_block coordinates randomly. */
 void generate_fruit_block () {
 	fruit_block.x = (rand() % (NCOLS - 4)) + HORIZONTAL_MOVE;
 	fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
@@ -395,7 +395,6 @@ void generate_fruit_block () {
 
 
 /* Verifies if the block positions conflicts with the snake coordinates. */
-
 int fruit_block_conflict () {
   int i;
 
@@ -452,6 +451,7 @@ int energy_block_conflict () {
 	return 0;
 }
 
+
 /* Spawns an energy_block on the map. */
 void spawn_energy_block () {
 	generate_energy_block();
@@ -460,6 +460,7 @@ void spawn_energy_block () {
 		generate_energy_block();
 	}
 }
+
 
 /* Initialize resources and counters. */
 void init_game () {
@@ -495,6 +496,7 @@ void init_game () {
 	/* Spawns of the first fruit block. */
 	spawn_fruit_block();
 }
+
 
 /* Grows the snake - increases the snake length by one. */
 void grow_snake () {
@@ -614,6 +616,7 @@ void draw_settings (scene_t *scene) {
 	memcpy(&scene[2][23][12], buffer, strlen(buffer));
 }
 
+
 void update_snake_in_scene (scene_t scene, pair_t old_tail_pos) {
 	int i;
 	int tail = snake.length - 1;
@@ -632,10 +635,12 @@ void update_snake_in_scene (scene_t scene, pair_t old_tail_pos) {
 	scene[snake.positions[tail].y][snake.positions[tail].x] = SNAKE_TAIL;
 }
 
+
 void update_blocks_in_scene(scene_t scene) {
 	scene[energy_block[0].y][energy_block[0].x] = ENERGY_BLOCK;
 	scene[fruit_block.y][fruit_block.x] = FRUIT_BLOCK;
 }
+
 
 void drain_energy() {
 	/* Consume energy. */
@@ -646,6 +651,7 @@ void drain_energy() {
 		paused = 1;
 	}
 }
+
 
 /* This function implements the gameplay. */
 void run(scene_t game_scene) {
@@ -730,7 +736,7 @@ void *userinput () {
 	keypad(stdscr, TRUE);
 	noecho();
 
-	int c;
+	int c, last_c = 0;
 	struct timespec how_long;
 
 	how_long.tv_sec = 0;
@@ -785,6 +791,10 @@ void *userinput () {
 			}
 			
 		} else {
+			if (c == last_c && c != 'p') {
+				continue;
+			}
+
 			switch (c) {
 				case 'p':
 					if (!game_end) {
@@ -803,8 +813,10 @@ void *userinput () {
 						}
 						break;
 					}
+
 					if (snake.direction != down) {
 						snake.direction = up;
+						last_c = c;
 					}
 					break;
 
@@ -820,6 +832,7 @@ void *userinput () {
 
 					if (snake.direction != right) {
 						snake.direction = left;
+						last_c = c;
 					}
 					break;
 
@@ -835,6 +848,7 @@ void *userinput () {
 
 					if (snake.direction != up) {
 						snake.direction = down;
+						last_c = c;
 					}
 					break;
 
@@ -850,6 +864,7 @@ void *userinput () {
 
 					if (snake.direction != left) {
 						snake.direction = right;
+						last_c = c;
 					}
 					break;
 
@@ -900,7 +915,6 @@ void *userinput () {
 					break;
 			}
 		}
-
 		nanosleep (&how_long, NULL);
 	}
 }
