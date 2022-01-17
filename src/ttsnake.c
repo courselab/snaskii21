@@ -803,7 +803,7 @@ void *userinput () {
 				case KEY_UP:
 				case 'w':
 				case 'k':
-				case 'e':			
+				case 'e':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
 						if(restarted){
 							selected_option = (selected_option - 1 + num_option_in_menu) % num_option_in_menu;
