@@ -908,7 +908,6 @@ void *userinput () {
 					break;
 			}
 		}
-        		
 		nanosleep (&how_long, NULL);
 	}
 }
