@@ -94,6 +94,7 @@ int colored_mode = 0;	  /*Whether or not to display the game in colored mode*/
 int selected_option = 0;
 
 
+int run_with_soundtrack = 1;
 int block_count; 		      /* Number of energy blocks collected. */
 
 int paused = 1; 		      /* Play/Pause indicator. */
@@ -118,16 +119,14 @@ void stop_cutscene () {
 	go_on_cutscene = 0;
 }
 
-void enter_colored_mode(){
+void enter_colored_mode () {
 	if(term_has_colored_mode){
 		colored_mode = 1;
 	}
-
 }
 
-void exit_colored_mode(){
+void exit_colored_mode () {
 	colored_mode = 0;
-	
 }
 
 /* Scene types enumerated from 0 to 3. */
@@ -190,7 +189,7 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
 
 	/* Same scene is used sometimes. In this case, *scene != NULL and there's no need to malloc again */
 	if (*scene_array_ptr == NULL) {
-		*scene_array_ptr = malloc(sizeof(**scene_array_ptr) * nscenes);
+		*scene_array_ptr = xmalloc(sizeof(**scene_array_ptr) * nscenes);
 	}
 	
 	scene_array = *scene_array_ptr;
@@ -217,8 +216,7 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
 		while (((c = fgetc(file)) != '\n') && (c != EOF)) {}
 
 		/* Iterate through NROWS. */
-		for (i = 1; i < NROWS-1; i++)
-		{
+		for (i = 1; i < NROWS-1; i++) {
 			/* Write left border.  */
 			scene_array[k][i][0] = '|';
 			fseek(file, sizeof(char), SEEK_CUR);
@@ -256,24 +254,23 @@ int read_scenes (char *dir, char *data_dir, scene_t **scene_array_ptr, int nscen
 void draw (scene_t* scene_array, int number) {
 	int i, j;
 	
-
 	wmove(main_window, 0, 0);
 	for (i = 0; i < NROWS; i++) {
 		for (j = 0; j < NCOLS; j++) {
 			if(number == RUNNING && colored_mode == 1){
-				if(scene_array[number][i][j] == SNAKE_TAIL || scene_array[number][i][j] == SNAKE_BODY || scene_array[number][i][j] == SNAKE_HEAD ){
+				if (scene_array[number][i][j] == SNAKE_TAIL || scene_array[number][i][j] == SNAKE_BODY || scene_array[number][i][j] == SNAKE_HEAD ) {
 					wattron(main_window,COLOR_PAIR(1));
 					waddch(main_window, scene_array[number][i][j]);
 					wattroff(main_window,COLOR_PAIR(1));
-				}else if(scene_array[number][i][j] == ENERGY_BLOCK || scene_array[number][i][j] == FRUIT_BLOCK){
+				} else if (scene_array[number][i][j] == ENERGY_BLOCK || scene_array[number][i][j] == FRUIT_BLOCK) {
 					wattron(main_window,COLOR_PAIR(2));
 					waddch(main_window, scene_array[number][i][j]);
 					wattroff(main_window,COLOR_PAIR(2));
-				}else{
+				} else {
 					waddch(main_window, scene_array[number][i][j]);
 				}
 			
-			}else{
+			} else {
 				waddch(main_window, scene_array[number][i][j]);
 			}
 		  
@@ -281,11 +278,10 @@ void draw (scene_t* scene_array, int number) {
 	}
 
 	if (number == GAME_OVER) {
-	/* If displayed scene is the game over scene.
-	   We must show the final score. */
-	mvwprintw(main_window, NROWS*3/4, NCOLS/2-7, "Score: %d", block_count);
+		/* If displayed scene is the game over scene. We must show the final score. */
+		mvwprintw(main_window, NROWS*3/4, NCOLS/2-7, "Score: %d", block_count);
 
-	/*Instructions to enter nickname*/
+		/*Instructions to enter nickname*/
 		if (!entered_score) {
 			mvwprintw(main_window, NROWS*3/4 + 1,NCOLS/5 - 2,
 					  "                                             ");
@@ -297,10 +293,12 @@ void draw (scene_t* scene_array, int number) {
 
 			mvwprintw(main_window, NROWS*3/4 + 5, NCOLS/5 + 3,
 					  "If you want to erase a character, type '&'.");
+
+			mvwprintw(main_window, NROWS*3/4 + 6, NCOLS/5 + 4,
+					  "If you want to reset scoreboard, type '@'.");
+
 			mvwprintw(main_window, NROWS*3/4 + 7, NCOLS/2 - 7, "%s", nickname);
 		}
-	}else if(number == RESTARTED){
-		
 	}
 
 	wrefresh(main_window);
@@ -375,7 +373,7 @@ void showscene (scene_t* scene, int scene_type, int menu) {
 		wprintw(main_window, "\
 		Controls: q: quit | r: restart | WASD/HJKL/ARROWS: move the snake\
 		| +/-: change game speed\n");
-		wprintw(main_window, "          h: help & settings | p: pause game\n");
+		wprintw(main_window, "         | p: pause game\n");
 
 	}
 	else if (game_end) {
@@ -390,7 +388,7 @@ void generate_fruit_block () {
 	fruit_block.y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
 	/* Verifies if the fruit is in an even position, because the snake moves 2 positions horizontally */
-	if ((fruit_block.x)%2 == 0) {
+	if (!(fruit_block.x & 1)) {
 		fruit_block.x -= 1;
 	}
 }
@@ -405,8 +403,7 @@ int fruit_block_conflict () {
   }
 
   for (i = 0; i < snake.length - 1; i++) {
-	if (fruit_block.x == snake.positions[i].x && 
-		fruit_block.y == snake.positions[i].y) {
+	if (fruit_block.x == snake.positions[i].x && fruit_block.y == snake.positions[i].y) {
 		return 1; 
 	}
   }
@@ -431,7 +428,7 @@ void generate_energy_block () {
 	energy_block[0].y = (rand() % (NROWS - 2)) + VERTICAL_MOVE;
 
 	/* Verifies if the energy is in a pair position, 'cause the snake moves 2 pos horizontally */
-	if ((energy_block[0].x)%2 == 0) {
+	if (!(energy_block[0].x & 1)) {
 		energy_block[0].x -= 1;
 	}
 }
@@ -446,8 +443,7 @@ int energy_block_conflict () {
 	}
 
 	for (i = 0; i < snake.length - 1; i++) {
-		if (energy_block[0].x == snake.positions[i].x &&
-			energy_block[0].y == snake.positions[i].y) {
+		if (energy_block[0].x == snake.positions[i].x && energy_block[0].y == snake.positions[i].y) {
 			return 1;
 		}
 	}
@@ -468,10 +464,12 @@ void spawn_energy_block () {
 
 /* Initialize resources and counters. */
 void init_game () {
-	ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
+  if (run_with_soundtrack) {
+	  ASSERT_SYSTEM_CALL(system("curl https://raw.githubusercontent.com/courselab/snaskii21/develop/sound/maintheme.mp3 | mpg123 --no-visual --no-control --quiet - &"));
+  }
 
-    /* fflush to avoid influence of past key pressed after game is restarted */
-    fflush(stdin);
+	/* fflush to avoid influence of past key pressed after game is restarted */
+	fflush(stdin);
 
 	int i;
 	block_count = 0;
@@ -481,11 +479,11 @@ void init_game () {
 	snake.head.x = 11;
 	snake.head.y = 11;
 
-	if (snake.positions != NULL){
+	if (snake.positions != NULL) {
 		free(snake.positions);
 	}
 
-	snake.positions = (pair_t*) malloc(sizeof(pair_t) * snake.length);
+	snake.positions = (pair_t*) xmalloc(sizeof(pair_t) * snake.length);
 
 	for (i = 0; i < snake.length; i++) {
 		snake.positions[i].x = snake.head.x - i - HORIZONTAL_MOVE;
@@ -503,7 +501,7 @@ void init_game () {
 /* Grows the snake - increases the snake length by one. */
 void grow_snake () {
 	snake.length++;
-	snake.positions = (pair_t *) realloc(snake.positions,
+	snake.positions = (pair_t *) xrealloc(snake.positions,
 									   sizeof(pair_t) * snake.length);
 	snake.positions[snake.length - 1].x = snake.positions[snake.length - 2].x;
 	snake.positions[snake.length - 1].y = snake.positions[snake.length - 2].y;
@@ -524,8 +522,7 @@ collision_type_t check_collision() {
 	}
 
 	for (i = 0; i < snake.length - 1; i++) {
-		if (snake.head.x == snake.positions[i].x &&
-		snake.head.y == snake.positions[i].y) {
+		if (snake.head.x == snake.positions[i].x && snake.head.y == snake.positions[i].y) {
 			return collision_self;
 		}
 	}
@@ -589,7 +586,7 @@ void playmovie (scene_t* scene_array, int nscenes) {
 }
 
 
-void draw_settings(scene_t *scene) {
+void draw_settings (scene_t *scene) {
 	char buffer[NCOLS];
 	int i;
 
@@ -598,10 +595,10 @@ void draw_settings(scene_t *scene) {
 		buffer[i] = ' ';
 	}
 	char selected[5] = "-->  ";
-	for(i=0;i<num_option_in_menu;i++){
-		if(i==selected_option){
+	for (i = 0; i < num_option_in_menu; i++) {
+		if (i == selected_option) {
 			memcpy(&scene[2][22+i][7], selected, strlen(selected));
-		}else{
+		} else {
 			memcpy(&scene[2][22+i][7], "     ",5);
 		}
 		
@@ -610,9 +607,9 @@ void draw_settings(scene_t *scene) {
 
 	sprintf(buffer,"        < %3d >     Maximum number of blocks to display at the same time.", max_energy_blocks);
 	memcpy(&scene[2][22][12], buffer, strlen(buffer));
-	if(term_has_colored_mode){
+	if (term_has_colored_mode) {
 		sprintf(buffer, "        < %3d >     Colored Mode.", colored_mode);
-	}else{
+	} else {
 		sprintf(buffer, "        < %3d >     Colored Mode (not available on this terminal).", colored_mode);
 	}
 	
@@ -620,7 +617,7 @@ void draw_settings(scene_t *scene) {
 }
 
 
-void update_snake_in_scene(scene_t scene, pair_t old_tail_pos) {
+void update_snake_in_scene (scene_t scene, pair_t old_tail_pos) {
 	int i;
 	int tail = snake.length - 1;
 
@@ -757,6 +754,11 @@ void *userinput () {
 				entered_score = 1;
 				actual_pos_nickname = 0;
 
+			/* Clear scoreboard */
+			} else if (c == '@') {
+				FILE* fp = fopen(SCORES_FILE, "wb");
+				fclose(fp);
+
 			/* Insert char to nickname. */
 			} else if (c != '\n' && c!= '\t' && c!=' ' && c!= '\r') {
 
@@ -784,9 +786,10 @@ void *userinput () {
 			}
 
 		} else if (go_on_cutscene) { /* If its playing the cutscene */
-			if (c == ' '){
+			if (c == ' ') {
 				kill(main_process_pid, SIGUSR1);
 			}
+			
 		} else {
 			if (c == last_c && c != 'p') {
 				continue;
@@ -805,7 +808,7 @@ void *userinput () {
 				case 'k':
 				case 'e':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
-						if(restarted){
+						if (restarted) {
 							selected_option = (selected_option - 1 + num_option_in_menu) % num_option_in_menu;
 						}
 						break;
@@ -821,7 +824,7 @@ void *userinput () {
 				case 'h':
 				case 'a':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
-						if(restarted && selected_option == 1 && colored_mode == 1){
+						if (restarted && selected_option == 1 && colored_mode == 1) {
 							exit_colored_mode();
 						}
 						break;
@@ -837,7 +840,7 @@ void *userinput () {
 				case 'j':
 				case 's':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
-						if(restarted){
+						if (restarted) {
 							selected_option = (selected_option + 1) % num_option_in_menu;
 						}
 						break;
@@ -853,7 +856,7 @@ void *userinput () {
 				case 'l':
 				case 'd':
 					if (paused) { /* Avoid moving the snake after unpause unintendedly. */
-						if(restarted && selected_option == 1 && colored_mode == 0){
+						if (restarted && selected_option == 1 && colored_mode == 0) {
 							enter_colored_mode();
 						}
 						break;
@@ -866,17 +869,21 @@ void *userinput () {
 					break;
 
 				case 'q':
-					if (game_end || restarted) {
-						/* Both flags equals 1 means game is over for real and we should (try to) quit gracefully */
-						quit();
-						return NULL; /* Ending thread */
-					}
+					/* User can quit any time, with no restrictions */
+					quit();
+					return NULL; /* Ending thread */
 					break;
 
 				case 'r':
 					if (game_end) {
-						ASSERT_SYSTEM_CALL(system("killall mpg123"));
-						init_game();
+            /* Check wheter the parameter --no-soundtrack was used
+             * during program execution
+             */
+            if (run_with_soundtrack) {
+              ASSERT_SYSTEM_CALL(system("killall mpg123"));
+            }
+	
+            init_game();
 						restarted = 1;
 						game_end = 0;
 					}
@@ -922,10 +929,11 @@ int main (int argc, char **argv) {
 	const struct option stoptions[] = {
 					 {"data", required_argument, 0, 'd'},
 					 {"help", no_argument, 0, 'h'},
-					 {"version", no_argument, 0, 'v'}};
-
+					 {"version", no_argument, 0, 'v'},
+					 {"no-soundtrack", no_argument, 0, 's'}};
+      
 	/* Defaults curr_data_screen to {datarootdir}/ttsnake */
-	char *curr_data_dir = (char *)malloc((strlen(DATADIR "/" ALT_SHORT_NAME) + 1)
+	char *curr_data_dir = (char *)xmalloc((strlen(DATADIR "/" ALT_SHORT_NAME) + 1)
 									   * sizeof(char));
 	strcpy(curr_data_dir, DATADIR "/" ALT_SHORT_NAME);
 
@@ -933,12 +941,12 @@ int main (int argc, char **argv) {
 	char curr_opt;
 
 	/* Handle options passed as arguments. */
-	while ((curr_opt = (getopt_long(argc, argv, "d:h:v", stoptions, NULL))) != -1) {
+	while ((curr_opt = (getopt_long(argc, argv, "d:h:v:s", stoptions, NULL))) != -1) {
 
 		switch (curr_opt) {
 			/* Changes data_dir to one passed via argument. */
 			case 'd':
-				curr_data_dir = (char *) realloc(curr_data_dir, (strlen(optarg) + 1) * sizeof(char));
+				curr_data_dir = (char *) xrealloc(curr_data_dir, (strlen(optarg) + 1) * sizeof(char));
 				strcpy(curr_data_dir, optarg);
 				break;
 
@@ -950,6 +958,11 @@ int main (int argc, char **argv) {
 				free(curr_data_dir);
 				printf (PACKAGE_STRING "\n");
 				exit (EXIT_SUCCESS);
+
+      case 's':
+        /* Disable flag that enables soundtrack on initialization */
+        run_with_soundtrack = 0;
+        break;
 
 			default:
 				show_help(true, curr_data_dir);
@@ -973,9 +986,9 @@ int main (int argc, char **argv) {
 	cbreak();
 
 	/*Prepare colored mode*/
-	if(has_colors() == FALSE){
+	if (has_colors() == FALSE) {
 		term_has_colored_mode = 0;
-	}else{
+	} else {
 		term_has_colored_mode = 1;
 		start_color();
 		use_default_colors();
@@ -1006,17 +1019,11 @@ int main (int argc, char **argv) {
 							(max_height - NROWS - LOWER_PANEL_ROWS)/2,
 							(max_width - NCOLS)/2);
 	wrefresh(main_window);
-	
-
-
-
-	
 
 	/* Default values. */
 	movie_delay = 2.5E4;	            /* Movie frame duration in usec (40usec) */
 	game_delay  = DEFAULT_GAME_DELAY;	/* Game frame duration in usec (4usec) */
 	max_energy_blocks = 3;
-
 
 	main_process_pid = getpid();
 	/* Handle game controls in a different thread. */
@@ -1054,6 +1061,12 @@ int main (int argc, char **argv) {
 		return EXIT_FAILURE;
 	}
 
-	ASSERT_SYSTEM_CALL(system("killall mpg123"));
+  /* Check wheter the parameter --no-soundtrack was used
+   * during program execution
+   */
+	if (run_with_soundtrack) {
+    ASSERT_SYSTEM_CALL(system("killall mpg123"));
+  }
+
 	return EXIT_SUCCESS;
 }
